@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- 
+        循星科技 - 循此苦旅，终抵群星
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循星科技 - 循此苦旅，终抵群星</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
+            --accent-color: #536465;
+            --text-color: #ecf0f1;
+            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
+            --dark-bg: linear-gradient(135deg, #000000, #434343);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background: var(--dark-bg);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            text-align: center;
+            margin-bottom: 50px; /* 增加底部外边距 */
+        }
+
+        .logo {
+            margin-bottom: 30px; /* 增加底部外边距 */
+        }
+        
+        .btn {
+            display: inline-block;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            background: none;
+            font-size: 1.2rem;
+        }
+        
+        .btn:hover {
+            color: var(--accent-color);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .meteor {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+        }
+
+        .trail {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">循星科技</h1>
+        <nav>
+            <a href="html/about.html" class="btn">关于我们</a>
+            <a href="html/features.html" class="btn">我们的优势</a>
+            <a href="html/team.html" class="btn">团队成员</a>
+            <a href="html/products.html" class="btn">我们的产品</a>
+            <a href="html/contact.html" class="btn">联系我们</a>
+        </nav>
+    </div>
+    <div class="meteor" id="meteor"></div>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const meteor = document.getElementById('meteor');
+            meteor.style.left = e.pageX + 'px';
+            meteor.style.top = e.pageY + 'px';
+            meteor.style.opacity = 1;
+            meteor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            setTimeout(() => {
+                meteor.style.opacity = 0;
+                meteor.style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 300);
+
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            document.body.appendChild(trail);
+            setTimeout(() => {
+                trail.style.opacity = 0;
+                trail.style.transform = 'translate(-50%, -50%) scale(1)';
+                setTimeout(() => {
+                    trail.remove();
+                }, 300);
+            }, 300);
+        });
+    </script>
+</body>
+</html>

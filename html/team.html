@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>团队成员 - 循星科技</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
+            --accent-color: #7f8c8d;
+            --text-color: #ecf0f1;
+            --light-bg: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 0;
+        }
+        
+        .team-member {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-img {
+            height: 250px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .member-img svg {
+            width: 100px;
+            height: 100px;
+            fill: #ccc;
+        }
+        
+        .member-name {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        .nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav a.current {
+            color: var(--accent-color);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+        .modal-overlay {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+        }
+        .modal-content {
+            position: relative; /* To position close button */
+            background-color: var(--secondary-color);
+            margin: auto;
+            padding: 30px 40px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            z-index: 1001; /* Above overlay */
+            color: var(--text-color);
+            text-align: center; /* Center content */
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .modal-close-btn:hover,
+        .modal-close-btn:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .modal-img { /* Style for the image placeholder inside modal */
+            width: 150px;
+            height: 150px;
+            background-color: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto; /* Center block element */
+        }
+        .modal-img svg {
+            width: 70px;
+            height: 70px;
+            fill: #ccc;
+        }
+        #modalMemberName { font-size: 1.8rem; margin-bottom: 5px; }
+        #modalMemberRole { color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px; font-weight: 600;}
+        #modalMemberBio { font-size: 1rem; line-height: 1.7; }
+        .details-btn { /* Style for the button on the card */
+             display: inline-block;
+             margin-top: 15px;
+             padding: 8px 15px;
+             background-color: var(--accent-color);
+             color: var(--secondary-color);
+             border: none;
+             border-radius: 5px;
+             cursor: pointer;
+             transition: background-color 0.3s ease;
+             font-weight: 600;
+         }
+         .details-btn:hover {
+             background-color: #6c7a7b; /* Slightly darker accent */
+         }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">循星科技</div>
+            <div class="tagline">团队成员</div>
+            <div class="nav">
+                <a href="../index.html">主页</a>
+                <a href="about.html">关于我们</a>
+                <a href="features.html">我们的优势</a>
+                <a href="team.html" class="current">我们的团队</a>
+                <a href="products.html">我们的产品</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+        </div>
+    </header>
+    
+    <section id="team">
+        <div class="container">
+            <div class="team-grid">
+                <div class="team-member" id="member-yuan-qihao">
+                    <div class="member-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">袁启皓</div>
+                    <div class="member-role">创始人</div>
+                    <p>就读于吉林大学，负责公司整体战略规划与发展方向。</p>
+                    <button class="details-btn" onclick="showModal('yuan-qihao')">查看详情</button>
+                </div>
+                <div class="team-member" id="member-xin-zidong">
+                    <div class="member-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">信子栋</div>
+                    <div class="member-role">创始人</div>
+                    <p>就读于香港大学，负责团队与外界的沟通与合作，整合资源，开拓市场。</p>
+                    <button class="details-btn" onclick="showModal('xin-zidong')">查看详情</button>
+                </div>
+                <div class="team-member" id="member-zhong-zhaoxiang">
+                    <div class="member-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">钟兆祥</div>
+                    <div class="member-role">创始人</div>
+                    <p>就读于新加坡国立大学，负责公司专利及论文设计从创新到落地。</p>
+                    <button class="details-btn" onclick="showModal('zhong-zhaoxiang')">查看详情</button>
+                </div>
+                <div class="team-member" id="member-liu-jiahang">
+                    <div class="member-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">刘家航</div>
+                    <div class="member-role">创始人</div>
+                    <p>就读于华威大学，负责综合内联外联各项事宜，并提供技术支持</p>
+                    <button class="details-btn" onclick="showModal('liu-jiahang')">查看详情</button>
+                </div>
+                <div class="team-member" id="member-tan-furen">
+                    <div class="member-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">谭福仁</div>
+                    <div class="member-role">创始人</div>
+                    <p>就读于西北工业大学，负责综合各部门进行项目开发，提供技术支持。</p>
+                    <button class="details-btn" onclick="showModal('tan-furen')">查看详情</button>
+                </div>
+                <div class="team-member" id="member-ma-changyu">
+                    <div class="member-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">马常誉</div>
+                    <div class="member-role">创始人</div>
+                    <p>就读于北京邮电大学，负责公司监督运营，并完善公司制度和产品体制。</p>
+                    <button class="details-btn" onclick="showModal('ma-changyu')">查看详情</button>
+                </div>
+                <div class="team-member" id="member-huang-yuchen">
+                    <div class="member-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">黄羽晨</div>
+                    <div class="member-role">创始人</div>
+                    <p>就读于北京大学，负责公司产品联合落地，提供技术支持。</p>
+                    <button class="details-btn" onclick="showModal('huang-yuchen')">查看详情</button>
+                </div>
+                <div class="team-member" id="member-li-xuchen">
+                    <div class="member-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">李旭晨</div>
+                    <div class="member-role">技术顾问</div>
+                    <p>就读于南开大学，负责校内业务的谈判交流，以及技术突破的场外指导</p>
+                    <button class="details-btn" onclick="showModal('li-xuchen')">查看详情</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="memberModal" class="modal">
+        <div class="modal-overlay" onclick="hideModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="hideModal()">&times;</button>
+            <div class="modal-img">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                 </svg>
+            </div>
+            <h2 id="modalMemberName"></h2>
+            <div id="modalMemberRole"></div>
+            <p id="modalMemberBio"></p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">循星科技</div>
+            <div class="contact-info">
+                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
+                <p>电话：+86 15568200088</p>
+                <p>邮箱：alfredyuan66@outlook.com</p>
+            </div>
+            <div class="social-links">
+                <div class="tooltip">
+                    <a href="#" aria-label="微信">微</a>
+                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微博">博</a>
+                    <span class="tooltiptext">微博: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="领英">领</a>
+                    <span class="tooltiptext">领英: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="GitHub">G</a>
+                    <span class="tooltiptext">GitHub: qihao-yuan</span>
+                </div>
+            </div>
+            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+        </div>
+    </footer>
+    <script>
+        function toggleNav() {
+            const nav = document.getElementById('hiddenNav');
+            if (nav.style.display === 'none' || nav.style.display === '') {
+                nav.style.display = 'block';
+            } else {
+                nav.style.display = 'none';
+            }
+        }
+
+        // Modal JavaScript
+        const modal = document.getElementById('memberModal');
+        const modalName = document.getElementById('modalMemberName');
+        const modalRole = document.getElementById('modalMemberRole');
+        const modalBio = document.getElementById('modalMemberBio');
+        // const modalImg = document.getElementById('modalMemberImg'); // If using dynamic images
+
+        function showModal(memberId) {
+            const memberElement = document.getElementById(`member-${memberId}`);
+            if (!memberElement) return;
+
+            const name = memberElement.querySelector('.member-name').innerText;
+            const role = memberElement.querySelector('.member-role').innerText;
+            const bio = memberElement.querySelector('p').innerText;
+            // const imgSrc = memberElement.querySelector('.member-img svg').innerHTML; // Or actual img src
+
+            modalName.innerText = name;
+            modalRole.innerText = role;
+            modalBio.innerText = bio;
+            // modalImg.innerHTML = imgSrc; // Update image if needed
+
+            modal.style.display = 'flex';
+        }
+
+        function hideModal() {
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
