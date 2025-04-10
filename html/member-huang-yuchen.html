@@ -156,35 +156,70 @@
             line-height: 1.7; /* Improve readability */
         }
 
-        .member-details {
-            background-color: rgba(0,0,0,0.2);
+        .member-section {
+            background-color: rgba(0,0,0,0.15); /* Slightly different background for sections */
             padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+            border-radius: 8px; /* Rounded corners for sections */
+            margin-top: 25px; /* Space between sections */
         }
 
-        .member-details h3 {
+        .member-section h3 {
             color: var(--accent-color);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Underline for section titles */
+            padding-bottom: 5px;
         }
 
-        .member-details ul {
+        .member-section ul {
             list-style: none;
-            padding-left: 0; /* Remove default padding */
+            padding-left: 0;
         }
 
-        .member-details li {
+        .member-section li {
             margin-bottom: 10px;
             padding-left: 20px;
             position: relative;
         }
 
-        .member-details li:before {
-            content: "•";
+        .member-section li::before { /* Use a different marker for sections */
+            content: "▹"; /* Triangle marker */
             position: absolute;
             left: 0;
             color: var(--accent-color);
+            font-size: 1.1em; /* Adjust size */
+            top: -2px; /* Adjust vertical alignment */
         }
+
+         /* Nested lists styling */
+        .member-section ul ul {
+            margin-top: 8px; /* Space before nested list */
+            margin-left: 10px; /* Indent nested list */
+            padding-left: 0;
+        }
+
+        .member-section ul ul li {
+             margin-bottom: 5px; /* Smaller margin for nested items */
+             padding-left: 15px; /* Adjust padding */
+        }
+
+         .member-section ul ul li::before {
+             content: "-"; /* Dash marker for nested items */
+             left: 0;
+             top: 0; /* Adjust vertical alignment */
+             font-size: 1em;
+         }
+
+         .member-section p { /* Style paragraphs within sections */
+            margin-left: 20px; /* Align paragraphs with list items */
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: var(--text-color); /* Ensure text color consistency */
+         }
+
+         .member-section strong { /* Style strong tags */
+            color: var(--primary-color); /* Highlight key parts like university names or project titles */
+            font-weight: 600;
+         }
 
         .member-links {
             margin-top: 25px; /* Add space above links */
@@ -278,25 +313,79 @@
                 <div class="member-info">
                     <h1 class="member-name">黄羽晨</h1>
                     <p class="member-title">创始人</p>
-                    <div class="member-bio">
-                        <!-- 在这里添加成员的详细介绍 -->
-                        <p>黄羽晨是循星科技的创始人之一。 （请在此处添加更详细的个人简介、教育背景、专业技能等信息。）</p>
-                        <p>[更多关于该成员的信息...]</p>
-                    </div>
-                    <div class="member-details">
-                        <h3>主要职责</h3>
+
+                    <div class="member-section">
+                        <h3>基本信息</h3>
                         <ul>
-                            <li>负责 [占位符职责1]</li>
-                            <li>参与 [占位符职责2]</li>
-                            <li>协调 [占位符职责3]</li>
-                            <li>[占位符职责4]</li>
+                            <li>出生年月：2002.09.15</li>
+                            <li>民族：汉族</li>
+                            <li>籍贯：河南南阳</li>
+                            <li>政治面貌：共青团员</li>
+                            <li>邮箱：<a href="mailto:2549630231@qq.com" style="color: var(--accent-color);">2549630231@qq.com</a></li>
                         </ul>
                     </div>
+
+                    <div class="member-section">
+                        <h3>教育背景</h3>
+                        <ul>
+                            <li><strong>北京大学 数学学院</strong> (2025.09 -- 至今)</li>
+                            <li><strong>吉林大学 数学学院</strong> (2020.09 -- 2024.06)
+                                <ul>
+                                    <li>主修课程：Python与机器学习(90), 概率论与数理统计(86), 数据结构(86), C语言与程序设计(93), 数值分析(90)</li>
+                                    <li>GPA: 3.52/4.0, 专业排名: 22/90</li>
+                                    <li>连续三年获得奖学金</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                     <div class="member-section">
+                        <h3>项目经历</h3>
+                        <ul>
+                            <li>
+                                <strong>基于深度学习模型的黑色素瘤图像分类 (毕业设计, 2024.03 – 2024.06)</strong>
+                                <p>使用ResNet50模型对黑色素瘤图像进行分类，通过图像修复技术去除毛发噪声，并利用Focal损失函数处理类别不平衡问题。提升了深度学习、医学图像处理及模型搭建能力。</p>
+                            </li>
+                            <li>
+                                <strong>基于主成分聚类模型对古代玻璃制品的成分分析与分类 (数学建模)</strong>
+                                <p>综合运用统计分析（列联表、t检验）和机器学习（PCA, K-means, 随机森林, 逻辑回归）探究古代玻璃制品的成分、类型及风化关系。负责模型建立和部分论文写作，提出PCA+K-means亚分类方法。提升了机器学习模型应用和时间管理能力。</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="member-section">
+                        <h3>校园经历 & 获奖</h3>
+                         <ul>
+                            <li><strong>校级学生会综合事务部 部长</strong> (2021.09 -- 2023.06)</li>
+                                <ul>
+                                    <li>组织"sigma"小讲台活动，参与组织换届面试及运动会。</li>
+                                </ul>
+                             <li><strong>吉林大学"小数林" 支教团老师</strong> (2021.07 -- 2021.08)</li>
+                                 <ul>
+                                    <li>赴吉林长春伊通满族自治县营城子镇中心校支教。</li>
+                                 </ul>
+                             <li><strong>主要获奖:</strong></li>
+                                <ul>
+                                    <li>2022 全国大学生数学建模竞赛 国家二等奖 (主要负责人)</li>
+                                    <li>2022 美国大学生数学建模竞赛 H奖 (组长)</li>
+                                    <li>2021 全国大学生数学建模竞赛 省级一等奖 (领队)</li>
+                                </ul>
+                         </ul>
+                    </div>
+
+                     <div class="member-section">
+                        <h3>技能</h3>
+                        <ul>
+                             <li>编程语言：熟练掌握 C, C++, Python</li>
+                             <li>语言：CET-6</li>
+                        </ul>
+                    </div>
+
                     <div class="member-links">
                         <!-- 替换为实际链接 -->
                         <a href="#" target="_blank">GitHub</a>
                         <a href="#" target="_blank">LinkedIn</a>
-                        <a href="#">发送邮件</a>
+                        <a href="mailto:2549630231@qq.com">发送邮件</a>
                     </div>
                 </div>
             </div>
