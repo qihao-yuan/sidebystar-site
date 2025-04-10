@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系我们 - 循星科技</title>
+    <title>生态构建 - 循星科技</title> 
     <style>
         :root {
             --primary-color: #ffffff;
@@ -66,7 +66,6 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            margin-top: 20px; /* Add margin-top to move the button down */
         }
         
         .btn:hover {
@@ -92,6 +91,33 @@
             height: 3px;
             background-color: var(--primary-color);
             margin: 15px auto;
+        }
+        
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 40px; 
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-image {
+            flex: 1;
+            background-color: #444;
+            height: 300px; 
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .content-image svg {
+            width: 100px; 
+            height: 100px; 
+            fill: #ccc;
         }
         
         footer {
@@ -127,8 +153,11 @@
         }
         
         @media (max-width: 768px) {
-            .about-content {
+            .content-block {
                 flex-direction: column;
+            }
+            .content-image {
+                height: 200px;
             }
         }
 
@@ -191,7 +220,7 @@
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">联系我们</div>
+            <div class="tagline">生态构建</div> 
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
@@ -199,20 +228,40 @@
                 <a href="team.html">团队成员</a>
                 <a href="products.html">我们的产品</a>
                 <a href="partners.html">合作企业</a>
-                <a href="ecosystem.html">生态构建</a>
-                <a href="contact.html" class="current">联系我们</a>
+                <a href="ecosystem.html" class="current">生态构建</a> 
+                <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
     
-    <section id="contact">
+    <section id="ecosystem-content">
         <div class="container">
-            <h2 class="section-title">联系我们</h2>
-            <div style="text-align: center;">
-                <div class="contact-method">
-                    <h3>📧 电子邮件</h3>
-                    <p>我们会在24小时内回复您的邮件</p>
-                    <a href="mailto:sidebystar@outlook.com" class="btn">发送邮件</a>
+            <h2 class="section-title">生态构建意向</h2>
+            <div class="content-block"> 
+                <div class="content-text">
+                    <h3>开放合作</h3>
+                    <p>我们寻求与各行各业的伙伴建立开放的合作关系，共同探索技术应用的可能性，推动行业发展。</p>
+                </div>
+                <div class="content-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+            </div>
+            <div class="content-block"> 
+                <div class="content-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="content-text">
+                    <h3>共创价值</h3>
+                    <p>我们相信协同的力量，愿意与合作伙伴共享资源、技术和市场机会，共同创造更大的商业和社会价值。</p>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>长期发展</h3>
+                    <p>我们致力于建立长期、稳定、互利的合作关系，共同面对挑战，把握机遇，实现可持续发展。</p>
+                </div>
+                <div class="content-image">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                 </div>
             </div>
         </div>
@@ -220,42 +269,17 @@
     
     <footer>
         <div class="container">
-            <div class="logo">循星科技</div>
+            <p>&copy; 2024 循星科技. 版权所有.</p>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                <p>Email: info@sidbystar.com | Phone: +86 123 4567 8900</p>
             </div>
             <div class="social-links">
-                <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
-                    <span class="tooltiptext">微博: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
-                    <span class="tooltiptext">领英: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
-                    <span class="tooltiptext">GitHub: qihao-yuan</span>
-                </div>
+                <a href="#" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
-    <script>
-        function toggleNav() {
-            const nav = document.getElementById('hiddenNav');
-            if (nav.style.display === 'none' || nav.style.display === '') {
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-            }
-        }
-    </script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- 确保你有 Font Awesome Kit -->
 </body>
-</html>
+</html> 

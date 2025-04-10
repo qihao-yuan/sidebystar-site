@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系我们 - 循星科技</title>
+    <title>合作企业 - 循星科技</title> 
     <style>
         :root {
             --primary-color: #ffffff;
@@ -66,7 +66,6 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            margin-top: 20px; /* Add margin-top to move the button down */
         }
         
         .btn:hover {
@@ -92,6 +91,32 @@
             height: 3px;
             background-color: var(--primary-color);
             margin: 15px auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            background-color: #444;
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-image svg {
+            width: 150px;
+            height: 150px;
+            fill: #ccc;
         }
         
         footer {
@@ -191,28 +216,34 @@
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">联系我们</div>
+            <div class="tagline">合作企业</div> 
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
                 <a href="features.html">我们的优势</a>
                 <a href="team.html">团队成员</a>
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作企业</a>
-                <a href="ecosystem.html">生态构建</a>
-                <a href="contact.html" class="current">联系我们</a>
+                <a href="partners.html" class="current">合作企业</a> 
+                <a href="ecosystem.html">生态构建</a> 
+                <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
     
-    <section id="contact">
+    <section id="partners-content">
         <div class="container">
-            <h2 class="section-title">联系我们</h2>
-            <div style="text-align: center;">
-                <div class="contact-method">
-                    <h3>📧 电子邮件</h3>
-                    <p>我们会在24小时内回复您的邮件</p>
-                    <a href="mailto:sidebystar@outlook.com" class="btn">发送邮件</a>
+            <h2 class="section-title">合作企业</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>这里是合作企业页面的内容占位符。请在此处添加关于您的合作企业的信息。</p> 
+                    <p>例如，您可以列出主要的合作伙伴，介绍合作关系，或展示合作成果。</p>
+                </div>
+                <div class="about-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <polyline points="17 11 19 13 23 9"></polyline>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -220,42 +251,17 @@
     
     <footer>
         <div class="container">
-            <div class="logo">循星科技</div>
+            <p>&copy; 2024 循星科技. 版权所有.</p>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                <p>Email: info@sidbystar.com | Phone: +86 123 4567 8900</p>
             </div>
             <div class="social-links">
-                <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
-                    <span class="tooltiptext">微博: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
-                    <span class="tooltiptext">领英: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
-                    <span class="tooltiptext">GitHub: qihao-yuan</span>
-                </div>
+                <a href="#" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
-    <script>
-        function toggleNav() {
-            const nav = document.getElementById('hiddenNav');
-            if (nav.style.display === 'none' || nav.style.display === '') {
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-            }
-        }
-    </script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- 确保你有 Font Awesome Kit -->
 </body>
-</html>
+</html> 
