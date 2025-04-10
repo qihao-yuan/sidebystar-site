@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄羽晨 - 循星科技</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
+            --accent-color: #7f8c8d; 
+            --accent-color-rgb: 127, 140, 141; /* Add RGB version for rgba */
+            --text-color: #ecf0f1;
+            --card-bg: rgba(44, 62, 80, 0.6); /* Slightly adjust card background */
+            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
+            --dark-bg: linear-gradient(135deg, #000000, #434343);
+            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background: var(--dark-bg);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrollbar during animations */
+        }
+        
+        .container {
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 60px 0; 
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
+        }
+        
+        .logo {
+            font-size: 2rem; 
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem; 
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0,0,0,0.3); /* Slightly transparent background */
+            padding: 10px 15px;
+            border-radius: 20px; /* Rounded corners for nav */
+            display: flex;
+            gap: 15px; /* Increase gap */
+        }
+
+        .nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            padding: 5px 0; /* Add padding for better hover area */
+        }
+
+        .nav a:hover {
+            color: var(--primary-color); /* Brighter hover color */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+        
+        section {
+            padding: 80px 0; /* Increase section padding */
+        }
+
+        @keyframes fadeIn { /* Define fade-in animation */
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .member-card {
+            display: flex;
+            gap: 40px;
+            background-color: var(--card-bg); 
+            padding: 40px;
+            border-radius: 15px; /* Slightly more rounded corners */
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
+            opacity: 0; /* Start hidden for animation */
+            animation: fadeIn 0.6s ease-out 0.2s forwards; /* Apply animation */
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px); /* Lift card on hover */
+            box-shadow: var(--hover-shadow); /* Enhance shadow on hover */
+        }
+        
+        .member-photo {
+            flex-basis: 200px; 
+            flex-shrink: 0;
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%; 
+            border: 5px solid rgba(var(--accent-color-rgb), 0.7); /* Make border slightly transparent */
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Add shadow to photo */
+        }
+        
+        .member-info {
+            flex-grow: 1;
+        }
+        
+        .member-name {
+            font-size: 2.2rem; /* Slightly larger name */
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .member-title {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 25px; /* Increase space */
+            font-style: italic;
+            font-weight: 300; /* Lighter weight for title */
+        }
+        
+        .member-bio p {
+            margin-bottom: 15px;
+            line-height: 1.7; /* Improve readability */
+        }
+
+        .member-details {
+            background-color: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .member-details h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .member-details ul {
+            list-style: none;
+            padding-left: 0; /* Remove default padding */
+        }
+
+        .member-details li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .member-details li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .member-links {
+            margin-top: 25px; /* Add space above links */
+        }
+
+        .member-links a {
+             display: inline-block;
+             margin-right: 15px; /* Increase spacing */
+             color: var(--accent-color);
+             text-decoration: none;
+             transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+             font-weight: 500; /* Slightly bolder links */
+        }
+
+        .member-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px); /* Lift link on hover */
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 40px 0; /* Increase footer padding */
+            text-align: center;
+            margin-top: 80px; /* Increase space before footer */
+            border-top: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .member-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 30px; /* Adjust padding */
+                animation-delay: 0s; /* Start animation immediately on mobile */
+            }
+            .member-photo {
+                margin-bottom: 30px;
+                width: 150px; 
+                flex-basis: auto; /* Reset basis */
+            }
+            .nav {
+                gap: 10px;
+                padding: 8px 10px;
+                right: 10px; /* Adjust position */
+            }
+            .nav a {
+                font-size: 0.8rem;
+            }
+            header {
+                padding: 50px 0;
+            }
+            section {
+                padding: 60px 0;
+            }
+            footer {
+                 padding: 30px 0;
+                 margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">循星科技</div>
+            <div class="tagline">团队成员</div>
+             <div class="nav">
+                <a href="../index.html">主页</a>
+                <a href="about.html">关于我们</a>
+                <a href="features.html">我们的优势</a>
+                <a href="team.html">团队成员</a>
+                <a href="products.html">我们的产品</a>
+                <a href="contact.html">联系我们</a>
+                <!-- 可以考虑添加返回团队页面的链接 -->
+                <a href="team.html">返回团队</a> 
+            </div>
+        </div>
+    </header>
+    
+    <section id="member-profile">
+        <div class="container">
+            <div class="member-card">
+                <div class="member-photo">
+                    <!-- 替换为成员照片链接 -->
+                    <img src="../assets/images/huang-yuchen.jpg" alt="黄羽晨" onerror="this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'><path fill=\'%23ccc\' d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>'">
+                </div>
+                <div class="member-info">
+                    <h1 class="member-name">黄羽晨</h1>
+                    <p class="member-title">创始人</p>
+                    <div class="member-bio">
+                        <!-- 在这里添加成员的详细介绍 -->
+                        <p>黄羽晨是循星科技的创始人之一。 （请在此处添加更详细的个人简介、教育背景、专业技能等信息。）</p>
+                        <p>[更多关于该成员的信息...]</p>
+                    </div>
+                    <div class="member-details">
+                        <h3>主要职责</h3>
+                        <ul>
+                            <li>负责 [占位符职责1]</li>
+                            <li>参与 [占位符职责2]</li>
+                            <li>协调 [占位符职责3]</li>
+                            <li>[占位符职责4]</li>
+                        </ul>
+                    </div>
+                    <div class="member-links">
+                        <!-- 替换为实际链接 -->
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                        <a href="#">发送邮件</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">循星科技</div>
+            <div class="contact-info">
+                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
+                <p>电话：+86 15568200088</p>
+                <p>邮箱：sidebystar@outlook.com</p>
+            </div>
+            <div class="social-links">
+                 <div class="tooltip">
+                     <a href="#" aria-label="微信">微</a>
+                     <span class="tooltiptext">微信号: [占位符]</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="微博">博</a>
+                     <span class="tooltiptext">微博: [占位符]</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="领英">领</a>
+                     <span class="tooltiptext">领英: [占位符]</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="GitHub">G</a>
+                     <span class="tooltiptext">GitHub: [占位符]</span>
+                 </div>
+            </div>
+            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+        </div>
+    </footer>
+</body>
+</html> 
