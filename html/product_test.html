@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品测试 - 循星科技</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
+            --accent-color: #7f8c8d; 
+            --accent-color-rgb: 127, 140, 141; /* Add RGB version for rgba */
+            --text-color: #ecf0f1;
+            --card-bg: rgba(44, 62, 80, 0.6); /* Slightly adjust card background */
+            --input-bg: rgba(255, 255, 255, 0.08);
+            --input-border: rgba(var(--accent-color-rgb), 0.5);
+            --button-hover-bg: #6c7a7b; 
+            --output-bg: rgba(0, 0, 0, 0.4);
+            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
+            --dark-bg: linear-gradient(135deg, #000000, #434343);
+            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background: var(--dark-bg);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrollbar during animations */
+        }
+        
+        .container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+             border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem; 
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0,0,0,0.3); /* Slightly transparent background */
+            padding: 10px 15px;
+            border-radius: 20px; /* Rounded corners for nav */
+            display: flex;
+            gap: 15px; /* Increase gap */
+        }
+
+        .nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+             padding: 5px 0; /* Add padding for better hover area */
+        }
+
+        .nav a:hover {
+            color: var(--primary-color); /* Brighter hover color */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+        
+        section {
+            padding: 80px 0; /* Increase padding */
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px; /* Increase bottom margin */
+            font-size: 2rem; /* Increase title size */
+            position: relative;
+            font-weight: 600; /* Slightly bolder title */
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px; /* Widen underline */
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto; /* Adjust margin */
+        }
+
+        @keyframes fadeInTestArea { /* Define fade-in animation for test areas */
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .test-area {
+            background-color: var(--card-bg); 
+            padding: 40px; /* Increase padding */
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: var(--card-shadow);
+            min-height: 300px; 
+            margin-bottom: 50px; /* Increase space between areas */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
+             opacity: 0; /* Start hidden for animation */
+             /* Apply animation with slight delay based on order (can be done with JS or nth-child if needed) */
+             animation: fadeInTestArea 0.6s ease-out forwards; 
+        }
+
+        /* Stagger animation for multiple test areas */
+        .test-area:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+        .test-area:nth-child(3) {
+             animation-delay: 0.3s;
+        }
+         /* Add more if you have more test areas */
+
+        .test-area:hover {
+             transform: translateY(-5px); /* Lift card on hover */
+            box-shadow: var(--hover-shadow); /* Enhance shadow on hover */
+        }
+
+        .test-area h3 {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.4);
+            padding-bottom: 10px;
+            font-size: 1.5rem; /* Adjust subtitle size */
+             color: var(--primary-color);
+             font-weight: 500; /* Medium weight */
+        }
+        .test-area p {
+            margin-bottom: 25px; /* Add space below description */
+            color: rgba(236, 240, 241, 0.9);
+        }
+        
+        .test-area label {
+            display: block; /* Make labels block elements */
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        /* Style inputs and textareas */
+        .test-input, 
+        textarea.test-input { /* Target textarea specifically */
+            width: 100%;
+            padding: 12px 15px; /* Increase padding */
+            margin-bottom: 20px; /* Increase bottom margin */
+            background-color: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--text-color);
+            border-radius: 8px; /* More rounded */
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .test-input:focus, 
+        textarea.test-input:focus {
+             border-color: var(--primary-color);
+             outline: none; /* Remove default focus outline */
+             box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.3); /* Subtle focus ring */
+        }
+
+        .test-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 25px; /* Adjust padding */
+            border-radius: 8px; /* More rounded */
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 10px; /* Add space between buttons if multiple */
+        }
+
+        .test-button:hover {
+             background-color: var(--button-hover-bg); 
+             transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        .test-button:active {
+             transform: translateY(0px); /* Press down effect */
+        }
+
+         .test-area h4 {
+            margin-top: 30px; /* Space above output title */
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+         }
+
+        .test-output {
+            margin-top: 15px; /* Adjust top margin */
+            background-color: var(--output-bg);
+            padding: 20px; /* Increase padding */
+            border-radius: 8px; /* Match input rounding */
+            min-height: 120px; /* Increase min height */
+            white-space: pre-wrap; 
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Monospace font for output */
+            font-size: 0.95rem;
+             border: 1px solid rgba(var(--accent-color-rgb), 0.2); /* Subtle border */
+             transition: background-color 0.5s ease; /* Transition background on change (requires JS) */
+        }
+
+        /* Optional: Style for when output is updated */
+        .test-output.updated {
+             background-color: rgba(var(--accent-color-rgb), 0.15); 
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 40px 0; 
+            text-align: center;
+            margin-top: 80px;
+             border-top: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
+             font-size: 0.9rem;
+        }
+
+         @media (max-width: 768px) {
+            .test-area {
+                 padding: 30px; /* Adjust padding */
+                 animation-delay: 0s !important; /* Start animation immediately on mobile, override stagger */
+            }
+             .test-area:hover {
+                 transform: none; /* Disable lift on hover for touch devices */
+                 box-shadow: var(--card-shadow); /* Reset shadow */
+            }
+            .nav {
+                gap: 10px;
+                padding: 8px 10px;
+                right: 10px; /* Adjust position */
+            }
+            .nav a {
+                font-size: 0.8rem;
+            }
+            header {
+                padding: 50px 0;
+            }
+            section {
+                padding: 60px 0;
+            }
+            footer {
+                 padding: 30px 0;
+                 margin-top: 60px;
+            }
+             .test-area h3 {
+                font-size: 1.3rem;
+            }
+             .test-button {
+                 padding: 10px 20px;
+                 width: 100%; /* Make buttons full width on mobile */
+                 margin-bottom: 10px;
+                 margin-right: 0;
+             }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">循星科技</div>
+            <div class="tagline">产品测试平台</div>
+             <div class="nav">
+                <a href="../index.html">主页</a>
+                <a href="about.html">关于我们</a>
+                <a href="features.html">我们的优势</a>
+                <a href="team.html">团队成员</a>
+                <a href="products.html">我们的产品</a>
+                <a href="contact.html">联系我们</a>
+                <!-- 可以添加返回产品页面的链接 -->
+                <a href="products.html">返回产品</a>
+            </div>
+        </div>
+    </header>
+    
+    <section id="product-testing">
+        <div class="container">
+            <h2 class="section-title">产品测试区</h2>
+
+            <div class="test-area" id="test-area-1">
+                <h3>测试模块 1：[具体测试功能名称]</h3>
+                <p>[对这个测试模块的简要说明]</p>
+                
+                <!-- 在这里放置测试相关的 HTML 元素 -->
+                <label for="input1">输入数据:</label>
+                <input type="text" id="input1" class="test-input" placeholder="请输入测试数据...">
+                
+                <button class="test-button" onclick="runTest1()">执行测试 1</button>
+
+                <h4>测试输出:</h4>
+                <div class="test-output" id="output1">[测试结果将显示在这里]</div>
+            </div>
+
+            <div class="test-area" id="test-area-2">
+                <h3>测试模块 2：[另一个测试功能名称]</h3>
+                 <p>[对这个测试模块的简要说明]</p>
+
+                 <!-- 更多测试元素 -->
+                 <textarea id="input2" class="test-input" rows="4" placeholder="输入多行文本..."></textarea>
+                 <button class="test-button" onclick="runTest2()">执行测试 2</button>
+
+                 <h4>测试输出:</h4>
+                 <div class="test-output" id="output2">[测试结果将显示在这里]</div>
+            </div>
+
+            <!-- 可以根据需要添加更多测试区域 -->
+
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 循星科技. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 在这里添加测试相关的 JavaScript 函数
+        function runTest1() {
+            const inputElement = document.getElementById('input1');
+            const outputElement = document.getElementById('output1');
+            const inputValue = inputElement.value;
+            
+            // --- 在这里添加你的测试逻辑 --- 
+            // 这是一个示例：
+            if (!inputValue) {
+                outputElement.textContent = '请输入有效数据！';
+                flashOutputBackground(outputElement); // Flash background on update
+                return;
+            }
+            // 假设的测试处理
+            const result = `对输入 "${inputValue}" 执行测试 1 的结果：处理完成。`; 
+            // --- 测试逻辑结束 ---
+
+            outputElement.textContent = result; 
+            flashOutputBackground(outputElement); // Flash background on update
+        }
+
+        function runTest2() {
+            const inputElement = document.getElementById('input2');
+            const outputElement = document.getElementById('output2');
+            const inputValue = inputElement.value;
+
+             // --- 在这里添加你的测试逻辑 --- 
+            const result = `对输入文本执行测试 2 的结果：\n${inputValue}\n处理完毕。`;
+             // --- 测试逻辑结束 ---
+
+            outputElement.textContent = result;
+            flashOutputBackground(outputElement); // Flash background on update
+        }
+
+        // Helper function to briefly change output background on update
+        function flashOutputBackground(element) {
+            element.classList.add('updated');
+            setTimeout(() => {
+                element.classList.remove('updated');
+            }, 600); // Duration matches CSS transition slightly longer
+        }
+
+        // 可以根据需要添加更多测试函数
+    </script>
+</body>
+</html> 

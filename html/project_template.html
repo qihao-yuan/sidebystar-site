@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目名称 - 循星科技</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
+            --accent-color: #7f8c8d; 
+            --accent-color-rgb: 127, 140, 141; /* Add RGB version for rgba */
+            --text-color: #ecf0f1;
+            --card-bg: rgba(44, 62, 80, 0.6); /* Slightly adjust card background */
+            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
+            --dark-bg: linear-gradient(135deg, #000000, #434343);
+            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background: var(--dark-bg);
+            line-height: 1.7; /* Slightly increase line-height */
+            overflow-x: hidden; /* Prevent horizontal scrollbar during animations */
+        }
+        
+        .container {
+            max-width: 1100px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 70px 0; 
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
+        }
+        
+        .logo {
+            font-size: 2.2rem; 
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.3rem; 
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0,0,0,0.3); /* Slightly transparent background */
+            padding: 10px 15px;
+            border-radius: 20px; /* Rounded corners for nav */
+            display: flex;
+            gap: 15px; /* Increase gap */
+        }
+
+        .nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            padding: 5px 0; /* Add padding for better hover area */
+        }
+
+        .nav a:hover {
+            color: var(--primary-color); /* Brighter hover color */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+        
+        section {
+            padding: 80px 0; /* Increase padding */
+        }
+
+         @keyframes fadeIn { /* Define fade-in animation */
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem; /* Increase title size */
+            position: relative;
+            font-weight: 600; /* Slightly bolder title */
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px; /* Widen the underline */
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto; /* Adjust margin */
+        }
+
+        .project-details {
+            background-color: var(--card-bg);
+            padding: 50px; /* Increase padding */
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
+            opacity: 0; /* Start hidden for animation */
+            animation: fadeIn 0.6s ease-out 0.2s forwards; /* Apply animation */
+        }
+
+        .project-details:hover {
+            transform: translateY(-5px); /* Lift card on hover */
+            box-shadow: var(--hover-shadow); /* Enhance shadow on hover */
+        }
+
+        .project-details h2.section-title {
+             /* Override section title margin within card if needed */
+             margin-bottom: 30px;
+        }
+
+        .project-details h3 {
+            font-size: 1.5rem; /* Adjust subtitle size */
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 500; /* Medium weight */
+            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.4);
+            padding-bottom: 8px;
+        }
+
+        .project-details p,
+        .project-details ul {
+            margin-bottom: 20px; /* Uniform bottom margin */
+            color: rgba(236, 240, 241, 0.9); /* Slightly less bright text for paragraphs */
+        }
+
+        .project-details ul {
+            list-style: disc; /* Use standard disc bullets */
+            padding-left: 25px; /* Indent list */
+        }
+
+        .project-details ul li {
+            margin-bottom: 8px; /* Space between list items */
+        }
+
+        .project-meta {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(var(--accent-color-rgb), 0.4);
+            font-size: 0.95rem; /* Slightly adjust font size */
+        }
+
+        .project-meta p {
+            margin-bottom: 10px; /* Reduce margin for meta items */
+        }
+
+        .project-meta strong {
+            color: var(--primary-color);
+            margin-right: 8px;
+            font-weight: 600;
+        }
+
+        .project-meta a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-color);
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        }
+        .project-meta a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .project-links {
+            /* Inherits project-meta styles, adjust if needed */
+             margin-top: 20px; /* Space before links section */
+        }
+
+        .project-links strong {
+            display: block; /* Make '相关链接:' block */
+            margin-bottom: 10px;
+        }
+
+        .project-links a {
+             display: inline-block;
+             margin-right: 15px;
+             margin-bottom: 10px; /* Add bottom margin for wrapping links */
+             color: var(--accent-color);
+             text-decoration: none; /* Remove underline by default */
+             border-bottom: none; /* Remove dotted line from meta */
+             transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+             font-weight: 500;
+             padding: 5px 0;
+        }
+
+        .project-links a:hover {
+            color: var(--primary-color);
+             transform: translateY(-2px); /* Lift link on hover */
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 40px 0; 
+            text-align: center;
+            margin-top: 80px;
+            border-top: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
+             font-size: 0.9rem;
+        }
+
+         @media (max-width: 768px) {
+            .project-details {
+                 padding: 30px; /* Adjust padding */
+                 animation-delay: 0s; /* Start animation immediately on mobile */
+            }
+            .nav {
+                gap: 10px;
+                padding: 8px 10px;
+                right: 10px; /* Adjust position */
+            }
+            .nav a {
+                font-size: 0.8rem;
+            }
+            header {
+                padding: 50px 0;
+            }
+            section {
+                padding: 60px 0;
+            }
+            footer {
+                 padding: 30px 0;
+                 margin-top: 60px;
+            }
+            .project-details h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">循星科技</div>
+             <!-- 替换为项目名称 -->
+            <div class="tagline">[项目名称]</div>
+             <div class="nav">
+                <a href="../index.html">主页</a>
+                <a href="about.html">关于我们</a>
+                <a href="features.html">我们的优势</a>
+                <a href="team.html">团队成员</a>
+                <a href="products.html">我们的产品</a>
+                <a href="contact.html">联系我们</a>
+                <!-- 可以考虑添加返回产品/项目列表页面的链接 -->
+                <a href="products.html">返回产品</a> 
+            </div>
+        </div>
+    </header>
+    
+    <section id="project-info">
+        <div class="container">
+            <div class="project-details">
+                 <!-- 替换为项目名称 -->
+                <h2 class="section-title">[项目名称]</h2>
+                
+                 <!-- 替换为项目描述 -->
+                <h3>项目描述</h3>
+                <p>[详细介绍项目的背景、目标和主要功能。]</p>
+                <p>[可以分段详细说明项目的特点和创新之处。]</p>
+
+                 <!-- 替换为项目目标 -->
+                <h3>项目目标</h3>
+                <ul>
+                    <li>[目标 1]</li>
+                    <li>[目标 2]</li>
+                    <li>[目标 3]</li>
+                    <!-- 可以添加更多目标 -->
+                </ul>
+
+                 <!-- 替换为使用的技术栈 -->
+                <h3>技术栈</h3>
+                <p>[列出项目使用的主要技术、框架、语言等，例如：Python (Django), JavaScript (React), PostgreSQL, Docker 等。]</p>
+
+                <div class="project-meta">
+                    <p><strong>项目状态:</strong> [例如：开发中 / 已上线 / 维护中]</p>
+                    <p><strong>负责人:</strong> <a href="member_xxx.html">[负责人姓名]</a></p> <!-- 可选：链接到负责人名片 -->
+                    <p><strong>开始日期:</strong> [YYYY-MM-DD]</p>
+                    <p><strong>预计完成/上线日期:</strong> [YYYY-MM-DD 或 待定]</p>
+                </div>
+
+                <div class="project-links project-meta">
+                     <!-- 可选：添加相关链接 -->
+                    <strong>相关链接:</strong>
+                    <a href="#" target="_blank">[链接1: 如 GitHub 仓库]</a>
+                    <a href="#" target="_blank">[链接2: 如 项目文档]</a>
+                    <a href="#" target="_blank">[链接3: 如 演示 Demo]</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 循星科技. 保留所有权利.</p>
+        </div>
+    </footer>
+</body>
+</html> 
