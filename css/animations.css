@@ -167,3 +167,43 @@ header {
         padding: 10px 0;
     }
 } 
+
+/* Footer Social Link Styles */
+.social-links {
+    margin-top: 20px;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the links */
+    gap: 15px; /* Space between links */
+}
+
+.social-links a {
+    display: inline-flex; /* Use inline-flex for alignment */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    width: auto; /* Auto width based on content */
+    min-width: 40px; /* Minimum width */
+    height: 40px;
+    padding: 0 15px; /* Horizontal padding */
+    background-color: rgba(255, 255, 255, 0.1); /* Keep subtle background */
+    color: var(--primary-color);
+    border-radius: 20px; /* Rounded rectangle */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Adjust font size if needed */
+    transition: all 0.3s ease;
+    border: 1px solid transparent; /* Prepare for hover border */
+     will-change: transform, background-color; /* Optimize */
+}
+
+.social-links a:hover {
+    background-color: rgba(var(--accent-color-rgb), 0.7); /* Use accent color like index nav */
+    color: var(--secondary-color); /* Darker text on hover */
+    border-color: rgba(var(--accent-color-rgb), 0.9);
+    transform: translateY(-3px) scale(1.05); /* Lift and scale slightly */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.tooltip {
+    /* Keep tooltip styles if needed, but the link itself is the button now */
+    position: relative;
+    display: inline-block; /* Keep display inline-block */
+} 

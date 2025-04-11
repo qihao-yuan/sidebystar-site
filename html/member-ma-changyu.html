@@ -249,24 +249,35 @@
                  margin-top: 60px;
             }
         }
-        
-        /* Override header animation for performance */
-        header {
-            animation: none !important; 
-            opacity: 1 !important; 
-            transform: none !important; 
+
+        /* Added Tooltip Styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
         }
-        
-        /* Disable hover effects on member card */
-        .member-card.hover-effect-card:hover {
-            transform: none !important;
-            background-color: var(--card-bg) !important; /* Revert to original background */
-            box-shadow: var(--card-shadow) !important; /* Revert to original shadow */
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        
-        .member-card.hover-effect-card:hover .hover-effect-icon {
-            transform: none !important;
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
+        /* End Added Tooltip Styles */
     </style>
 </head>
 <body>
@@ -277,34 +288,15 @@
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
-                <a href="features.html">我们的优势</a>
                 <a href="team.html" class="current">团队成员</a>
                 <a href="products.html">我们的产品</a>
                 <a href="partners.html">合作企业</a>
-                <a href="ecosystem.html">生态构建</a>
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
 
     <section class="member-profile">
-        <div class="profile-header animate-on-scroll">
-            <div class="container">
-                <div class="logo">循星科技</div>
-                <div class="tagline">团队成员</div>
-                 <div class="nav">
-                    <a href="../index.html">主页</a>
-                    <a href="about.html">关于我们</a>
-                    <a href="features.html">我们的优势</a>
-                    <a href="team.html">团队成员</a>
-                    <a href="products.html">我们的产品</a>
-                    <a href="partners.html">合作企业</a>
-                    <a href="ecosystem.html">生态构建</a>
-                    <a href="contact.html">联系我们</a>
-                </div>
-            </div>
-        </div>
-        
         <div class="container">
             <div class="member-card animate-on-scroll hover-effect-card">
                 <div class="member-photo">

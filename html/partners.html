@@ -132,10 +132,14 @@
             margin-top: 20px;
         }
         
+        /* .social-links styles moved to external CSS */
+        /*
         .social-links {
             margin-top: 20px;
         }
+        */
         
+        /*
         .social-links a {
             display: inline-block;
             width: 40px;
@@ -152,6 +156,7 @@
             background-color: var(--accent-color);
             transform: translateY(-3px);
         }
+        */
         
         @media (max-width: 768px) {
             .about-content {
@@ -212,6 +217,47 @@
         .nav a.current {
             color: var(--accent-color);
         }
+
+        /* Added styles from ecosystem.html */
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 40px; 
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-image {
+            flex: 1;
+            background-color: #444;
+            height: 300px; 
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .content-image svg {
+            width: 100px; 
+            height: 100px; 
+            fill: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            /* Combined media queries */
+            .about-content,
+            .content-block { /* Apply to content block as well */
+                flex-direction: column;
+            }
+             .content-image {
+                height: 200px;
+            }
+        }
+        /* End added styles */
+
     </style>
 </head>
 <body>
@@ -222,11 +268,9 @@
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
-                <a href="features.html">我们的优势</a>
                 <a href="team.html">团队成员</a>
                 <a href="products.html">我们的产品</a>
                 <a href="partners.html" class="current">合作企业</a> 
-                <a href="ecosystem.html">生态构建</a> 
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
@@ -251,6 +295,41 @@
         </div>
     </section>
     
+    <!-- Added Ecosystem Section -->
+    <section id="ecosystem-content" class="animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">生态构建意向</h2>
+            <div class="content-block"> 
+                <div class="content-text">
+                    <h3>开放合作</h3>
+                    <p>我们寻求与各行各业的伙伴建立开放的合作关系，共同探索技术应用的可能性，推动行业发展。</p>
+                </div>
+                <div class="content-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+            </div>
+            <div class="content-block"> 
+                <div class="content-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="content-text">
+                    <h3>共创价值</h3>
+                    <p>我们相信协同的力量，愿意与合作伙伴共享资源、技术和市场机会，共同创造更大的商业和社会价值。</p>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>长期发展</h3>
+                    <p>我们致力于建立长期、稳定、互利的合作关系，共同面对挑战，把握机遇，实现可持续发展。</p>
+                </div>
+                <div class="content-image">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Added Ecosystem Section -->
+
     <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
