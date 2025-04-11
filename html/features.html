@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我们的优势 - 循星科技</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -104,18 +106,18 @@
             padding: 30px;
             border-radius: 10px;
             text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateY(-5px);
         }
         
         .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--accent-color);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
         
         footer {
@@ -165,7 +167,7 @@
             padding: 5px 0;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position the tooltip above the text */
+            bottom: 125%;
             left: 50%;
             margin-left: -60px;
             opacity: 0;
@@ -231,28 +233,43 @@
     
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">我们的优势</h2>
+            <h2 class="section-title animate-on-scroll">我们的优势</h2>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                <div class="feature-card staggered-item hover-effect-card">
+                    <div class="feature-icon hover-effect-icon">⚡</div>
                     <h3>创新思维</h3>
                     <p>我们不断探索新技术和新方法，追求突破性的创新解决方案。</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
+                <div class="feature-card staggered-item hover-effect-card">
+                    <div class="feature-icon hover-effect-icon">🔍</div>
                     <h3>用户至上</h3>
                     <p>以用户需求为中心，打造直观、高效、愉悦的产品体验。</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
+                <div class="feature-card staggered-item hover-effect-card">
+                    <div class="feature-icon hover-effect-icon">🚀</div>
                     <h3>技术卓越</h3>
                     <p>精通前沿技术，确保我们的解决方案具有高性能和可扩展性。</p>
+                </div>
+                <div class="feature-card staggered-item hover-effect-card">
+                    <div class="feature-icon hover-effect-icon">🤝</div>
+                    <h3>团队协作</h3>
+                    <p>我们相信团队的力量，紧密协作，共同应对挑战，实现目标。</p>
+                </div>
+                <div class="feature-card staggered-item hover-effect-card">
+                    <div class="feature-icon hover-effect-icon">📈</div>
+                    <h3>高效执行</h3>
+                    <p>敏捷开发，快速响应市场变化，高效交付高质量产品。</p>
+                </div>
+                <div class="feature-card staggered-item hover-effect-card">
+                    <div class="feature-icon hover-effect-icon">💡</div>
+                    <h3>持续学习</h3>
+                    <p>保持对行业趋势和新技术的敏感度，不断学习和进步。</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
             <div class="contact-info">
@@ -281,15 +298,7 @@
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
-    <script>
-        function toggleNav() {
-            const nav = document.getElementById('hiddenNav');
-            if (nav.style.display === 'none' || nav.style.display === '') {
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-            }
-        }
-    </script>
+
+    <script src="../js/animations.js"></script>
 </body>
 </html>

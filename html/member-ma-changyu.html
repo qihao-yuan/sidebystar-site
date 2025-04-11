@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>马常誉 - 循星科技</title>
+    <title>马常誉 - 团队成员 - 循星科技</title>
+    <link rel="stylesheet" href="../css/member-styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -29,7 +31,7 @@
             color: var(--text-color);
             background: var(--dark-bg);
             line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scrollbar during animations */
+            /* overflow-x: hidden; in animations.css */
         }
         
         .container {
@@ -46,6 +48,7 @@
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
+            /* animation in animations.css */
         }
         
         .logo {
@@ -246,6 +249,24 @@
                  margin-top: 60px;
             }
         }
+        
+        /* Override header animation for performance */
+        header {
+            animation: none !important; 
+            opacity: 1 !important; 
+            transform: none !important; 
+        }
+        
+        /* Disable hover effects on member card */
+        .member-card.hover-effect-card:hover {
+            transform: none !important;
+            background-color: var(--card-bg) !important; /* Revert to original background */
+            box-shadow: var(--card-shadow) !important; /* Revert to original shadow */
+        }
+        
+        .member-card.hover-effect-card:hover .hover-effect-icon {
+            transform: none !important;
+        }
     </style>
 </head>
 <body>
@@ -253,11 +274,11 @@
         <div class="container">
             <div class="logo">循星科技</div>
             <div class="tagline">团队成员</div>
-             <div class="nav">
+            <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
                 <a href="features.html">我们的优势</a>
-                <a href="team.html">团队成员</a>
+                <a href="team.html" class="current">团队成员</a>
                 <a href="products.html">我们的产品</a>
                 <a href="partners.html">合作企业</a>
                 <a href="ecosystem.html">生态构建</a>
@@ -265,45 +286,57 @@
             </div>
         </div>
     </header>
-    
-    <section id="member-profile">
+
+    <section class="member-profile">
+        <div class="profile-header animate-on-scroll">
+            <div class="container">
+                <div class="logo">循星科技</div>
+                <div class="tagline">团队成员</div>
+                 <div class="nav">
+                    <a href="../index.html">主页</a>
+                    <a href="about.html">关于我们</a>
+                    <a href="features.html">我们的优势</a>
+                    <a href="team.html">团队成员</a>
+                    <a href="products.html">我们的产品</a>
+                    <a href="partners.html">合作企业</a>
+                    <a href="ecosystem.html">生态构建</a>
+                    <a href="contact.html">联系我们</a>
+                </div>
+            </div>
+        </div>
+        
         <div class="container">
-            <div class="member-card">
+            <div class="member-card animate-on-scroll hover-effect-card">
                 <div class="member-photo">
-                    <!-- 替换为成员照片链接 -->
-                    <img src="../assets/images/ma-changyu.jpg" alt="马常誉" onerror="this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'><path fill=\'%23ccc\' d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>'">
+                    <img src="../images/machangyu_avatar.jpg" alt="马常誉 头像" class="hover-effect-icon">
                 </div>
                 <div class="member-info">
-                    <!-- 替换为成员姓名 -->
-                    <h1 class="member-name">马常誉</h1> 
-                     <!-- 替换为成员职位 -->
-                    <p class="member-title">创始人</p>
+                    <h1 class="member-name">马常誉</h1>
+                    <p class="member-title">产品经理</p>
                     <div class="member-bio">
-                        <!-- 在这里添加成员的详细介绍 -->
-                        <p>马常誉是循星科技的创始人之一。 （请在此处添加更详细的个人简介、教育背景、专业技能等信息。）</p>
-                        <p>[更多关于该成员的信息...]</p>
+                        <p>马常誉是循星科技的产品经理，负责定义产品愿景、路线图和功能需求。他深入了解市场趋势和用户需求，并将这些洞察转化为可行的产品策略。</p>
+                        <p>他与设计和开发团队紧密合作，确保产品满足市场需求并提供卓越的用户价值。</p>
                     </div>
                     <div class="member-details">
-                        <h3>主要职责</h3>
+                        <h3>专业领域</h3>
                         <ul>
-                            <li>负责 [占位符职责1]</li>
-                            <li>参与 [占位符职责2]</li>
-                            <li>协调 [占位符职责3]</li>
-                            <li>[占位符职责4]</li>
+                            <li>产品策略与路线图规划</li>
+                            <li>市场调研与用户研究</li>
+                            <li>需求分析与文档撰写</li>
+                            <li>产品生命周期管理</li>
+                            <li>跨职能团队协作</li>
                         </ul>
                     </div>
                     <div class="member-links">
-                        <!-- 替换为实际链接 -->
-                        <a href="#" target="_blank">GitHub</a>
-                        <a href="#" target="_blank">LinkedIn</a>
-                        <a href="#">发送邮件</a>
+                        <a href="mailto:machangyu@example.com" target="_blank">邮件</a>
+                        <a href="https://www.linkedin.com/in/machangyu" target="_blank">领英</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
             <div class="contact-info">
@@ -313,24 +346,26 @@
             </div>
             <div class="social-links">
                  <div class="tooltip">
-                     <a href="#" aria-label="微信">微</a>
-                     <span class="tooltiptext">微信号: [占位符]</span>
-                 </div>
-                 <div class="tooltip">
-                     <a href="#" aria-label="微博">博</a>
-                     <span class="tooltiptext">微博: [占位符]</span>
-                 </div>
-                 <div class="tooltip">
-                     <a href="#" aria-label="领英">领</a>
-                     <span class="tooltiptext">领英: [占位符]</span>
-                 </div>
-                 <div class="tooltip">
-                     <a href="#" aria-label="GitHub">G</a>
-                     <span class="tooltiptext">GitHub: [占位符]</span>
-                 </div>
+                    <a href="#" aria-label="微信">微</a>
+                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微博">博</a>
+                    <span class="tooltiptext">微博: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="领英">领</a>
+                    <span class="tooltiptext">领英: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="GitHub">G</a>
+                    <span class="tooltiptext">GitHub: qihao-yuan</span>
+                </div>
             </div>
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
+
+    <script src="../js/animations.js"></script>
 </body>
 </html> 

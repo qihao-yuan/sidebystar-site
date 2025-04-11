@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>合作企业 - 循星科技</title> 
+    <title>合作企业 - 循星科技</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -172,7 +174,7 @@
             padding: 5px 0;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position the tooltip above the text */
+            bottom: 125%;
             left: 50%;
             margin-left: -60px;
             opacity: 0;
@@ -232,13 +234,13 @@
     
     <section id="partners-content">
         <div class="container">
-            <h2 class="section-title">合作企业</h2>
+            <h2 class="section-title animate-on-scroll">合作企业</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text animate-on-scroll">
                     <p>这里是合作企业页面的内容占位符。请在此处添加关于您的合作企业的信息。</p> 
                     <p>例如，您可以列出主要的合作伙伴，介绍合作关系，或展示合作成果。</p>
                 </div>
-                <div class="about-image">
+                <div class="about-image animate-on-scroll">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                         <circle cx="8.5" cy="7" r="4"></circle>
@@ -249,19 +251,36 @@
         </div>
     </section>
     
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="container">
-            <p>&copy; 2024 循星科技. 版权所有.</p>
+            <div class="logo">循星科技</div>
             <div class="contact-info">
-                <p>Email: info@sidbystar.com | Phone: +86 123 4567 8900</p>
+                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
+                <p>电话：+86 15568200088</p>
+                <p>邮箱：sidebystar@outlook.com</p>
             </div>
             <div class="social-links">
-                <a href="#" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <div class="tooltip">
+                    <a href="#" aria-label="微信">微</a>
+                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微博">博</a>
+                    <span class="tooltiptext">微博: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="领英">领</a>
+                    <span class="tooltiptext">领英: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="GitHub">G</a>
+                    <span class="tooltiptext">GitHub: qihao-yuan</span>
+                </div>
             </div>
+            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- 确保你有 Font Awesome Kit -->
+
+    <script src="../js/animations.js"></script>
 </body>
 </html> 

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>刘家航 - 循星科技</title>
+    <title>刘家航 - 团队成员 - 循星科技</title>
+    <link rel="stylesheet" href="../css/member-styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -29,7 +31,6 @@
             color: var(--text-color);
             background: var(--dark-bg);
             line-height: 1.6;
-            overflow-x: hidden;
         }
         
         .container {
@@ -302,6 +303,24 @@
                   margin-top: 60px;
              }
         }
+        
+        /* Override header animation for performance */
+        header {
+            animation: none !important; 
+            opacity: 1 !important; 
+            transform: none !important; 
+        }
+        
+        /* Disable hover effects on member card */
+        .member-card.hover-effect-card:hover {
+            transform: none !important;
+            background-color: var(--card-bg) !important; /* Revert to original background */
+            box-shadow: var(--card-shadow) !important; /* Revert to original shadow */
+        }
+        
+        .member-card.hover-effect-card:hover .hover-effect-icon {
+            transform: none !important;
+        }
     </style>
 </head>
 <body>
@@ -313,53 +332,68 @@
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
                 <a href="features.html">我们的优势</a>
-                <a href="team.html">团队成员</a>
+                <a href="team.html" class="current">团队成员</a>
                 <a href="products.html">我们的产品</a>
                 <a href="partners.html">合作企业</a>
                 <a href="ecosystem.html">生态构建</a>
                 <a href="contact.html">联系我们</a>
-                <!-- 可以考虑添加返回团队页面的链接 -->
-                <a href="team.html">返回团队</a> 
             </div>
         </div>
     </header>
-    
-    <section id="member-profile">
+
+    <section class="member-profile">
+        <div class="profile-header animate-on-scroll">
+            <div class="container">
+                <div class="logo">循星科技</div>
+                <div class="tagline">团队成员</div>
+                <div class="nav">
+                    <a href="../index.html">主页</a>
+                    <a href="about.html">关于我们</a>
+                    <a href="features.html">我们的优势</a>
+                    <a href="team.html" class="current">团队成员</a>
+                    <a href="products.html">我们的产品</a>
+                    <a href="partners.html">合作企业</a>
+                    <a href="ecosystem.html">生态构建</a>
+                    <a href="contact.html">联系我们</a>
+                    <!-- 可以考虑添加返回团队页面的链接 -->
+                    <a href="team.html">返回团队</a> 
+                </div>
+            </div>
+        </div>
+        
         <div class="container">
-            <div class="member-card">
+            <div class="member-card animate-on-scroll hover-effect-card">
                 <div class="member-photo">
                     <!-- 替换为成员照片链接 -->
-                    <img src="../assets/images/liu-jiahang.jpg" alt="刘家航" onerror="this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'><path fill=\'%23ccc\' d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>'">
+                    <img src="../images/liujiahang_avatar.jpg" alt="刘家航 头像" class="hover-effect-icon">
                 </div>
                 <div class="member-info">
                     <h1 class="member-name">刘家航</h1>
-                    <p class="member-title">创始人</p>
+                    <p class="member-title">项目经理</p>
                     <div class="member-bio">
-                         <!-- 在这里添加成员的详细介绍 -->
-                         <p>刘家航是循星科技的创始人之一。 （请在此处添加更详细的个人简介、教育背景、专业技能等信息。）</p>
-                         <p>[更多关于该成员的信息...]</p>
+                        <p>刘家航是循星科技的项目经理，负责协调团队资源，确保项目按时、按预算、高质量地交付。他具有出色的组织和沟通能力。</p>
+                        <p>他擅长风险管理和进度控制，是连接客户需求和技术实现的桥梁。</p>
                     </div>
                     <div class="member-details">
-                        <h3>主要职责</h3>
+                        <h3>专业领域</h3>
                         <ul>
-                            <li>负责 [占位符职责1]</li>
-                            <li>参与 [占位符职责2]</li>
-                            <li>协调 [占位符职责3]</li>
-                            <li>[占位符职责4]</li>
+                            <li>项目规划与管理 (Agile, Scrum)</li>
+                            <li>团队协调与沟通</li>
+                            <li>风险评估与管理</li>
+                            <li>需求分析与范围界定</li>
+                            <li>项目交付与质量控制</li>
                         </ul>
                     </div>
                     <div class="member-links">
-                        <!-- 替换为实际链接 -->
-                        <a href="#" target="_blank">GitHub</a>
-                        <a href="#" target="_blank">LinkedIn</a>
-                        <a href="#">发送邮件</a>
+                        <a href="mailto:liujiahang@example.com" target="_blank">邮件</a>
+                        <a href="https://www.linkedin.com/in/liujiahang" target="_blank">领英</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
             <div class="contact-info">
@@ -370,23 +404,25 @@
             <div class="social-links">
                  <div class="tooltip">
                      <a href="#" aria-label="微信">微</a>
-                     <span class="tooltiptext">微信号: [占位符]</span>
+                     <span class="tooltiptext">微信号: nikebiewanle</span>
                  </div>
                  <div class="tooltip">
                      <a href="#" aria-label="微博">博</a>
-                     <span class="tooltiptext">微博: [占位符]</span>
+                     <span class="tooltiptext">微博: nikebiewanle</span>
                  </div>
                  <div class="tooltip">
                      <a href="#" aria-label="领英">领</a>
-                     <span class="tooltiptext">领英: [占位符]</span>
+                     <span class="tooltiptext">领英: nikebiewanle</span>
                  </div>
                  <div class="tooltip">
                      <a href="#" aria-label="GitHub">G</a>
-                     <span class="tooltiptext">GitHub: [占位符]</span>
+                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                  </div>
             </div>
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
+
+    <script src="../js/animations.js"></script>
 </body>
 </html> 

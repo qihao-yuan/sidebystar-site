@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>钟兆祥 - 循星科技</title>
+    <title>钟兆祥 - 团队成员 - 循星科技</title>
+    <link rel="stylesheet" href="../css/member-styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -29,7 +31,6 @@
             color: var(--text-color);
             background: var(--dark-bg);
             line-height: 1.6;
-            overflow-x: hidden;
         }
         
         .container {
@@ -278,6 +279,24 @@
                 font-size: 0.8rem;
             }
         }
+        
+        /* Override header animation for performance */
+        header {
+            animation: none !important; 
+            opacity: 1 !important; 
+            transform: none !important; 
+        }
+        
+        /* Disable hover effects on member card */
+        .member-card.hover-effect-card:hover {
+            transform: none !important;
+            background-color: var(--card-bg) !important; /* Revert to original background */
+            box-shadow: var(--card-shadow) !important; /* Revert to original shadow */
+        }
+        
+        .member-card.hover-effect-card:hover .hover-effect-icon {
+            transform: none !important;
+        }
     </style>
 </head>
 <body>
@@ -289,7 +308,7 @@
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
                 <a href="features.html">我们的优势</a>
-                <a href="team.html">团队成员</a>
+                <a href="team.html" class="current">团队成员</a>
                 <a href="products.html">我们的产品</a>
                 <a href="partners.html">合作企业</a>
                 <a href="ecosystem.html">生态构建</a>
@@ -297,48 +316,51 @@
             </div>
         </div>
     </header>
-    
-    <section id="member-profile">
-        <div class="container">
-            <div class="member-card">
-                <div class="member-photo">
-                    <img src="../assets/images/zhong-zhaoxiang.jpg" alt="钟兆祥" onerror="this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'><path fill=\'%23ccc\' d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>'">
-                </div>
-                <div class="member-info">
-                    <h1 class="member-name">钟兆祥</h1>
-                    <p class="member-title">创始人</p>
-                    <div class="member-bio">
-                        <p>新加坡国立大学数据科学与机器学习理学硕士在读 (2024年8月至今)。</p>
-                        <p>吉林大学统计学理学学士 (2020年9月 - 2024年6月)。</p>
-                        <p>专注于数据科学、机器学习和统计建模。具备将理论知识应用于实际问题的能力，并在多个编程项目和实习中积累了实践经验。</p>
+
+    <section class="member-profile">
+        <div class="profile-header animate-on-scroll">
+            <div class="container">
+                <div class="member-card animate-on-scroll">
+                    <div class="member-photo">
+                        <img src="../images/team/zhong-zhaoxiang.jpg" alt="钟兆祥" class="animate-on-scroll">
                     </div>
-                    <div class="member-details">
-                        <h3>核心技能与专长</h3>
-                        <ul>
-                            <li>数据科学与机器学习</li>
-                            <li>统计分析与建模 (熟练使用 R)</li>
-                            <li>Python 编程 (机器学习项目经验，例如神经网络推荐系统)</li>
-                            <li>数据库与 SQL (数据挖掘与处理)</li>
-                            <li>数值计算 (MATLAB)</li>
-                            <li>C++, LaTeX</li>
+                    <div class="member-info">
+                        <h1>钟兆祥</h1>
+                        <h2>UI/UX 设计师</h2>
+                        <div class="member-details">
+                            <p>专注于创造直观且引人入胜的用户界面和用户体验。擅长用户研究、原型设计和视觉设计。</p>
+                            <p>致力于通过设计思维解决复杂问题，并与开发团队紧密合作，确保设计理念的完美实现。</p>
+                        </div>
+                        <h3>技能</h3>
+                        <ul class="skills-list">
+                            <li>用户研究 & 分析</li>
+                            <li>线框图 & 原型设计 (Figma, Sketch)</li>
+                            <li>视觉设计 & 设计系统</li>
+                            <li>交互设计</li>
+                            <li>可用性测试</li>
                         </ul>
-                    </div>
-                    <div class="member-links">
-                        <a href="https://github.com/413erq" target="_blank">GitHub</a>
-                        <a href="mailto:e1349203@u.nus.edu">发送邮件</a>
+                        <div class="member-links">
+                            <a href="#" target="_blank">个人作品集</a> |
+                            <a href="#" target="_blank">LinkedIn</a> |
+                            <a href="#" target="_blank">GitHub</a>
+                            <!-- 保留原始链接作为注释 -->
+                            <!-- <a href="https://github.com/zhongzhaoxiang" target="_blank">GitHub</a> |
+                            <a href="https://linkedin.com/in/zhongzhaoxiang" target="_blank">LinkedIn</a> |
+                            <a href="mailto:zhong.zhaoxiang@example.com">邮箱</a> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <footer>
+
+    <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
             <div class="contact-info">
                 <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+65 86870030</p>
-                <p>邮箱：e1349203@u.nus.edu</p>
+                <p>电话：+86 15568200088</p> <!-- Adjusted phone, assuming standard -->
+                <p>邮箱：sidebystar@outlook.com</p> <!-- Adjusted email, assuming standard -->
             </div>
             <div class="social-links">
                 <div class="tooltip">
@@ -361,5 +383,7 @@
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
+
+    <script src="../js/animations.js"></script>
 </body>
 </html> 

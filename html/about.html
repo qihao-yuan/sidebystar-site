@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关于我们 - 循星科技</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -172,7 +174,7 @@
             padding: 5px 0;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position the tooltip above the text */
+            bottom: 125%;
             left: 50%;
             margin-left: -60px;
             opacity: 0;
@@ -232,14 +234,14 @@
     
     <section id="about">
         <div class="container">
-            <h2 class="section-title">关于我们</h2>
+            <h2 class="section-title animate-on-scroll">关于我们</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text animate-on-scroll">
                     <p>我们是一支充满激情的科技创新团队，致力于开发前沿技术解决方案，为用户创造价值。我们相信技术的力量可以改变世界，让生活更美好。</p>
                     <p>团队由一群来自不同背景但拥有共同愿景的年轻人组成，我们注重创新思维、用户体验，团队协作和高效执行。</p>
                     <p>我们的使命是通过创新科技解决实际问题，为客户提供高效、智能的一站式解决方案。</p>
                 </div>
-                <div class="about-image">
+                <div class="about-image animate-on-scroll">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                     </svg>
@@ -248,7 +250,7 @@
         </div>
     </section>
     
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
             <div class="contact-info">
@@ -259,7 +261,7 @@
             <div class="social-links">
                 <div class="tooltip">
                     <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信: nikebiewanle</span>
+                    <span class="tooltiptext">微信号: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
                     <a href="#" aria-label="微博">博</a>
@@ -277,15 +279,7 @@
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
-    <script>
-        function toggleNav() {
-            const nav = document.getElementById('hiddenNav');
-            if (nav.style.display === 'none' || nav.style.display === '') {
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-            }
-        }
-    </script>
+
+    <script src="../js/animations.js"></script>
 </body>
 </html>

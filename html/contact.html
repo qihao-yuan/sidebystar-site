@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>联系我们 - 循星科技</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -207,9 +209,9 @@
     
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">联系我们</h2>
+            <h2 class="section-title animate-on-scroll">联系我们</h2>
             <div style="text-align: center;">
-                <div class="contact-method">
+                <div class="contact-method animate-on-scroll">
                     <h3>📧 电子邮件</h3>
                     <p>我们会在24小时内回复您的邮件</p>
                     <a href="mailto:sidebystar@outlook.com" class="btn">发送邮件</a>
@@ -218,7 +220,7 @@
         </div>
     </section>
     
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
             <div class="contact-info">
@@ -247,15 +249,6 @@
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
-    <script>
-        function toggleNav() {
-            const nav = document.getElementById('hiddenNav');
-            if (nav.style.display === 'none' || nav.style.display === '') {
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-            }
-        }
-    </script>
+    <script src="../js/animations.js"></script>
 </body>
 </html>

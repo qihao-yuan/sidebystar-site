@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="了解循星科技的主要产品与服务。我们致力于提供创新的技术解决方案，满足不同领域的需求。"> 
     <title>我们的产品 - 循星科技</title>
+    <link rel="stylesheet" href="../css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -87,18 +88,16 @@
             padding: 30px;
             border-radius: 10px;
             text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .product-card:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateY(-5px);
         }
         
         .product-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--accent-color);
+        }
+
+        .product-card:hover .product-icon {
+            transform: scale(1.1);
         }
         
         .product-links {
@@ -172,7 +171,7 @@
             padding: 5px 0;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position the tooltip above the text */
+            bottom: 125%;
             left: 50%;
             margin-left: -60px;
             opacity: 0;
@@ -194,27 +193,51 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: var(--secondary-color);
-            padding: 10px;
+            background-color: rgba(0,0,0,0.3);
+            padding: 10px 15px;
             border-radius: 5px;
             display: flex;
-            gap: 10px;
+            gap: 15px;
+            z-index: 1000;
         }
 
         .nav a {
             color: var(--text-color);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease;
             font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 2px;
+            right: 0;
+            background: var(--accent-color);
+            transition: width .3s ease;
+            -webkit-transition: width .3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+            left: 0;
+            background-color: var(--accent-color);
         }
 
         .nav a:hover {
             color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
         .nav a.current {
             color: var(--accent-color);
+            font-weight: bold;
         }
     </style>
 </head>
@@ -238,10 +261,10 @@
     
     <section id="products">
         <div class="container">
-            <h2 class="section-title">我们的产品</h2>
+            <h2 class="section-title animate-on-scroll">我们的产品</h2>
             <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">📈</div>
+                <div class="product-card staggered-item hover-effect-card">
+                    <div class="product-icon hover-effect-icon">📈</div>
                     <h3>量化交易系统</h3>
                     <p>我们开发了一套高效的量化交易系统，帮助用户实现自动化交易和风险管理。</p>
                     <div class="product-links">
@@ -249,8 +272,8 @@
                         <a href="product_test.html" class="product-link">产品测试</a>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">💼</div>
+                <div class="product-card staggered-item hover-effect-card">
+                    <div class="product-icon hover-effect-icon">💼</div>
                     <h3>金融分析平台</h3>
                     <p>我们的金融分析平台提供了全面的数据分析工具，帮助用户做出明智的投资决策。</p>
                     <div class="product-links">
@@ -258,8 +281,8 @@
                         <a href="product_test.html" class="product-link">产品测试</a>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">🔒</div>
+                <div class="product-card staggered-item hover-effect-card">
+                    <div class="product-icon hover-effect-icon">🔒</div>
                     <h3>安全支付解决方案</h3>
                     <p>我们提供安全可靠的支付解决方案，保障用户的交易安全。</p>
                     <div class="product-links">
@@ -271,7 +294,7 @@
         </div>
     </section>
     
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
             <div class="contact-info">
@@ -300,15 +323,6 @@
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>
     </footer>
-    <script>
-        function toggleNav() {
-            const nav = document.getElementById('hiddenNav');
-            if (nav.style.display === 'none' || nav.style.display === '') {
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-            }
-        }
-    </script>
+    <script src="../js/animations.js"></script>
 </body>
 </html>
