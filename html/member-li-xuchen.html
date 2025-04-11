@@ -41,7 +41,7 @@
         }
         
         header {
-            background: var(--secondary-color);
+            background: transparent; /* Make header background transparent */
             color: var(--primary-color);
             padding: 60px 0; 
             text-align: center;
@@ -64,30 +64,33 @@
             opacity: 0.9;
         }
         
+        /* .nav styles are now handled by animations.css */
+        /*
         .nav {
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: rgba(0,0,0,0.3); /* Slightly transparent background */
+            background-color: rgba(0,0,0,0.3);
             padding: 10px 15px;
-            border-radius: 20px; /* Rounded corners for nav */
+            border-radius: 20px;
             display: flex;
-            gap: 15px; /* Increase gap */
+            gap: 15px;
         }
 
         .nav a {
             color: var(--text-color);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+            transition: color 0.3s ease, transform 0.3s ease;
             font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            padding: 5px 0; /* Add padding for better hover area */
+            padding: 5px 0;
         }
 
         .nav a:hover {
-            color: var(--primary-color); /* Brighter hover color */
-            transform: translateY(-2px); /* Slight lift on hover */
+            color: var(--primary-color);
+            transform: translateY(-2px);
         }
+        */
         
         section {
             padding: 80px 0; /* Increase section padding */
@@ -213,7 +216,7 @@
         }
         
         footer {
-            background-color: var(--secondary-color);
+            background: transparent; /* Make footer background transparent */
             color: var(--primary-color);
             padding: 40px 0; /* Increase footer padding */
             text-align: center;

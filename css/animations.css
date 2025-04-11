@@ -110,7 +110,7 @@ header {
     position: absolute; 
     top: 20px;
     right: 20px;
-    background-color: rgba(0,0,0,0.3); /* Semi-transparent background */
+    background-color: transparent; /* Removed background */
     padding: 10px 15px;
     border-radius: 5px;
     display: flex;

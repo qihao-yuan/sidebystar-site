@@ -7,11 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>循星科技 - 循此苦旅，终抵群星</title>
+    <link rel="stylesheet" href="css/animations.css">
     <style>
         :root {
             --primary-color: #ffffff;
             --secondary-color: #000000;
-            --accent-color: #536465;
+            --accent-color: #7f8c8d;
+            --accent-color-light: #95a5a6;
+            --accent-color-rgb: 127, 140, 141;
             --text-color: #ecf0f1;
             --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
             --dark-bg: linear-gradient(135deg, #000000, #434343);
@@ -45,19 +48,26 @@
         
         .btn {
             display: inline-block;
-            color: var(--primary-color);
-            padding: 12px 30px;
+            color: var(--text-color);
+            padding: 10px 25px;
+            margin: 0 10px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
+            font-weight: 500;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+            border: 1px solid transparent;
+            border-radius: 25px;
             cursor: pointer;
-            background: none;
-            font-size: 1.2rem;
+            background-color: transparent;
+            font-size: 1.1rem;
+            will-change: transform, background-color;
         }
         
         .btn:hover {
-            color: var(--accent-color);
+            color: var(--secondary-color);
+            background-color: rgba(var(--accent-color-rgb), 0.7);
+            border-color: rgba(var(--accent-color-rgb), 0.9);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .tooltip {
