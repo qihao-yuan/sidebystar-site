@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>环境感知系统 API 文档 - 循星科技</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        /* Styles specific to documentation pages */
+        body {
+            line-height: 1.8; /* Slightly increase line height for readability */
+        }
+        .docs-content {
+            background-color: var(--card-bg, rgba(44, 62, 80, 0.6)); /* Use global or default card bg */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow, 0 5px 15px rgba(0,0,0,0.3));
+            margin-top: -20px; /* Pull content slightly under header bottom border */
+        }
+
+        .docs-content h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.4);
+            padding-bottom: 10px;
+        }
+        .docs-content h2:first-of-type {
+             margin-top: 0; /* Remove top margin for the first heading */
+        }
+
+        .docs-content h3 {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .docs-content p, 
+        .docs-content ul,
+        .docs-content pre {
+            margin-bottom: 15px;
+            color: rgba(236, 240, 241, 0.9);
+        }
+
+        .docs-content ul {
+            list-style: disc;
+            padding-left: 25px;
+        }
+        .docs-content li {
+             margin-bottom: 8px;
+        }
+
+        .docs-content code {
+            background-color: rgba(0,0,0,0.3);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        .docs-content pre {
+            background-color: rgba(0,0,0,0.4);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto; /* Allow horizontal scrolling for long code lines */
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+        }
+
+        .docs-content pre code {
+            background-color: transparent; /* Reset background for code inside pre */
+            padding: 0;
+            border-radius: 0;
+        }
+        
+        .docs-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-color);
+        }
+        .docs-content a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Add styles for API endpoint sections */
+        .api-endpoint {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+        .api-endpoint .method {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+        .api-endpoint .method.get { background-color: #2ecc71; color: #000; }
+        .api-endpoint .method.post { background-color: #3498db; color: #fff; }
+        .api-endpoint .method.put { background-color: #f39c12; color: #fff; }
+        .api-endpoint .method.delete { background-color: #e74c3c; color: #fff; }
+
+        .api-endpoint .path {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+        
+    </style>
+</head>
+<body class="documentation-page"> 
+    <header>
+        <div class="container">
+            <div class="logo">循星科技</div>
+            <div class="tagline">环境感知系统 API 文档</div>
+            <div class="nav">
+                <a href="../index.html">主页</a>
+                <a href="about.html">关于我们</a>
+                <a href="team.html">团队成员</a>
+                <a href="products.html">我们的产品</a>
+                <a href="partners.html">合作与生态</a>
+                <a href="contact.html">联系我们</a>
+                 <a href="community.html">开发者中心</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="docs">
+        <div class="container">
+            <div class="docs-content animate-on-scroll">
+                <h2>简介</h2>
+                <p>欢迎使用循星科技环境感知系统 (ESS) API。本 API 允许开发者通过标准 RESTful 接口与我们的环境感知硬件进行交互，获取实时传感器数据，并接收关键事件通知。</p>
+                <p>我们致力于提供一个安全、可靠且易于集成的接口，帮助您将环境智能融入您的应用程序和服务中。所有核心数据处理均在本地设备完成，API 调用仅限于授权访问和控制。</p>
+
+                <h2>快速开始</h2>
+                <p>要开始使用 API，您需要：</p>
+                <ul>
+                    <li>获取 API 密钥和设备 ID (请参考 <a href="#authentication">认证</a> 部分)。</li>
+                    <li>熟悉 REST API 的基本概念。</li>
+                    <li>选择您偏好的编程语言和 HTTP 客户端库。</li>
+                </ul>
+                <p>(更多详细步骤和设置指南即将推出...)</p>
+
+                <h2 id="authentication">认证</h2>
+                <p>所有 API 请求都需要通过 API 密钥进行认证。请将您的密钥包含在请求的 `Authorization` 头中。</p>
+                <pre><code class="language-http">Authorization: Bearer YOUR_API_KEY</code></pre>
+                <p>请妥善保管您的 API 密钥，不要在客户端代码中公开。(认证流程细节待补充...)</p>
+
+                <h2 id="api-reference">API 参考</h2>
+                
+                <h3>获取传感器列表</h3>
+                <div class="api-endpoint">
+                    <p><span class="method get">GET</span> <span class="path">/v1/sensors</span></p>
+                    <p>返回当前设备连接的所有可用传感器及其元数据。</p>
+                    <h4>响应示例 (JSON):</h4>
+                    <pre><code class="language-json">{
+  "sensors": [
+    {
+      "id": "temp-livingroom",
+      "type": "temperature",
+      "unit": "Celsius",
+      "location": "客厅",
+      "status": "active"
+    },
+    {
+      "id": "humidity-bedroom",
+      "type": "humidity",
+      "unit": "%",
+      "location": "卧室",
+      "status": "active"
+    }
+    // ... more sensors
+  ]
+}</code></pre>
+                </div>
+
+                <h3>读取实时传感器数据</h3>
+                 <div class="api-endpoint">
+                    <p><span class="method get">GET</span> <span class="path">/v1/sensors/{sensor_id}/reading</span></p>
+                     <p>获取指定传感器的最新读数。</p>
+                     <h4>路径参数:</h4>
+                    <ul>
+                        <li><code>sensor_id</code> (string, required): 要查询的传感器 ID。</li>
+                    </ul>
+                    <h4>响应示例 (JSON):</h4>
+                    <pre><code class="language-json">{
+  "sensor_id": "temp-livingroom",
+  "value": 23.5,
+  "unit": "Celsius",
+  "timestamp": "2025-10-26T10:30:00Z"
+}</code></pre>
+                 </div>
+
+                <h3>订阅事件 (通过 WebSocket - 示例)</h3>
+                 <div class="api-endpoint">
+                     <p><span class="method">WS</span> <span class="path">/v1/events/subscribe</span></p>
+                     <p>通过 WebSocket 连接实时接收传感器事件（例如，阈值触发、状态变化）。</p>
+                     <p>(连接协议和消息格式待详细说明...)</p>
+                 </div>
+
+                <h2 id="sdk">SDK</h2>
+                <p>为了简化集成，我们提供了适用于常用语言的 SDK。(SDK 列表和下载链接即将推出...)</p>
+                <ul>
+                    <li>Python SDK</li>
+                    <li>JavaScript SDK</li>
+                    <li>Java SDK (规划中)</li>
+                </ul>
+
+                <h2 id="error-handling">错误处理</h2>
+                <p>API 使用标准的 HTTP 状态码来指示请求的成功或失败。</p>
+                <ul>
+                    <li><code>200 OK</code>: 请求成功。</li>
+                    <li><code>400 Bad Request</code>: 请求参数无效。</li>
+                    <li><code>401 Unauthorized</code>: 无效的 API 密钥或未授权。</li>
+                    <li><code>404 Not Found</code>: 请求的资源（如传感器 ID）不存在。</li>
+                    <li><code>500 Internal Server Error</code>: 服务器内部错误。</li>
+                </ul>
+                <p>失败的请求通常会在响应体中包含一个 JSON 对象，提供更详细的错误信息。(错误响应格式待定义...)</p>
+
+                <h2 id="code-examples">示例代码</h2>
+                <p>以下是使用 Python 获取传感器列表的简单示例：</p>
+                <pre><code class="language-python">import requests
+
+API_KEY = "YOUR_API_KEY"
+BASE_URL = "https://ess.sidebystar.local/api" # 假设的本地设备地址
+
+headers = {
+    "Authorization": f"Bearer {API_KEY}"
+}
+
+try:
+    response = requests.get(f"{BASE_URL}/v1/sensors", headers=headers, verify=False) # verify=False for local dev only
+    response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
+    sensors = response.json()
+    print("可用传感器:")
+    for sensor in sensors.get('sensors', []):
+        print(f"- {sensor['id']} ({sensor['type']} @ {sensor.get('location', 'N/A')})")
+except requests.exceptions.RequestException as e:
+    print(f"请求错误: {e}")
+except Exception as e:
+    print(f"发生错误: {e}")
+
+</code></pre>
+                <p>(更多语言的示例即将添加...)</p>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="animate-on-scroll">
+        <div class="container">
+            <div class="logo">循星科技</div>
+            <div class="contact-info">
+                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
+                <p>电话：+86 15568200088</p>
+                <p>邮箱：sidebystar@outlook.com</p>
+            </div>
+            <div class="social-links">
+                <div class="tooltip">
+                    <a href="#" aria-label="微信">微</a>
+                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微博">博</a>
+                    <span class="tooltiptext">微博: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="领英">领</a>
+                    <span class="tooltiptext">领英: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="GitHub">G</a>
+                    <span class="tooltiptext">GitHub: qihao-yuan</span>
+                </div>
+            </div>
+            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="../js/animations.js"></script>
+    <!-- Add syntax highlighting library if needed -->
+    <!-- <script src="../js/prism.js"></script> -->
+</body>
+</html> 

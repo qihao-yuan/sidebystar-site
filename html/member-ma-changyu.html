@@ -3,325 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>马常誉 - 团队成员 - 循星科技</title>
-    <link rel="stylesheet" href="../css/member-styles.css">
+    <title>马常誉 - 循星科技团队</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/animations.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d; 
-            --accent-color-rgb: 127, 140, 141; /* Add RGB version for rgba */
-            --text-color: #ecf0f1;
-            --card-bg: rgba(44, 62, 80, 0.6); /* Slightly adjust card background */
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-            /* overflow-x: hidden; in animations.css */
-        }
-        
-        .container {
-            max-width: 900px; 
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent; /* Make header background transparent */
-            color: var(--primary-color);
-            padding: 60px 0; 
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
-            /* animation in animations.css */
-        }
-        
-        .logo {
-            font-size: 2rem; 
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem; 
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0,0,0,0.3); /* Slightly transparent background */
-            padding: 10px 15px;
-            border-radius: 20px; /* Rounded corners for nav */
-            display: flex;
-            gap: 15px; /* Increase gap */
-        }
+    <link rel="stylesheet" href="../css/member_info_style.css">
 
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            padding: 5px 0; /* Add padding for better hover area */
-        }
-
-        .nav a:hover {
-            color: var(--primary-color); /* Brighter hover color */
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
-        
-        section {
-            padding: 80px 0; /* Increase section padding */
-        }
-
-        @keyframes fadeIn { /* Define fade-in animation */
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .member-card {
-            display: flex;
-            gap: 40px;
-            background-color: var(--card-bg); 
-            padding: 40px;
-            border-radius: 15px; /* Slightly more rounded corners */
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
-            opacity: 0; /* Start hidden for animation */
-            animation: fadeIn 0.6s ease-out 0.2s forwards; /* Apply animation */
-        }
-
-        .member-card:hover {
-            transform: translateY(-5px); /* Lift card on hover */
-            box-shadow: var(--hover-shadow); /* Enhance shadow on hover */
-        }
-        
-        .member-photo {
-            flex-basis: 200px; 
-            flex-shrink: 0;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%; 
-            border: 5px solid rgba(var(--accent-color-rgb), 0.7); /* Make border slightly transparent */
-            display: block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Add shadow to photo */
-        }
-        
-        .member-info {
-            flex-grow: 1;
-        }
-        
-        .member-name {
-            font-size: 2.2rem; /* Slightly larger name */
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .member-title {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 25px; /* Increase space */
-            font-style: italic;
-            font-weight: 300; /* Lighter weight for title */
-        }
-        
-        .member-bio p {
-            margin-bottom: 15px;
-            line-height: 1.7; /* Improve readability */
-        }
-
-        .member-details {
-            background-color: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .member-details h3 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .member-details ul {
-            list-style: none;
-            padding-left: 0; /* Remove default padding */
-        }
-
-        .member-details li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .member-details li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        .member-links {
-            margin-top: 25px; /* Add space above links */
-        }
-
-        .member-links a {
-             display: inline-block;
-             margin-right: 15px; /* Increase spacing */
-             color: var(--accent-color);
-             text-decoration: none;
-             transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
-             font-weight: 500; /* Slightly bolder links */
-        }
-
-        .member-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px); /* Lift link on hover */
-        }
-        
-        footer {
-            background: transparent; /* Make footer background transparent */
-            color: var(--primary-color);
-            padding: 40px 0; /* Increase footer padding */
-            text-align: center;
-            margin-top: 80px; /* Increase space before footer */
-            border-top: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .member-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 30px; /* Adjust padding */
-                animation-delay: 0s; /* Start animation immediately on mobile */
-            }
-            .member-photo {
-                margin-bottom: 30px;
-                width: 150px; 
-                flex-basis: auto; /* Reset basis */
-            }
-            .nav {
-                gap: 10px;
-                padding: 8px 10px;
-                right: 10px; /* Adjust position */
-            }
-            .nav a {
-                font-size: 0.8rem;
-            }
-            header {
-                padding: 50px 0;
-            }
-            section {
-                padding: 60px 0;
-            }
-            footer {
-                 padding: 30px 0;
-                 margin-top: 60px;
-            }
-        }
-
-        /* Added Tooltip Styles */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        /* End Added Tooltip Styles */
-    </style>
 </head>
-<body>
+<body class="member-page">
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">团队成员</div>
+            <div class="tagline">我们的团队成员</div>
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
-                <a href="team.html" class="current">团队成员</a>
+                <a href="team.html">团队成员</a> 
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作企业</a>
+                <a href="partners.html">合作与生态</a>
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
 
-    <section class="member-profile">
+    <section id="member-details">
         <div class="container">
-            <div class="member-card animate-on-scroll hover-effect-card">
-                <div class="member-photo">
-                    <img src="../images/machangyu_avatar.jpg" alt="马常誉 头像" class="hover-effect-icon">
+            <div class="member-profile animate-on-scroll">
+                <div class="member-avatar">
+                     <img src="../assets/images/avatar_placeholder.png" alt="马常誉头像">
                 </div>
                 <div class="member-info">
-                    <h1 class="member-name">马常誉</h1>
-                    <p class="member-title">产品经理</p>
+                    <h1>马常誉</h1>
+                    <div class="member-role">项目经理 - 智能管家</div>
+
                     <div class="member-bio">
-                        <p>马常誉是循星科技的产品经理，负责定义产品愿景、路线图和功能需求。他深入了解市场趋势和用户需求，并将这些洞察转化为可行的产品策略。</p>
-                        <p>他与设计和开发团队紧密合作，确保产品满足市场需求并提供卓越的用户价值。</p>
+                        <h3>关于 马常誉</h3>
+                        <p>马常誉负责领导循星科技核心产品——智能管家（Smart Hub）的项目管理工作。他专注于产品路线图的规划、功能定义以及跨团队协调，确保智能管家项目能够顺利推进并达成战略目标。</p>
+                        <p>凭借丰富的智能产品管理经验，马常誉善于捕捉用户需求，将复杂的 AI 技术转化为用户易于理解和使用的功能。他推动项目采用敏捷开发流程，快速响应市场变化，并与技术、设计、市场团队紧密合作，共同打造安全、智能、无障碍的家庭中枢。</p>
                     </div>
-                    <div class="member-details">
-                        <h3>专业领域</h3>
+
+                    <div class="member-skills">
+                        <h3>核心专长</h3>
                         <ul>
-                            <li>产品策略与路线图规划</li>
-                            <li>市场调研与用户研究</li>
-                            <li>需求分析与文档撰写</li>
-                            <li>产品生命周期管理</li>
-                            <li>跨职能团队协作</li>
+                            <li>产品管理 & 路线图规划</li>
+                            <li>项目管理 (Agile/Scrum)</li>
+                            <li>市场研究 & 用户需求分析</li>
+                            <li>功能定义 & PRD 撰写</li>
+                            <li>跨团队协作</li>
+                            <li>智能硬件 & AI 产品</li>
+                            <li>数据分析与决策</li>
                         </ul>
                     </div>
-                    <div class="member-links">
-                        <a href="mailto:machangyu@example.com" target="_blank">邮件</a>
-                        <a href="https://www.linkedin.com/in/machangyu" target="_blank">领英</a>
+
+                    <div class="member-contact">
+                        <h3>联系方式</h3>
+                        <p>
+                            <a href="mailto:changyu.ma@example.com">邮箱</a> 
+                            <a href="https://www.linkedin.com/in/changyuma-example" target="_blank">领英</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -336,23 +74,23 @@
                 <p>电话：+86 15568200088</p>
                 <p>邮箱：sidebystar@outlook.com</p>
             </div>
-            <div class="social-links">
+             <div class="social-links">
                  <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
-                    <span class="tooltiptext">微博: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
-                    <span class="tooltiptext">领英: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
-                    <span class="tooltiptext">GitHub: qihao-yuan</span>
-                </div>
+                     <a href="#" aria-label="微信">微</a>
+                     <span class="tooltiptext">微信号: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="微博">博</a>
+                     <span class="tooltiptext">微博: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="领英">领</a>
+                     <span class="tooltiptext">领英: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="GitHub">G</a>
+                     <span class="tooltiptext">GitHub: qihao-yuan</span>
+                 </div>
             </div>
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>

@@ -3,335 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>钟兆祥 - 团队成员 - 循星科技</title>
-    <link rel="stylesheet" href="../css/member-styles.css">
+    <title>钟兆祥 - 循星科技团队</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/animations.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d; 
-            --accent-color-rgb: 127, 140, 141;
-            --text-color: #ecf0f1;
-            --card-bg: rgba(44, 62, 80, 0.6);
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 900px; 
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 60px 0; 
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3);
-        }
-        
-        .logo {
-            font-size: 2rem; 
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem; 
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0,0,0,0.3);
-            padding: 10px 15px;
-            border-radius: 20px;
-            display: flex;
-            gap: 15px;
-        }
+    <link rel="stylesheet" href="../css/member_info_style.css">
 
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            padding: 5px 0;
-        }
-
-        .nav a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-
-        .member-card {
-            display: flex;
-            gap: 40px;
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeIn 0.6s ease-out 0.2s forwards;
-        }
-
-        .member-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-        
-        .member-photo {
-            flex-basis: 200px;
-            flex-shrink: 0;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            border: 5px solid rgba(var(--accent-color-rgb), 0.7);
-            display: block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        
-        .member-info {
-            flex-grow: 1;
-        }
-        
-        .member-name {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .member-title {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 25px;
-            font-style: italic;
-            font-weight: 300;
-        }
-        
-        .member-bio {
-            margin-bottom: 30px;
-        }
-        
-        .member-bio p {
-            margin-bottom: 15px;
-            line-height: 1.7;
-        }
-
-        .member-details {
-            background-color: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .member-details h3 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .member-details ul {
-            list-style: none;
-        }
-
-        .member-details li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .member-details li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        .member-links {
-            margin-top: 25px;
-        }
-
-        .member-links a {
-            display: inline-block;
-            margin-right: 15px;
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-weight: 500;
-        }
-
-        .member-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 80px;
-            border-top: 1px solid rgba(var(--accent-color-rgb), 0.3);
-        }
-
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        /* Social link styles moved to animations.css */
-        /*
-        .social-links { ... }
-        .social-links a { ... }
-        .social-links a:hover { ... }
-        */
-        
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        @media (max-width: 768px) {
-            .member-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 30px;
-                animation-delay: 0s;
-            }
-            .member-photo {
-                margin-bottom: 30px;
-                width: 150px;
-                flex-basis: auto;
-            }
-            .nav {
-                gap: 10px;
-                padding: 8px 10px;
-                right: 10px;
-            }
-            .nav a {
-                font-size: 0.8rem;
-            }
-        }
-        
-        /* Override header animation for performance */
-        header {
-            animation: none !important; 
-            opacity: 1 !important; 
-            transform: none !important; 
-        }
-        
-        /* Disable hover effects on member card */
-        .member-card.hover-effect-card:hover {
-            transform: none !important;
-            background-color: var(--card-bg) !important; /* Revert to original background */
-            box-shadow: var(--card-shadow) !important; /* Revert to original shadow */
-        }
-        
-        .member-card.hover-effect-card:hover .hover-effect-icon {
-            transform: none !important;
-        }
-    </style>
 </head>
-<body>
+<body class="member-page">
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">团队成员</div>
+            <div class="tagline">我们的团队成员</div>
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
-                <a href="team.html" class="current">团队成员</a>
+                <a href="team.html">团队成员</a> 
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作企业</a>
+                <a href="partners.html">合作与生态</a>
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
 
-    <section class="member-profile">
-        <div class="profile-header animate-on-scroll">
-            <div class="container">
-                <div class="member-card animate-on-scroll">
-                    <div class="member-photo">
-                        <img src="../images/team/zhong-zhaoxiang.jpg" alt="钟兆祥" class="animate-on-scroll">
+    <section id="member-details">
+        <div class="container">
+            <div class="member-profile animate-on-scroll">
+                <div class="member-avatar">
+                     <!-- Placeholder image, replace with actual path if available -->
+                     <img src="../assets/images/avatar_placeholder.png" alt="钟兆祥头像">
+                </div>
+                <div class="member-info">
+                    <h1>钟兆祥</h1>
+                    <div class="member-role">项目经理 - 环境感知系统</div>
+
+                    <div class="member-bio">
+                        <h3>关于 钟兆祥</h3>
+                        <p>钟兆祥是循星科技环境感知系统（ESS）的项目经理。他负责协调 ESS 的整体开发流程，确保项目按时、按预算、高质量地交付。凭借其敏锐的用户洞察力和严谨的项目规划能力，他致力于将 ESS 打造成业界领先的环境智能解决方案。</p>
+                        <p>他先前在 UI/UX 设计领域的深厚积累，使他能够从用户体验出发，定义产品需求，确保最终产品不仅功能强大，而且直观易用。他擅长跨部门沟通，能够有效协调技术、设计和市场团队，共同推进项目目标。</p>
                     </div>
-                    <div class="member-info">
-                        <h1>钟兆祥</h1>
-                        <h2>UI/UX 设计师</h2>
-                        <div class="member-details">
-                            <p>专注于创造直观且引人入胜的用户界面和用户体验。擅长用户研究、原型设计和视觉设计。</p>
-                            <p>致力于通过设计思维解决复杂问题，并与开发团队紧密合作，确保设计理念的完美实现。</p>
-                        </div>
-                        <h3>技能</h3>
-                        <ul class="skills-list">
-                            <li>用户研究 & 分析</li>
-                            <li>线框图 & 原型设计 (Figma, Sketch)</li>
-                            <li>视觉设计 & 设计系统</li>
-                            <li>交互设计</li>
-                            <li>可用性测试</li>
+
+                    <div class="member-skills">
+                        <h3>核心专长</h3>
+                        <ul>
+                            <li>项目管理 (Agile/Scrum)</li>
+                            <li>产品需求定义与规划</li>
+                            <li>跨团队沟通与协调</li>
+                            <li>用户体验导向思维</li>
+                            <li>风险管理</li>
+                            <li>智能硬件项目流程</li>
+                            <li>UI/UX 设计背景</li>
                         </ul>
-                        <div class="member-links">
-                            <a href="#" target="_blank">个人作品集</a> |
-                            <a href="#" target="_blank">LinkedIn</a> |
-                            <a href="#" target="_blank">GitHub</a>
-                            <!-- 保留原始链接作为注释 -->
-                            <!-- <a href="https://github.com/zhongzhaoxiang" target="_blank">GitHub</a> |
-                            <a href="https://linkedin.com/in/zhongzhaoxiang" target="_blank">LinkedIn</a> |
-                            <a href="mailto:zhong.zhaoxiang@example.com">邮箱</a> -->
-                        </div>
+                    </div>
+
+                    <div class="member-contact">
+                        <h3>联系方式</h3>
+                        <p>
+                            <a href="mailto:zhaoxiang.zhong@example.com">邮箱</a> 
+                            <a href="https://www.linkedin.com/in/zhaoxiangzhong-example" target="_blank">领英</a>
+                            <!-- Add other relevant links -->
+                        </p>
                     </div>
                 </div>
             </div>
@@ -343,26 +73,26 @@
             <div class="logo">循星科技</div>
             <div class="contact-info">
                 <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p> <!-- Adjusted phone, assuming standard -->
-                <p>邮箱：sidebystar@outlook.com</p> <!-- Adjusted email, assuming standard -->
+                <p>电话：+86 15568200088</p>
+                <p>邮箱：sidebystar@outlook.com</p>
             </div>
-            <div class="social-links">
-                <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
-                    <span class="tooltiptext">微博: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
-                    <span class="tooltiptext">领英: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
-                    <span class="tooltiptext">GitHub: qihao-yuan</span>
-                </div>
+             <div class="social-links">
+                 <div class="tooltip">
+                     <a href="#" aria-label="微信">微</a>
+                     <span class="tooltiptext">微信号: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="微博">博</a>
+                     <span class="tooltiptext">微博: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="领英">领</a>
+                     <span class="tooltiptext">领英: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="GitHub">G</a>
+                     <span class="tooltiptext">GitHub: qihao-yuan</span>
+                 </div>
             </div>
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>

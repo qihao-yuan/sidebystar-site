@@ -3,260 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="了解循星科技的主要产品与服务。我们致力于提供创新的技术解决方案，满足不同领域的需求。"> 
+    <meta name="description" content="了解循星科技的 AI2HomeService 产品与服务。我们致力于提供安全、智能、便捷、无障碍的居家解决方案。"> 
     <title>我们的产品 - 循星科技</title>
     <link rel="stylesheet" href="../css/animations.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d;
-            --text-color: #ecf0f1;
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 15px auto;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .product-card {
-            background-color: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .product-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        .product-card:hover .product-icon {
-            transform: scale(1.1);
-        }
-        
-        .product-links {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        
-        .product-link {
-            display: inline-block;
-            padding: 8px 20px;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-        
-        .product-link:hover {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        /* .social-links styles moved to external CSS */
-        /*
-        .social-links {
-            margin-top: 20px;
-        }
-        */
-        
-        /*
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        */
-        
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            /* background-color: rgba(0,0,0,0.3); */ /* Removed background */
-            padding: 10px 15px;
-            border-radius: 5px;
-            display: flex;
-            gap: 15px;
-            z-index: 1000;
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease, transform 0.2s ease;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            padding: 5px 0;
-            position: relative;
-        }
-
-        .nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            display: block;
-            margin-top: 2px;
-            right: 0;
-            background: var(--accent-color);
-            transition: width .3s ease;
-            -webkit-transition: width .3s ease;
-        }
-
-        .nav a:hover::after {
-            width: 100%;
-            left: 0;
-            background-color: var(--accent-color);
-        }
-
-        .nav a:hover {
-            color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        .nav a.current {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/styles.css">
+ 
 </head>
-<body>
+<body style="--card-bg: rgba(255,255,255,0.05);">
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">我们的产品</div>
+            <div class="tagline">AI2Home 服务与产品</div>
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
                 <a href="team.html">团队成员</a>
                 <a href="products.html" class="current">我们的产品</a>
-                <a href="partners.html">合作企业</a>
+                <a href="partners.html">合作与生态</a>
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
@@ -264,36 +27,72 @@
     
     <section id="products">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">我们的产品</h2>
+            <h2 class="section-title animate-on-scroll">核心产品线</h2>
             <div class="products-grid">
-                <div class="product-card staggered-item hover-effect-card">
-                    <div class="product-icon hover-effect-icon">📈</div>
-                    <h3>量化交易系统</h3>
-                    <p>我们开发了一套高效的量化交易系统，帮助用户实现自动化交易和风险管理。</p>
+                <div class="product-card staggered-item">
+                    <div class="product-icon">🏠</div>
+                    <h3>循星智能管家</h3>
+                    <p>您的个性化家庭中枢。本地处理数据，保护隐私；持续学习进化，适应您的习惯；无障碍交互，全家适用。</p>
                     <div class="product-links">
                         <a href="project_template.html" class="product-link">查看详情</a>
-                        <a href="product_test.html" class="product-link">产品测试</a>
+                        <a href="product_test.html" class="product-link">在线体验</a>
                     </div>
                 </div>
-                <div class="product-card staggered-item hover-effect-card">
-                    <div class="product-icon hover-effect-icon">💼</div>
-                    <h3>金融分析平台</h3>
-                    <p>我们的金融分析平台提供了全面的数据分析工具，帮助用户做出明智的投资决策。</p>
+                <div class="product-card staggered-item">
+                    <div class="product-icon">🌿</div>
+                    <h3>循星环境感知系统</h3>
+                    <p>实时、智能地感知居家环境。基于本地计算，安全可靠；开放接口，轻松融入现有智能家居生态。</p>
                     <div class="product-links">
                         <a href="project_template.html" class="product-link">查看详情</a>
-                        <a href="product_test.html" class="product-link">产品测试</a>
+                         <a href="docs-ess-api.html" class="product-link">技术文档</a>
                     </div>
                 </div>
-                <div class="product-card staggered-item hover-effect-card">
-                    <div class="product-icon hover-effect-icon">🔒</div>
-                    <h3>安全支付解决方案</h3>
-                    <p>我们提供安全可靠的支付解决方案，保障用户的交易安全。</p>
+                <div class="product-card staggered-item">
+                    <div class="product-icon">🧠</div>
+                    <h3>循星个性化学习引擎</h3>
+                    <p>驱动智能设备更懂您。支持跨设备协同，算法持续迭代，让科技真正服务于您的个性化需求。</p>
                     <div class="product-links">
                         <a href="project_template.html" class="product-link">查看详情</a>
-                        <a href="product_test.html" class="product-link">产品测试</a>
+                        <a href="community.html" class="product-link">开发者中心</a>
                     </div>
                 </div>
             </div>
+
+             <!-- Changed container class -->
+             <div class="core-features-container animate-on-scroll">
+                 <h2 class="section-title" style="margin-top: 100px; width: 100%;">产品理念与核心特性</h2> <!-- Add width:100% to title for flex context -->
+                 <div class="feature-card staggered-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>隐私安全为基石</h3>
+                    <p>所有产品设计均遵循本地优先原则，核心数据不出家门，最大化保障用户隐私。</p>
+                 </div>
+                 <div class="feature-card staggered-item">
+                     <div class="feature-icon">🌍</div>
+                    <h3>体验无障碍</h3>
+                    <p>致力于消除数字鸿沟，提供简洁直观、多模态交互方式，让所有年龄段用户轻松使用。</p>
+                 </div>
+                  <div class="feature-card staggered-item">
+                     <div class="feature-icon">⚙️</div>
+                     <h3>深度个性化</h3>
+                     <p>AI 算法持续学习用户偏好，结合本地决策与分布式处理，提供千人千面的智能服务。</p>
+                 </div>
+                 <div class="feature-card staggered-item">
+                    <div class="feature-icon">💡</div>
+                    <h3>软件定义价值</h3>
+                    <p>通过持续的软件与算法迭代，不断赋予硬件新的能力与价值，延长产品生命周期。</p>
+                 </div>
+                  <div class="feature-card staggered-item">
+                     <div class="feature-icon">🧩</div>
+                     <h3>生态开放互联</h3>
+                     <p>拥抱开放标准，提供丰富的 API 与 SDK，鼓励开发者共同构建繁荣的 AI2Home 生态。</p>
+                 </div>
+                 <div class="feature-card staggered-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>解决实际问题</h3>
+                    <p>技术创新始终围绕用户的真实需求与痛点，提供务实、可靠、易用的智能解决方案。</p>
+                 </div>
+            </div>
+             <!-- End Core Features Section -->
         </div>
     </section>
     

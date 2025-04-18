@@ -1,0 +1,126 @@
+/* Styles specifically for member detail pages (member-*.html) */
+
+/* Variables like --card-bg, --hover-shadow, --card-shadow if different from styles.css, otherwise remove */
+/* Keep :root if member pages need specific overrides, otherwise remove */
+/* Base styles *, body.member-page specific overrides if needed, otherwise remove */
+body.member-page { 
+    /* Keep specific overrides like background if different from global body */
+    /* background: var(--dark-bg); */ /* Example: Likely covered by styles.css now */
+}
+
+/* Container style likely handled by styles.css */
+
+/* Header, Nav, Footer styles likely handled by styles.css */
+
+/* Section padding specific to member details page */
+section#member-details { 
+    padding: 80px 0; 
+}
+
+/* Member Profile specific styles - KEEP THESE */
+.member-profile { 
+    background-color: var(--card-bg); 
+    padding: 50px; 
+    border-radius: 15px; 
+    box-shadow: var(--card-shadow); 
+    /* Animation handled by animations.js/animations.css potentially, add initial state here if needed */
+    /* opacity: 0; */ 
+    /* animation: fadeIn 0.6s ease-out 0.2s forwards; */ /* Ensure fadeIn is defined or remove */
+    display: flex; 
+    gap: 40px; 
+    align-items: flex-start; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+}
+.member-profile:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--hover-shadow); 
+}
+.member-avatar { 
+    flex-shrink: 0; 
+}
+.member-avatar img { 
+    width: 180px; 
+    height: 180px; 
+    border-radius: 50%; 
+    border: 3px solid var(--accent-color); 
+    object-fit: cover; 
+}
+.member-info { 
+    flex-grow: 1; 
+}
+.member-info h1 { 
+    font-size: 2.2rem; 
+    margin-bottom: 5px; 
+    color: var(--primary-color); 
+}
+.member-role { 
+    font-size: 1.2rem; 
+    color: var(--accent-color); 
+    margin-bottom: 25px; 
+    font-weight: 500; 
+}
+.member-bio h3, .member-skills h3, .member-contact h3 { /* Grouped headings */
+    font-size: 1.4rem; 
+    margin-top: 30px; 
+    margin-bottom: 15px; 
+    color: var(--primary-color); 
+    font-weight: 500; 
+    border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.4); 
+    padding-bottom: 8px; 
+}
+.member-bio p, .member-skills ul, .member-contact p { /* Grouped text elements */
+    margin-bottom: 15px; 
+    color: rgba(236, 240, 241, 0.9); 
+}
+.member-skills ul { 
+    list-style: none; 
+    padding: 0; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+.member-skills li { 
+    background-color: rgba(var(--accent-color-rgb), 0.2); 
+    padding: 5px 12px; 
+    border-radius: 15px; 
+    font-size: 0.9rem; 
+}
+.member-contact a { 
+    color: var(--accent-color); 
+    text-decoration: none; 
+    border-bottom: 1px dotted var(--accent-color); 
+    transition: color 0.3s ease, border-bottom-color 0.3s ease; 
+    margin-right: 15px; 
+}
+.member-contact a:hover { 
+    color: var(--primary-color); 
+    border-bottom-color: var(--primary-color); 
+}
+
+/* Responsive adjustments specific to member profile - KEEP THESE */
+@media (max-width: 768px) {
+    .member-profile { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        padding: 30px; 
+    }
+    .member-avatar img { 
+        width: 150px; 
+        height: 150px; 
+        margin-bottom: 20px; 
+    }
+    .member-info h1 { 
+        font-size: 1.8rem; 
+    }
+    .member-role { 
+        font-size: 1.1rem; 
+    }
+    .member-skills ul { 
+        justify-content: center; 
+    }
+    /* Responsive padding for the section */
+    section#member-details { 
+        padding: 60px 0; 
+    }
+} 

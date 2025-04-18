@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>项目名称 - 循星科技</title>
+    <title>产品详情 - 循星科技</title>
     <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -17,6 +18,7 @@
             --dark-bg: linear-gradient(135deg, #000000, #434343);
             --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
             --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            --icon-color: #bdc3c7; /* Color for feature icons */
         }
         
         * {
@@ -119,7 +121,7 @@
             margin: 15px auto; /* Adjust margin */
         }
 
-        .project-details {
+        .product-details {
             background-color: var(--card-bg);
             padding: 50px; /* Increase padding */
             border-radius: 15px; /* More rounded corners */
@@ -129,17 +131,17 @@
             animation: fadeIn 0.6s ease-out 0.2s forwards; /* Apply animation */
         }
 
-        .project-details:hover {
+        .product-details:hover {
             transform: translateY(-5px); /* Lift card on hover */
             box-shadow: var(--hover-shadow); /* Enhance shadow on hover */
         }
 
-        .project-details h2.section-title {
+        .product-details h2.section-title {
              /* Override section title margin within card if needed */
              margin-bottom: 30px;
         }
 
-        .project-details h3 {
+        .product-details h3 {
             font-size: 1.5rem; /* Adjust subtitle size */
             margin-top: 30px;
             margin-bottom: 15px;
@@ -149,60 +151,74 @@
             padding-bottom: 8px;
         }
 
-        .project-details p,
-        .project-details ul {
+        .product-details p,
+        .product-details ul {
             margin-bottom: 20px; /* Uniform bottom margin */
             color: rgba(236, 240, 241, 0.9); /* Slightly less bright text for paragraphs */
         }
 
-        .project-details ul {
-            list-style: disc; /* Use standard disc bullets */
-            padding-left: 25px; /* Indent list */
+        .product-details ul {
+            list-style: none; /* Remove default bullets */
+            padding-left: 0; /* Remove default padding */
         }
 
-        .project-details ul li {
-            margin-bottom: 8px; /* Space between list items */
+        .product-details ul li {
+            margin-bottom: 12px; /* Increased spacing */
+            padding-left: 25px; /* Indent text */
+            position: relative; /* For icon positioning */
         }
 
-        .project-meta {
+        /* Style for list items in 'Core Features' */
+        .core-features ul li::before {
+            content: attr(data-icon); /* Use data-icon attribute for icon */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Adjust vertical alignment */
+            color: var(--icon-color);
+            font-size: 1.1em; /* Adjust icon size */
+            width: 20px; /* Ensure alignment */
+            text-align: center;
+        }
+
+        .product-meta {
             margin-top: 40px;
             padding-top: 25px;
             border-top: 1px solid rgba(var(--accent-color-rgb), 0.4);
             font-size: 0.95rem; /* Slightly adjust font size */
         }
 
-        .project-meta p {
+        .product-meta p {
             margin-bottom: 10px; /* Reduce margin for meta items */
         }
 
-        .project-meta strong {
+        .product-meta strong {
             color: var(--primary-color);
             margin-right: 8px;
             font-weight: 600;
         }
 
-        .project-meta a {
+        .product-meta a {
             color: var(--accent-color);
             text-decoration: none;
             border-bottom: 1px dotted var(--accent-color);
             transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
-        .project-meta a:hover {
+        .product-meta a:hover {
             color: var(--primary-color);
             border-bottom-color: var(--primary-color);
         }
 
-        .project-links {
-            /* Inherits project-meta styles, adjust if needed */
+        .product-links {
+            /* Inherits product-meta styles, adjust if needed */
              margin-top: 20px; /* Space before links section */
         }
 
-        .project-links strong {
+        .product-links strong {
             display: block; /* Make '相关链接:' block */
             margin-bottom: 10px;
         }
 
-        .project-links a {
+        .product-links a {
              display: inline-block;
              margin-right: 15px;
              margin-bottom: 10px; /* Add bottom margin for wrapping links */
@@ -214,7 +230,7 @@
              padding: 5px 0;
         }
 
-        .project-links a:hover {
+        .product-links a:hover {
             color: var(--primary-color);
              transform: translateY(-2px); /* Lift link on hover */
         }
@@ -230,7 +246,7 @@
         }
 
          @media (max-width: 768px) {
-            .project-details {
+            .product-details {
                  padding: 30px; /* Adjust padding */
                  animation-delay: 0s; /* Start animation immediately on mobile */
             }
@@ -252,7 +268,7 @@
                  padding: 30px 0;
                  margin-top: 60px;
             }
-            .project-details h3 {
+            .product-details h3 {
                 font-size: 1.3rem;
             }
         }
@@ -263,58 +279,62 @@
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-             <!-- 替换为项目名称 -->
-            <div class="tagline">[项目名称]</div>
+             <!-- Placeholder: Replace with actual product name -->
+            <div class="tagline">[产品名称]</div>
              <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
                 <a href="team.html">团队成员</a>
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作企业</a>
+                <a href="partners.html">合作与生态</a>
                 <a href="contact.html">联系我们</a>
-                <!-- 可以考虑添加返回产品/项目列表页面的链接 -->
-                <a href="products.html">返回产品</a> 
+                <!-- Link back to the main products page -->
+                <a href="products.html">返回产品列表</a> 
             </div>
         </div>
     </header>
     
-    <section id="project-info">
+    <section id="product-info">
         <div class="container">
-            <div class="project-details">
-                 <!-- 替换为项目名称 -->
-                <h2 class="section-title">[项目名称]</h2>
+            <div class="product-details">
+                 <!-- Placeholder: Replace with actual product name -->
+                <h2 class="section-title">[产品名称]</h2>
                 
-                 <!-- 替换为项目描述 -->
-                <h3>项目描述</h3>
-                <p>[详细介绍项目的背景、目标和主要功能。]</p>
-                <p>[可以分段详细说明项目的特点和创新之处。]</p>
+                 <!-- Placeholder: Replace with product description -->
+                <h3>产品概述</h3>
+                <p>[详细介绍该智能家居产品的功能、应用场景和为用户带来的价值。例如：循星智能管家是一款基于本地 AI 的家庭控制中枢，能够...]</p>
+                <p>[可以分段详细说明产品的独特卖点和用户体验。]</p>
 
-                 <!-- 替换为项目目标 -->
-                <h3>项目目标</h3>
+                <!-- Added Core Features Section -->
+                <h3 class="core-features">核心特性</h3>
                 <ul>
-                    <li>[目标 1]</li>
-                    <li>[目标 2]</li>
-                    <li>[目标 3]</li>
-                    <!-- 可以添加更多目标 -->
+                    <li data-icon="🔒"><strong>本地优先，隐私至上:</strong> 核心数据和用户习惯分析均在本地设备完成，无需担忧云端隐私泄露。</li>
+                    <li data-icon="🌍"><strong>全家适用，无障碍设计:</strong> 简洁的界面与多种交互方式（语音、触控等），确保老人小孩都能轻松上手。</li>
+                    <li data-icon="⚙️"><strong>个性化服务，越用越懂你:</strong> 智能学习用户偏好，主动提供贴心建议与自动化服务，打造专属智能体验。</li>
+                    <li data-icon="💡"><strong>持续进化，软件赋能:</strong> 通过定期的 OTA 升级不断优化算法、增加新功能，让您的设备永不过时。</li>
+                    <li data-icon="🧩"><strong>开放连接，生态融合:</strong> 支持主流智能家居协议，轻松接入现有设备，并提供 API 供开发者扩展。</li>
+                    <li data-icon="🎯"><strong>解决痛点，务实高效:</strong> 专注于解决居家生活中遇到的实际问题，如节能管理、安防提醒、便捷控制等。</li>
                 </ul>
 
-                 <!-- 替换为使用的技术栈 -->
-                <h3>技术栈</h3>
-                <p>[列出项目使用的主要技术、框架、语言等，例如：Python (Django), JavaScript (React), PostgreSQL, Docker 等。]</p>
+                 <!-- Placeholder: Replace with specific technical details if needed -->
+                <h3>技术规格 (可选)</h3>
+                <p>[如果需要，可以列出产品的关键技术参数，如处理器、内存、支持协议、连接方式等。]</p>
 
-                <div class="project-meta">
-                    <p><strong>项目状态:</strong> [例如：开发中 / 已上线 / 维护中]</p>
-                    <p><strong>负责人:</strong> <a href="member_xxx.html">[负责人姓名]</a></p> <!-- 可选：链接到负责人名片 -->
-                    <p><strong>开始日期:</strong> [YYYY-MM-DD]</p>
-                    <p><strong>预计完成/上线日期:</strong> [YYYY-MM-DD 或 待定]</p>
+                <div class="product-meta">
+                    <p><strong>产品状态:</strong> [例如：已上市 / 即将发布 / 概念阶段]</p>
+                    <!-- Optional: Link to relevant team member page -->
+                    <!-- <p><strong>主要负责人:</strong> <a href="member_xxx.html">[负责人姓名]</a></p> -->
+                    <p><strong>上市日期:</strong> [YYYY-MM 或 待定]</p>
+                    <p><strong>支持平台:</strong> [例如：iOS, Android, Web 或 本地设备]</p>
                 </div>
 
-                <div class="project-links project-meta">
-                     <!-- 可选：添加相关链接 -->
-                    <strong>相关链接:</strong>
-                    <a href="#" target="_blank">[链接1: 如 GitHub 仓库]</a>
-                    <a href="#" target="_blank">[链接2: 如 项目文档]</a>
-                    <a href="#" target="_blank">[链接3: 如 演示 Demo]</a>
+                <div class="product-links product-meta">
+                     <!-- Placeholder: Add relevant links -->
+                    <strong>相关资源:</strong>
+                    <a href="#" target="_blank">[用户手册]</a>
+                    <a href="#" target="_blank">[常见问题 (FAQ)]</a>
+                    <a href="product_test.html" target="_blank">[在线体验/模拟器]</a> 
+                    <a href="#" target="_blank">[开发者文档 (如有)]</a>
                 </div>
 
             </div>

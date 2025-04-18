@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>产品测试 - 循星科技</title>
+    <title>产品体验中心 - 循星科技</title>
     <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -294,13 +295,13 @@
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">产品测试平台</div>
+            <div class="tagline">AI2Home 产品体验中心</div>
              <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
                 <a href="team.html">团队成员</a>
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作企业</a>
+                <a href="partners.html">合作与生态</a>
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
@@ -308,35 +309,35 @@
     
     <section id="product-testing">
         <div class="container">
-            <h2 class="section-title">产品测试区</h2>
+            <h2 class="section-title">在线体验与模拟</h2>
 
-            <div class="test-area" id="test-area-1">
-                <h3>测试模块 1：[具体测试功能名称]</h3>
-                <p>[对这个测试模块的简要说明]</p>
+            <div class="test-area" id="test-scene-simulation">
+                <h3>智能场景触发模拟</h3>
+                <p>输入场景描述，模拟循星智能管家如何理解并执行相应的智能家居联动。例如："我回家了"、"开启影院模式"。</p>
                 
-                <!-- 在这里放置测试相关的 HTML 元素 -->
-                <label for="input1">输入数据:</label>
-                <input type="text" id="input1" class="test-input" placeholder="请输入测试数据...">
+                <label for="sceneInput">场景描述:</label>
+                <input type="text" id="sceneInput" class="test-input" placeholder="例如：我准备睡觉了">
                 
-                <button class="test-button" onclick="runTest1()">执行测试 1</button>
+                <button class="test-button" onclick="simulateScene()">模拟场景</button>
 
-                <h4>测试输出:</h4>
-                <div class="test-output" id="output1">[测试结果将显示在这里]</div>
+                <h4>模拟结果:</h4>
+                <div class="test-output" id="sceneOutput">[模拟的设备联动和响应将显示在这里]</div>
             </div>
 
-            <div class="test-area" id="test-area-2">
-                <h3>测试模块 2：[另一个测试功能名称]</h3>
-                 <p>[对这个测试模块的简要说明]</p>
+            <div class="test-area" id="test-nlp-understanding">
+                <h3>自然语言指令理解测试</h3>
+                 <p>输入一段自然语言指令，测试我们的 AI 引擎如何解析意图并生成可执行的操作。支持多轮对话模拟。</p>
 
-                 <!-- 更多测试元素 -->
-                 <textarea id="input2" class="test-input" rows="4" placeholder="输入多行文本..."></textarea>
-                 <button class="test-button" onclick="runTest2()">执行测试 2</button>
+                 <label for="nlpInput">输入指令:</label>
+                 <textarea id="nlpInput" class="test-input" rows="4" placeholder="例如：把客厅灯光调暗一点，然后播放轻音乐"></textarea>
+                 <button class="test-button" onclick="testNlp()">测试理解能力</button>
 
-                 <h4>测试输出:</h4>
-                 <div class="test-output" id="output2">[测试结果将显示在这里]</div>
+                 <h4>解析结果:</h4>
+                 <div class="test-output" id="nlpOutput">[AI 对指令的解析意图和操作序列将显示在这里]</div>
             </div>
 
-            <!-- 可以根据需要添加更多测试区域 -->
+            <!-- 可以根据需要添加更多 AI2Home 相关的测试区域 -->
+            <!-- 例如：环境数据模拟、个性化推荐模拟等 -->
 
         </div>
     </section>
@@ -372,49 +373,81 @@
     </footer>
 
     <script>
-        // 在这里添加测试相关的 JavaScript 函数
-        function runTest1() {
-            const inputElement = document.getElementById('input1');
-            const outputElement = document.getElementById('output1');
-            const inputValue = inputElement.value;
+        // 更新 JS 函数以匹配新的 ID 和逻辑
+        function simulateScene() {
+            const inputElement = document.getElementById('sceneInput');
+            const outputElement = document.getElementById('sceneOutput');
+            const inputValue = inputElement.value.trim(); // Trim whitespace
             
-            // --- 在这里添加你的测试逻辑 --- 
-            // 这是一个示例：
+            let result = '';
             if (!inputValue) {
-                outputElement.textContent = '请输入有效数据！';
-                flashOutputBackground(outputElement); // Flash background on update
-                return;
+                result = '请输入有效的场景描述！';
+            } else {
+                // --- 示例：根据输入模拟不同场景 --- 
+                if (inputValue.includes('回家')) {
+                    result = '模拟执行"回家"场景：\n- 玄关灯已打开\n- 客厅窗帘已打开\n- 空调调整至舒适温度';
+                } else if (inputValue.includes('睡觉')) {
+                    result = '模拟执行"睡觉"场景：\n- 关闭所有主要灯光\n- 卧室夜灯已调至最低亮度\n- 确认门窗已关闭';
+                } else if (inputValue.includes('影院') || inputValue.includes('电影')) {
+                     result = '模拟执行"影院"场景：\n- 关闭客厅主灯\n- 氛围灯已开启\n- 投影仪/电视已打开\n- 窗帘已关闭';
+                } else {
+                    result = `收到场景描述："${inputValue}"\n模拟系统：正在分析并尝试匹配合适的场景...（未找到特定预设场景）`;
+                }
+                // --- 模拟逻辑结束 --- 
             }
-            // 假设的测试处理
-            const result = `对输入 "${inputValue}" 执行测试 1 的结果：处理完成。`; 
-            // --- 测试逻辑结束 ---
 
             outputElement.textContent = result; 
-            flashOutputBackground(outputElement); // Flash background on update
+            flashOutputBackground(outputElement); 
         }
 
-        function runTest2() {
-            const inputElement = document.getElementById('input2');
-            const outputElement = document.getElementById('output2');
-            const inputValue = inputElement.value;
+        function testNlp() {
+            const inputElement = document.getElementById('nlpInput');
+            const outputElement = document.getElementById('nlpOutput');
+            const inputValue = inputElement.value.trim();
 
-             // --- 在这里添加你的测试逻辑 --- 
-            const result = `对输入文本执行测试 2 的结果：\n${inputValue}\n处理完毕。`;
-             // --- 测试逻辑结束 ---
+            let result = '';
+            if (!inputValue) {
+                 result = '请输入有效的自然语言指令！';
+            } else {
+                // --- 示例：模拟 NLP 解析 --- 
+                result = `收到指令："${inputValue}"\n\n模拟解析结果：\n`;
+                let operations = [];
+                // 简单关键词匹配示例
+                if (inputValue.includes('灯') && (inputValue.includes('调暗') || inputValue.includes('暗一点'))) {
+                    operations.push('- 操作：调节灯光\n  - 对象：客厅灯 (推测)\n  - 参数：亮度降低');
+                }
+                if (inputValue.includes('灯') && (inputValue.includes('打开') || inputValue.includes('开灯'))) {
+                     operations.push('- 操作：控制设备\n  - 对象：灯 (具体哪个？)\n  - 参数：状态=开');
+                }
+                if (inputValue.includes('音乐') && (inputValue.includes('播放') || inputValue.includes('来点'))) {
+                    let musicType = '默认';
+                    if (inputValue.includes('轻音乐')) musicType = '轻音乐';
+                    else if (inputValue.includes('摇滚')) musicType = '摇滚';
+                    operations.push(`- 操作：播放音乐\n  - 参数：类型=${musicType}`);
+                }
+                 if (inputValue.includes('温度') && (inputValue.includes('调高') || inputValue.includes('热一点'))) {
+                    operations.push('- 操作：调节设备\n  - 对象：空调/暖气 (推测)\n  - 参数：温度升高');
+                }
+
+                if (operations.length === 0) {
+                    result += '  - 未识别到明确的操作意图。';
+                } else {
+                    result += operations.join('\n');
+                }
+                 // --- 模拟逻辑结束 ---
+            }
 
             outputElement.textContent = result;
-            flashOutputBackground(outputElement); // Flash background on update
+            flashOutputBackground(outputElement);
         }
 
-        // Helper function to briefly change output background on update
         function flashOutputBackground(element) {
             element.classList.add('updated');
             setTimeout(() => {
                 element.classList.remove('updated');
-            }, 600); // Duration matches CSS transition slightly longer
+            }, 600); 
         }
 
-        // 可以根据需要添加更多测试函数
     </script>
 </body>
 </html> 

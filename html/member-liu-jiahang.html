@@ -3,367 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>刘家航 - 团队成员 - 循星科技</title>
-    <link rel="stylesheet" href="../css/member-styles.css">
+    <title>刘家航 - 循星科技团队</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/animations.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d; 
-            --accent-color-rgb: 127, 140, 141;
-            --text-color: #ecf0f1;
-            --card-bg: rgba(44, 62, 80, 0.6);
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 900px; 
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 60px 0; 
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3);
-        }
-        
-        .logo {
-            font-size: 2rem; 
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem; 
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        /* .nav styles are now handled by animations.css */
-        /*
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0,0,0,0.3);
-            padding: 10px 15px;
-            border-radius: 20px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            padding: 5px 0;
-        }
-
-        .nav a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        */
-        
-        section {
-            padding: 80px 0;
-        }
-
-        .member-card {
-            display: flex;
-            gap: 40px;
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeIn 0.6s ease-out 0.2s forwards;
-        }
-
-        .member-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-        
-        .member-photo {
-            flex-basis: 200px;
-            flex-shrink: 0;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            border: 5px solid rgba(var(--accent-color-rgb), 0.7);
-            display: block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        
-        .member-info {
-            flex-grow: 1;
-        }
-        
-        .member-name {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .member-title {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 25px;
-            font-style: italic;
-            font-weight: 300;
-        }
-        
-        .member-bio {
-            margin-bottom: 30px;
-        }
-        
-        .member-bio p {
-            margin-bottom: 15px;
-            line-height: 1.7;
-        }
-
-        .member-details {
-            background-color: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .member-details h3 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .member-details ul {
-            list-style: none;
-            padding-left: 0; /* Remove default padding */
-        }
-
-        .member-details li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .member-details li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        .member-links {
-            margin-top: 25px;
-        }
-
-        .member-links a {
-            display: inline-block;
-            margin-right: 15px;
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-weight: 500;
-        }
-
-        .member-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 80px;
-            border-top: 1px solid rgba(var(--accent-color-rgb), 0.3);
-            font-size: 0.9rem; /* Added for consistency */
-        }
-
-        .contact-info { /* Copied from yuan-qihao for completeness */
-            margin-top: 20px;
-        }
-        
-        .tooltip { /* Copied from yuan-qihao for completeness */
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext { /* Copied from yuan-qihao for completeness */
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext { /* Copied from yuan-qihao for completeness */
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        @keyframes fadeIn { /* Define fade-in animation */
-             from {
-                 opacity: 0;
-                 transform: translateY(15px);
-             }
-             to {
-                 opacity: 1;
-                 transform: translateY(0);
-             }
-         }
-         
-        @media (max-width: 768px) {
-            .member-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 30px;
-                animation-delay: 0s;
-            }
-            .member-photo {
-                margin-bottom: 30px;
-                width: 150px;
-                flex-basis: auto;
-            }
-            .nav {
-                gap: 10px;
-                padding: 8px 10px;
-                right: 10px;
-            }
-            .nav a {
-                font-size: 0.8rem;
-            }
-             header { /* Added media queries from template */
-                 padding: 50px 0;
-             }
-             section {
-                 padding: 60px 0;
-             }
-             footer {
-                  padding: 30px 0;
-                  margin-top: 60px;
-             }
-        }
-        
-        /* Override header animation for performance */
-        header {
-            animation: none !important; 
-            opacity: 1 !important; 
-            transform: none !important; 
-        }
-        
-        /* Disable hover effects on member card */
-        .member-card.hover-effect-card:hover {
-            transform: none !important;
-            background-color: var(--card-bg) !important; /* Revert to original background */
-            box-shadow: var(--card-shadow) !important; /* Revert to original shadow */
-        }
-        
-        .member-card.hover-effect-card:hover .hover-effect-icon {
-            transform: none !important;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/member_info_style.css">
+    
 </head>
-<body>
+<body class="member-page">
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">团队成员</div>
+            <div class="tagline">我们的团队成员</div>
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
-                <a href="team.html" class="current">团队成员</a>
+                <a href="team.html">团队成员</a> 
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作企业</a>
+                <a href="partners.html">合作与生态</a>
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
 
-    <section class="member-profile">
-        <div class="profile-header animate-on-scroll">
-            <div class="container">
-                <div class="logo">循星科技</div>
-                <div class="tagline">团队成员</div>
-                <div class="nav">
-                    <a href="../index.html">主页</a>
-                    <a href="about.html">关于我们</a>
-                    <a href="team.html" class="current">团队成员</a>
-                    <a href="products.html">我们的产品</a>
-                    <a href="partners.html">合作企业</a>
-                    <a href="contact.html">联系我们</a>
-                    <!-- 可以考虑添加返回团队页面的链接 -->
-                    <a href="team.html">返回团队</a> 
-                </div>
-            </div>
-        </div>
-        
+    <section id="member-details">
         <div class="container">
-            <div class="member-card animate-on-scroll hover-effect-card">
-                <div class="member-photo">
-                    <!-- 替换为成员照片链接 -->
-                    <img src="../images/liujiahang_avatar.jpg" alt="刘家航 头像" class="hover-effect-icon">
+            <div class="member-profile animate-on-scroll">
+                <div class="member-avatar">
+                    <img src="../assets/images/avatar_placeholder.png" alt="刘家航头像">
                 </div>
                 <div class="member-info">
-                    <h1 class="member-name">刘家航</h1>
-                    <p class="member-title">项目经理</p>
+                    <h1>刘家航</h1>
+                    <div class="member-role">技术负责人 - 智能管家</div>
+
                     <div class="member-bio">
-                        <p>刘家航是循星科技的项目经理，负责协调团队资源，确保项目按时、按预算、高质量地交付。他具有出色的组织和沟通能力。</p>
-                        <p>他擅长风险管理和进度控制，是连接客户需求和技术实现的桥梁。</p>
+                        <h3>关于 刘家航</h3>
+                        <p>刘家航作为智能管家（Smart Hub）的技术负责人，全面负责该产品的技术战略、架构设计和核心功能实现。他对人工智能、嵌入式系统和智能家居技术有深刻理解和实践经验。</p>
+                        <p>他带领技术团队专注于本地 AI 能力的构建与优化，确保智能管家在保护用户隐私的前提下，提供强大的个性化和自动化能力。刘家航关注技术前沿，推动智能管家在自然语言处理、多模态交互和端边云协同方面的持续创新。</p>
                     </div>
-                    <div class="member-details">
-                        <h3>专业领域</h3>
+
+                    <div class="member-skills">
+                        <h3>核心专长</h3>
                         <ul>
-                            <li>项目规划与管理 (Agile, Scrum)</li>
-                            <li>团队协调与沟通</li>
-                            <li>风险评估与管理</li>
-                            <li>需求分析与范围界定</li>
-                            <li>项目交付与质量控制</li>
+                            <li>AI 技术 (NLP, CV, 推荐系统)</li>
+                            <li>嵌入式系统开发 (Linux/RTOS)</li>
+                            <li>智能家居协议 (Zigbee, Z-Wave, Matter)</li>
+                            <li>系统架构 & 性能优化</li>
+                            <li>技术团队管理</li>
+                            <li>C/C++/Python</li>
+                            <li>端边云协同计算</li>
+                            <li>信息安全</li>
                         </ul>
                     </div>
-                    <div class="member-links">
-                        <a href="mailto:liujiahang@example.com" target="_blank">邮件</a>
-                        <a href="https://www.linkedin.com/in/liujiahang" target="_blank">领英</a>
+
+                    <div class="member-contact">
+                        <h3>联系方式</h3>
+                        <p>
+                            <a href="mailto:jiahang.liu@example.com">邮箱</a> 
+                            <a href="https://github.com/liujiahang-example" target="_blank">GitHub</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -378,7 +75,7 @@
                 <p>电话：+86 15568200088</p>
                 <p>邮箱：sidebystar@outlook.com</p>
             </div>
-            <div class="social-links">
+             <div class="social-links">
                  <div class="tooltip">
                      <a href="#" aria-label="微信">微</a>
                      <span class="tooltiptext">微信号: nikebiewanle</span>

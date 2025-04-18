@@ -3,328 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>信子栋 - 团队成员 - 循星科技</title>
-    <link rel="stylesheet" href="../css/member-styles.css">
+    <title>信子栋 - 循星科技团队</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/animations.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d; 
-            --accent-color-rgb: 127, 140, 141;
-            --text-color: #ecf0f1;
-            --card-bg: rgba(44, 62, 80, 0.6);
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 900px; 
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 60px 0; 
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3);
-        }
-        
-        .logo {
-            font-size: 2rem; 
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem; 
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        /* .nav styles are now handled by animations.css */
-        /*
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0,0,0,0.3);
-            padding: 10px 15px;
-            border-radius: 20px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            padding: 5px 0;
-        }
-
-        .nav a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        */
-        
-        section {
-            padding: 80px 0;
-        }
-
-        .member-card {
-            display: flex;
-            gap: 40px;
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-        }
-        
-        .member-photo {
-            flex-basis: 200px;
-            flex-shrink: 0;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            border: 5px solid rgba(var(--accent-color-rgb), 0.7);
-            display: block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        
-        .member-info {
-            flex-grow: 1;
-        }
-        
-        .member-name {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .member-title {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 25px;
-            font-style: italic;
-            font-weight: 300;
-        }
-        
-        .member-bio {
-            margin-bottom: 30px;
-        }
-        
-        .member-bio p {
-            margin-bottom: 15px;
-            line-height: 1.7;
-        }
-
-        .member-details {
-            background-color: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .member-details h3 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .member-details ul {
-            list-style: none;
-        }
-
-        .member-details li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .member-details li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        .member-links {
-            margin-top: 25px;
-        }
-
-        .member-links a {
-            display: inline-block;
-            margin-right: 15px;
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-weight: 500;
-        }
-
-        .member-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 80px;
-            border-top: 1px solid rgba(var(--accent-color-rgb), 0.3);
-        }
-
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        @media (max-width: 768px) {
-            .member-card {
-                flex-direction: column;
-                padding: 30px;
-                text-align: center;
-            }
-            .member-photo {
-                margin: 0 auto 30px auto;
-                flex-basis: 150px;
-            }
-            .member-name {
-                font-size: 1.8rem;
-            }
-            .member-title {
-                font-size: 1rem;
-            }
-            .nav {
-                gap: 10px;
-                padding: 8px 10px;
-                right: 10px;
-            }
-            .nav a {
-                font-size: 0.8rem;
-            }
-        }
-        
-        /* Override header animation for performance */
-        header {
-            animation: none !important; 
-            opacity: 1 !important; 
-            transform: none !important; 
-        }
-        
-        /* Disable hover effects on member card */
-        .member-card.hover-effect-card:hover {
-            transform: none !important;
-            background-color: var(--card-bg) !important; /* Revert to original background */
-            box-shadow: var(--card-shadow) !important; /* Revert to original shadow */
-        }
-        
-        .member-card.hover-effect-card:hover .hover-effect-icon {
-            transform: none !important;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/member_info_style.css">
+   
 </head>
-<body>
+<body class="member-page">
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">团队成员</div>
+            <div class="tagline">我们的团队成员</div>
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
-                <a href="team.html" class="current">团队成员</a>
+                <a href="team.html">团队成员</a> 
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作企业</a>
+                <a href="partners.html">合作与生态</a>
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
-    
-    <section class="member-profile">
+
+    <section id="member-details">
         <div class="container">
-            <div class="member-card animate-on-scroll hover-effect-card">
-                <div class="member-photo">
-                    <img src="../images/xinzidong_avatar.jpg" alt="信子栋 头像" class="hover-effect-icon">
+            <div class="member-profile animate-on-scroll">
+                <div class="member-avatar">
+                     <img src="../assets/images/avatar_placeholder.png" alt="信子栋头像">
                 </div>
                 <div class="member-info">
-                    <h1 class="member-name">信子栋</h1>
-                    <p class="member-title">数据科学家</p>
+                    <h1>信子栋</h1>
+                    <div class="member-role">行政、财务与内外对接负责人</div>
+
                     <div class="member-bio">
-                        <p>信子栋是循星科技的数据科学家，负责从复杂数据中提取有价值的见解，驱动产品创新和业务决策。他精通机器学习、统计分析和数据可视化技术。</p>
-                        <p>他致力于利用数据驱动的方法来优化我们的产品和服务，提升用户体验。</p>
+                        <h3>关于 信子栋</h3>
+                        <p>信子栋负责循星科技的整体运营管理，涵盖行政、财务及内外部关系协调等关键领域。他致力于为公司的快速发展提供坚实的运营支撑和高效的资源配置。</p>
+                        <p>他不仅确保公司日常运作的顺畅，还负责财务规划与风险控制，并积极拓展与维护合作伙伴关系，保障公司内外部沟通渠道的畅通。其数据科学背景也为公司运营效率的量化分析与优化提供了支持。</p>
                     </div>
-                    <div class="member-details">
-                        <h3>专业领域</h3>
+
+                    <div class="member-skills">
+                        <h3>核心专长</h3>
                         <ul>
-                            <li>机器学习与人工智能</li>
-                            <li>统计建模与数据分析</li>
-                            <li>数据可视化与报告</li>
-                            <li>Python (Pandas, NumPy, Scikit-learn)</li>
-                            <li>大数据技术 (Spark, Hadoop - 可选)</li>
+                            <li>公司运营管理</li>
+                            <li>财务规划与分析</li>
+                            <li>行政管理</li>
+                            <li>合作伙伴关系拓展与维护</li>
+                            <li>内部沟通协调</li>
+                            <li>风险控制</li>
+                            <li>数据分析 (运营相关)</li>
                         </ul>
                     </div>
-                    <div class="member-links">
-                        <a href="mailto:xinzidong@example.com" target="_blank">邮件</a>
-                        <a href="https://github.com/xinzidong" target="_blank">GitHub</a>
+
+                    <div class="member-contact">
+                        <h3>联系方式</h3>
+                        <p>
+                            <a href="mailto:zidong.xin@example.com">邮箱</a> 
+                            <a href="https://www.linkedin.com/in/zidongxin-example" target="_blank">领英</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
@@ -333,23 +74,23 @@
                 <p>电话：+86 15568200088</p>
                 <p>邮箱：sidebystar@outlook.com</p>
             </div>
-            <div class="social-links">
+             <div class="social-links">
                  <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
-                    <span class="tooltiptext">微博: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
-                    <span class="tooltiptext">领英: nikebiewanle</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
-                    <span class="tooltiptext">GitHub: qihao-yuan</span>
-                </div>
+                     <a href="#" aria-label="微信">微</a>
+                     <span class="tooltiptext">微信号: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="微博">博</a>
+                     <span class="tooltiptext">微博: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="领英">领</a>
+                     <span class="tooltiptext">领英: nikebiewanle</span>
+                 </div>
+                 <div class="tooltip">
+                     <a href="#" aria-label="GitHub">G</a>
+                     <span class="tooltiptext">GitHub: qihao-yuan</span>
+                 </div>
             </div>
             <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
         </div>

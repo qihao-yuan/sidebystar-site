@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>合作企业 - 循星科技</title>
+    <title>合作与生态 - 循星科技</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/animations.css">
     <style>
@@ -11,9 +11,11 @@
             --primary-color: #ffffff;
             --secondary-color: #000000;
             --accent-color: #7f8c8d;
+            --accent-color-rgb: 127, 140, 141;
             --text-color: #ecf0f1;
             --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
             --dark-bg: linear-gradient(135deg, #000000, #434343);
+            --card-bg: rgba(44, 62, 80, 0.6);
         }
         
         * {
@@ -68,6 +70,7 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            margin-top: 20px;
         }
         
         .btn:hover {
@@ -99,6 +102,7 @@
             display: flex;
             align-items: center;
             gap: 50px;
+            margin-bottom: 60px;
         }
         
         .about-text {
@@ -107,17 +111,18 @@
         
         .about-image {
             flex: 1;
-            background-color: #444;
-            height: 400px;
+            background-color: var(--card-bg);
+            min-height: 300px;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
         
         .about-image svg {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             fill: #ccc;
         }
         
@@ -132,38 +137,6 @@
             margin-top: 20px;
         }
         
-        /* .social-links styles moved to external CSS */
-        /*
-        .social-links {
-            margin-top: 20px;
-        }
-        */
-        
-        /*
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        */
-        
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-        }
-
         .tooltip {
             position: relative;
             display: inline-block;
@@ -195,7 +168,6 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            /* background-color: var(--secondary-color); */ /* Removed background */
             padding: 10px;
             border-radius: 5px;
             display: flex;
@@ -218,21 +190,30 @@
             color: var(--accent-color);
         }
 
-        /* Added styles from ecosystem.html */
-        .content-block {
+        .ecosystem-block {
             display: flex;
             align-items: center;
             gap: 50px;
-            margin-bottom: 40px; 
+            margin-bottom: 60px;
         }
         
-        .content-text {
+        .ecosystem-text {
             flex: 1;
         }
+
+        .ecosystem-text h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .ecosystem-text p {
+            color: rgba(236, 240, 241, 0.9);
+        }
         
-        .content-image {
+        .ecosystem-image {
             flex: 1;
-            background-color: #444;
+            background-color: var(--card-bg);
             height: 300px; 
             border-radius: 10px;
             display: flex;
@@ -240,23 +221,37 @@
             justify-content: center;
         }
         
-        .content-image svg {
+        .ecosystem-image svg {
             width: 100px; 
             height: 100px; 
             fill: #ccc;
         }
 
+        .ecosystem-block.reverse {
+             flex-direction: row-reverse;
+        }
+
         @media (max-width: 768px) {
-            /* Combined media queries */
             .about-content,
-            .content-block { /* Apply to content block as well */
+            .ecosystem-block {
                 flex-direction: column;
             }
-             .content-image {
+            .ecosystem-block.reverse {
+                 flex-direction: column;
+            }
+             .about-image,
+             .ecosystem-image {
                 height: 200px;
+                min-height: auto;
+            }
+             .nav {
+                gap: 8px; 
+                padding: 8px;
+            }
+            .nav a {
+                font-size: 0.85rem;
             }
         }
-        /* End added styles */
 
     </style>
 </head>
@@ -264,71 +259,92 @@
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">合作企业</div> 
+            <div class="tagline">合作与生态</div>
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
                 <a href="team.html">团队成员</a>
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html" class="current">合作企业</a> 
+                <a href="partners.html" class="current">合作与生态</a> 
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
     
-    <section id="partners-content">
+    <section id="partners-intro">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">合作企业</h2>
+            <h2 class="section-title animate-on-scroll">携手共赢</h2>
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
-                    <p>这里是合作企业页面的内容占位符。请在此处添加关于您的合作企业的信息。</p> 
-                    <p>例如，您可以列出主要的合作伙伴，介绍合作关系，或展示合作成果。</p>
+                    <h3>寻求多元合作</h3>
+                    <p>循星科技致力于构建开放、智能、安全的 AI2Home 服务生态。我们积极寻求与各类伙伴建立深度合作关系，包括但不限于：</p>
+                    <ul>
+                        <li>智能硬件制造商（家电、传感器、控制器等）</li>
+                        <li>内容与服务提供商（音乐、影音、教育、健康等）</li>
+                        <li>社区服务与物业管理平台</li>
+                        <li>房地产与家装设计师</li>
+                        <li>系统集成商与解决方案提供商</li>
+                        <li>高校及科研机构</li>
+                    </ul>
+                    <p>我们相信，通过优势互补和资源共享，能够共同为用户创造更美好的智能居家体验。</p>
+                    <a href="contact.html" class="btn">成为合作伙伴</a>
                 </div>
                 <div class="about-image animate-on-scroll">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="8.5" cy="7" r="4"></circle>
-                        <polyline points="17 11 19 13 23 9"></polyline>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        <line x1="16" y1="7" x2="19" y2="7"></line> 
+                        <line x1="17.5" y1="5.5" x2="17.5" y2="8.5"></line>
                     </svg>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Added Ecosystem Section -->
-    <section id="ecosystem-content" class="animate-on-scroll">
+    <section id="ecosystem-building" class="animate-on-scroll">
         <div class="container">
-            <h2 class="section-title">生态构建意向</h2>
-            <div class="content-block"> 
-                <div class="content-text">
-                    <h3>开放合作</h3>
-                    <p>我们寻求与各行各业的伙伴建立开放的合作关系，共同探索技术应用的可能性，推动行业发展。</p>
+            <h2 class="section-title">共建 AI2Home 开放生态</h2>
+            <div class="ecosystem-block">
+                <div class="ecosystem-text">
+                    <h3>开放接口与本地智能</h3>
+                    <p>我们提供标准化的 API 和 SDK，方便合作伙伴将设备与服务无缝接入循星 AI2Home 平台。更重要的是，您可以利用我们强大的本地 AI 处理能力，为用户提供响应迅速、隐私安全的智能化功能，摆脱对云端的过度依赖。</p>
                 </div>
-                <div class="content-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-                </div>
-            </div>
-            <div class="content-block"> 
-                <div class="content-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                </div>
-                <div class="content-text">
-                    <h3>共创价值</h3>
-                    <p>我们相信协同的力量，愿意与合作伙伴共享资源、技术和市场机会，共同创造更大的商业和社会价值。</p>
+                <div class="ecosystem-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                        <line x1="12" y1="4" x2="12" y2="20"></line>
+                    </svg>
                 </div>
             </div>
-            <div class="content-block">
-                <div class="content-text">
-                    <h3>长期发展</h3>
-                    <p>我们致力于建立长期、稳定、互利的合作关系，共同面对挑战，把握机遇，实现可持续发展。</p>
+            <div class="ecosystem-block reverse">
+                <div class="ecosystem-text">
+                    <h3>赋能伙伴，共创价值</h3>
+                    <p>加入循星生态，意味着您可以触达追求高品质、注重隐私和易用性的用户群体。我们致力于赋能合作伙伴，利用 AI 技术（尤其是个性化和无障碍交互能力）提升您的产品竞争力，共同探索新的商业模式和服务场景。</p>
                 </div>
-                <div class="content-image">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                 <div class="ecosystem-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="ecosystem-block">
+                <div class="ecosystem-text">
+                    <h3>持续进化，长期共荣</h3>
+                    <p>循星科技坚持通过软件和算法的持续迭代来提升平台能力。我们寻求建立长期、稳定、互利的合作关系，共同打造一个不断进化、充满活力的 AI2Home 生态系统，让科技真正服务于每个家庭的美好生活。</p>
+                </div>
+                <div class="ecosystem-image">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Added Ecosystem Section -->
 
     <footer class="animate-on-scroll">
         <div class="container">

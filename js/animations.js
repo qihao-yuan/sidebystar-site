@@ -3,17 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null, // Relative to the viewport
         rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the element is visible
+        // Use multiple thresholds to accurately detect leaving the viewport completely
+        threshold: [0, 0.1] // Trigger at 0% and 10% visibility
     };
 
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
+                // Element is at least 10% visible, trigger animation
                 entry.target.classList.add('is-visible');
-            } else {
-                // Remove the class when the element leaves the viewport
+            } else if (!entry.isIntersecting && entry.intersectionRatio === 0) {
+                // Element is completely out of view (ratio is 0), reset animation state
                 entry.target.classList.remove('is-visible');
             }
+            // When ratio is between 0 and 0.1 (partially leaving), do nothing to prevent flashing
         });
     };
 

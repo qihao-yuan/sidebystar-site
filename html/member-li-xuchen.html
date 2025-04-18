@@ -3,404 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李旭晨 - 团队成员 - 循星科技</title>
-    <link rel="stylesheet" href="../css/member-styles.css">
+    <title>李旭晨 - 循星科技团队</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/animations.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d; 
-            --accent-color-rgb: 127, 140, 141; /* Add RGB version for rgba */
-            --text-color: #ecf0f1;
-            --card-bg: rgba(44, 62, 80, 0.6); /* Slightly adjust card background */
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-            /* overflow-x: hidden; in animations.css */
-        }
-        
-        .container {
-            max-width: 900px; 
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent; /* Make header background transparent */
-            color: var(--primary-color);
-            padding: 60px 0; 
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
-            /* animation in animations.css */
-        }
-        
-        .logo {
-            font-size: 2rem; 
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem; 
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        /* .nav styles are now handled by animations.css */
-        /*
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0,0,0,0.3);
-            padding: 10px 15px;
-            border-radius: 20px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            padding: 5px 0;
-        }
-
-        .nav a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        */
-        
-        section {
-            padding: 80px 0; /* Increase section padding */
-        }
-
-        @keyframes fadeIn { /* Define fade-in animation */
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .member-card {
-            display: flex;
-            gap: 40px;
-            background-color: var(--card-bg); 
-            padding: 40px;
-            border-radius: 15px; /* Slightly more rounded corners */
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
-            opacity: 0; /* Start hidden for animation */
-            animation: fadeIn 0.6s ease-out 0.2s forwards; /* Apply animation */
-        }
-
-        .member-card:hover {
-            transform: translateY(-5px); /* Lift card on hover */
-            box-shadow: var(--hover-shadow); /* Enhance shadow on hover */
-        }
-        
-        .member-photo {
-            flex-basis: 200px; 
-            flex-shrink: 0;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%; 
-            border: 5px solid rgba(var(--accent-color-rgb), 0.7); /* Make border slightly transparent */
-            display: block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Add shadow to photo */
-            /* transition in animations.css */
-        }
-        
-        .member-info {
-            flex-grow: 1;
-        }
-        
-        .member-name {
-            font-size: 2.2rem; /* Slightly larger name */
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .member-title {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 25px; /* Increase space */
-            font-style: italic;
-            font-weight: 300; /* Lighter weight for title */
-        }
-        
-        .member-bio {
-            margin-bottom: 30px;
-        }
-        
-        .member-bio p {
-            margin-bottom: 15px;
-            line-height: 1.7; /* Improve readability */
-        }
-
-        .member-details {
-            background-color: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .member-details h3 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .member-details ul {
-            list-style: none;
-            padding-left: 0; /* Remove default padding */
-        }
-
-        .member-details li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .member-details li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        .member-links {
-            margin-top: 25px; /* Add space above links */
-        }
-
-        .member-links a {
-             display: inline-block;
-             margin-right: 15px; /* Increase spacing */
-             color: var(--accent-color);
-             text-decoration: none;
-             transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
-             font-weight: 500; /* Slightly bolder links */
-        }
-
-        .member-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px); /* Lift link on hover */
-        }
-        
-        footer {
-            background-color: transparent; /* Make footer background transparent */
-            color: var(--primary-color);
-            padding: 40px 0; /* Increase footer padding */
-            text-align: center;
-            margin-top: 80px; /* Increase space before footer */
-            border-top: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
-            font-size: 0.9rem;
-            /* animation in animations.css */
-        }
-        
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        /* .social-links styles moved to external CSS */
-        /*
-        .social-links {
-            margin-top: 20px;
-        }
-        */
-        
-        /*
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        */
-        
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        @media (max-width: 768px) {
-            .member-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 30px; /* Adjust padding */
-                animation-delay: 0s; /* Start animation immediately on mobile */
-            }
-            .member-photo {
-                margin-bottom: 30px;
-                width: 150px; 
-                flex-basis: auto; /* Reset basis */
-            }
-            .nav {
-                gap: 10px;
-                padding: 8px 10px;
-                right: 10px; /* Adjust position */
-            }
-            .nav a {
-                font-size: 0.8rem;
-            }
-            header {
-                padding: 50px 0;
-            }
-            section {
-                padding: 60px 0;
-            }
-            footer {
-                 padding: 30px 0;
-                 margin-top: 60px;
-            }
-            .member-name {
-                font-size: 1.8rem;
-            }
-            .member-title {
-                font-size: 1rem;
-            }
-        }
-        
-        /* Override header animation for performance */
-        header {
-            animation: none !important; 
-            opacity: 1 !important; 
-            transform: none !important; 
-        }
-        
-        /* Disable hover effects on member card */
-        .member-card.hover-effect-card:hover {
-            transform: none !important;
-            background-color: var(--card-bg) !important; /* Revert to original background */
-            box-shadow: var(--card-shadow) !important; /* Revert to original shadow */
-        }
-        
-        .member-card.hover-effect-card:hover .hover-effect-icon {
-            transform: none !important;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/member_info_style.css">
+   
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">团队成员</div>
+            <div class="tagline">我们的团队成员</div>
             <div class="nav">
                 <a href="../index.html">主页</a>
                 <a href="about.html">关于我们</a>
-                <a href="team.html" class="current">团队成员</a>
+                <a href="team.html">团队成员</a> 
                 <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作企业</a>
+                <a href="partners.html">合作与生态</a>
                 <a href="contact.html">联系我们</a>
             </div>
         </div>
     </header>
 
-    <section class="member-profile">
-        <div class="profile-header animate-on-scroll">
-            <div class="container">
-                <div class="logo">循星科技</div>
-                <div class="tagline">团队成员</div>
-                 <div class="nav">
-                    <a href="../index.html">主页</a>
-                    <a href="about.html">关于我们</a>
-                    <a href="team.html">团队成员</a>
-                    <a href="products.html">我们的产品</a>
-                    <a href="partners.html">合作企业</a>
-                    <a href="contact.html">联系我们</a>
-                    <!-- 可以考虑添加返回团队页面的链接 -->
-                    <a href="team.html">返回团队</a> 
-                </div>
-            </div>
-        </div>
-        
+    <section id="member-details">
         <div class="container">
-            <div class="member-card animate-on-scroll hover-effect-card">
-                <div class="member-photo">
-                    <!-- 替换为成员照片链接 -->
-                    <img src="../images/lixuchen_avatar.jpg" alt="李旭晨 头像" class="hover-effect-icon">
+            <div class="member-profile animate-on-scroll">
+                <div class="member-avatar">
+                     <img src="../assets/images/avatar_placeholder.png" alt="李旭晨头像">
                 </div>
                 <div class="member-info">
-                    <h1 class="member-name">李旭晨</h1>
-                    <p class="member-title">市场营销</p>
+                    <h1>李旭晨</h1>
+                    <div class="member-role">全项目对接负责人</div>
+
                     <div class="member-bio">
-                        <p>李旭晨负责循星科技的市场营销策略和品牌推广活动。他擅长市场分析、内容创作和数字营销，致力于提升公司品牌知名度和市场影响力。</p>
-                        <p>他积极拓展市场渠道，与客户建立联系，并将我们的价值主张传递给目标受众。</p>
+                        <h3>关于 李旭晨</h3>
+                        <p>李旭晨作为全项目对接负责人，在循星科技扮演着关键的协调者角色。他负责打通智能管家、环境感知系统、个性化学习引擎等不同产品线之间的沟通壁垒，确保各项目组目标一致、步调协同。</p>
+                        <p>他擅长识别和管理跨项目的依赖关系，促进信息在团队间的有效流动，并协助解决潜在的资源冲突。李旭晨的营销背景使他对整体产品叙事和市场定位有敏锐的洞察力，有助于确保各产品线的整合能够最终服务于统一的用户价值主张。</p>
                     </div>
-                    <div class="member-details">
-                        <h3>专业领域</h3>
+
+                    <div class="member-skills">
+                        <h3>核心专长</h3>
                         <ul>
-                            <li>市场策略与规划</li>
-                            <li>数字营销 (SEO, SEM, 内容营销)</li>
-                            <li>品牌管理与推广</li>
-                            <li>市场调研与分析</li>
-                            <li>社交媒体运营</li>
+                            <li>跨项目协调与沟通</li>
+                            <li>项目集管理 (Program Management)</li>
+                            <li>依赖关系管理</li>
+                            <li>信息流优化</li>
+                            <li>资源协调</li>
+                            <li>产品整合策略</li>
+                            <li>市场营销背景</li>
+                            <li>利益相关者管理</li>
                         </ul>
                     </div>
-                    <div class="member-links">
-                        <a href="mailto:liuxuchen@example.com" target="_blank">邮件</a>
-                        <a href="https://www.linkedin.com/in/liuxuchen" target="_blank">领英</a>
+
+                    <div class="member-contact">
+                        <h3>联系方式</h3>
+                        <p>
+                            <a href="mailto:xuchen.li@example.com">邮箱</a> 
+                            <a href="https://www.linkedin.com/in/xuchenli-example" target="_blank">领英</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -415,7 +75,7 @@
                 <p>电话：+86 15568200088</p>
                 <p>邮箱：sidebystar@outlook.com</p>
             </div>
-            <div class="social-links">
+             <div class="social-links">
                  <div class="tooltip">
                      <a href="#" aria-label="微信">微</a>
                      <span class="tooltiptext">微信号: nikebiewanle</span>
