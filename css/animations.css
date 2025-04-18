@@ -76,8 +76,8 @@ header {
     transform: translateY(30px);
     /* Also apply scroll observation for items below the fold */
      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-     /* Add transition delay for stagger effect */
-     transition-delay: calc(var(--item-index) * 0.1s);
+     /* Add transition delay for stagger effect - Reduce multiplier for faster/row-like effect */
+     transition-delay: calc(var(--item-index) * 0.05s);
      will-change: opacity, transform;
 }
 

@@ -155,20 +155,6 @@ footer {
     margin-top: 20px; 
 }
 
-.social-links a {
-    display: inline-block;
-    color: var(--accent-color);
-    margin: 0 8px;
-    font-size: 1.1rem; /* Adjust icon size if needed */
-    transition: color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
-}
-
-.social-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
 .tooltip { 
     position: relative; 
     display: inline-block; 
@@ -237,7 +223,10 @@ footer {
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Combine transitions for scroll-in (opacity, transform 0.6s) and hover (box-shadow 0.3s) */
+    transition: opacity 0.6s ease-out, 
+                transform 0.6s ease-out, 
+                box-shadow 0.3s ease;
 }
 
 .core-features-container .feature-card {
@@ -309,10 +298,5 @@ footer {
     }
     .core-features-container .feature-card { 
          flex-basis: 100%; 
-    }
-     .product-card, .feature-card { 
-         /* Consider removing hover effect lift on mobile if defined globally */
-         /* transform: none; */ 
-         /* box-shadow: var(--card-shadow); */ /* Use global card shadow */
     }
 } 
