@@ -3,10 +3,10 @@
 /* Variables like --card-bg, --hover-shadow, --card-shadow if different from styles.css, otherwise remove */
 /* Keep :root if member pages need specific overrides, otherwise remove */
 /* Base styles *, body.member-page specific overrides if needed, otherwise remove */
-body.member-page { 
+/*body.member-page { 
     /* Keep specific overrides like background if different from global body */
     /* background: var(--dark-bg); */ /* Example: Likely covered by styles.css now */
-}
+/* }
 
 /* Container style likely handled by styles.css */
 

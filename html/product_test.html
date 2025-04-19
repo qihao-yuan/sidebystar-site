@@ -3,345 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>产品体验中心 - 循星科技</title>
+    <title>产品演示 - 循星科技</title>
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d; 
-            --accent-color-rgb: 127, 140, 141; /* Add RGB version for rgba */
-            --text-color: #ecf0f1;
-            --card-bg: rgba(44, 62, 80, 0.6); /* Slightly adjust card background */
-            --input-bg: rgba(255, 255, 255, 0.08);
-            --input-border: rgba(var(--accent-color-rgb), 0.5);
-            --button-hover-bg: #6c7a7b; 
-            --output-bg: rgba(0, 0, 0, 0.4);
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-            --hover-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg); /* Restored background */
-            line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scrollbar during animations */
-        }
-        
-        .container {
-            max-width: 1200px; 
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent; /* Make header background transparent */
-            color: var(--primary-color);
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-             border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem; 
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            /* background-color: rgba(0,0,0,0.3); */ /* Removed nav background */
-            padding: 10px 15px;
-            border-radius: 20px; /* Rounded corners for nav */
-            display: flex;
-            gap: 15px; /* Increase gap */
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-             padding: 5px 0; /* Add padding for better hover area */
-        }
-
-        .nav a:hover {
-            color: var(--primary-color); /* Brighter hover color */
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
-        
-        section {
-            padding: 80px 0; /* Increase padding */
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px; /* Increase bottom margin */
-            font-size: 2rem; /* Increase title size */
-            position: relative;
-            font-weight: 600; /* Slightly bolder title */
-        }
-        
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 50px; /* Widen underline */
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 15px auto; /* Adjust margin */
-        }
-
-        @keyframes fadeInTestArea { /* Define fade-in animation for test areas */
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .test-area {
-            background-color: var(--card-bg); 
-            padding: 40px; /* Increase padding */
-            border-radius: 15px; /* More rounded corners */
-            box-shadow: var(--card-shadow);
-            min-height: 300px; 
-            margin-bottom: 50px; /* Increase space between areas */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
-             opacity: 0; /* Start hidden for animation */
-             /* Apply animation with slight delay based on order (can be done with JS or nth-child if needed) */
-             animation: fadeInTestArea 0.6s ease-out forwards; 
-        }
-
-        /* Stagger animation for multiple test areas */
-        .test-area:nth-child(2) {
-            animation-delay: 0.15s;
-        }
-        .test-area:nth-child(3) {
-             animation-delay: 0.3s;
-        }
-         /* Add more if you have more test areas */
-
-        .test-area:hover {
-             transform: translateY(-5px); /* Lift card on hover */
-            box-shadow: var(--hover-shadow); /* Enhance shadow on hover */
-        }
-
-        .test-area h3 {
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.4);
-            padding-bottom: 10px;
-            font-size: 1.5rem; /* Adjust subtitle size */
-             color: var(--primary-color);
-             font-weight: 500; /* Medium weight */
-        }
-        .test-area p {
-            margin-bottom: 25px; /* Add space below description */
-            color: rgba(236, 240, 241, 0.9);
-        }
-        
-        .test-area label {
-            display: block; /* Make labels block elements */
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        /* Style inputs and textareas */
-        .test-input, 
-        textarea.test-input { /* Target textarea specifically */
-            width: 100%;
-            padding: 12px 15px; /* Increase padding */
-            margin-bottom: 20px; /* Increase bottom margin */
-            background-color: var(--input-bg);
-            border: 1px solid var(--input-border);
-            color: var(--text-color);
-            border-radius: 8px; /* More rounded */
-            font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .test-input:focus, 
-        textarea.test-input:focus {
-             border-color: var(--primary-color);
-             outline: none; /* Remove default focus outline */
-             box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.3); /* Subtle focus ring */
-        }
-
-        .test-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 12px 25px; /* Adjust padding */
-            border-radius: 8px; /* More rounded */
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-right: 10px; /* Add space between buttons if multiple */
-        }
-
-        .test-button:hover {
-             background-color: var(--button-hover-bg); 
-             transform: translateY(-2px); /* Slight lift on hover */
-        }
-
-        .test-button:active {
-             transform: translateY(0px); /* Press down effect */
-        }
-
-         .test-area h4 {
-            margin-top: 30px; /* Space above output title */
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--primary-color);
-         }
-
-        .test-output {
-            margin-top: 15px; /* Adjust top margin */
-            background-color: var(--output-bg);
-            padding: 20px; /* Increase padding */
-            border-radius: 8px; /* Match input rounding */
-            min-height: 120px; /* Increase min height */
-            white-space: pre-wrap; 
-            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Monospace font for output */
-            font-size: 0.95rem;
-             border: 1px solid rgba(var(--accent-color-rgb), 0.2); /* Subtle border */
-             transition: background-color 0.5s ease; /* Transition background on change (requires JS) */
-        }
-
-        /* Optional: Style for when output is updated */
-        .test-output.updated {
-             background-color: rgba(var(--accent-color-rgb), 0.15); 
-        }
-
-        footer {
-            background-color: transparent; /* Make footer background transparent */
-            color: var(--primary-color);
-            padding: 40px 0; 
-            text-align: center;
-            margin-top: 80px;
-             border-top: 1px solid rgba(var(--accent-color-rgb), 0.3); /* Subtle border */
-             font-size: 0.9rem;
-        }
-
-         @media (max-width: 768px) {
-            .test-area {
-                 padding: 30px; /* Adjust padding */
-                 animation-delay: 0s !important; /* Start animation immediately on mobile, override stagger */
-            }
-             .test-area:hover {
-                 transform: none; /* Disable lift on hover for touch devices */
-                 box-shadow: var(--card-shadow); /* Reset shadow */
-            }
-            .nav {
-                gap: 10px;
-                padding: 8px 10px;
-                right: 10px; /* Adjust position */
-            }
-            .nav a {
-                font-size: 0.8rem;
-            }
-            header {
-                padding: 50px 0;
-            }
-            section {
-                padding: 60px 0;
-            }
-            footer {
-                 padding: 30px 0;
-                 margin-top: 60px;
-            }
-             .test-area h3 {
-                font-size: 1.3rem;
-            }
-             .test-button {
-                 padding: 10px 20px;
-                 width: 100%; /* Make buttons full width on mobile */
-                 margin-bottom: 10px;
-                 margin-right: 0;
-             }
-        }
-
-    </style>
 </head>
 <body>
-    <header>
+    <!-- Standard Header -->
+    <header class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
-            <div class="tagline">AI2Home 产品体验中心</div>
+            <div class="tagline">AI2Home 产品演示</div>
              <div class="nav">
-                <a href="../index.html">主页</a>
-                <a href="about.html">关于我们</a>
-                <a href="team.html">团队成员</a>
-                <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作与生态</a>
-                <a href="contact.html">联系我们</a>
-            </div>
+                 <a href="../index.html">主页</a>
+                 <a href="about.html">关于我们</a>
+                 <a href="team.html">团队成员</a>
+                 <a href="products.html">我们的产品</a>
+                 <a href="partners.html">合作与生态</a>
+                 <a href="community.html">开发者中心</a>
+                 <a href="contact.html">联系我们</a>
+             </div>
         </div>
     </header>
-    
-    <section id="product-testing">
+
+    <section id="product-demos">
         <div class="container">
-            <h2 class="section-title">在线体验与模拟</h2>
+            <h2 class="section-title animate-on-scroll">智能场景演示</h2>
 
-            <div class="test-area" id="test-scene-simulation">
-                <h3>智能场景触发模拟</h3>
-                <p>输入场景描述，模拟循星智能管家如何理解并执行相应的智能家居联动。例如："我回家了"、"开启影院模式"。</p>
-                
-                <label for="sceneInput">场景描述:</label>
-                <input type="text" id="sceneInput" class="test-input" placeholder="例如：我准备睡觉了">
-                
-                <button class="test-button" onclick="simulateScene()">模拟场景</button>
-
-                <h4>模拟结果:</h4>
-                <div class="test-output" id="sceneOutput">[模拟的设备联动和响应将显示在这里]</div>
+            <!-- Demo Area 1: Pet -->
+            <div id="pet" class="test-area demo-card animate-on-scroll">
+                <h3>场景一：宠物识别与看护</h3>
+                <p><strong>识别状态：</strong> 狗狗在门前来回走动并吠叫</p>
+                <ul>
+                    <li>开启室内摄像头分析行为</li>
+                    <li>播放主人声音的安抚语音</li>
+                    <li>推送提醒给用户</li>
+                    <li>展示分析结果并询问是否需要进一步处理（例如：是否需要喂食喂水等）</li>
+                </ul>
+                <button class="test-button">执行全部建议</button>
+                <button class="test-button secondary">忽略</button> <!-- Added secondary class -->
+                <p class="status-output">已执行：摄像头已经开启，语音安抚中，结果已推送，展示进一步处理结果</p> <!-- Changed class -->
             </div>
 
-            <div class="test-area" id="test-nlp-understanding">
-                <h3>自然语言指令理解测试</h3>
-                 <p>输入一段自然语言指令，测试我们的 AI 引擎如何解析意图并生成可执行的操作。支持多轮对话模拟。</p>
-
-                 <label for="nlpInput">输入指令:</label>
-                 <textarea id="nlpInput" class="test-input" rows="4" placeholder="例如：把客厅灯光调暗一点，然后播放轻音乐"></textarea>
-                 <button class="test-button" onclick="testNlp()">测试理解能力</button>
-
-                 <h4>解析结果:</h4>
-                 <div class="test-output" id="nlpOutput">[AI 对指令的解析意图和操作序列将显示在这里]</div>
+            <!-- Demo Area 2: Wake -->
+            <div id="wake" class="test-area demo-card animate-on-scroll">
+                <h3>场景二：起床自动化</h3>
+                <p><strong>检测动作：</strong> 用户翻身 → 坐起 → 起身</p>
+                <p><strong>检测声音：</strong> 闹钟响起 → 用户起床</p>
+                <ul>
+                    <li>判断室外亮度逐步打开窗帘</li>
+                    <li>调取天气api，获取天气信息</li>
+                    <li>根据天气及传感器信息调整窗帘、灯光、空调等设备</li>     
+                    <li>根据行为习惯推测下一步需求（例如：是否需要热水器预热，是否需要打开加湿器）</li>
+                    <li>播放轻柔音乐</li>
+                </ul>
+                <button class="test-button">确认执行</button>
+                <button class="test-button secondary">忽略</button> <!-- Added secondary class -->
+                <p class="status-output">已执行：窗帘已打开，灯光已调高，春季干燥，热水器已预热，加湿器已打开，播放轻柔音乐</p> <!-- Changed class -->
             </div>
 
-            <!-- 可以根据需要添加更多 AI2Home 相关的测试区域 -->
-            <!-- 例如：环境数据模拟、个性化推荐模拟等 -->
+            <!-- Demo Area 3: Sleep -->
+            <div id="sleep" class="test-area demo-card animate-on-scroll">
+                <h3>场景三：睡眠体温监测与调节</h3>
+                <p><strong>热成像状态：</strong> 背部区域持续温度偏高</p>
+                <p><strong>检测动作：</strong> 踢掉被子/翻身</p>
+                <ul>
+                    <li>降低空调目标温度至合适温度</li>
+                    <li>开启轻风模式</li>
+                    <li>记录睡眠热图数据</li>
+                    <li>根据热图数据分析睡眠状态</li>
+                </ul>
+                <button class="test-button">调整环境</button>
+                <button class="test-button secondary">忽略</button> <!-- Added secondary class -->
+                <p class="status-output">环境已调整，下一轮温控将在 30 分钟后进行，并根据热图数据综合分析睡眠状态</p> <!-- Changed class -->
+            </div>
+
+            <!-- Demo Area 4: Traffic -->
+            <div id="traffic" class="test-area demo-card animate-on-scroll">
+                <h3>场景四：语音查询交通状况</h3>
+                <p><strong>语音指令：</strong> "今天早上武林那边会堵吗？"</p>
+                <p><strong>意图解析：</strong> 查询 "武林"+"今天早高峰"+"拥堵状况"，出门可能</p>
+                <p><strong>调取地图api:</strong> "高德地图/百度地图"</p>
+                <p><strong>调取天气api:</strong> "和风天气/中央气象台"</p>
+                <p><strong>查询结果：</strong> "武林广场车流密集，预计拥堵延迟约 12 分钟，今天有雨，湿度较大"</p>
+                <p><strong>本地语音播报:</strong> "武林广场方向建议提前出发，今天有雨，湿度较大，记得带伞"</p>
+                <button class="test-button">语音播报</button>
+                <button class="test-button secondary">关闭提示</button> <!-- Added secondary class -->
+                <p class="status-output">播报完毕，实时追踪路况，并根据路况调整出行方案</p> <!-- Changed class -->
+            </div>
 
         </div>
     </section>
-    
+
+    <!-- Standard Footer -->
     <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo">循星科技</div>
@@ -372,82 +125,13 @@
         </div>
     </footer>
 
+    <script src="../js/animations.js"></script>
     <script>
-        // 更新 JS 函数以匹配新的 ID 和逻辑
-        function simulateScene() {
-            const inputElement = document.getElementById('sceneInput');
-            const outputElement = document.getElementById('sceneOutput');
-            const inputValue = inputElement.value.trim(); // Trim whitespace
-            
-            let result = '';
-            if (!inputValue) {
-                result = '请输入有效的场景描述！';
-            } else {
-                // --- 示例：根据输入模拟不同场景 --- 
-                if (inputValue.includes('回家')) {
-                    result = '模拟执行"回家"场景：\n- 玄关灯已打开\n- 客厅窗帘已打开\n- 空调调整至舒适温度';
-                } else if (inputValue.includes('睡觉')) {
-                    result = '模拟执行"睡觉"场景：\n- 关闭所有主要灯光\n- 卧室夜灯已调至最低亮度\n- 确认门窗已关闭';
-                } else if (inputValue.includes('影院') || inputValue.includes('电影')) {
-                     result = '模拟执行"影院"场景：\n- 关闭客厅主灯\n- 氛围灯已开启\n- 投影仪/电视已打开\n- 窗帘已关闭';
-                } else {
-                    result = `收到场景描述："${inputValue}"\n模拟系统：正在分析并尝试匹配合适的场景...（未找到特定预设场景）`;
-                }
-                // --- 模拟逻辑结束 --- 
-            }
-
-            outputElement.textContent = result; 
-            flashOutputBackground(outputElement); 
-        }
-
-        function testNlp() {
-            const inputElement = document.getElementById('nlpInput');
-            const outputElement = document.getElementById('nlpOutput');
-            const inputValue = inputElement.value.trim();
-
-            let result = '';
-            if (!inputValue) {
-                 result = '请输入有效的自然语言指令！';
-            } else {
-                // --- 示例：模拟 NLP 解析 --- 
-                result = `收到指令："${inputValue}"\n\n模拟解析结果：\n`;
-                let operations = [];
-                // 简单关键词匹配示例
-                if (inputValue.includes('灯') && (inputValue.includes('调暗') || inputValue.includes('暗一点'))) {
-                    operations.push('- 操作：调节灯光\n  - 对象：客厅灯 (推测)\n  - 参数：亮度降低');
-                }
-                if (inputValue.includes('灯') && (inputValue.includes('打开') || inputValue.includes('开灯'))) {
-                     operations.push('- 操作：控制设备\n  - 对象：灯 (具体哪个？)\n  - 参数：状态=开');
-                }
-                if (inputValue.includes('音乐') && (inputValue.includes('播放') || inputValue.includes('来点'))) {
-                    let musicType = '默认';
-                    if (inputValue.includes('轻音乐')) musicType = '轻音乐';
-                    else if (inputValue.includes('摇滚')) musicType = '摇滚';
-                    operations.push(`- 操作：播放音乐\n  - 参数：类型=${musicType}`);
-                }
-                 if (inputValue.includes('温度') && (inputValue.includes('调高') || inputValue.includes('热一点'))) {
-                    operations.push('- 操作：调节设备\n  - 对象：空调/暖气 (推测)\n  - 参数：温度升高');
-                }
-
-                if (operations.length === 0) {
-                    result += '  - 未识别到明确的操作意图。';
-                } else {
-                    result += operations.join('\n');
-                }
-                 // --- 模拟逻辑结束 ---
-            }
-
-            outputElement.textContent = result;
-            flashOutputBackground(outputElement);
-        }
-
-        function flashOutputBackground(element) {
-            element.classList.add('updated');
-            setTimeout(() => {
-                element.classList.remove('updated');
-            }, 600); 
-        }
-
+        // Add any page-specific JS if needed
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Product demo page loaded with site styles.");
+            // Example: Add interactivity to buttons later
+        });
     </script>
 </body>
 </html> 

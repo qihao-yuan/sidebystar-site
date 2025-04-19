@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
+            console.log('Intersection observed:', entry.target); // Added for debugging
             if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
                 // Element is at least 10% visible, trigger animation
                 entry.target.classList.add('is-visible');

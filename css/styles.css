@@ -300,3 +300,355 @@ footer {
          flex-basis: 100%; 
     }
 } 
+
+/* Styles moved from html/technology.html */
+.tech-section {
+    margin-bottom: 60px;
+}
+
+.tech-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    border-bottom: 1px solid rgba(var(--accent-color-rgb, 127, 140, 141), 0.3);
+    padding-bottom: 10px;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.highlight-card {
+    background-color: var(--card-bg, rgba(44, 62, 80, 0.6));
+    padding: 25px;
+    border-radius: 10px;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow, 0 8px 25px rgba(0,0,0,0.5));
+}
+
+.highlight-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.highlight-card p {
+    color: rgba(236, 240, 241, 0.9);
+}
+
+.scenario-card {
+    background-color: var(--card-bg, rgba(44, 62, 80, 0.6));
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out, box-shadow 0.3s ease;
+}
+
+.scenario-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow, 0 8px 25px rgba(0,0,0,0.5));
+}
+
+.scenario-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    border-bottom: 1px solid rgba(var(--accent-color-rgb, 127, 140, 141), 0.3);
+    padding-bottom: 10px;
+}
+
+.scenario-list {
+    list-style: none;
+    padding: 0;
+}
+
+.scenario-list li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.scenario-list li::before {
+    content: "•";
+    position: absolute;
+    left: 10px;
+    color: var(--accent-color, #7f8c8d);
+    font-size: 1.2rem;
+}
+
+.join-us {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background-color: rgba(var(--accent-color-rgb, 127, 140, 141), 0.1);
+    border-radius: 10px;
+}
+
+.join-us h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.join-us p {
+    margin-bottom: 25px;
+}
+
+.tech-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tech-list li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.tech-list li::before {
+    content: "•";
+    position: absolute;
+    left: 10px;
+    color: var(--accent-color, #7f8c8d);
+    font-size: 1.2rem;
+}
+
+/* === Styles for product_test.html Demo Page === */
+
+/* Ensure body uses the default dark theme */
+/* (No explicit body override needed here if global style applies) */
+
+.demo-card {
+    background-color: var(--card-bg); /* Use site's dark theme card background */
+    padding: 25px 30px; 
+    border-radius: 12px; 
+    margin-bottom: 30px; 
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* Adjusted shadow for dark bg */
+    border: 1px solid rgba(var(--accent-color-rgb), 0.2); /* Use accent border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    overflow: hidden; 
+}
+
+.demo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow); /* Use global hover shadow */
+    background-color: rgba(var(--accent-color-rgb), 0.15); /* Subtle hover background */
+}
+
+.demo-card h3 {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3);
+    font-size: 1.5rem; 
+    color: var(--primary-color); /* Light color for heading */
+    font-weight: 600;
+}
+
+.demo-card p {
+    margin-bottom: 15px;
+    color: var(--text-color); /* Light color for paragraph */
+    line-height: 1.7;
+}
+
+.demo-card p strong {
+    font-weight: 600;
+    color: #ffffff; /* Brightest white for emphasis */
+}
+
+.demo-card ul {
+    list-style: none; 
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.demo-card ul li {
+    position: relative;
+    padding-left: 28px; 
+    margin-bottom: 10px;
+    color: var(--text-color); /* Light color for list items */
+}
+
+.demo-card ul li::before {
+    content: '\2714'; 
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #4CAF50; /* Brighter Green checkmark */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.status-output {
+    font-size: 0.95em;
+    margin-top: 20px;
+    color: #bdc3c7; /* Lighter grey for status text */
+    font-style: italic;
+    background-color: rgba(var(--accent-color-rgb), 0.1); /* Use existing subtle background */
+    padding: 10px 15px;
+    border-left: 4px solid var(--accent-color); /* Use accent color border */
+    border-radius: 0 6px 6px 0;
+}
+
+/* Enhanced Button Styles (Adjusted for Dark Theme) */
+.test-button {
+    display: inline-block;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #1c1c1c; /* Dark text on primary button */
+    background-color: var(--primary-color); /* Primary button uses light background */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 5px 10px 5px 0;
+}
+
+.test-button:hover {
+    background-color: #e0e0e0; /* Slightly dimmer white on hover */
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.test-button:active {
+    transform: translateY(0px);
+    background-color: #cccccc; 
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.test-button.secondary {
+    background-color: var(--accent-color); /* Use accent color for secondary */
+    color: var(--primary-color); /* Light text for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.test-button.secondary:hover {
+    background-color: #6c7a7b; /* Darker accent color */
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.test-button.secondary:active {
+    transform: translateY(0px);
+    background-color: #5a6667; /* Even darker accent */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* === Styles for New Value Chain and Philosophy Section (products.html) === */
+
+.value-chain-section, .philosophy-points {
+    background-color: rgba(var(--accent-color-rgb), 0.08);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 40px 0;
+    border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+}
+
+.value-chain-title, .philosophy-title {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.value-chain-steps {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px; /* Gap between items and arrows */
+}
+
+.value-chain-step {
+    background-color: rgba(var(--secondary-color-rgb, 0, 0, 0), 0.2); /* Darker step background */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1; /* Allow steps to grow */
+    min-width: 180px; /* Minimum width before wrapping */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(var(--accent-color-rgb), 0.1);
+}
+
+.value-chain-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.step-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.value-chain-step h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.value-chain-step p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.chain-arrow {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    padding: 0 10px; /* Add some spacing */
+    align-self: center;
+}
+
+/* Hide arrows when wrapping */
+@media (max-width: 992px) { /* Adjust breakpoint as needed */
+    .chain-arrow {
+        display: none;
+    }
+    .value-chain-step {
+        margin-bottom: 15px; /* Add space when stacked */
+        min-width: calc(50% - 10px); /* Two columns on medium screens */
+    }
+}
+@media (max-width: 576px) { 
+     .value-chain-step {
+        min-width: 100%; /* Full width on small screens */
+    }
+}
+
+.philosophy-points ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.philosophy-points li {
+    background-color: rgba(var(--secondary-color-rgb, 0, 0, 0), 0.15);
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    border-left: 4px solid var(--accent-color);
+}
+
+.point-icon {
+    font-size: 1.3rem;
+    margin-right: 15px;
+    opacity: 0.9;
+} 
