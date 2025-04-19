@@ -14,6 +14,7 @@
             --text-color: #ecf0f1;
             --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
             --dark-bg: linear-gradient(135deg, #000000, #434343);
+            --accent-color-rgb: 127, 140, 141; /* Added for consistency */
         }
         
         * {
@@ -192,33 +193,90 @@
         .nav a.current {
             color: var(--accent-color);
         }
+
+        /* Styles for language switching */
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            margin-left: 15px;
+            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            padding-left: 15px;
+        }
+        .lang-switch a {
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .lang-switch a:hover {
+            background-color: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+        }
+        .lang-switch a.active-lang {
+            font-weight: bold;
+            background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--accent-color);
+        }
+        /* Hide inactive language spans by default */
+        html[lang="zh-CN"] [lang="en"],
+        html[lang="en"] [lang="zh-CN"] {
+            display: none;
+        }
+        /* Show active language spans */
+        html[lang="zh-CN"] [lang="zh-CN"],
+        html[lang="en"] [lang="en"] {
+            display: inline;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">循星科技</div>
-            <div class="tagline">联系我们</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="tagline">
+                <span lang="zh-CN">联系我们</span>
+                <span lang="en">Contact Us</span>
+            </div>
             <div class="nav">
-                <a href="../index.html">主页</a>
-                <a href="about.html">关于我们</a>
-                <a href="team.html">团队成员</a>
-                <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作与生态</a>
-                <a href="community.html">开发者中心</a>
-                <a href="contact.html" class="current">联系我们</a>
+                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
+                <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
+                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
+                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
+                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
+                <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
+                <a href="contact.html" class="current"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
+                 <!-- Language Switcher -->
+                 <div class="lang-switch">
+                    <a data-lang="zh-CN" class="active-lang">中文</a>
+                    <a data-lang="en">EN</a>
+                </div>
             </div>
         </div>
     </header>
     
     <section id="contact">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">联系我们</h2>
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">联系我们</span>
+                <span lang="en">Contact Us</span>
+            </h2>
             <div style="text-align: center;">
                 <div class="contact-method animate-on-scroll">
-                    <h3>📧 电子邮件</h3>
-                    <p>我们会在24小时内回复您的邮件</p>
-                    <a href="mailto:sidebystar@outlook.com" class="btn">发送邮件</a>
+                    <h3>
+                        <span lang="zh-CN">📧 电子邮件</span>
+                        <span lang="en">📧 Email</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">我们会在24小时内回复您的邮件</span>
+                        <span lang="en">We will reply to your email within 24 hours</span>
+                    </p>
+                    <a href="mailto:sidebystar@outlook.com" class="btn">
+                        <span lang="zh-CN">发送邮件</span>
+                        <span lang="en">Send Email</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -226,11 +284,20 @@
 
     <footer class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
             </div>
             <div class="social-links">
                 <div class="tooltip">
@@ -250,9 +317,13 @@
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
         </div>
     </footer>
     <script src="../js/animations.js"></script>
+    <script src="../js/language.js"></script> <!-- Add language script -->
 </body>
 </html>

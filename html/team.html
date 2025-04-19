@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>团队成员 - 循星科技</title>
+    <title><span lang="zh-CN">团队成员 - 循星科技</span><span lang="en">Team Members - SidebyStar</span></title>
     <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
         :root {
             --primary-color: #ffffff;
             --secondary-color: #000000;
-            --accent-color: #7f8c8d;
+            --accent-color: #5fa8d3;
+            --accent-color-rgb: 95, 168, 211;
             --text-color: #ecf0f1;
-            --light-bg: #2c3e50;
+            --light-bg: #1e1e1e;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --hover-bg: rgba(var(--accent-color-rgb), 0.2);
+            --link-color: var(--accent-color);
+            --link-hover-color: #8ac6e0;
+            --border-color: rgba(var(--accent-color-rgb), 0.3);
+            --shadow-color: rgba(0, 0, 0, 0.5);
         }
         
         * {
@@ -23,98 +31,9 @@
         
         body {
             color: var(--text-color);
-            background: linear-gradient(135deg, #000000, #434343);
             line-height: 1.6;
-            position: relative;
-            overflow-x: hidden;
         }
         
-        /* Starry background using pseudo-element */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1; /* Place behind content */
-            background-image: 
-                /* Layer 1: Larger and brighter */
-                radial-gradient(1.5px 1.5px at 20% 30%, white, transparent),
-                radial-gradient(1.5px 1.5px at 40% 70%, white, transparent),
-                radial-gradient(1.5px 1.5px at 70% 20%, white, transparent),
-                radial-gradient(2px 2px at 85% 85%, white, transparent), 
-                radial-gradient(2px 2px at 10% 90%, white, transparent),
-                radial-gradient(2px 2px at 50% 50%, white, transparent),
-                radial-gradient(2.5px 2.5px at 90% 10%, white, transparent),
-                /* Layer 2: Larger and brighter */
-                radial-gradient(2.5px 2.5px at 30% 10%, white, transparent),
-                radial-gradient(3px 3px at 60% 60%, white, transparent),
-                radial-gradient(3px 3px at 80% 40%, white, transparent);
-            background-repeat: repeat;
-            /* Adjust sizes if needed, or keep them */
-            background-size: 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 
-                             600px 600px, 600px 600px, 600px 600px;
-            /* Combine twinkle and movement animations */
-            animation: twinkle 10s linear infinite, move-background 60s linear infinite;
-            opacity: 0.5; /* Overall opacity */
-        }
-
-        /* Remove Shooting Star Animation */
-        /*
-        body::after {
-            content: '';
-            position: absolute;
-            top: -20%; 
-            left: 60%; 
-            width: 2px;
-            height: 150px; 
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
-            transform-origin: top left;
-            transform: rotate(-45deg); 
-            animation: shooting-star 12s linear infinite 2s; 
-            z-index: 0; 
-            opacity: 0; 
-        }
-
-        @keyframes shooting-star {
-            0% {
-                opacity: 0;
-                transform: translate(0, 0) rotate(-45deg);
-            }
-            10% { 
-                opacity: 0.7;
-            }
-            80% { 
-                opacity: 0.7;
-            }
-            100% { 
-                opacity: 0;
-                transform: translate(-120vw, 120vh) rotate(-45deg);
-            }
-        }
-        */
-        /* End Removed Shooting Star Animation */
-
-        @keyframes twinkle {
-            0%   { opacity: 0.2; } /* Dimmer base opacity */
-            50%  { opacity: 1.0; } /* Brighter peak opacity */
-            100% { opacity: 0.2; }
-        }
-
-        /* Keyframe for background movement */
-        @keyframes move-background {
-            from { background-position: 0 0; }
-            to   { background-position: 300px 300px; } /* Match smallest background-size for seamless loop */
-        }
-
-        /* Apply a slower animation to the second layer - Currently unused */
-        /*
-        @keyframes twinkle-slow {
-             0%   { opacity: 0.3; } 
-        }
-        */
-        /* Apply twinkle-slow only to the second layer background positions if needed */
-        /* We can simplify by applying twinkle to all layers via the main body::before animation property */
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -145,58 +64,76 @@
         
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
-            padding: 80px 0;
+            padding: 60px 0;
+            margin-top: 40px;
         }
         
         .team-member {
-            background-color: var(--secondary-color);
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 20px var(--shadow-color);
             text-align: center;
-            padding: 20px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .team-member:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 12px 25px rgba(var(--accent-color-rgb), 0.3);
         }
         
         .member-img {
-            height: 250px;
-            background-color: #444;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            overflow: hidden;
+            border: 3px solid var(--accent-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            background-color: var(--light-bg);
         }
         
-        .member-img svg {
-            width: 100px;
-            height: 100px;
-            fill: #ccc;
+        .member-img img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
         }
         
         .member-name {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
         }
         
         .member-role {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
         
         .member-details-link {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 25px;
             background-color: var(--accent-color);
             color: var(--primary-color);
             text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
         }
         
         .member-details-link:hover {
-            background-color: var(--primary-color);
+            background-color: var(--link-hover-color);
             color: var(--secondary-color);
             transform: translateY(-2px);
         }
@@ -216,34 +153,182 @@
             margin-top: 20px;
         }
         
-        /* Social link styles moved to animations.css */
-        /*
-        .social-links {
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        */
-        
         @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            .member-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
             .team-grid {
                 grid-template-columns: 1fr;
             }
+             .member-img {
+                width: 100px;
+                height: 100px;
+            }
+            .member-name {
+                font-size: 1.1rem;
+            }
+            .member-role {
+                 font-size: 0.9rem;
+            }
+            .member-details-link {
+                padding: 8px 20px;
+            }
+        }
+
+        /* Ferris Wheel Styles */
+        #ferris-wheel-container {
+            position: relative;
+            height: 65vh;
+            min-height: 450px;
+            width: 100%;
+            max-width: 950px;
+            margin: 30px auto;
+            padding: 0;
+            perspective: 1400px;
+            /* overflow: hidden; */ /* <-- TEMPORARILY COMMENT OUT to diagnose clipping */
+        }
+
+        #ferris-wheel-container .team-member {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 80%; /* Slightly decrease relative width */
+            max-width: 850px; /* Increase tag max-width, keep less than container */
+            margin: 0;
+            display: flex !important;
+            align-items: center;
+            padding: 0;
+            border-radius: 20px; /* Increase border-radius */
+            transition: opacity 0.5s ease-out, z-index 0.5s; /* Remove transform from transition? Maybe not needed */
+            opacity: 0;
+            will-change: transform, opacity;
+            transform-origin: center center;
+            /* Inherit background/blur from the standard team-member styles */
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
+             -webkit-backdrop-filter: blur(5px);
+             box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        #ferris-wheel-container .member-content-wrapper {
+             display: flex;
+             align-items: center;
+             /* Adjust padding: Top, Right, Bottom, Left - increase left padding */
+             padding: 15px 15px 15px 25px;
+             width: 100%;
+             height: 100%;
+             transition: background-color 0.3s ease;
+             transform-origin: center center;
+             /* Make wrapper transparent to show card background */
+             background-color: transparent;
+             border-radius: 20px; /* Match parent */
+        }
+
+
+        #ferris-wheel-container .member-img {
+            height: 80px; /* Reduce image container height */
+            width: 80px;  /* Reduce image container width */
+            flex-shrink: 0;
+            margin-bottom: 0;
+            margin-right: 30px; /* Increase right margin to push text further */
+            background-color: var(--light-bg); /* Keep background for placeholder */
+            display: flex; /* Keep flex for centering svg */
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; /* Make image container circular */
+            overflow: hidden; /* Hide svg parts outside circle */
+            border: 2px solid var(--border-color); /* Use border color var */
+        }
+
+        #ferris-wheel-container .member-img svg {
+            width: 40px; /* Reduce SVG size */
+            height: 40px;
+            fill: var(--text-color); /* Use text color var */
+        }
+
+        #ferris-wheel-container .member-info {
+             flex-grow: 1; /* Allow text info to take remaining space */
+             text-align: left; /* Align text to the left */
+        }
+
+        #ferris-wheel-container .member-name {
+             font-size: 1.2rem; /* Slightly larger name */
+             margin-bottom: 5px;
+             color: var(--primary-color); /* Ensure bright text color */
+             font-weight: 600; /* Match grid style */
+        }
+
+        #ferris-wheel-container .member-role {
+             font-size: 0.9rem;
+             color: var(--accent-color); /* Use accent color */
+             margin-bottom: 12px;
+             font-weight: 500; /* Match grid style */
+        }
+
+        #ferris-wheel-container .member-details-link {
+            /* Adjust link style for better fit */
+             padding: 6px 15px;
+             background-color: rgba(var(--accent-color-rgb), 0.6); /* Semi-transparent accent */
+             color: var(--primary-color);
+             border: 1px solid rgba(var(--accent-color-rgb), 0.8);
+             border-radius: 15px; /* Adjust radius */
+             transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+             font-weight: 500; /* Match grid style */
+             text-decoration: none;
+             display: inline-block;
+        }
+         #ferris-wheel-container .member-details-link:hover {
+             background-color: var(--link-hover-color); /* Lighter accent on hover */
+             color: var(--secondary-color); /* Dark text on hover */
+             border-color: var(--accent-color);
+             transform: translateY(-1px); /* Subtle lift */
+         }
+
+        /* Restore simple hover effect on wrapper if desired, but keep it subtle */
+        #ferris-wheel-container .team-member.hover-effect-card:hover .member-content-wrapper {
+             /* Slightly adjust background on hover if needed, or remove */
+              background-color: rgba(45, 45, 45, 0.85); 
+        }
+
+        /* Dot Indicator Styles */
+        #dot-indicator {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            /* Combine base centering with a downward offset */
+            transform: translateY(calc(-50% + 86px)); /* Adjust 86px as needed */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2000;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.3); /* Dim default color */
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background-color: var(--accent-color); /* Use accent color for active dot */
+            transform: scale(1.3); /* Make active dot larger */
+        }
+        /* --- End Ferris Wheel Styles --- */
+
+        /* Add margin above footer to separate from Ferris wheel */
+        footer.animate-on-scroll {
+            margin-top: 150px; /* Adjust value as needed */
         }
 
         .tooltip {
@@ -315,168 +400,63 @@
             cursor: pointer;
         }
 
-        /* Ferris Wheel Styles */
-        #ferris-wheel-container {
-            position: relative;
-            height: 65vh;
-            min-height: 450px;
-            width: 100%;
-            max-width: 950px;
-            margin: 30px auto;
-            padding: 0;
-            perspective: 1400px;
-            /* overflow: hidden; */ /* <-- TEMPORARILY COMMENT OUT to diagnose clipping */
-        }
-
-        #ferris-wheel-container .team-member {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 80%; /* Slightly decrease relative width */
-            max-width: 850px; /* Increase tag max-width, keep less than container */
-            margin: 0;
-            display: flex !important;
-            align-items: center;
-            padding: 0;
-            border-radius: 20px; /* Increase border-radius */
-            transition: opacity 0.5s ease-out, z-index 0.5s; /* Remove transform from transition? Maybe not needed */
-            opacity: 0;
-            will-change: transform, opacity;
-            transform-origin: center center;
-        }
-
-        #ferris-wheel-container .member-img {
-            height: 80px; /* Reduce image container height */
-            width: 80px;  /* Reduce image container width */
-            flex-shrink: 0;
-            margin-bottom: 0;
-            margin-right: 30px; /* Increase right margin to push text further */
-            background-color: #444; /* Keep background for placeholder */
-            display: flex; /* Keep flex for centering svg */
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%; /* Make image container circular */
-            overflow: hidden; /* Hide svg parts outside circle */
-            border: 2px solid rgba(255, 255, 255, 0.15); /* Add subtle border to image */
-        }
-
-        #ferris-wheel-container .member-img svg {
-            width: 40px; /* Reduce SVG size */
-            height: 40px;
-            fill: #ccc;
-        }
-        
-        #ferris-wheel-container .member-info {
-             flex-grow: 1; /* Allow text info to take remaining space */
-             text-align: left; /* Align text to the left */
-        }
-
-        #ferris-wheel-container .member-name {
-             font-size: 1.2rem; /* Slightly larger name */
-             margin-bottom: 5px;
-             color: #f1f1f1; /* Ensure bright text color */
-        }
-        
-        #ferris-wheel-container .member-role {
-             font-size: 0.9rem;
-             color: #bdc3c7; /* Lighter gray for role */
-             margin-bottom: 12px;
-        }
-        
-        #ferris-wheel-container .member-details-link {
-            /* Adjust link style for better fit */
-             padding: 6px 15px;
-             background-color: rgba(127, 140, 141, 0.6); /* Semi-transparent accent */
-             color: #f1f1f1;
-             border: 1px solid rgba(127, 140, 141, 0.8);
-        }
-         #ferris-wheel-container .member-details-link:hover {
-             background-color: rgba(189, 195, 199, 0.8); /* Lighter accent on hover */
-             color: #1c1c1c; /* Dark text on hover */
-             border-color: rgba(189, 195, 199, 1);
-             transform: translateY(-1px); /* Subtle lift */
-         }
-
-        /* Restore simple hover effect on wrapper */
-        
-        #ferris-wheel-container .team-member.hover-effect-card:hover .member-content-wrapper {
-             background-color: rgba(45, 45, 45, 0.85); /* Slightly lighter/more opaque background on hover */
-             /* Keep transform commented out */
-             /* transform: scale(1.03); */ 
-        }
-        /* Keep other hover rules commented out */
-        /*
-        #ferris-wheel-container .team-member.hover-effect-card:hover {
-             box-shadow: 0 5px 25px rgba(255,255,255,0.1); 
-             z-index: 1000 !important; 
-        }
-        #ferris-wheel-container .team-member.hover-effect-card:hover .hover-effect-icon {
-            
-        }
-        */
-        /* --- End Ferris Wheel Styles --- */
-
-        #ferris-wheel-container .member-content-wrapper {
-             display: flex;
-             align-items: center;
-             /* Adjust padding: Top, Right, Bottom, Left - increase left padding */
-             padding: 15px 15px 15px 25px; 
-             width: 100%;
-             height: 100%;
-             transition: background-color 0.3s ease;
-             transform-origin: center center;
-             background-color: rgba(30, 30, 30, 0.75);
-             border-radius: 20px;
-             border: 1px solid rgba(255, 255, 255, 0.1);
-             box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
-        }
-
-        /* Dot Indicator Styles */
-        #dot-indicator {
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            /* Combine base centering with a downward offset */
-            transform: translateY(calc(-50% + 86px)); /* Adjust 60px as needed */
+        .lang-switch {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 2000;
+            gap: 5px;
+            margin-left: 15px;
+            border-left: 1px solid var(--border-color);
+            padding-left: 15px;
+            align-items: center;
         }
-
-        .indicator-dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.3); /* Dim default color */
-            border-radius: 50%;
-            transition: all 0.3s ease;
+        .lang-switch a {
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
         }
-
-        .indicator-dot.active {
-            background-color: rgba(255, 255, 255, 0.9); /* Bright active color */
-            transform: scale(1.3); /* Make active dot larger */
+        .lang-switch a:hover {
+            background-color: var(--hover-bg);
+            color: var(--accent-color);
         }
-
-        /* Add margin above footer to separate from Ferris wheel */
-        footer.animate-on-scroll {
-            margin-top: 180px; /* Increase value */
+        .lang-switch a.active-lang {
+            font-weight: bold;
+            background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--accent-color);
+        }
+        html[lang="zh-CN"] [lang="en"],
+        html[lang="en"] [lang="zh-CN"] {
+            display: none;
+        }
+        html[lang="zh-CN"] [lang="zh-CN"],
+        html[lang="en"] [lang="en"] {
+            display: initial;
         }
 
     </style>
 </head>
 <body>
-    <header>
+    <header class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
-            <div class="tagline">我们的团队</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="tagline">
+                <span lang="zh-CN">认识我们的团队</span>
+                <span lang="en">Meet Our Team</span>
+            </div>
             <div class="nav">
-                <a href="../index.html">主页</a>
-                <a href="about.html">关于我们</a>
-                <a href="team.html" class="current">团队成员</a>
-                <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作与生态</a>
-                <a href="community.html">开发者中心</a>
-                <a href="contact.html">联系我们</a>
+                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
+                <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
+                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
+                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
+                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
+                <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
+                <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
+                <div class="lang-switch">
+                   <a data-lang="zh-CN" class="active-lang">中文</a>
+                   <a data-lang="en">EN</a>
+               </div>
             </div>
         </div>
     </header>
@@ -601,11 +581,20 @@
 
     <footer class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
+            <div class="logo"><span lang="zh-CN">星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
             </div>
             <div class="social-links">
                 <div class="tooltip">
@@ -625,7 +614,10 @@
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
         </div>
     </footer>
 
@@ -659,5 +651,6 @@
     </script>
     <script src="../js/ferris-wheel.js"></script>
     <script src="../js/animations.js"></script>
+    <script src="../js/language.js"></script>
 </body>
 </html>

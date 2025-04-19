@@ -7,100 +7,181 @@
     <title>我们的产品 - 循星科技</title> 
    <link rel="stylesheet" href="../css/animations.css">
    <link rel="stylesheet" href="../css/styles.css">
-
- 
+   <style>
+       /* Styles for language switching */
+       .lang-switch {
+           display: flex;
+           gap: 5px;
+           margin-left: 15px;
+           border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
+           padding-left: 15px;
+       }
+       .lang-switch a {
+           cursor: pointer;
+           padding: 5px 8px;
+           border-radius: 4px;
+           transition: background-color 0.2s ease;
+           color: var(--text-color); /* Ensure link color matches nav */
+           text-decoration: none;
+           font-size: 0.9rem;
+       }
+       .lang-switch a:hover {
+           background-color: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+       }
+       .lang-switch a.active-lang {
+           font-weight: bold;
+           background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--accent-color);
+       }
+       /* Hide inactive language spans by default */
+       html[lang="zh-CN"] [lang="en"],
+       html[lang="en"] [lang="zh-CN"] {
+           display: none;
+       }
+       /* Show active language spans */
+       html[lang="zh-CN"] [lang="zh-CN"],
+       html[lang="en"] [lang="en"] {
+           display: inline;
+       }
+   </style>
 </head>
 <body style="--card-bg: rgba(255,255,255,0.05);">
     <header>
         <div class="container">
-            <div class="logo">循星科技</div>
-            <div class="tagline">AI2Home 服务与产品</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="tagline">
+                <span lang="zh-CN">AI2Home 服务与产品</span>
+                <span lang="en">AI2Home Services & Products</span>
+            </div>
             <div class="nav">
-                <a href="../index.html">主页</a>
-                <a href="about.html">关于我们</a>
-                <a href="team.html">团队成员</a>
-                <a href="products.html" class="current">我们的产品</a>
-                <a href="partners.html">合作与生态</a>
-                <a href="community.html">开发者中心</a>
-                <a href="contact.html">联系我们</a>
+                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
+                <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
+                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
+                <a href="products.html" class="current"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
+                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
+                <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
+                <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
+                <!-- Language Switcher -->
+                <div class="lang-switch">
+                    <a data-lang="zh-CN" class="active-lang">中文</a>
+                    <a data-lang="en">EN</a>
+                </div>
             </div>
         </div>
     </header>
     
     <section id="products">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">核心产品线</h2>
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">核心产品线</span>
+                <span lang="en">Core Product Lines</span>
+            </h2>
             <div class="products-grid">
                 <div class="product-card staggered-item">
                     <div class="product-icon">🏠</div>
-                    <h3>循星智能管家</h3>
-                    <p>您的个性化家庭中枢。本地处理数据，保护隐私；持续学习进化，适应您的习惯；无障碍交互，全家适用。</p>
+                    <h3>
+                        <span lang="zh-CN">循星智能管家</span>
+                        <span lang="en">SidebyStar Smart Steward</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">您的个性化家庭中枢。本地处理数据，保护隐私；持续学习进化，适应您的习惯；无障碍交互，全家适用。</span>
+                        <span lang="en">Your personalized home hub. Processes data locally, protecting privacy; continuously learns and evolves to adapt to your habits; accessible interaction for the whole family.</span>
+                    </p>
                     <div class="product-links">
-                        <a href="project_template.html" class="product-link">查看详情</a>
-                        <a href="product_test.html" class="product-link">Demo展示</a>
+                        <a href="project_template.html" class="product-link">
+                            <span lang="zh-CN">查看详情</span><span lang="en">Details</span>
+                        </a>
+                        <a href="product_test.html" class="product-link">
+                            <span lang="zh-CN">Demo展示</span><span lang="en">Live Demo</span>
+                        </a>
                     </div>
                 </div>
                 <div class="product-card staggered-item">
                     <div class="product-icon">🌿</div>
-                    <h3>循星环境感知系统</h3>
-                    <p>实时、智能地感知居家环境。基于本地计算，安全可靠；开放接口，轻松融入现有智能家居生态。</p>
+                    <h3>
+                        <span lang="zh-CN">循星环境感知系统</span>
+                        <span lang="en">SidebyStar Environmental Sensing System</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">实时、智能地感知居家环境。基于本地计算，安全可靠；开放接口，轻松融入现有智能家居生态。</span>
+                        <span lang="en">Perceives the home environment intelligently in real-time. Secure and reliable based on local computing; open interfaces for easy integration into existing smart home ecosystems.</span>
+                    </p>
                     <div class="product-links">
-                        <a href="project_template.html" class="product-link">查看详情</a>
+                        <a href="project_template.html" class="product-link">
+                             <span lang="zh-CN">查看详情</span><span lang="en">Details</span>
+                        </a>
                     </div>
                 </div>
                 <div class="product-card staggered-item">
                     <div class="product-icon">🧠</div>
-                    <h3>循星个性化学习引擎</h3>
-                    <p>驱动智能设备更懂您。支持跨设备协同，算法持续迭代，让科技真正服务于您的个性化需求。</p>
+                    <h3>
+                        <span lang="zh-CN">循星个性化学习引擎</span>
+                        <span lang="en">SidebyStar Personalized Learning Engine</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">驱动智能设备更懂您。支持跨设备协同，算法持续迭代，让科技真正服务于您的个性化需求。</span>
+                        <span lang="en">Drives smart devices to understand you better. Supports cross-device collaboration, continuous algorithm iteration, making technology truly serve your personalized needs.</span>
+                    </p>
                     <div class="product-links">
-                        <a href="project_template.html" class="product-link">查看详情</a>
-                        
+                        <a href="project_template.html" class="product-link">
+                             <span lang="zh-CN">查看详情</span><span lang="en">Details</span>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- 技术理念 -->
             <div class="tech-section animate-on-scroll">
-                <h2>技术理念 Technology Philosophy</h2>
+                <h2>
+                    <span lang="zh-CN">技术理念</span>
+                    <span lang="en">Technology Philosophy</span>
+                </h2>
                 
                 <!-- New Value Chain Representation -->
                 <div class="value-chain-section staggered-item">
-                    <h3 class="value-chain-title">AI2Home 创新价值链</h3>
+                    <h3 class="value-chain-title">
+                        <span lang="zh-CN">AI2Home 创新价值链</span>
+                        <span lang="en">AI2Home Innovation Value Chain</span>
+                    </h3>
                     <div class="value-chain-steps">
                         <div class="value-chain-step">
                             <span class="step-icon">💡</span>
-                            <h4>本地智能</h4>
-                            <p>设备端处理，快速响应</p>
+                            <h4><span lang="zh-CN">本地智能</span><span lang="en">Local Intelligence</span></h4>
+                            <p><span lang="zh-CN">设备端处理，快速响应</span><span lang="en">On-device processing, fast response</span></p>
                         </div>
                         <span class="chain-arrow">→</span>
                         <div class="value-chain-step">
                             <span class="step-icon">🗣️</span>
-                            <h4>多模态交互</h4>
-                            <p>语音、视觉、传感融合</p>
+                            <h4><span lang="zh-CN">多模态交互</span><span lang="en">Multimodal Interaction</span></h4>
+                            <p><span lang="zh-CN">语音、视觉、传感融合</span><span lang="en">Voice, vision, sensor fusion</span></p>
                         </div>
                         <span class="chain-arrow">→</span>
                         <div class="value-chain-step">
                             <span class="step-icon">⚙️</span>
-                            <h4>个性化决策</h4>
-                            <p>学习用户习惯，智能推荐</p>
+                            <h4><span lang="zh-CN">个性化决策</span><span lang="en">Personalized Decisions</span></h4>
+                            <p><span lang="zh-CN">学习用户习惯，智能推荐</span><span lang="en">Learn habits, smart recommendations</span></p>
                         </div>
                         <span class="chain-arrow">→</span>
                         <div class="value-chain-step">
                             <span class="step-icon">🔒</span>
-                            <h4>隐私优先服务</h4>
-                            <p>数据本地化，安全可控</p>
+                            <h4><span lang="zh-CN">隐私优先服务</span><span lang="en">Privacy-First Service</span></h4>
+                            <p><span lang="zh-CN">数据本地化，安全可控</span><span lang="en">Local data, secure & controllable</span></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Philosophy Points -->
                 <div class="philosophy-points staggered-item">
-                     <h3 class="philosophy-title">核心宗旨</h3>
+                     <h3 class="philosophy-title">
+                        <span lang="zh-CN">核心宗旨</span>
+                        <span lang="en">Core Tenets</span>
+                    </h3>
                     <ul>
-                        <li><span class="point-icon">🎯</span> 用户体验始终是技术发展的核心指向</li>
-                        <li><span class="point-icon">🛡️</span> 本地优先的设计减少数据传输，保护用户隐私</li>
-                        <li><span class="point-icon">🤝</span> 开放接口确保与生态系统的无缝协作</li>
-                        <li><span class="point-icon">🔄</span> 循环迭代自适应学习，无限进步</li>
+                        <li><span class="point-icon">🎯</span> <span lang="zh-CN">用户体验始终是技术发展的核心指向</span><span lang="en">User experience always drives technology development</span></li>
+                        <li><span class="point-icon">🛡️</span> <span lang="zh-CN">本地优先的设计减少数据传输，保护用户隐私</span><span lang="en">Local-first design minimizes data transfer, protecting privacy</span></li>
+                        <li><span class="point-icon">🤝</span> <span lang="zh-CN">开放接口确保与生态系统的无缝协作</span><span lang="en">Open interfaces ensure seamless ecosystem collaboration</span></li>
+                        <li><span class="point-icon">🔄</span> <span lang="zh-CN">循环迭代自适应学习，无限进步</span><span lang="en">Iterative adaptive learning enables continuous improvement</span></li>
                     </ul>
                 </div>
             </div>
@@ -139,11 +220,20 @@
     
     <footer class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
             </div>
             <div class="social-links">
                 <div class="tooltip">
@@ -163,9 +253,13 @@
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
         </div>
     </footer>
     <script src="../js/animations.js"></script>
+    <script src="../js/language.js"></script>
 </body>
 </html>

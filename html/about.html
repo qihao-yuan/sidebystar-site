@@ -253,38 +253,98 @@
             }
         }
         /* End added styles */
+
+        /* Basic style to hide non-active language - REMOVED this general rule
+        [lang="en"] {
+            display: none;
+        }
+        */
+        /* Add styles for language switcher */
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            margin-left: 15px; /* Space from main nav */
+            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            padding-left: 15px;
+        }
+        .lang-switch a {
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+        .lang-switch a:hover {
+            background-color: rgba(var(--accent-color-rgb), 0.2);
+        }
+        .lang-switch a.active-lang {
+            font-weight: bold;
+            background-color: rgba(var(--accent-color-rgb), 0.3);
+        }
+        /* Ensure inline spans display correctly */
+         span[lang] {
+             display: inline; /* Override potential block display */
+         }
+        /* Hide inactive language spans by default */
+        html[lang="zh-CN"] [lang="en"],
+        html[lang="en"] [lang="zh-CN"] {
+            display: none;
+        }
+        /* Show active language spans */
+        html[lang="zh-CN"] [lang="zh-CN"],
+        html[lang="en"] [lang="en"] {
+            /* Use specific display, 'inline' is usually safe for spans */
+            display: inline;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">循星科技</div>
-            <div class="tagline">关于我们</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="tagline">
+                <span lang="zh-CN">关于我们</span>
+                <span lang="en">About Us</span>
+            </div>
             <div class="nav">
-                <a href="../index.html">主页</a>
-                <a href="about.html" class="current">关于我们</a>
-                <a href="team.html">团队成员</a>
-                <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作与生态</a>
-                <a href="community.html">开发者中心</a>
-                <a href="contact.html">联系我们</a>
+                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
+                <a href="about.html" class="current"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
+                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
+                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
+                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
+                <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
+                <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
+                <!-- Language Switcher -->
+                <div class="lang-switch">
+                    <a data-lang="zh-CN" class="active-lang">中文</a>
+                    <a data-lang="en">EN</a>
+                </div>
             </div>
         </div>
     </header>
     
     <section id="about">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">关于我们</h2>   
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">关于我们</span>
+                <span lang="en">About Us</span>
+            </h2>   
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
-                    <p>循星科技（杭州）有限公司成立于2025年5月，专注于 AI 赋能的居家服务（AI2Home）。我们致力于研发生产家居智慧数字大脑及配套终端，构建完善的 AI2Home 服务生态，为万千家庭带来智能、便捷、安全的居家新体验。</p>
-                    <p>我们的核心团队汇聚了海内外顶尖学府的精英人才，并掌握着丰富的产业链资源。团队深度融合人工智能与智能终端技术，兼具前沿核心技术研发实力与大规模量产经验，具备端边云一体化的综合能力。此外，我们在将 AI 技术灵活应用于多种形态智能终端方面，也积累了丰富的个性化实践经验。</p>
-                    <p>我们的使命是以创新科技驱动，解决居家生活中的实际痛点，为消费者打造高效、智能、全方位，无障碍的生态居家解决方案。</p>
+                    <p>
+                        <span lang="zh-CN">循星科技（杭州）有限公司成立于2025年5月，专注于 AI 赋能的居家服务（AI2Home）。我们致力于研发生产家居智慧数字大脑及配套终端，构建完善的 AI2Home 服务生态，为万千家庭带来智能、便捷、安全的居家新体验。</span>
+                        <span lang="en">SidebyStar (Hangzhou) Co., Ltd. was established in May 2025, focusing on AI-empowered home services (AI2Home). We are committed to the research, development, and production of smart home digital brains and supporting terminals, building a comprehensive AI2Home service ecosystem to bring intelligent, convenient, and secure new home experiences to thousands of households.</span>
+                    </p>
+                    <p>
+                        <span lang="zh-CN">我们的核心团队汇聚了海内外顶尖学府的精英人才，并掌握着丰富的产业链资源。团队深度融合人工智能与智能终端技术，兼具前沿核心技术研发实力与大规模量产经验，具备端边云一体化的综合能力。此外，我们在将 AI 技术灵活应用于多种形态智能终端方面，也积累了丰富的个性化实践经验。</span>
+                        <span lang="en">Our core team brings together elite talents from top universities at home and abroad, possessing rich industry chain resources. The team deeply integrates artificial intelligence and smart terminal technology, boasting both cutting-edge core technology R&D capabilities and large-scale mass production experience, with comprehensive edge-cloud integration capabilities. Furthermore, we have accumulated extensive personalized practical experience in flexibly applying AI technology to various forms of smart terminals.</span>
+                    </p>
+                    <p>
+                        <span lang="zh-CN">我们的使命是以创新科技驱动，解决居家生活中的实际痛点，为消费者打造高效、智能、全方位，无障碍的生态居家解决方案。</span>
+                        <span lang="en">Our mission is to drive innovation with technology, solve real pain points in home life, and create efficient, intelligent, comprehensive, and accessible ecological home solutions for consumers.</span>
+                    </p>
                 </div>
                 <div class="about-image animate-on-scroll">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                    </svg>
+                    <img src="../pics/about.png" alt="Company Concept Image" style="width: 100%; height: 100%;">
                 </div>
             </div>
         </div>
@@ -293,11 +353,23 @@
     <!-- 产品愿景 -->
     <div class="tech-section animate-on-scroll">
         <div class="container"> <!-- Add container for consistent padding -->
-            <h2>我们的愿景 Our Vision</h2>
+            <h2>
+                <span lang="zh-CN">我们的愿景</span>
+                <span lang="en">Our Vision</span>
+            </h2>
             <div class="vision-text staggered-item">
-                <strong>我们构建的不只是中控平台，而是有智能、有温度、有理解，有陪伴的智能家庭管家。</strong>
-                <p>我们致力于打造全场景无障碍、轻松上手的友好交互</p>
-                <p>我们要让真正的第六代住宅成为现实，让智慧服务生活，让家成为每个人最舒适的港湾。</p>
+                <strong>
+                    <span lang="zh-CN">我们构建的不只是中控平台，而是有智能、有温度、有理解，有陪伴的智能家庭管家。</span>
+                    <span lang="en">We are building more than just a central control platform; we are creating an intelligent family steward with smarts, warmth, understanding, and companionship.</span>
+                </strong>
+                <p>
+                    <span lang="zh-CN">我们致力于打造全场景无障碍、轻松上手的友好交互</span>
+                    <span lang="en">We are committed to creating friendly interactions that are accessible in all scenarios and easy to use.</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">我们要让真正的第六代住宅成为现实，让智慧服务生活，让家成为每个人最舒适的港湾。</span>
+                    <span lang="en">We aim to make the true sixth-generation residence a reality, letting intelligence serve life and making home the most comfortable haven for everyone.</span>
+                </p>
             </div>
         </div>
     </div>
@@ -305,52 +377,82 @@
     <!-- Added Features Section -->
     <section id="features" class="features animate-on-scroll">
         <div class="container">
-            <h2 class="section-title">我们的优势</h2>
+            <h2 class="section-title">
+                <span lang="zh-CN">我们的优势</span>
+                <span lang="en">Our Advantages</span>
+            </h2>
             <div class="features-grid">
                 <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">🔒</div>
-                    <h3>数据安全</h3>
-                    <p>坚守用户隐私第一原则。所有数据处理均在本地完成，未经允许绝不上传云端，确保您的居家信息安全无忧。</p>
+                    <h3><span lang="zh-CN">数据安全</span><span lang="en">Data Security</span></h3>
+                    <p>
+                        <span lang="zh-CN">坚守用户隐私第一原则。所有数据处理均在本地完成，未经允许绝不上传云端，确保您的居家信息安全无忧。</span>
+                        <span lang="en">Adhering to the principle of user privacy first. All data processing is completed locally and never uploaded to the cloud without permission, ensuring your home information is secure.</span>
+                    </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">🌍</div>
-                    <h3>无障碍体验</h3>
-                    <p>科技适应人，而非人适应科技。我们关注老年人和所有用户的需求，致力于打造全场景无障碍、轻松上手的友好交互。</p>
+                    <h3><span lang="zh-CN">无障碍体验</span><span lang="en">Accessibility</span></h3>
+                    <p>
+                        <span lang="zh-CN">科技适应人，而非人适应科技。我们关注老年人和所有用户的需求，致力于打造全场景无障碍、轻松上手的友好交互。</span>
+                        <span lang="en">Technology adapts to people, not the other way around. We focus on the needs of the elderly and all users, committed to creating accessible and easy-to-use interactions in all scenarios.</span>
+                    </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">⚙️</div>
-                    <h3>个性化智能</h3>
-                    <p>提供深度的个性化定制选项。通过一体化终端存储决策与分布式信息处理，让设备真正理解并随时响应您的想法。</p>
+                    <h3><span lang="zh-CN">个性化智能</span><span lang="en">Personalized Intelligence</span></h3>
+                    <p>
+                        <span lang="zh-CN">提供深度的个性化定制选项。通过一体化终端存储决策与分布式信息处理，让设备真正理解并随时响应您的想法。</span>
+                        <span lang="en">Offering deep personalization options. Through integrated terminal decision storage and distributed information processing, devices truly understand and respond to your ideas anytime.</span>
+                    </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">💡</div>
-                    <h3>持续迭代</h3>
-                    <p>通过持续的算法优化与软件升级驱动产品进化，而非过度依赖硬件更新，让您的智能设备常用常新。</p>
+                    <h3><span lang="zh-CN">持续迭代</span><span lang="en">Continuous Iteration</span></h3>
+                    <p>
+                        <span lang="zh-CN">通过持续的算法优化与软件升级驱动产品进化，而非过度依赖硬件更新，让您的智能设备常用常新。</span>
+                        <span lang="en">Driving product evolution through continuous algorithm optimization and software upgrades, rather than over-reliance on hardware updates, keeping your smart devices fresh.</span>
+                    </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">🧩</div>
-                    <h3>开放生态</h3>
-                    <p>构建丰富的 AI2Home 服务生态系统，提供强大的拓展性和多样化的服务选择，满足不断变化的智能家居需求。</p>
+                    <h3><span lang="zh-CN">开放生态</span><span lang="en">Open Ecosystem</span></h3>
+                    <p>
+                        <span lang="zh-CN">构建丰富的 AI2Home 服务生态系统，提供强大的拓展性和多样化的服务选择，满足不断变化的智能家居需求。</span>
+                        <span lang="en">Building a rich AI2Home service ecosystem, providing strong expandability and diverse service options to meet evolving smart home needs.</span>
+                    </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">🚀</div>
-                    <h3>技术卓越</h3>
-                    <p>掌握 AI 与智能终端深度融合的核心技术，具备端边云一体化研发实力和量产经验，确保技术方案的高性能与可靠性。</p>
+                    <h3><span lang="zh-CN">技术卓越</span><span lang="en">Technical Excellence</span></h3>
+                    <p>
+                        <span lang="zh-CN">掌握 AI 与智能终端深度融合的核心技术，具备端边云一体化研发实力和量产经验，确保技术方案的高性能与可靠性。</span>
+                        <span lang="en">Mastering core technologies for deep integration of AI and smart terminals, with edge-cloud integrated R&D capabilities and mass production experience, ensuring high performance and reliability.</span>
+                    </p>
                 </div>
                  <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">🤝</div>
-                    <h3>顶尖团队</h3>
-                    <p>汇聚海内外顶尖高校人才与产业资源，形成跨领域专家协作体系，共同推动技术创新与应用落地。</p>
+                    <h3><span lang="zh-CN">顶尖团队</span><span lang="en">Top Team</span></h3>
+                    <p>
+                        <span lang="zh-CN">汇聚海内外顶尖高校人才与产业资源，形成跨领域专家协作体系，共同推动技术创新与应用落地。</span>
+                        <span lang="en">Bringing together top talent from domestic and international universities and industry resources, forming a cross-disciplinary expert collaboration system to jointly promote technological innovation and application.</span>
+                    </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">⚡</div>
-                    <h3>创新思维</h3>
-                    <p>我们专注于 AI 在居家服务领域的应用，不断探索前沿技术，致力于为 AI2Home 服务生态带来突破性的解决方案。</p>
+                    <h3><span lang="zh-CN">创新思维</span><span lang="en">Innovative Thinking</span></h3>
+                    <p>
+                        <span lang="zh-CN">我们专注于 AI 在居家服务领域的应用，不断探索前沿技术，致力于为 AI2Home 服务生态带来突破性的解决方案。</span>
+                        <span lang="en">We focus on the application of AI in the home service field, constantly exploring cutting-edge technologies, committed to bringing breakthrough solutions to the AI2Home service ecosystem.</span>
+                    </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
                     <div class="feature-icon hover-effect-icon">🎯</div>
-                    <h3>务实创新</h3>
-                    <p>以解决用户真实痛点为导向，将领先的AI技术转化为实用、易用的智能居家解决方案，让科技真正服务生活。</p>
+                    <h3><span lang="zh-CN">务实创新</span><span lang="en">Pragmatic Innovation</span></h3>
+                    <p>
+                        <span lang="zh-CN">以解决用户真实痛点为导向，将领先的AI技术转化为实用、易用的智能居家解决方案，让科技真正服务生活。</span>
+                        <span lang="en">Oriented towards solving real user pain points, transforming leading AI technology into practical, easy-to-use smart home solutions, making technology truly serve life.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -359,11 +461,20 @@
 
     <footer class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
             </div>
             <div class="social-links">
                 <div class="tooltip">
@@ -383,10 +494,14 @@
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
         </div>
     </footer>
 
     <script src="../js/animations.js"></script>
+    <script src="../js/language.js"></script>
 </body>
 </html>

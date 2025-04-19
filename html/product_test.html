@@ -6,89 +6,222 @@
     <title>产品演示 - 循星科技</title>
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Styles for language switching */
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            margin-left: 15px;
+            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            padding-left: 15px;
+        }
+        .lang-switch a {
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .lang-switch a:hover {
+            background-color: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+        }
+        .lang-switch a.active-lang {
+            font-weight: bold;
+            background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--accent-color);
+        }
+        /* Hide inactive language spans by default */
+        html[lang="zh-CN"] [lang="en"],
+        html[lang="en"] [lang="zh-CN"] {
+            display: none;
+        }
+        /* Show active language spans */
+        html[lang="zh-CN"] [lang="zh-CN"],
+        html[lang="en"] [lang="en"] {
+            display: initial;
+        }
+    </style>
 </head>
 <body>
     <!-- Standard Header -->
     <header class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
-            <div class="tagline">AI2Home 产品演示</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="tagline">
+                <span lang="zh-CN">AI2Home 产品演示</span>
+                <span lang="en">AI2Home Product Demo</span>
+            </div>
              <div class="nav">
-                 <a href="../index.html">主页</a>
-                 <a href="about.html">关于我们</a>
-                 <a href="team.html">团队成员</a>
-                 <a href="products.html">我们的产品</a>
-                 <a href="partners.html">合作与生态</a>
-                 <a href="community.html">开发者中心</a>
-                 <a href="contact.html">联系我们</a>
+                 <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
+                 <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
+                 <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
+                 <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
+                 <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
+                 <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
+                 <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
+                 <!-- Language Switcher -->
+                 <div class="lang-switch">
+                    <a data-lang="zh-CN" class="active-lang">中文</a>
+                    <a data-lang="en">EN</a>
+                </div>
              </div>
         </div>
     </header>
 
     <section id="product-demos">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">智能场景演示</h2>
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">智能场景演示</span>
+                <span lang="en">Smart Scene Demos</span>
+            </h2>
 
             <!-- Demo Area 1: Pet -->
             <div id="pet" class="test-area demo-card animate-on-scroll">
-                <h3>场景一：宠物识别与看护</h3>
-                <p><strong>识别状态：</strong> 狗狗在门前来回走动并吠叫</p>
+                <h3>
+                    <span lang="zh-CN">场景一：宠物识别与看护</span>
+                    <span lang="en">Scenario 1: Pet Recognition & Care</span>
+                </h3>
+                <p>
+                    <strong><span lang="zh-CN">识别状态：</span><span lang="en">Recognition Status:</span></strong>
+                    <span lang="zh-CN"> 狗狗在门前来回走动并吠叫</span>
+                    <span lang="en"> Dog pacing and barking at the door</span>
+                </p>
                 <ul>
-                    <li>开启室内摄像头分析行为</li>
-                    <li>播放主人声音的安抚语音</li>
-                    <li>推送提醒给用户</li>
-                    <li>展示分析结果并询问是否需要进一步处理（例如：是否需要喂食喂水等）</li>
+                    <li><span lang="zh-CN">开启室内摄像头分析行为</span><span lang="en">Activate indoor camera to analyze behavior</span></li>
+                    <li><span lang="zh-CN">播放主人声音的安抚语音</span><span lang="en">Play owner's voice recording for comfort</span></li>
+                    <li><span lang="zh-CN">推送提醒给用户</span><span lang="en">Send notification to user</span></li>
+                    <li><span lang="zh-CN">展示分析结果并询问是否需要进一步处理（例如：是否需要喂食喂水等）</span><span lang="en">Display analysis results and ask for further action (e.g., need feeding/watering?)</span></li>
                 </ul>
-                <button class="test-button">执行全部建议</button>
-                <button class="test-button secondary">忽略</button> <!-- Added secondary class -->
-                <p class="status-output">已执行：摄像头已经开启，语音安抚中，结果已推送，展示进一步处理结果</p> <!-- Changed class -->
+                <button class="test-button">
+                    <span lang="zh-CN">执行全部建议</span><span lang="en">Execute All Suggestions</span>
+                </button>
+                <button class="test-button secondary">
+                    <span lang="zh-CN">忽略</span><span lang="en">Ignore</span>
+                </button>
+                <p class="status-output">
+                    <span lang="zh-CN">已执行：摄像头已经开启，语音安抚中，结果已推送，展示进一步处理结果</span>
+                    <span lang="en">Executed: Camera activated, comforting voice playing, notification sent, displaying further action options</span>
+                </p>
             </div>
 
             <!-- Demo Area 2: Wake -->
             <div id="wake" class="test-area demo-card animate-on-scroll">
-                <h3>场景二：起床自动化</h3>
-                <p><strong>检测动作：</strong> 用户翻身 → 坐起 → 起身</p>
-                <p><strong>检测声音：</strong> 闹钟响起 → 用户起床</p>
+                 <h3>
+                    <span lang="zh-CN">场景二：起床自动化</span>
+                    <span lang="en">Scenario 2: Wake-up Automation</span>
+                </h3>
+                <p>
+                    <strong><span lang="zh-CN">检测动作：</span><span lang="en">Detected Actions:</span></strong>
+                    <span lang="zh-CN"> 用户翻身 → 坐起 → 起身</span>
+                    <span lang="en"> User turns over → sits up → gets up</span>
+                </p>
+                <p>
+                    <strong><span lang="zh-CN">检测声音：</span><span lang="en">Detected Sounds:</span></strong>
+                    <span lang="zh-CN"> 闹钟响起 → 用户起床</span>
+                    <span lang="en"> Alarm rings → User gets up</span>
+                </p>
                 <ul>
-                    <li>判断室外亮度逐步打开窗帘</li>
-                    <li>调取天气api，获取天气信息</li>
-                    <li>根据天气及传感器信息调整窗帘、灯光、空调等设备</li>     
-                    <li>根据行为习惯推测下一步需求（例如：是否需要热水器预热，是否需要打开加湿器）</li>
-                    <li>播放轻柔音乐</li>
+                    <li><span lang="zh-CN">判断室外亮度逐步打开窗帘</span><span lang="en">Assess outdoor brightness and gradually open curtains</span></li>
+                    <li><span lang="zh-CN">调取天气api，获取天气信息</span><span lang="en">Fetch weather info via weather API</span></li>
+                    <li><span lang="zh-CN">根据天气及传感器信息调整窗帘、灯光、空调等设备</span><span lang="en">Adjust curtains, lights, AC based on weather and sensor data</span></li>
+                    <li><span lang="zh-CN">根据行为习惯推测下一步需求（例如：是否需要热水器预热，是否需要打开加湿器）</span><span lang="en">Predict next needs based on habits (e.g., preheat water heater, turn on humidifier?)</span></li>
+                    <li><span lang="zh-CN">播放轻柔音乐</span><span lang="en">Play gentle music</span></li>
                 </ul>
-                <button class="test-button">确认执行</button>
-                <button class="test-button secondary">忽略</button> <!-- Added secondary class -->
-                <p class="status-output">已执行：窗帘已打开，灯光已调高，春季干燥，热水器已预热，加湿器已打开，播放轻柔音乐</p> <!-- Changed class -->
+                <button class="test-button">
+                    <span lang="zh-CN">确认执行</span><span lang="en">Confirm Execution</span>
+                </button>
+                <button class="test-button secondary">
+                     <span lang="zh-CN">忽略</span><span lang="en">Ignore</span>
+                </button>
+                <p class="status-output">
+                    <span lang="zh-CN">已执行：窗帘已打开，灯光已调高，春季干燥，热水器已预热，加湿器已打开，播放轻柔音乐</span>
+                    <span lang="en">Executed: Curtains opened, lights brightened, dry season, water heater preheated, humidifier on, gentle music playing</span>
+                </p>
             </div>
 
             <!-- Demo Area 3: Sleep -->
             <div id="sleep" class="test-area demo-card animate-on-scroll">
-                <h3>场景三：睡眠体温监测与调节</h3>
-                <p><strong>热成像状态：</strong> 背部区域持续温度偏高</p>
-                <p><strong>检测动作：</strong> 踢掉被子/翻身</p>
+                <h3>
+                    <span lang="zh-CN">场景三：睡眠体温监测与调节</span>
+                    <span lang="en">Scenario 3: Sleep Temperature Monitoring & Adjustment</span>
+                </h3>
+                <p>
+                    <strong><span lang="zh-CN">热成像状态：</span><span lang="en">Thermal Imaging Status:</span></strong>
+                    <span lang="zh-CN"> 背部区域持续温度偏高</span>
+                    <span lang="en"> Back area consistently showing higher temperature</span>
+                </p>
+                 <p>
+                    <strong><span lang="zh-CN">检测动作：</span><span lang="en">Detected Actions:</span></strong>
+                    <span lang="zh-CN"> 踢掉被子/翻身</span>
+                    <span lang="en"> Kicked off blanket / Turned over</span>
+                </p>
                 <ul>
-                    <li>降低空调目标温度至合适温度</li>
-                    <li>开启轻风模式</li>
-                    <li>记录睡眠热图数据</li>
-                    <li>根据热图数据分析睡眠状态</li>
+                    <li><span lang="zh-CN">降低空调目标温度至合适温度</span><span lang="en">Lower AC target temperature to suitable level</span></li>
+                    <li><span lang="zh-CN">开启轻风模式</span><span lang="en">Activate gentle breeze mode</span></li>
+                    <li><span lang="zh-CN">记录睡眠热图数据</span><span lang="en">Record sleep thermal map data</span></li>
+                    <li><span lang="zh-CN">根据热图数据分析睡眠状态</span><span lang="en">Analyze sleep state based on thermal map data</span></li>
                 </ul>
-                <button class="test-button">调整环境</button>
-                <button class="test-button secondary">忽略</button> <!-- Added secondary class -->
-                <p class="status-output">环境已调整，下一轮温控将在 30 分钟后进行，并根据热图数据综合分析睡眠状态</p> <!-- Changed class -->
+                 <button class="test-button">
+                    <span lang="zh-CN">调整环境</span><span lang="en">Adjust Environment</span>
+                </button>
+                <button class="test-button secondary">
+                     <span lang="zh-CN">忽略</span><span lang="en">Ignore</span>
+                </button>
+                <p class="status-output">
+                    <span lang="zh-CN">环境已调整，下一轮温控将在 30 分钟后进行，并根据热图数据综合分析睡眠状态</span>
+                    <span lang="en">Environment adjusted, next temperature control in 30 mins, analyzing sleep state based on thermal data</span>
+                </p>
             </div>
 
             <!-- Demo Area 4: Traffic -->
             <div id="traffic" class="test-area demo-card animate-on-scroll">
-                <h3>场景四：语音查询交通状况</h3>
-                <p><strong>语音指令：</strong> "今天早上武林那边会堵吗？"</p>
-                <p><strong>意图解析：</strong> 查询 "武林"+"今天早高峰"+"拥堵状况"，出门可能</p>
-                <p><strong>调取地图api:</strong> "高德地图/百度地图"</p>
-                <p><strong>调取天气api:</strong> "和风天气/中央气象台"</p>
-                <p><strong>查询结果：</strong> "武林广场车流密集，预计拥堵延迟约 12 分钟，今天有雨，湿度较大"</p>
-                <p><strong>本地语音播报:</strong> "武林广场方向建议提前出发，今天有雨，湿度较大，记得带伞"</p>
-                <button class="test-button">语音播报</button>
-                <button class="test-button secondary">关闭提示</button> <!-- Added secondary class -->
-                <p class="status-output">播报完毕，实时追踪路况，并根据路况调整出行方案</p> <!-- Changed class -->
+                <h3>
+                    <span lang="zh-CN">场景四：语音查询交通状况</span>
+                    <span lang="en">Scenario 4: Voice Query for Traffic Conditions</span>
+                </h3>
+                <p>
+                    <strong><span lang="zh-CN">语音指令：</span><span lang="en">Voice Command:</span></strong>
+                    <span lang="zh-CN"> "今天早上武林那边会堵吗？"</span>
+                    <span lang="en"> "Will it be congested near Wulin this morning?"</span>
+                </p>
+                <p>
+                    <strong><span lang="zh-CN">意图解析：</span><span lang="en">Intent Parsing:</span></strong>
+                    <span lang="zh-CN"> 查询 "武林"+"今天早高峰"+"拥堵状况"，出门可能</span>
+                    <span lang="en"> Query "Wulin" + "today morning peak" + "congestion status", likely for commute</span>
+                </p>
+                 <p>
+                    <strong><span lang="zh-CN">调取地图api:</span><span lang="en">Map API Call:</span></strong>
+                    <span lang="zh-CN"> "高德地图/百度地图"</span>
+                    <span lang="en"> "AMap / Baidu Maps"</span>
+                </p>
+                <p>
+                    <strong><span lang="zh-CN">调取天气api:</span><span lang="en">Weather API Call:</span></strong>
+                    <span lang="zh-CN"> "和风天气/中央气象台"</span>
+                    <span lang="en"> "QWeather / CMA"</span>
+                </p>
+                <p>
+                    <strong><span lang="zh-CN">查询结果：</span><span lang="en">Query Result:</span></strong>
+                    <span lang="zh-CN"> "武林广场车流密集，预计拥堵延迟约 12 分钟，今天有雨，湿度较大"</span>
+                    <span lang="en"> "Heavy traffic near Wulin Square, estimated delay ~12 minutes. Rain today, high humidity."</span>
+                </p>
+                 <p>
+                    <strong><span lang="zh-CN">本地语音播报:</span><span lang="en">Local Voice Announcement:</span></strong>
+                    <span lang="zh-CN"> "武林广场方向建议提前出发，今天有雨，湿度较大，记得带伞"</span>
+                    <span lang="en"> "Suggest leaving earlier for Wulin Square direction. It's raining today with high humidity, remember to take an umbrella."</span>
+                </p>
+                <button class="test-button">
+                    <span lang="zh-CN">语音播报</span><span lang="en">Voice Announce</span>
+                </button>
+                <button class="test-button secondary">
+                    <span lang="zh-CN">关闭提示</span><span lang="en">Dismiss</span>
+                </button>
+                <p class="status-output">
+                    <span lang="zh-CN">播报完毕，实时追踪路况，并根据路况调整出行方案</span>
+                    <span lang="en">Announcement finished. Tracking traffic in real-time and adjusting travel plans accordingly.</span>
+                </p>
             </div>
 
         </div>
@@ -97,13 +230,23 @@
     <!-- Standard Footer -->
     <footer class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                 <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
             </div>
             <div class="social-links">
+                 <!-- Social links remain the same -->
                  <div class="tooltip">
                      <a href="#" aria-label="微信">微</a>
                      <span class="tooltiptext">微信号: nikebiewanle</span>
@@ -121,11 +264,15 @@
                      <span class="tooltiptext">GitHub: qihao-yuan</span>
                  </div>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
         </div>
     </footer>
 
     <script src="../js/animations.js"></script>
+    <script src="../js/language.js"></script> <!-- Add language script -->
     <script>
         // Add any page-specific JS if needed
         document.addEventListener('DOMContentLoaded', () => {

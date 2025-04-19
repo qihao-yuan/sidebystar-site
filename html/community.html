@@ -84,73 +84,121 @@
             color: rgba(236, 240, 241, 0.9);
         }
 
+        /* Styles for language switching */
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            margin-left: 15px;
+            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            padding-left: 15px;
+        }
+        .lang-switch a {
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .lang-switch a:hover {
+            background-color: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+        }
+        .lang-switch a.active-lang {
+            font-weight: bold;
+            background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--accent-color);
+        }
+        /* Hide inactive language spans by default */
+        html[lang="zh-CN"] [lang="en"],
+        html[lang="en"] [lang="zh-CN"] {
+            display: none;
+        }
+        /* Show active language spans */
+        html[lang="zh-CN"] [lang="zh-CN"],
+        html[lang="en"] [lang="en"] {
+            display: inline;
+        }
     </style>
 </head>
 <body class="community-page">
     <header>
         <div class="container">
-            <div class="logo">循星科技</div>
-            <div class="tagline">开发者中心</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="tagline">
+                <span lang="zh-CN">开发者中心</span>
+                <span lang="en">Developer Center</span>
+            </div>
             <div class="nav">
-                <a href="../index.html">主页</a>
-                <a href="about.html">关于我们</a>
-                <a href="team.html">团队成员</a>
-                <a href="products.html">我们的产品</a>
-                <a href="partners.html">合作与生态</a>
-                <a href="community.html" class="current">开发者中心</a>
-                <a href="contact.html">联系我们</a>
+                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
+                <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
+                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
+                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
+                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
+                <a href="community.html" class="current"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
+                <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
+                <!-- Language Switcher -->
+                <div class="lang-switch">
+                    <a data-lang="zh-CN" class="active-lang">中文</a>
+                    <a data-lang="en">EN</a>
+                </div>
             </div>
         </div>
     </header>
 
     <section id="community">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">欢迎来到循星开发者社区</h2>
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">欢迎来到循星开发者社区</span>
+                <span lang="en">Welcome to the SidebyStar Developer Community</span>
+            </h2>
             <p class="community-intro animate-on-scroll">
-                这里是循星科技开发者交流、学习和创造的中心。我们致力于构建一个开放、协作的 AI2Home 生态，赋能开发者利用我们的技术，为用户打造更智能、更安全、更便捷的居家体验。加入我们，一起探索未来！
+                <span lang="zh-CN">这里是循星科技开发者交流、学习和创造的中心。我们致力于构建一个开放、协作的 AI2Home 生态，赋能开发者利用我们的技术，为用户打造更智能、更安全、更便捷的居家体验。加入我们，一起探索未来！</span>
+                <span lang="en">This is the hub for SidebyStar developers to communicate, learn, and create. We are dedicated to building an open, collaborative AI2Home ecosystem, empowering developers to leverage our technology to create smarter, safer, and more convenient home experiences for users. Join us and explore the future together!</span>
             </p>
 
             <div class="community-grid">
                 <div class="community-card animate-on-scroll staggered-item">
                     <div class="community-icon">📚</div>
-                    <h3>技术文档</h3>
-                    <p>查阅详细的 API 参考、SDK 指南和集成文档，快速上手我们的技术平台。</p>
-                    <a href="docs-ess-api.html" class="community-link">浏览文档</a> <!-- Link to the specific doc for now -->
+                    <h3><span lang="zh-CN">技术文档</span><span lang="en">Documentation</span></h3>
+                    <p><span lang="zh-CN">查阅详细的 API 参考、SDK 指南和集成文档，快速上手我们的技术平台。</span><span lang="en">Consult detailed API references, SDK guides, and integration documents to quickly get started with our tech platform.</span></p>
+                    <a href="docs-ess-api.html" class="community-link"><span lang="zh-CN">浏览文档</span><span lang="en">Browse Docs</span></a>
                 </div>
                 
                 <div class="community-card animate-on-scroll staggered-item">
                     <div class="community-icon">💬</div>
-                    <h3>开发者论坛</h3>
-                    <p>与其他开发者交流想法、分享经验、寻求帮助，共同解决技术难题。</p>
-                    <a href="#" class="community-link">进入论坛</a> <!-- Placeholder link -->
+                    <h3><span lang="zh-CN">开发者论坛</span><span lang="en">Developer Forum</span></h3>
+                    <p><span lang="zh-CN">与其他开发者交流想法、分享经验、寻求帮助，共同解决技术难题。</span><span lang="en">Exchange ideas, share experiences, seek help, and solve technical problems together with other developers.</span></p>
+                    <a href="#" class="community-link"><span lang="zh-CN">进入论坛</span><span lang="en">Enter Forum</span></a>
                 </div>
 
                 <div class="community-card animate-on-scroll staggered-item">
                     <div class="community-icon">💡</div>
-                    <h3>入门指南</h3>
-                    <p>跟随我们的教程和示例，了解如何开始您的第一个 AI2Home 项目。</p>
-                    <a href="#" class="community-link">查看指南</a> <!-- Placeholder link -->
+                    <h3><span lang="zh-CN">入门指南</span><span lang="en">Getting Started Guides</span></h3>
+                    <p><span lang="zh-CN">跟随我们的教程和示例，了解如何开始您的第一个 AI2Home 项目。</span><span lang="en">Follow our tutorials and examples to learn how to start your first AI2Home project.</span></p>
+                    <a href="#" class="community-link"><span lang="zh-CN">查看指南</span><span lang="en">View Guides</span></a>
                 </div>
 
                 <div class="community-card animate-on-scroll staggered-item">
                     <div class="community-icon">📦</div>
-                    <h3>SDK & 工具</h3>
-                    <p>下载最新的软件开发工具包和相关工具，加速您的开发进程。</p>
-                    <a href="#" class="community-link">获取工具</a> <!-- Placeholder link -->
+                    <h3><span lang="zh-CN">SDK & 工具</span><span lang="en">SDKs & Tools</span></h3>
+                    <p><span lang="zh-CN">下载最新的软件开发工具包和相关工具，加速您的开发进程。</span><span lang="en">Download the latest software development kits and related tools to accelerate your development process.</span></p>
+                    <a href="#" class="community-link"><span lang="zh-CN">获取工具</span><span lang="en">Get Tools</span></a>
                 </div>
 
                 <div class="community-card animate-on-scroll staggered-item">
                     <div class="community-icon">⭐</div>
-                    <h3>项目展示</h3>
-                    <p>发现基于循星技术构建的创新应用和项目，获取灵感或展示您的作品。</p>
-                    <a href="#" class="community-link">查看项目</a> <!-- Placeholder link -->
+                    <h3><span lang="zh-CN">项目展示</span><span lang="en">Project Showcase</span></h3>
+                    <p><span lang="zh-CN">发现基于循星技术构建的创新应用和项目，获取灵感或展示您的作品。</span><span lang="en">Discover innovative applications and projects built on SidebyStar technology, get inspired, or showcase your work.</span></p>
+                    <a href="#" class="community-link"><span lang="zh-CN">查看项目</span><span lang="en">View Projects</span></a>
                 </div>
 
                 <div class="community-card animate-on-scroll staggered-item">
                     <div class="community-icon">🐞</div>
-                    <h3>问题反馈</h3>
-                    <p>遇到问题或有改进建议？向我们报告 Bug 或提交功能请求。</p>
-                    <a href="#" class="community-link">提交反馈</a> <!-- Placeholder link, e.g., GitHub Issues -->
+                    <h3><span lang="zh-CN">问题反馈</span><span lang="en">Feedback & Issues</span></h3>
+                    <p><span lang="zh-CN">遇到问题或有改进建议？向我们报告 Bug 或提交功能请求。</span><span lang="en">Encounter problems or have suggestions for improvement? Report bugs or submit feature requests to us.</span></p>
+                    <a href="#" class="community-link"><span lang="zh-CN">提交反馈</span><span lang="en">Submit Feedback</span></a>
                 </div>
             </div>
         </div>
@@ -158,11 +206,20 @@
 
     <footer class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
             </div>
             <div class="social-links">
                 <div class="tooltip">
@@ -182,10 +239,14 @@
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
         </div>
     </footer>
 
     <script src="../js/animations.js"></script>
+    <script src="../js/language.js"></script>
 </body>
 </html> 

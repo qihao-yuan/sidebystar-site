@@ -209,6 +209,7 @@
 
         .ecosystem-text p {
             color: rgba(236, 240, 241, 0.9);
+            margin-bottom: 15px;
         }
         
         .ecosystem-image {
@@ -229,6 +230,43 @@
 
         .ecosystem-block.reverse {
              flex-direction: row-reverse;
+        }
+
+        /* Styles for language switching */
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            margin-left: 15px;
+            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            padding-left: 15px;
+        }
+        .lang-switch a {
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .lang-switch a:hover {
+            background-color: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+        }
+        .lang-switch a.active-lang {
+            font-weight: bold;
+            background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--accent-color);
+        }
+        /* Hide inactive language spans by default */
+        html[lang="zh-CN"] [lang="en"],
+        html[lang="en"] [lang="zh-CN"] {
+            display: none;
+        }
+        /* Show active language spans */
+        html[lang="zh-CN"] [lang="zh-CN"],
+        html[lang="en"] [lang="en"] {
+            display: inline;
         }
 
         @media (max-width: 768px) {
@@ -258,37 +296,60 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">循星科技</div>
-            <div class="tagline">合作与生态</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="tagline">
+                <span lang="zh-CN">合作与生态</span>
+                <span lang="en">Partners & Ecosystem</span>
+            </div>
             <div class="nav">
-                <a href="../index.html">主页</a>
-                <a href="about.html">关于我们</a>
-                <a href="team.html">团队成员</a>
-                <a href="products.html">我们的产品</a>
-                <a href="partners.html" class="current">合作与生态</a>              
-                <a href="community.html">开发者中心</a>  
-                <a href="contact.html">联系我们</a>
+                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
+                <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
+                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
+                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
+                <a href="partners.html" class="current"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
+                <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
+                <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
+                 <!-- Language Switcher -->
+                 <div class="lang-switch">
+                    <a data-lang="zh-CN" class="active-lang">中文</a>
+                    <a data-lang="en">EN</a>
+                </div>
             </div>
         </div>
     </header>
     
     <section id="partners-intro">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">携手共赢</h2>
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">携手共赢</span>
+                <span lang="en">Win-Win Collaboration</span>
+            </h2>
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
-                    <h3>寻求多元合作</h3>
-                    <p>循星科技致力于构建开放、智能、安全的 AI2Home 服务生态。我们积极寻求与各类伙伴建立深度合作关系，包括但不限于：</p>
+                    <h3>
+                        <span lang="zh-CN">寻求多元合作</span>
+                        <span lang="en">Seeking Diverse Partnerships</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">循星科技致力于构建开放、智能、安全的 AI2Home 服务生态。我们积极寻求与各类伙伴建立深度合作关系，包括但不限于：</span>
+                        <span lang="en">SidebyStar is committed to building an open, intelligent, and secure AI2Home service ecosystem. We actively seek deep collaborations with various partners, including but not limited to:</span>
+                    </p>
                     <ul>
-                        <li>智能硬件制造商（家电、传感器、控制器等）</li>
-                        <li>内容与服务提供商（音乐、影音、教育、健康等）</li>
-                        <li>社区服务与物业管理平台</li>
-                        <li>房地产与家装设计师</li>
-                        <li>系统集成商与解决方案提供商</li>
-                        <li>高校及科研机构</li>
+                        <li><span lang="zh-CN">智能硬件制造商（家电、传感器、控制器等）</span><span lang="en">Smart hardware manufacturers (appliances, sensors, controllers, etc.)</span></li>
+                        <li><span lang="zh-CN">内容与服务提供商（音乐、影音、教育、健康等）</span><span lang="en">Content and service providers (music, video, education, health, etc.)</span></li>
+                        <li><span lang="zh-CN">社区服务与物业管理平台</span><span lang="en">Community service and property management platforms</span></li>
+                        <li><span lang="zh-CN">房地产与家装设计师</span><span lang="en">Real estate developers and home renovation designers</span></li>
+                        <li><span lang="zh-CN">系统集成商与解决方案提供商</span><span lang="en">System integrators and solution providers</span></li>
+                        <li><span lang="zh-CN">高校及科研机构</span><span lang="en">Universities and research institutions</span></li>
                     </ul>
-                    <p>我们相信，通过优势互补和资源共享，能够共同为用户创造更美好的智能居家体验。</p>
-                    <a href="contact.html" class="btn">成为合作伙伴</a>
+                    <p>
+                        <span lang="zh-CN">我们相信，通过优势互补和资源共享，能够共同为用户创造更美好的智能居家体验。</span>
+                        <span lang="en">We believe that through complementary strengths and resource sharing, we can jointly create a better smart home experience for users.</span>
+                    </p>
+                    <a href="contact.html" class="btn">
+                        <span lang="zh-CN">成为合作伙伴</span>
+                        <span lang="en">Become a Partner</span>
+                    </a>
                 </div>
                 <div class="about-image animate-on-scroll">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -306,11 +367,20 @@
     
     <section id="ecosystem-building" class="animate-on-scroll">
         <div class="container">
-            <h2 class="section-title">共建 AI2Home 开放生态</h2>
+            <h2 class="section-title">
+                <span lang="zh-CN">共建 AI2Home 开放生态</span>
+                <span lang="en">Building the AI2Home Open Ecosystem Together</span>
+            </h2>
             <div class="ecosystem-block">
                 <div class="ecosystem-text">
-                    <h3>开放接口与本地智能</h3>
-                    <p>我们提供标准化的 API 和 SDK，方便合作伙伴将设备与服务无缝接入循星 AI2Home 平台。更重要的是，您可以利用我们强大的本地 AI 处理能力，为用户提供响应迅速、隐私安全的智能化功能，摆脱对云端的过度依赖。</p>
+                    <h3>
+                        <span lang="zh-CN">开放接口与本地智能</span>
+                        <span lang="en">Open Interfaces & Local Intelligence</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">我们提供标准化的 API 和 SDK，方便合作伙伴将设备与服务无缝接入循星 AI2Home 平台。更重要的是，您可以利用我们强大的本地 AI 处理能力，为用户提供响应迅速、隐私安全的智能化功能，摆脱对云端的过度依赖。</span>
+                        <span lang="en">We provide standardized APIs and SDKs, enabling partners to seamlessly integrate devices and services into the SidebyStar AI2Home platform. More importantly, you can leverage our powerful local AI processing capabilities to offer users responsive, privacy-secure intelligent features, reducing reliance on the cloud.</span>
+                    </p>
                 </div>
                 <div class="ecosystem-image">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -322,8 +392,14 @@
             </div>
             <div class="ecosystem-block reverse">
                 <div class="ecosystem-text">
-                    <h3>赋能伙伴，共创价值</h3>
-                    <p>加入循星生态，意味着您可以触达追求高品质、注重隐私和易用性的用户群体。我们致力于赋能合作伙伴，利用 AI 技术（尤其是个性化和无障碍交互能力）提升您的产品竞争力，共同探索新的商业模式和服务场景。</p>
+                    <h3>
+                        <span lang="zh-CN">赋能伙伴，共创价值</span>
+                        <span lang="en">Empowering Partners, Creating Value Together</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">加入循星生态，意味着您可以触达追求高品质、注重隐私和易用性的用户群体。我们致力于赋能合作伙伴，利用 AI 技术（尤其是个性化和无障碍交互能力）提升您的产品竞争力，共同探索新的商业模式和服务场景。</span>
+                        <span lang="en">Joining the SidebyStar ecosystem means reaching users who pursue high quality, value privacy, and appreciate ease of use. We are committed to empowering partners, using AI technology (especially personalization and accessibility features) to enhance your product competitiveness and jointly explore new business models and service scenarios.</span>
+                    </p>
                 </div>
                  <div class="ecosystem-image">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -334,8 +410,14 @@
             </div>
             <div class="ecosystem-block">
                 <div class="ecosystem-text">
-                    <h3>持续进化，长期共荣</h3>
-                    <p>循星科技坚持通过软件和算法的持续迭代来提升平台能力。我们寻求建立长期、稳定、互利的合作关系，共同打造一个不断进化、充满活力的 AI2Home 生态系统，让科技真正服务于每个家庭的美好生活。</p>
+                    <h3>
+                        <span lang="zh-CN">持续进化，长期共荣</span>
+                        <span lang="en">Continuous Evolution, Long-Term Prosperity</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">循星科技坚持通过软件和算法的持续迭代来提升平台能力。我们寻求建立长期、稳定、互利的合作关系，共同打造一个不断进化、充满活力的 AI2Home 生态系统，让科技真正服务于每个家庭的美好生活。</span>
+                        <span lang="en">SidebyStar enhances platform capabilities through continuous software and algorithm iteration. We seek to establish long-term, stable, mutually beneficial partnerships to jointly build an ever-evolving, vibrant AI2Home ecosystem, letting technology truly serve the good life of every family.</span>
+                    </p>
                 </div>
                 <div class="ecosystem-image">
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -349,11 +431,20 @@
 
     <footer class="animate-on-scroll">
         <div class="container">
-            <div class="logo">循星科技</div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
-                <p>地址：中国浙江省杭州市萧山区杭州湾信息港E座</p>
-                <p>电话：+86 15568200088</p>
-                <p>邮箱：sidebystar@outlook.com</p>
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
             </div>
             <div class="social-links">
                 <div class="tooltip">
@@ -373,10 +464,14 @@
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 循星科技. 保留所有权利。</p>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
         </div>
     </footer>
 
     <script src="../js/animations.js"></script>
+    <script src="../js/language.js"></script> <!-- Add language script -->
 </body>
 </html> 

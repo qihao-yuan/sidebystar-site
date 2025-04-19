@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>循星科技 - 循此苦旅，终抵群星</title>
+    <title><span lang="zh-CN">循星科技 - 循此苦旅，终抵群星</span><span lang="en">SidebyStar - To the Stars Through Hardships</span></title>
     <link rel="stylesheet" href="css/animations.css">
     <style>
         :root {
@@ -35,6 +35,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative; /* Add relative positioning for absolute child */
         }
         
         .container {
@@ -127,17 +128,65 @@
         .social-links a { ... }
         .social-links a:hover { ... }
         */
+
+        /* Styles for language switching */
+        .lang-switch {
+            position: absolute; /* Position absolutely */
+            top: 20px;          /* Distance from top */
+            right: 30px;         /* Distance from right */
+            display: flex;       /* Use flex for internal alignment */
+            gap: 5px;
+            z-index: 10;        /* Ensure it's above other content if needed */
+            /* Removed margin-left and vertical-align */
+        }
+        .lang-switch a {
+            cursor: pointer;
+            padding: 5px 10px; /* Smaller padding than .btn */
+            border-radius: 15px; /* Rounded like .btn */
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+            background-color: transparent;
+        }
+        .lang-switch a:hover {
+            background-color: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color-light);
+            border-color: rgba(var(--accent-color-rgb), 0.4);
+        }
+        .lang-switch a.active-lang {
+            font-weight: bold;
+            background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--accent-color-light);
+            border-color: rgba(var(--accent-color-rgb), 0.5);
+        }
+        /* Hide inactive language spans by default */
+        html[lang="zh-CN"] [lang="en"],
+        html[lang="en"] [lang="zh-CN"] {
+            display: none;
+        }
+        /* Show active language spans */
+        html[lang="zh-CN"] [lang="zh-CN"],
+        html[lang="en"] [lang="en"] {
+            display: inline; /* Or initial */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="logo">循星科技</h1>
+        <h1 class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></h1>
         <nav>
-            <a href="html/about.html" class="btn">关于我们</a>
-            <a href="html/team.html" class="btn">团队成员</a>
-            <a href="html/products.html" class="btn">我们的产品</a>
-            <a href="html/partners.html" class="btn">合作与生态</a>
-            <a href="html/contact.html" class="btn">联系我们</a>
+            <a href="html/about.html" class="btn"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
+            <a href="html/team.html" class="btn"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
+            <a href="html/products.html" class="btn"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
+            <a href="html/partners.html" class="btn"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
+            <a href="html/contact.html" class="btn"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
+            <!-- Language Switcher -->
+            <div class="lang-switch">
+               <a data-lang="zh-CN" class="active-lang">中文</a>
+               <a data-lang="en">EN</a>
+           </div>
         </nav>
     </div>
     <div class="meteor" id="meteor"></div>
@@ -167,5 +216,6 @@
             }, 300);
         });
     </script>
+    <script src="js/language.js"></script>
 </body>
 </html>
