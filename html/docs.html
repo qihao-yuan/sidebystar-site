@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><span lang="zh-CN">AIOS 技术手册 - 循星科技</span><span lang="en">AIOS Technical Manual - SidebyStar</span></title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        /* Styles specific to documentation pages */
+        body {
+            line-height: 1.8;
+        }
+        .docs-content {
+            background-color: var(--card-bg, rgba(44, 62, 80, 0.6));
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow, 0 5px 15px rgba(0,0,0,0.3));
+            margin-top: -20px;
+        }
+
+        .docs-content h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.4);
+            padding-bottom: 10px;
+        }
+        .docs-content h2:first-of-type {
+             margin-top: 0;
+        }
+
+        .docs-content h3 {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .docs-content h4 {
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: var(--accent-color-light);
+            font-weight: 500;
+        }
+
+        .docs-content p, 
+        .docs-content ul,
+        .docs-content pre {
+            margin-bottom: 15px;
+            color: rgba(236, 240, 241, 0.9);
+        }
+
+        .docs-content ul {
+            list-style: disc;
+            padding-left: 25px;
+        }
+        .docs-content li {
+             margin-bottom: 8px;
+        }
+
+        .docs-content code {
+            background-color: rgba(0,0,0,0.3);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        .docs-content pre {
+            background-color: rgba(0,0,0,0.4);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+        }
+
+        .docs-content pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+        
+        .docs-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-color);
+        }
+        .docs-content a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-item {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .stat-label {
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: rgba(236, 240, 241, 0.8);
+        }
+
+        /* Architecture diagram */
+        .architecture-diagram {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+        }
+        .arch-layer {
+            background: rgba(44, 62, 80, 0.6);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+        }
+        .arch-layer.highlight {
+            background: rgba(52, 152, 219, 0.2);
+            border-left-color: #3498db;
+        }
+        .arch-layer h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+        }
+        .arch-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .arch-components span {
+            background: rgba(127, 140, 141, 0.3);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-color);
+        }
+        .arch-arrow {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin: 5px 0;
+        }
+
+        /* Tool features */
+        .tool-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .tool-features span {
+            background: rgba(52, 152, 219, 0.3);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-color);
+        }
+
+        html[lang="zh-CN"] [lang="en"],
+        html[lang="en"] [lang="zh-CN"] {
+            display: none;
+        }
+        html[lang="zh-CN"] [lang="zh-CN"],
+        html[lang="en"] [lang="en"] {
+            display: inline;
+        }
+    </style>
+</head>
+<body class="documentation-page"> 
+    <header>
+        <div class="container">
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="tagline">
+                <span lang="zh-CN">AIOS 技术手册</span>
+                <span lang="en">AIOS Technical Manual</span>
+            </div>
+            <div class="nav">
+                <!-- 导航将由navigation.js动态生成 -->
+            </div>
+        </div>
+    </header>
+
+    <section id="docs">
+        <div class="container">
+            <div class="docs-content animate-on-scroll">
+                <h2>
+                    <span lang="zh-CN">AIOS 技术概览</span>
+                    <span lang="en">AIOS Technical Overview</span>
+                </h2>
+                <p>
+                    <span lang="zh-CN">循星科技AIOS (AI-Integrated Operating System) 是一个基于事件驱动架构的现代化AI居家服务平台。本手册详细介绍了AIOS的技术架构、开发工具和API接口。</span>
+                    <span lang="en">SidebyStar AIOS (AI-Integrated Operating System) is a modern AI home service platform based on event-driven architecture. This manual provides detailed information about AIOS technical architecture, development tools, and API interfaces.</span>
+                </p>
+
+                <h3>
+                    <span lang="zh-CN">系统统计</span>
+                    <span lang="en">System Statistics</span>
+                </h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">100,000+</div>
+                        <div class="stat-label">
+                            <span lang="zh-CN">行Python代码</span>
+                            <span lang="en">Lines of Python Code</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">
+                            <span lang="zh-CN">个模块文件</span>
+                            <span lang="en">Module Files</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">
+                            <span lang="zh-CN">个工具函数</span>
+                            <span lang="en">Utility Functions</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">
+                            <span lang="zh-CN">测试覆盖率</span>
+                            <span lang="en">Test Coverage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>
+                    <span lang="zh-CN">技术架构</span>
+                    <span lang="en">Technical Architecture</span>
+                </h2>
+                <p>
+                    <span lang="zh-CN">AIOS采用分层架构设计，从底层工具库到上层UI组件，每层都有明确的职责分离。</span>
+                    <span lang="en">AIOS adopts a layered architecture design, with clear separation of responsibilities from bottom-layer utility libraries to top-layer UI components.</span>
+                </p>
+
+                <div class="architecture-diagram">
+                    <div class="arch-layer">
+                        <h4><span lang="zh-CN">UI层 </span><span lang="en">UI Layer </span></h4>
+                        <div class="arch-components">
+                            <span lang="zh-CN">事件监控</span><span lang="en">Event Monitor</span>
+                            <span lang="zh-CN">性能监控</span><span lang="en">Performance Monitor</span>
+                            <span lang="zh-CN">配置管理</span><span lang="en">Config Management</span>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">↕</div>
+                    <div class="arch-layer">
+                        <h4><span lang="zh-CN">服务层</span><span lang="en">Service Layer</span></h4>
+                        <div class="arch-components">
+                            <span>STT Service</span>
+                            <span>LLM Service</span>
+                            <span lang="zh-CN">插件系统</span><span lang="en">Plugin System</span>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">↕</div>
+                    <div class="arch-layer">
+                        <h4><span lang="zh-CN">事件总线核心 (AsyncIO)</span><span lang="en">Event Bus Core (AsyncIO)</span></h4>
+                        <div class="arch-components">
+                            <span lang="zh-CN">事件路由</span><span lang="en">Event Routing</span>
+                            <span lang="zh-CN">发布/订阅</span><span lang="en">Pub/Sub</span>
+                            <span lang="zh-CN">错误处理</span><span lang="en">Error Handling</span>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">↕</div>
+                    <div class="arch-layer">
+                        <h4><span lang="zh-CN">工具库 (44个函数)</span><span lang="en">Utils Library (44 Functions)</span></h4>
+                        <div class="arch-components">
+                            <span lang="zh-CN">路径操作</span><span lang="en">Path Operations</span>
+                            <span lang="zh-CN">文件IO</span><span lang="en">File I/O</span>
+                            <span lang="zh-CN">并发控制</span><span lang="en">Concurrency</span>
+                            <span lang="zh-CN">性能分析</span><span lang="en">Profiling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>
+                    <span lang="zh-CN">开发工具</span>
+                    <span lang="en">Development Tools</span>
+                </h2>
+
+                <h3>
+                    <span lang="zh-CN">事件总线 SDK</span>
+                    <span lang="en">Event Bus SDK</span>
+                </h3>
+                <p>
+                    <span lang="zh-CN">基于AsyncIO的高性能事件系统，支持发布/订阅模式、事件路由和优先级处理。</span>
+                    <span lang="en">High-performance event system based on AsyncIO, supporting pub/sub pattern, event routing, and priority handling.</span>
+                </p>
+                <div class="tool-features">
+                    <span>AsyncIO</span>
+                    <span>Pub/Sub</span>
+                    <span lang="zh-CN">类型安全</span>
+                    <span lang="en">Type Safety</span>
+                </div>
+
+                <h4>
+                    <span lang="zh-CN">使用示例:</span>
+                    <span lang="en">Usage Example:</span>
+                </h4>
+                <pre><code>import asyncio
+from aios.core.event_bus import Event, publish, BUS
+
+# 订阅事件
+async def handle_text(event: Event):
+    print(f"收到文本: {event.data['text']}")
+
+BUS.subscribe("stt/text", handle_text)
+
+# 发布事件
+await publish({
+    "topic": "stt/text",
+    "data": {"text": "你好", "confidence": 0.95},
+    "source": "test_client"
+})</code></pre>
+
+                <h3>
+                    <span lang="zh-CN">工具库API</span>
+                    <span lang="en">Utils Library API</span>
+                </h3>
+                <p>
+                    <span lang="zh-CN">44个标准化工具函数，涵盖路径操作、文件IO、时间处理、装饰器、并发控制等。</span>
+                    <span lang="en">44 standardized utility functions covering path operations, file I/O, time processing, decorators, and concurrency control.</span>
+                </p>
+                <div class="tool-features">
+                    <span lang="zh-CN">零依赖</span><span lang="en">Zero Dependencies</span>
+                    <span lang="zh-CN">类型提示</span><span lang="en">Type Hints</span>
+                    <span lang="zh-CN">跨平台</span><span lang="en">Cross-Platform</span>
+                </div>
+
+                <h4>
+                    <span lang="zh-CN">装饰器示例:</span>
+                    <span lang="en">Decorator Example:</span>
+                </h4>
+                <pre><code>from aios.utils import retry, timed, cache
+
+@retry(retries=3, backoff=2.0)
+@timed(name="API调用")
+@cache(ttl=300)
+async def api_call(url):
+    # 带重试、计时和缓存的API调用
+    response = await fetch(url)
+    return response.json()</code></pre>
+
+                <h3>
+                    <span lang="zh-CN">插件开发框架</span>
+                    <span lang="en">Plugin Development Framework</span>
+                </h3>
+                <p>
+                    <span lang="zh-CN">基于规则的可扩展插件系统，支持设备控制、任务执行和动态加载。</span>
+                    <span lang="en">Rule-based extensible plugin system supporting device control, task execution, and dynamic loading.</span>
+                </p>
+                <div class="tool-features">
+                    <span lang="zh-CN">规则引擎</span><span lang="en">Rule Engine</span>
+                    <span lang="zh-CN">动态加载</span><span lang="en">Dynamic Loading</span>
+                    <span lang="zh-CN">插件管理</span><span lang="en">Plugin Management</span>
+                </div>
+
+                <h4>
+                    <span lang="zh-CN">插件开发示例:</span>
+                    <span lang="en">Plugin Development Example:</span>
+                </h4>
+                <pre><code>from aios.plugins import plugin_handler
+
+@plugin_handler("control_light")
+async def control_light(event):
+    location = event.entities.get("location")
+    action = event.entities.get("action")
+    
+    if action == "开启":
+        return await turn_on_light(location)
+    elif action == "关闭":
+        return await turn_off_light(location)</code></pre>
+
+                <h3>
+                    <span lang="zh-CN">配置管理系统</span>
+                    <span lang="en">Configuration Management</span>
+                </h3>
+                <p>
+                    <span lang="zh-CN">三层数据源、热更新、多环境支持的现代化配置系统。</span>
+                    <span lang="en">Modern configuration system with three-layer data sources, hot updates, and multi-environment support.</span>
+                </p>
+                <div class="tool-features">
+                    <span lang="zh-CN">热更新</span><span lang="en">Hot Reload</span>
+                    <span lang="zh-CN">多环境</span><span lang="en">Multi-Environment</span>
+                    <span>YAML/JSON</span>
+                </div>
+
+                <h4>
+                    <span lang="zh-CN">配置使用示例:</span>
+                    <span lang="en">Configuration Usage Example:</span>
+                </h4>
+                <pre><code>from aios.config import get_settings
+
+# 获取配置
+settings = get_settings()
+print(f"API端口: {settings.api.port}")
+print(f"日志级别: {settings.core.log_level}")
+
+# 环境变量覆盖
+# export AIOS_API_PORT=9000
+# export AIOS_CORE_LOG_LEVEL=DEBUG</code></pre>
+
+                <h2>
+                    <span lang="zh-CN">API 接口</span>
+                    <span lang="en">API Interfaces</span>
+                </h2>
+                <p>
+                    <span lang="zh-CN">AIOS提供完整的RESTful API接口，包括环境感知系统、事件总线、工具库和插件系统的访问接口。</span>
+                    <span lang="en">AIOS provides comprehensive RESTful API interfaces, including access to environmental sensing systems, event bus, utility libraries, and plugin systems.</span>
+                </p>
+                <ul>
+                    <li>
+                        <a href="docs-ess-api.html">
+                            <span lang="zh-CN">环境感知系统 API</span>
+                            <span lang="en">Environmental Sensing System API</span>
+                        </a>
+                        - <span lang="zh-CN">与环境感知硬件交互的标准接口</span>
+                        <span lang="en">Standard interfaces for interacting with environmental sensing hardware</span>
+                    </li>
+                    <li>
+                        <span lang="zh-CN">事件总线 API - 异步事件系统核心API</span>
+                        <span lang="en">Event Bus API - Core API for asynchronous event system</span>
+                    </li>
+                    <li>
+                        <span lang="zh-CN">插件开发 API - 插件系统开发接口</span>
+                        <span lang="en">Plugin Development API - Plugin system development interface</span>
+                    </li>
+                </ul>
+
+                <h2>
+                    <span lang="zh-CN">测试与质量保证</span>
+                    <span lang="en">Testing & Quality Assurance</span>
+                </h2>
+                <p>
+                    <span lang="zh-CN">AIOS拥有完整的测试工具链，包含53个测试用例，92%的测试覆盖率，确保代码质量和系统稳定性。</span>
+                    <span lang="en">AIOS has a complete testing toolchain with 53 test cases and 92% test coverage, ensuring code quality and system stability.</span>
+                </p>
+                <ul>
+                    <li><span lang="zh-CN">单元测试 - 函数级别的详细测试</span><span lang="en">Unit Tests - Detailed function-level testing</span></li>
+                    <li><span lang="zh-CN">集成测试 - 模块间交互测试</span><span lang="en">Integration Tests - Inter-module interaction testing</span></li>
+                    <li><span lang="zh-CN">性能测试 - 系统性能基准测试</span><span lang="en">Performance Tests - System performance benchmarks</span></li>
+                    <li><span lang="zh-CN">自动化测试 - CI/CD集成测试流程</span><span lang="en">Automated Testing - CI/CD integrated test processes</span></li>
+                </ul>
+
+                <h2>
+                    <span lang="zh-CN">快速开始</span>
+                    <span lang="en">Quick Start</span>
+                </h2>
+                <p>
+                    <span lang="zh-CN">开始使用AIOS开发您的AI居家服务应用：</span>
+                    <span lang="en">Start using AIOS to develop your AI home service applications:</span>
+                </p>
+                <ol>
+                    <li><span lang="zh-CN">安装AIOS开发环境</span><span lang="en">Install AIOS development environment</span></li>
+                    <li><span lang="zh-CN">阅读API文档和示例代码</span><span lang="en">Read API documentation and example code</span></li>
+                    <li><span lang="zh-CN">创建您的第一个插件</span><span lang="en">Create your first plugin</span></li>
+                    <li><span lang="zh-CN">测试和部署应用</span><span lang="en">Test and deploy applications</span></li>
+                </ol>
+
+                <h2>
+                    <span lang="zh-CN">支持与社区</span>
+                    <span lang="en">Support & Community</span>
+                </h2>
+                <p>
+                    <span lang="zh-CN">如需技术支持或参与开发者社区讨论，请访问我们的社区页面或联系技术团队。</span>
+                    <span lang="en">For technical support or to participate in developer community discussions, please visit our community page or contact the technical team.</span>
+                </p>
+                <ul>
+                    <li><a href="community.html"><span lang="zh-CN">开发者社区</span><span lang="en">Developer Community</span></a></li>
+                    <li><a href="contact.html"><span lang="zh-CN">技术支持</span><span lang="en">Technical Support</span></a></li>
+                    <li><a href="aios-showcase.html"><span lang="zh-CN">项目展示</span><span lang="en">Project Showcase</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="animate-on-scroll">
+        <div class="container">
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="contact-info">
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
+            </div>
+            <div class="social-links">
+                <div class="tooltip">
+                    <a href="#" aria-label="微信">微</a>
+                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微博">博</a>
+                    <span class="tooltiptext">微博: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="领英">领</a>
+                    <span class="tooltiptext">领英: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="GitHub">G</a>
+                    <span class="tooltiptext">GitHub: qihao-yuan</span>
+                </div>
+            </div>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/animations.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+</html> 

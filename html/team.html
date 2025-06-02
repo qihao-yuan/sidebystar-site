@@ -190,7 +190,7 @@
             min-height: 450px;
             width: 100%;
             max-width: 950px;
-            margin: 30px auto;
+            margin: 30px auto 80px auto;
             padding: 0;
             perspective: 1400px;
             /* overflow: hidden; */ /* <-- TEMPORARILY COMMENT OUT to diagnose clipping */
@@ -326,9 +326,9 @@
         }
         /* --- End Ferris Wheel Styles --- */
 
-        /* Add margin above footer to separate from Ferris wheel */
+        /* Add margin above footer to separate from content */
         footer.animate-on-scroll {
-            margin-top: 150px; /* Adjust value as needed */
+            margin-top: 80px; /* 减少边距，因为上面已经有间距了 */
         }
 
         .tooltip {
@@ -393,39 +393,14 @@
             font-weight: bold;
             cursor: pointer;
         }
-        .modal-close-btn:hover,
         .modal-close-btn:focus {
             color: white;
             text-decoration: none;
             cursor: pointer;
         }
 
-        .lang-switch {
-            display: flex;
-            gap: 5px;
-            margin-left: 15px;
-            border-left: 1px solid var(--border-color);
-            padding-left: 15px;
-            align-items: center;
-        }
-        .lang-switch a {
-            cursor: pointer;
-            padding: 5px 8px;
-            border-radius: 4px;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .lang-switch a:hover {
-            background-color: var(--hover-bg);
-            color: var(--accent-color);
-        }
-        .lang-switch a.active-lang {
-            font-weight: bold;
-            background-color: rgba(var(--accent-color-rgb), 0.3);
-            color: var(--accent-color);
-        }
+        /* 导航样式现在由navigation.js统一管理 - 移除重复样式 */
+        
         html[lang="zh-CN"] [lang="en"],
         html[lang="en"] [lang="zh-CN"] {
             display: none;
@@ -446,17 +421,7 @@
                 <span lang="en">Meet Our Team</span>
             </div>
             <div class="nav">
-                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
-                <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
-                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
-                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
-                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
-                <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
-                <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
-                <div class="lang-switch">
-                   <a data-lang="zh-CN" class="active-lang">中文</a>
-                   <a data-lang="en">EN</a>
-               </div>
+                <!-- 导航将由navigation.js动态生成 -->
             </div>
         </div>
     </header>
@@ -471,9 +436,18 @@
                         </svg>
                     </div>
                     <div class="member-info">
-                        <div class="member-name">袁启皓</div>
-                        <div class="member-role">CEO & 全链路负责人</div>
-                        <a href="member-yuan-qihao.html" class="member-details-link">查看详情</a>
+                        <div class="member-name">
+                            <span lang="zh-CN">袁启皓</span>
+                            <span lang="en">Yuan Qihao</span>
+                        </div>
+                        <div class="member-role">
+                            <span lang="zh-CN">CEO & 全链路负责人</span>
+                            <span lang="en">CEO & Full-Stack Lead</span>
+                        </div>
+                        <a href="member-yuan-qihao.html" class="member-details-link">
+                            <span lang="zh-CN">查看详情</span>
+                            <span lang="en">View Details</span>
+                        </a>
                     </div>
                  </div>
             </div>
@@ -485,9 +459,18 @@
                          </svg>
                      </div>
                       <div class="member-info">
-                         <div class="member-name">黄羽晨</div>
-                         <div class="member-role">负责人 - 个性化学习引擎</div>
-                         <a href="member-huang-yuchen.html" class="member-details-link">查看详情</a>
+                         <div class="member-name">
+                            <span lang="zh-CN">黄羽晨</span>
+                            <span lang="en">Huang Yuchen</span>
+                         </div>
+                         <div class="member-role">
+                            <span lang="zh-CN">负责人 - 个性化学习引擎</span>
+                            <span lang="en">Lead - Personalized Learning Engine</span>
+                         </div>
+                         <a href="member-huang-yuchen.html" class="member-details-link">
+                            <span lang="zh-CN">查看详情</span>
+                            <span lang="en">View Details</span>
+                         </a>
                       </div>
                   </div>
              </div>
@@ -499,9 +482,18 @@
                          </svg>
                      </div>
                      <div class="member-info">
-                         <div class="member-name">钟兆祥</div>
-                         <div class="member-role">项目经理 - 环境感知系统</div>
-                         <a href="member-zhong-zhaoxiang.html" class="member-details-link">查看详情</a>
+                         <div class="member-name">
+                            <span lang="zh-CN">钟兆祥</span>
+                            <span lang="en">Zhong Zhaoxiang</span>
+                         </div>
+                         <div class="member-role">
+                            <span lang="zh-CN">项目经理 - 环境感知系统</span>
+                            <span lang="en">Project Manager - Environmental Sensing System</span>
+                         </div>
+                         <a href="member-zhong-zhaoxiang.html" class="member-details-link">
+                            <span lang="zh-CN">查看详情</span>
+                            <span lang="en">View Details</span>
+                         </a>
                      </div>
                  </div>
              </div>
@@ -513,9 +505,18 @@
                        </svg>
                     </div>
                     <div class="member-info">
-                        <div class="member-name">谭福仁</div>
-                        <div class="member-role">技术负责人 - 环境感知系统 (ESS)</div>
-                        <a href="member-tan-furen.html" class="member-details-link">查看详情</a>
+                        <div class="member-name">
+                            <span lang="zh-CN">谭福仁</span>
+                            <span lang="en">Tan Furen</span>
+                        </div>
+                        <div class="member-role">
+                            <span lang="zh-CN">技术负责人 - 环境感知系统 (ESS)</span>
+                            <span lang="en">Tech Lead - Environmental Sensing System (ESS)</span>
+                        </div>
+                        <a href="member-tan-furen.html" class="member-details-link">
+                            <span lang="zh-CN">查看详情</span>
+                            <span lang="en">View Details</span>
+                        </a>
                     </div>
                 </div>
              </div>
@@ -527,9 +528,18 @@
                          </svg>
                      </div>
                      <div class="member-info">
-                        <div class="member-name">李旭晨</div>
-                        <div class="member-role">全项目对接负责人</div>
-                        <a href="member-li-xuchen.html" class="member-details-link">查看详情</a>
+                        <div class="member-name">
+                            <span lang="zh-CN">李旭晨</span>
+                            <span lang="en">Li Xuchen</span>
+                        </div>
+                        <div class="member-role">
+                            <span lang="zh-CN">全项目对接负责人</span>
+                            <span lang="en">Project Coordination Lead</span>
+                        </div>
+                        <a href="member-li-xuchen.html" class="member-details-link">
+                            <span lang="zh-CN">查看详情</span>
+                            <span lang="en">View Details</span>
+                        </a>
                      </div>
                  </div>
              </div>
@@ -541,9 +551,18 @@
                          </svg>
                      </div>
                      <div class="member-info">
-                        <div class="member-name">刘家航</div>
-                        <div class="member-role">技术负责人 - 智能管家</div>
-                        <a href="member-liu-jiahang.html" class="member-details-link">查看详情</a>
+                        <div class="member-name">
+                            <span lang="zh-CN">刘家航</span>
+                            <span lang="en">Liu Jiahang</span>
+                        </div>
+                        <div class="member-role">
+                            <span lang="zh-CN">技术负责人 - 智能管家</span>
+                            <span lang="en">Tech Lead - Smart Steward</span>
+                        </div>
+                        <a href="member-liu-jiahang.html" class="member-details-link">
+                            <span lang="zh-CN">查看详情</span>
+                            <span lang="en">View Details</span>
+                        </a>
                      </div>
                  </div>
              </div>
@@ -555,9 +574,18 @@
                          </svg>
                      </div>
                      <div class="member-info">
-                        <div class="member-name">马常誉</div>
-                        <div class="member-role">项目经理 - 智能管家</div>
-                        <a href="member-ma-changyu.html" class="member-details-link">查看详情</a>
+                        <div class="member-name">
+                            <span lang="zh-CN">马常誉</span>
+                            <span lang="en">Ma Changyu</span>
+                        </div>
+                        <div class="member-role">
+                            <span lang="zh-CN">项目经理 - 智能管家</span>
+                            <span lang="en">Project Manager - Smart Steward</span>
+                        </div>
+                        <a href="member-ma-changyu.html" class="member-details-link">
+                            <span lang="zh-CN">查看详情</span>
+                            <span lang="en">View Details</span>
+                        </a>
                      </div>
                  </div>
              </div>
@@ -569,9 +597,18 @@
                         </svg>
                     </div>
                     <div class="member-info">
-                        <div class="member-name">信子栋</div>
-                        <div class="member-role">行政、财务与内外对接负责人</div>
-                        <a href="member-xin-zidong.html" class="member-details-link">查看详情</a>
+                        <div class="member-name">
+                            <span lang="zh-CN">信子栋</span>
+                            <span lang="en">Xin Zidong</span>
+                        </div>
+                        <div class="member-role">
+                            <span lang="zh-CN">行政、财务与内外对接负责人</span>
+                            <span lang="en">Admin, Finance & External Relations Lead</span>
+                        </div>
+                        <a href="member-xin-zidong.html" class="member-details-link">
+                            <span lang="zh-CN">查看详情</span>
+                            <span lang="en">View Details</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -579,9 +616,102 @@
         </div>
     </div>
 
+    <!-- 团队成就与链接 -->
+    <section style="background: rgba(255,255,255,0.02); padding: 60px 0; margin-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">
+                <span lang="zh-CN">🚀 团队成就</span>
+                <span lang="en">🚀 Team Achievements</span>
+            </h2>
+            
+            <!-- 统计数据亮点 -->
+            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin: 40px 0 60px 0;">
+                <div style="text-align: center; min-width: 120px;">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">100,000+</div>
+                    <div style="font-size: 1rem; color: rgba(236, 240, 241, 0.9); font-weight: 500;">
+                        <span lang="zh-CN">行代码</span>
+                        <span lang="en">Lines of Code</span>
+                    </div>
+                </div>
+                <div style="text-align: center; min-width: 120px;">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">100+</div>
+                    <div style="font-size: 1rem; color: rgba(236, 240, 241, 0.9); font-weight: 500;">
+                        <span lang="zh-CN">个模块</span>
+                        <span lang="en">Modules</span>
+                    </div>
+                </div>
+                <div style="text-align: center; min-width: 120px;">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">100+</div>
+                    <div style="font-size: 1rem; color: rgba(236, 240, 241, 0.9); font-weight: 500;">
+                        <span lang="zh-CN">个工具</span>
+                        <span lang="en">Tools</span>
+                    </div>
+                </div>
+                <div style="text-align: center; min-width: 120px;">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">98%</div>
+                    <div style="font-size: 1rem; color: rgba(236, 240, 241, 0.9); font-weight: 500;">
+                        <span lang="zh-CN">测试覆盖</span>
+                        <span lang="en">Test Coverage</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 项目链接卡片 -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(var(--accent-color-rgb), 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">🤖</div>
+                    <h3 style="color: var(--accent-color); margin-bottom: 15px;">
+                        <span lang="zh-CN">AIOS技术架构</span>
+                        <span lang="en">AIOS Architecture</span>
+                    </h3>
+                    <p style="margin-bottom: 20px; font-size: 0.9rem;">
+                        <span lang="zh-CN">现代化事件驱动AI平台，支持智能家居生态</span>
+                        <span lang="en">Modern event-driven AI platform supporting smart home ecosystem</span>
+                    </p>
+                    <a href="aios-showcase.html" style="padding: 10px 20px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 5px;">
+                        <span lang="zh-CN">技术详情</span>
+                        <span lang="en">Technical Details</span>
+                    </a>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(var(--accent-color-rgb), 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">🏠</div>
+                    <h3 style="color: var(--accent-color); margin-bottom: 15px;">
+                        <span lang="zh-CN">产品创新</span>
+                        <span lang="en">Product Innovation</span>
+                    </h3>
+                    <p style="margin-bottom: 20px; font-size: 0.9rem;">
+                        <span lang="zh-CN">基于AIOS的完整智能家居产品生态</span>
+                        <span lang="en">Complete smart home product ecosystem based on AIOS</span>
+                    </p>
+                    <a href="products.html" style="padding: 10px 20px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 5px;">
+                        <span lang="zh-CN">产品矩阵</span>
+                        <span lang="en">Product Matrix</span>
+                    </a>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(var(--accent-color-rgb), 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">💼</div>
+                    <h3 style="color: var(--accent-color); margin-bottom: 15px;">
+                        <span lang="zh-CN">合作机会</span>
+                        <span lang="en">Partnership Opportunities</span>
+                    </h3>
+                    <p style="margin-bottom: 20px; font-size: 0.9rem;">
+                        <span lang="zh-CN">与我们一起构建AI2Home生态系统</span>
+                        <span lang="en">Build AI2Home ecosystem together with us</span>
+                    </p>
+                    <a href="contact.html" style="padding: 10px 20px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 5px;">
+                        <span lang="zh-CN">联系我们</span>
+                        <span lang="en">Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="animate-on-scroll">
         <div class="container">
-            <div class="logo"><span lang="zh-CN">星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
                 <p>
                     <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
@@ -651,6 +781,7 @@
     </script>
     <script src="../js/ferris-wheel.js"></script>
     <script src="../js/animations.js"></script>
+    <script src="../js/navigation.js"></script>
     <script src="../js/language.js"></script>
 </body>
 </html>

@@ -204,21 +204,25 @@
         }
         .lang-switch a {
             cursor: pointer;
-            padding: 5px 8px;
-            border-radius: 4px;
-            transition: background-color 0.2s ease;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
             color: var(--text-color);
             text-decoration: none;
             font-size: 0.9rem;
+            border: 1px solid transparent;
+            background-color: transparent;
         }
         .lang-switch a:hover {
             background-color: rgba(var(--accent-color-rgb), 0.2);
             color: var(--accent-color);
+            border-color: rgba(var(--accent-color-rgb), 0.4);
         }
         .lang-switch a.active-lang {
             font-weight: bold;
             background-color: rgba(var(--accent-color-rgb), 0.3);
-            color: var(--accent-color);
+            color: var(--primary-color);
+            border-color: rgba(var(--accent-color-rgb), 0.5);
         }
         /* Hide inactive language spans by default */
         html[lang="zh-CN"] [lang="en"],
@@ -241,18 +245,7 @@
                 <span lang="en">Contact Us</span>
             </div>
             <div class="nav">
-                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
-                <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
-                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
-                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
-                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
-                <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
-                <a href="contact.html" class="current"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
-                 <!-- Language Switcher -->
-                 <div class="lang-switch">
-                    <a data-lang="zh-CN" class="active-lang">中文</a>
-                    <a data-lang="en">EN</a>
-                </div>
+                <!-- 导航将由navigation.js动态生成 -->
             </div>
         </div>
     </header>
@@ -324,6 +317,7 @@
         </div>
     </footer>
     <script src="../js/animations.js"></script>
-    <script src="../js/language.js"></script> <!-- Add language script -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/language.js"></script>
 </body>
 </html>

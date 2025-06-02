@@ -3,202 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>开发者中心 - 循星科技</title>
+    <title><span lang="zh-CN">开发者社区 - 循星科技</span><span lang="en">Developer Community - SidebyStar</span></title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/animations.css">
-    <style>
-        /* Styles specific to the community page */
-        .community-grid { 
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjust minmax for potentially smaller cards */
-            gap: 25px;
-            margin-top: 40px; /* Add space below the intro */
-        }
-
-        .community-card { 
-            background-color: var(--card-bg, rgba(44, 62, 80, 0.6)); 
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: var(--card-shadow, 0 5px 15px rgba(0,0,0,0.3));
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex; /* Use flexbox for vertical alignment */
-            flex-direction: column;
-            justify-content: space-between; /* Push button to bottom */
-            min-height: 200px; /* Ensure cards have some height */
-        }
-
-        .community-card:hover { 
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow, 0 8px 25px rgba(0,0,0,0.5));
-        }
-
-        .community-icon { 
-            font-size: 2.8rem; /* Slightly larger icon */
-            margin-bottom: 20px;
-            color: var(--accent-color);
-            transition: transform 0.3s ease;
-        }
-
-        .community-card:hover .community-icon { 
-            transform: scale(1.15); 
-        }
-
-        .community-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        .community-card p {
-            color: rgba(236, 240, 241, 0.85);
-            margin-bottom: 20px; /* Space before button */
-            flex-grow: 1; /* Allow paragraph to take space */
-        }
-
-        .community-link {
-            display: inline-block;
-            padding: 10px 25px;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-top: auto; /* Push to bottom */
-        }
-
-        .community-link:hover {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-        
-        .community-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px auto; /* Center and add bottom margin */
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: rgba(236, 240, 241, 0.9);
-        }
-
-        /* Styles for language switching */
-        .lang-switch {
-            display: flex;
-            gap: 5px;
-            margin-left: 15px;
-            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
-            padding-left: 15px;
-        }
-        .lang-switch a {
-            cursor: pointer;
-            padding: 5px 8px;
-            border-radius: 4px;
-            transition: background-color 0.2s ease;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .lang-switch a:hover {
-            background-color: rgba(var(--accent-color-rgb), 0.2);
-            color: var(--accent-color);
-        }
-        .lang-switch a.active-lang {
-            font-weight: bold;
-            background-color: rgba(var(--accent-color-rgb), 0.3);
-            color: var(--accent-color);
-        }
-        /* Hide inactive language spans by default */
-        html[lang="zh-CN"] [lang="en"],
-        html[lang="en"] [lang="zh-CN"] {
-            display: none;
-        }
-        /* Show active language spans */
-        html[lang="zh-CN"] [lang="zh-CN"],
-        html[lang="en"] [lang="en"] {
-            display: inline;
-        }
-    </style>
 </head>
 <body class="community-page">
     <header>
         <div class="container">
             <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="tagline">
-                <span lang="zh-CN">开发者中心</span>
-                <span lang="en">Developer Center</span>
+                <span lang="zh-CN">开发者社区</span>
+                <span lang="en">Developer Community</span>
             </div>
             <div class="nav">
-                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
-                <a href="about.html"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
-                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
-                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
-                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
-                <a href="community.html" class="current"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
-                <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
-                <!-- Language Switcher -->
-                <div class="lang-switch">
-                    <a data-lang="zh-CN" class="active-lang">中文</a>
-                    <a data-lang="en">EN</a>
-                </div>
+                <!-- 导航将由navigation.js动态生成 -->
             </div>
         </div>
     </header>
 
-    <section id="community">
+    <section id="hero">
+        <div class="container">
+            <h1 class="animate-on-scroll">
+                <span lang="zh-CN">开发者社区</span>
+                <span lang="en">Developer Community</span>
+            </h1>
+            <p class="hero-subtitle animate-on-scroll">
+                <span lang="zh-CN">与志同道合的开发者一起，构建AI居家服务的未来</span>
+                <span lang="en">Together with like-minded developers, build the future of AI home services</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- 主要内容区域 - 统一的2x3网格布局 -->
+    <section id="main-content" style="padding: 80px 0;">
+        <div class="container">
+            <div class="symmetric-grid animate-on-scroll">
+                <!-- 第一行：技术资源 -->
+                <div class="community-card staggered-item">
+                    <div class="card-icon">📚</div>
+                    <h3><span lang="zh-CN">技术手册</span><span lang="en">Technical Manual</span></h3>
+                    <p><span lang="zh-CN">完整的AIOS技术架构文档、开发指南和API参考</span><span lang="en">Complete AIOS technical architecture documentation, development guides and API reference</span></p>
+                    <a href="docs.html" class="card-button"><span lang="zh-CN">查看文档</span><span lang="en">View Docs</span></a>
+                </div>
+
+                <div class="community-card staggered-item">
+                    <div class="card-icon">🔌</div>
+                    <h3><span lang="zh-CN">API 接口</span><span lang="en">API Interface</span></h3>
+                    <p><span lang="zh-CN">环境感知系统API文档，快速集成智能传感器功能</span><span lang="en">Environmental Sensing System API documentation for quick smart sensor integration</span></p>
+                    <a href="docs-ess-api.html" class="card-button"><span lang="zh-CN">API文档</span><span lang="en">API Docs</span></a>
+                </div>
+
+                <div class="community-card staggered-item">
+                    <div class="card-icon">🚀</div>
+                    <h3><span lang="zh-CN">技术展示</span><span lang="en">Tech Showcase</span></h3>
+                    <p><span lang="zh-CN">基于AIOS开发的优秀应用案例和技术演示</span><span lang="en">Excellent application cases and technical demonstrations based on AIOS</span></p>
+                    <a href="aios-showcase.html" class="card-button"><span lang="zh-CN">查看案例</span><span lang="en">View Cases</span></a>
+                </div>
+
+                <!-- 第二行：社区服务 -->
+                <div class="community-card staggered-item">
+                    <div class="card-icon">💬</div>
+                    <h3><span lang="zh-CN">技术交流</span><span lang="en">Technical Discussion</span></h3>
+                    <p><span lang="zh-CN">与开发者社区交流经验，分享最佳实践和解决方案</span><span lang="en">Exchange experiences with developer community, share best practices and solutions</span></p>
+                    <a href="contact.html" class="card-button"><span lang="zh-CN">加入讨论</span><span lang="en">Join Discussion</span></a>
+                </div>
+
+                <div class="community-card staggered-item">
+                    <div class="card-icon">🛠️</div>
+                    <h3><span lang="zh-CN">开发支持</span><span lang="en">Development Support</span></h3>
+                    <p><span lang="zh-CN">专业技术支持团队，提供开发指导和问题解决</span><span lang="en">Professional technical support team providing development guidance and problem-solving</span></p>
+                    <a href="contact.html" class="card-button"><span lang="zh-CN">获取支持</span><span lang="en">Get Support</span></a>
+                </div>
+
+                <div class="community-card staggered-item">
+                    <div class="card-icon">🤝</div>
+                    <h3><span lang="zh-CN">合作机会</span><span lang="en">Partnership</span></h3>
+                    <p><span lang="zh-CN">探索商务合作、技术集成和生态共建机会</span><span lang="en">Explore business cooperation, technical integration and ecosystem co-building opportunities</span></p>
+                    <a href="partners.html" class="card-button"><span lang="zh-CN">合作洽谈</span><span lang="en">Partnership</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色亮点区域 -->
+    <section id="highlights" style="background: rgba(255,255,255,0.02); padding: 60px 0;">
         <div class="container">
             <h2 class="section-title animate-on-scroll">
-                <span lang="zh-CN">欢迎来到循星开发者社区</span>
-                <span lang="en">Welcome to the SidebyStar Developer Community</span>
+                <span lang="zh-CN">社区亮点</span>
+                <span lang="en">Community Highlights</span>
             </h2>
-            <p class="community-intro animate-on-scroll">
-                <span lang="zh-CN">这里是循星科技开发者交流、学习和创造的中心。我们致力于构建一个开放、协作的 AI2Home 生态，赋能开发者利用我们的技术，为用户打造更智能、更安全、更便捷的居家体验。加入我们，一起探索未来！</span>
-                <span lang="en">This is the hub for SidebyStar developers to communicate, learn, and create. We are dedicated to building an open, collaborative AI2Home ecosystem, empowering developers to leverage our technology to create smarter, safer, and more convenient home experiences for users. Join us and explore the future together!</span>
-            </p>
-
-            <div class="community-grid">
-                <div class="community-card animate-on-scroll staggered-item">
-                    <div class="community-icon">📚</div>
-                    <h3><span lang="zh-CN">技术文档</span><span lang="en">Documentation</span></h3>
-                    <p><span lang="zh-CN">查阅详细的 API 参考、SDK 指南和集成文档，快速上手我们的技术平台。</span><span lang="en">Consult detailed API references, SDK guides, and integration documents to quickly get started with our tech platform.</span></p>
-                    <a href="docs-ess-api.html" class="community-link"><span lang="zh-CN">浏览文档</span><span lang="en">Browse Docs</span></a>
+            <div class="highlights-row animate-on-scroll">
+                <div class="highlight-item">
+                    <div class="highlight-number">100,000+</div>
+                    <div class="highlight-label"><span lang="zh-CN">行代码</span><span lang="en">Lines of Code</span></div>
                 </div>
-                
-                <div class="community-card animate-on-scroll staggered-item">
-                    <div class="community-icon">💬</div>
-                    <h3><span lang="zh-CN">开发者论坛</span><span lang="en">Developer Forum</span></h3>
-                    <p><span lang="zh-CN">与其他开发者交流想法、分享经验、寻求帮助，共同解决技术难题。</span><span lang="en">Exchange ideas, share experiences, seek help, and solve technical problems together with other developers.</span></p>
-                    <a href="#" class="community-link"><span lang="zh-CN">进入论坛</span><span lang="en">Enter Forum</span></a>
+                <div class="highlight-item">
+                    <div class="highlight-number">100+</div>
+                    <div class="highlight-label"><span lang="zh-CN">个模块</span><span lang="en">Modules</span></div>
                 </div>
-
-                <div class="community-card animate-on-scroll staggered-item">
-                    <div class="community-icon">💡</div>
-                    <h3><span lang="zh-CN">入门指南</span><span lang="en">Getting Started Guides</span></h3>
-                    <p><span lang="zh-CN">跟随我们的教程和示例，了解如何开始您的第一个 AI2Home 项目。</span><span lang="en">Follow our tutorials and examples to learn how to start your first AI2Home project.</span></p>
-                    <a href="#" class="community-link"><span lang="zh-CN">查看指南</span><span lang="en">View Guides</span></a>
+                <div class="highlight-item">
+                    <div class="highlight-number">100+</div>
+                    <div class="highlight-label"><span lang="zh-CN">个工具</span><span lang="en">Tools</span></div>
                 </div>
-
-                <div class="community-card animate-on-scroll staggered-item">
-                    <div class="community-icon">📦</div>
-                    <h3><span lang="zh-CN">SDK & 工具</span><span lang="en">SDKs & Tools</span></h3>
-                    <p><span lang="zh-CN">下载最新的软件开发工具包和相关工具，加速您的开发进程。</span><span lang="en">Download the latest software development kits and related tools to accelerate your development process.</span></p>
-                    <a href="#" class="community-link"><span lang="zh-CN">获取工具</span><span lang="en">Get Tools</span></a>
-                </div>
-
-                <div class="community-card animate-on-scroll staggered-item">
-                    <div class="community-icon">⭐</div>
-                    <h3><span lang="zh-CN">项目展示</span><span lang="en">Project Showcase</span></h3>
-                    <p><span lang="zh-CN">发现基于循星技术构建的创新应用和项目，获取灵感或展示您的作品。</span><span lang="en">Discover innovative applications and projects built on SidebyStar technology, get inspired, or showcase your work.</span></p>
-                    <a href="#" class="community-link"><span lang="zh-CN">查看项目</span><span lang="en">View Projects</span></a>
-                </div>
-
-                <div class="community-card animate-on-scroll staggered-item">
-                    <div class="community-icon">🐞</div>
-                    <h3><span lang="zh-CN">问题反馈</span><span lang="en">Feedback & Issues</span></h3>
-                    <p><span lang="zh-CN">遇到问题或有改进建议？向我们报告 Bug 或提交功能请求。</span><span lang="en">Encounter problems or have suggestions for improvement? Report bugs or submit feature requests to us.</span></p>
-                    <a href="#" class="community-link"><span lang="zh-CN">提交反馈</span><span lang="en">Submit Feedback</span></a>
+                <div class="highlight-item">
+                    <div class="highlight-number">98%</div>
+                    <div class="highlight-label"><span lang="zh-CN">测试覆盖</span><span lang="en">Test Coverage</span></div>
                 </div>
             </div>
         </div>
@@ -247,6 +156,7 @@
     </footer>
 
     <script src="../js/animations.js"></script>
+    <script src="../js/navigation.js"></script>
     <script src="../js/language.js"></script>
 </body>
 </html> 

@@ -269,16 +269,25 @@
         }
         .lang-switch a {
             cursor: pointer;
-            padding: 5px 8px;
-            border-radius: 4px;
-            transition: background-color 0.2s ease;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+            background-color: transparent;
         }
         .lang-switch a:hover {
             background-color: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+            border-color: rgba(var(--accent-color-rgb), 0.4);
         }
         .lang-switch a.active-lang {
             font-weight: bold;
             background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--primary-color);
+            border-color: rgba(var(--accent-color-rgb), 0.5);
         }
         /* Ensure inline spans display correctly */
          span[lang] {
@@ -306,18 +315,7 @@
                 <span lang="en">About Us</span>
             </div>
             <div class="nav">
-                <a href="../index.html"><span lang="zh-CN">主页</span><span lang="en">Home</span></a>
-                <a href="about.html" class="current"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
-                <a href="team.html"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
-                <a href="products.html"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
-                <a href="partners.html"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
-                <a href="community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a>
-                <a href="contact.html"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
-                <!-- Language Switcher -->
-                <div class="lang-switch">
-                    <a data-lang="zh-CN" class="active-lang">中文</a>
-                    <a data-lang="en">EN</a>
-                </div>
+                <!-- 导航将由navigation.js动态生成-->
             </div>
         </div>
     </header>
@@ -331,7 +329,7 @@
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
                     <p>
-                        <span lang="zh-CN">循星科技（杭州）有限公司成立于2025年5月，专注于 AI 赋能的居家服务（AI2Home）。我们致力于研发生产家居智慧数字大脑及配套终端，构建完善的 AI2Home 服务生态，为万千家庭带来智能、便捷、安全的居家新体验。</span>
+                        <span lang="zh-CN">循星科技（杭州）有限公司成立于2025年5月，专注AI 赋能的居家服务（AI2Home）。我们致力于研发生产家居智慧数字大脑及配套终端，构建完善AI2Home 服务生态，为万千家庭带来智能、便捷、安全的居家新体验。</span>
                         <span lang="en">SidebyStar (Hangzhou) Co., Ltd. was established in May 2025, focusing on AI-empowered home services (AI2Home). We are committed to the research, development, and production of smart home digital brains and supporting terminals, building a comprehensive AI2Home service ecosystem to bring intelligent, convenient, and secure new home experiences to thousands of households.</span>
                     </p>
                     <p>
@@ -342,6 +340,16 @@
                         <span lang="zh-CN">我们的使命是以创新科技驱动，解决居家生活中的实际痛点，为消费者打造高效、智能、全方位，无障碍的生态居家解决方案。</span>
                         <span lang="en">Our mission is to drive innovation with technology, solve real pain points in home life, and create efficient, intelligent, comprehensive, and accessible ecological home solutions for consumers.</span>
                     </p>
+                    <div style="margin-top: 30px;">
+                        <a href="team.html" class="btn" style="margin-right: 15px;">
+                            <span lang="zh-CN">认识团队</span>
+                            <span lang="en">Meet Our Team</span>
+                        </a>
+                        <a href="products.html" class="btn">
+                            <span lang="zh-CN">了解产品</span>
+                            <span lang="en">Our Products</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="about-image animate-on-scroll">
                     <img src="../pics/about.png" alt="Company Concept Image" style="width: 100%; height: 100%;">
@@ -418,7 +426,7 @@
                     <div class="feature-icon hover-effect-icon">🧩</div>
                     <h3><span lang="zh-CN">开放生态</span><span lang="en">Open Ecosystem</span></h3>
                     <p>
-                        <span lang="zh-CN">构建丰富的 AI2Home 服务生态系统，提供强大的拓展性和多样化的服务选择，满足不断变化的智能家居需求。</span>
+                        <span lang="zh-CN">构建丰富AI2Home 服务生态系统，提供强大的拓展性和多样化的服务选择，满足不断变化的智能家居需求。</span>
                         <span lang="en">Building a rich AI2Home service ecosystem, providing strong expandability and diverse service options to meet evolving smart home needs.</span>
                     </p>
                 </div>
@@ -439,10 +447,10 @@
                     </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
-                    <div class="feature-icon hover-effect-icon">⚡</div>
+                    <div class="feature-icon hover-effect-icon">🤝</div>
                     <h3><span lang="zh-CN">创新思维</span><span lang="en">Innovative Thinking</span></h3>
                     <p>
-                        <span lang="zh-CN">我们专注于 AI 在居家服务领域的应用，不断探索前沿技术，致力于为 AI2Home 服务生态带来突破性的解决方案。</span>
+                        <span lang="zh-CN">我们专注AI 在居家服务领域的应用，不断探索前沿技术，致力于为 AI2Home 服务生态带来突破性的解决方案。</span>
                         <span lang="en">We focus on the application of AI in the home service field, constantly exploring cutting-edge technologies, committed to bringing breakthrough solutions to the AI2Home service ecosystem.</span>
                     </p>
                 </div>
@@ -468,7 +476,7 @@
                     <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
                 </p>
                 <p>
-                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="zh-CN">电话：86 15568200088</span>
                     <span lang="en">Phone: +86 15568200088</span>
                 </p>
                 <p>
@@ -478,19 +486,19 @@
             </div>
             <div class="social-links">
                 <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                    <a href="#" aria-label="微信">🔒</a>
+                    <span class="tooltiptext">微信：nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
+                    <a href="#" aria-label="微博">🔒</a>
                     <span class="tooltiptext">微博: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
+                    <a href="#" aria-label="领英">🔒</a>
                     <span class="tooltiptext">领英: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
+                    <a href="#" aria-label="GitHub">🔒</a>
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
@@ -502,6 +510,7 @@
     </footer>
 
     <script src="../js/animations.js"></script>
+    <script src="../js/navigation.js"></script>
     <script src="../js/language.js"></script>
 </body>
 </html>
