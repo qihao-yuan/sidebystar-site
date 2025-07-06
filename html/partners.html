@@ -4,264 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>合作与生态 - 循星科技</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
     <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d;
-            --accent-color-rgb: 127, 140, 141;
-            --text-color: #ecf0f1;
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-            --card-bg: rgba(44, 62, 80, 0.6);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
+        /* 现代化合作页面样式 */
         body {
-            color: var(--text-color);
             background: var(--dark-bg);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 15px auto;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            background-color: var(--card-bg);
-            min-height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .about-image svg {
-            width: 120px;
-            height: 120px;
-            fill: #ccc;
-        }
-        
-        footer {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        .tooltip {
-            position: relative;
-            display: inline-block;
+            min-height: 100vh;
         }
 
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-
-        .nav a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav a.current {
-            color: var(--accent-color);
-        }
-
-        .ecosystem-block {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-        
-        .ecosystem-text {
-            flex: 1;
-        }
-
-        .ecosystem-text h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .ecosystem-text p {
-            color: rgba(236, 240, 241, 0.9);
-            margin-bottom: 15px;
-        }
-        
-        .ecosystem-image {
-            flex: 1;
-            background-color: var(--card-bg);
-            height: 300px; 
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .ecosystem-image svg {
-            width: 100px; 
-            height: 100px; 
-            fill: #ccc;
-        }
-
-        .ecosystem-block.reverse {
-             flex-direction: row-reverse;
-        }
-
-        /* Styles for language switching */
-        .lang-switch {
-            display: flex;
-            gap: 5px;
-            margin-left: 15px;
-            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
-            padding-left: 15px;
-        }
-        .lang-switch a {
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 15px;
-            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid transparent;
-            background-color: transparent;
-        }
-        .lang-switch a:hover {
-            background-color: rgba(var(--accent-color-rgb), 0.2);
-            color: var(--accent-color);
-            border-color: rgba(var(--accent-color-rgb), 0.4);
-        }
-        .lang-switch a.active-lang {
-            font-weight: bold;
-            background-color: rgba(var(--accent-color-rgb), 0.3);
-            color: var(--primary-color);
-            border-color: rgba(var(--accent-color-rgb), 0.5);
-        }
         /* Hide inactive language spans by default */
         html[lang="zh-CN"] [lang="en"],
         html[lang="en"] [lang="zh-CN"] {
@@ -270,34 +20,423 @@
         /* Show active language spans */
         html[lang="zh-CN"] [lang="zh-CN"],
         html[lang="en"] [lang="en"] {
-            display: inline;
+            display: initial;
+        }
+
+        /* 英雄区域样式 */
+        .hero-section {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(127, 140, 141, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(127, 140, 141, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(127, 140, 141, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* 合作伙伴类型卡片 */
+        .partner-types {
+            padding: 80px 0;
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .partner-card {
+            background: linear-gradient(135deg, rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.7));
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: var(--accent-color);
+        }
+
+        .partner-card:hover::before {
+            left: 100%;
+        }
+
+        .partner-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .partner-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .partner-card p {
+            color: rgba(236, 240, 241, 0.9);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .partner-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .partner-features span {
+            background: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* 数据统计区域 */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(44, 62, 80, 0.2));
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(52, 73, 94, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: rgba(236, 240, 241, 0.9);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* 合作流程 */
+        .process-section {
+            padding: 80px 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            top: 50px;
+            right: -15px;
+            font-size: 2rem;
+            color: var(--accent-color);
+            opacity: 0.5;
+            z-index: 10;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), rgba(127, 140, 141, 0.8));
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.3);
+        }
+
+        .process-step h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .process-step p {
+            color: rgba(236, 240, 241, 0.9);
+            line-height: 1.6;
+        }
+
+        /* 合作优势 */
+        .advantages-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(44, 62, 80, 0.1));
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .advantage-card {
+            background: rgba(52, 73, 94, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-color: var(--accent-color);
+        }
+
+        .advantage-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .advantage-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .advantage-card p {
+            color: rgba(236, 240, 241, 0.9);
+            line-height: 1.6;
+        }
+
+        /* CTA 区域 */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(var(--accent-color-rgb), 0.1), rgba(52, 73, 94, 0.2));
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-color);
+        }
+
+        .cta-btn.primary {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--accent-color);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(var(--accent-color-rgb), 0.3);
+        }
+
+        .cta-btn.primary:hover {
+            background: rgba(var(--accent-color-rgb), 0.9);
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(var(--accent-color-rgb), 0.1);
+            color: var(--primary-color);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .partner-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
         }
 
         @media (max-width: 768px) {
-            .about-content,
-            .ecosystem-block {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .partner-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .partner-card {
+                padding: 25px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cta-buttons {
                 flex-direction: column;
+                align-items: center;
             }
-            .ecosystem-block.reverse {
-                 flex-direction: column;
-            }
-             .about-image,
-             .ecosystem-image {
-                height: 200px;
-                min-height: auto;
-            }
-             .nav {
-                gap: 8px; 
-                padding: 8px;
-            }
-            .nav a {
-                font-size: 0.85rem;
+
+            .cta-btn {
+                width: 200px;
             }
         }
 
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .partner-card {
+                padding: 20px;
+            }
+
+            .advantage-card {
+                padding: 20px;
+            }
+        }
+
+        /* 大屏幕上确保箭头显示正确 */
+        @media (min-width: 1201px) {
+            .process-step::after {
+                right: -15px;
+            }
+        }
     </style>
 </head>
-<body>
+<body class="partners-page">
     <header>
         <div class="container">
             <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
@@ -310,114 +449,342 @@
             </div>
         </div>
     </header>
-    
-    <section id="partners-intro">
+
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">
+                    <span lang="zh-CN">寻找志同道合的合作伙伴</span>
+                    <span lang="en">Seeking Like-minded Partners</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span lang="zh-CN">循星科技正在构建开放、智能、安全的 AI2Home 生态系统。我们诚挚邀请各领域的优秀伙伴加入，共同开创智能家居的全新未来</span>
+                    <span lang="en">SidebyStar is building an open, intelligent, and secure AI2Home ecosystem. We sincerely invite excellent partners from various fields to join us in creating a new future for smart homes</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据统计 -->
+    <section class="stats-section">
         <div class="container">
             <h2 class="section-title animate-on-scroll">
-                <span lang="zh-CN">携手共赢</span>
-                <span lang="en">Win-Win Collaboration</span>
+                <span lang="zh-CN">平台能力与机遇</span>
+                <span lang="en">Platform Capabilities & Opportunities</span>
             </h2>
-            <div class="about-content">
-                <div class="about-text animate-on-scroll">
-                    <h3>
-                        <span lang="zh-CN">寻求多元合作</span>
-                        <span lang="en">Seeking Diverse Partnerships</span>
-                    </h3>
-                    <p>
-                        <span lang="zh-CN">循星科技致力于构建开放、智能、安全的 AI2Home 服务生态。我们积极寻求与各类伙伴建立深度合作关系，包括但不限于：</span>
-                        <span lang="en">SidebyStar is committed to building an open, intelligent, and secure AI2Home service ecosystem. We actively seek deep collaborations with various partners, including but not limited to:</span>
-                    </p>
-                    <ul>
-                        <li><span lang="zh-CN">智能硬件制造商（家电、传感器、控制器等）</span><span lang="en">Smart hardware manufacturers (appliances, sensors, controllers, etc.)</span></li>
-                        <li><span lang="zh-CN">内容与服务提供商（音乐、影音、教育、健康等）</span><span lang="en">Content and service providers (music, video, education, health, etc.)</span></li>
-                        <li><span lang="zh-CN">社区服务与物业管理平台</span><span lang="en">Community service and property management platforms</span></li>
-                        <li><span lang="zh-CN">房地产与家装设计师</span><span lang="en">Real estate developers and home renovation designers</span></li>
-                        <li><span lang="zh-CN">系统集成商与解决方案提供商</span><span lang="en">System integrators and solution providers</span></li>
-                        <li><span lang="zh-CN">高校及科研机构</span><span lang="en">Universities and research institutions</span></li>
-                    </ul>
-                    <p>
-                        <span lang="zh-CN">我们相信，通过优势互补和资源共享，能够共同为用户创造更美好的智能居家体验。</span>
-                        <span lang="en">We believe that through complementary strengths and resource sharing, we can jointly create a better smart home experience for users.</span>
-                    </p>
-                    <a href="contact.html" class="btn">
-                        <span lang="zh-CN">成为合作伙伴</span>
-                        <span lang="en">Become a Partner</span>
-                    </a>
+            <div class="stats-grid">
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">核心技术</span>
+                        <span lang="en">Core Technologies</span>
+                    </div>
                 </div>
-                <div class="about-image animate-on-scroll">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        <line x1="16" y1="7" x2="19" y2="7"></line> 
-                        <line x1="17.5" y1="5.5" x2="17.5" y2="8.5"></line>
-                    </svg>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">可集成设备类型</span>
+                        <span lang="en">Integrable Device Types</span>
+                    </div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">本地AI响应</span>
+                        <span lang="en">Local AI Response</span>
+                    </div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number">万亿</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">市场规模</span>
+                        <span lang="en">Market Size</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="ecosystem-building" class="animate-on-scroll">
+
+    <!-- 合作伙伴类型 -->
+    <section class="partner-types">
         <div class="container">
-            <h2 class="section-title">
-                <span lang="zh-CN">共建 AI2Home 开放生态</span>
-                <span lang="en">Building the AI2Home Open Ecosystem Together</span>
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">合作伙伴类型</span>
+                <span lang="en">Partner Types</span>
             </h2>
-            <div class="ecosystem-block">
-                <div class="ecosystem-text">
+            <div class="partner-grid">
+                <div class="partner-card animate-on-scroll">
+                    <div class="partner-icon">🏠</div>
                     <h3>
-                        <span lang="zh-CN">开放接口与本地智能</span>
-                        <span lang="en">Open Interfaces & Local Intelligence</span>
+                        <span lang="zh-CN">智能硬件制造商</span>
+                        <span lang="en">Smart Hardware Manufacturers</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">我们提供标准化的 API 和 SDK，方便合作伙伴将设备与服务无缝接入循星 AI2Home 平台。更重要的是，您可以利用我们强大的本地 AI 处理能力，为用户提供响应迅速、隐私安全的智能化功能，摆脱对云端的过度依赖。</span>
-                        <span lang="en">We provide standardized APIs and SDKs, enabling partners to seamlessly integrate devices and services into the SidebyStar AI2Home platform. More importantly, you can leverage our powerful local AI processing capabilities to offer users responsive, privacy-secure intelligent features, reducing reliance on the cloud.</span>
+                        <span lang="zh-CN">家电设备、传感器、控制器等智能硬件厂商，共同打造完整的智能家居硬件生态</span>
+                        <span lang="en">Appliance devices, sensors, controllers, and other smart hardware manufacturers to build a complete smart home hardware ecosystem</span>
                     </p>
+                    <div class="partner-features">
+                        <span>API 集成</span>
+                        <span>设备认证</span>
+                        <span>技术支持</span>
+                    </div>
                 </div>
-                <div class="ecosystem-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="16 18 22 12 16 6"></polyline>
-                        <polyline points="8 6 2 12 8 18"></polyline>
-                        <line x1="12" y1="4" x2="12" y2="20"></line>
-                    </svg>
+
+                <div class="partner-card animate-on-scroll">
+                    <div class="partner-icon">🎵</div>
+                    <h3>
+                        <span lang="zh-CN">内容服务商</span>
+                        <span lang="en">Content Service Providers</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">音乐、视频、教育、健康等内容平台，为用户提供丰富的数字生活体验</span>
+                        <span lang="en">Music, video, education, health and other content platforms to provide users with rich digital life experiences</span>
+                    </p>
+                    <div class="partner-features">
+                        <span>内容集成</span>
+                        <span>个性推荐</span>
+                        <span>语音控制</span>
+                    </div>
+                </div>
+
+                <div class="partner-card animate-on-scroll">
+                    <div class="partner-icon">🏢</div>
+                    <h3>
+                        <span lang="zh-CN">地产与物业</span>
+                        <span lang="en">Real Estate & Property</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">房地产开发商、物业管理平台，携手打造智慧社区和智能楼宇解决方案</span>
+                        <span lang="en">Real estate developers and property management platforms to create smart community and intelligent building solutions</span>
+                    </p>
+                    <div class="partner-features">
+                        <span>社区管理</span>
+                        <span>楼宇控制</span>
+                        <span>安全监控</span>
+                    </div>
+                </div>
+
+                <div class="partner-card animate-on-scroll">
+                    <div class="partner-icon">⚙️</div>
+                    <h3>
+                        <span lang="zh-CN">系统集成商</span>
+                        <span lang="en">System Integrators</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">专业的智能家居系统集成商和解决方案提供商，提供定制化部署服务</span>
+                        <span lang="en">Professional smart home system integrators and solution providers offering customized deployment services</span>
+                    </p>
+                    <div class="partner-features">
+                        <span>定制方案</span>
+                        <span>安装调试</span>
+                        <span>售后维护</span>
+                    </div>
+                </div>
+
+                <div class="partner-card animate-on-scroll">
+                    <div class="partner-icon">🎨</div>
+                    <h3>
+                        <span lang="zh-CN">设计师合作</span>
+                        <span lang="en">Designer Partnerships</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">室内设计师、家装公司，将智能家居完美融入设计美学，创造舒适生活空间</span>
+                        <span lang="en">Interior designers and home decoration companies integrating smart homes perfectly into design aesthetics to create comfortable living spaces</span>
+                    </p>
+                    <div class="partner-features">
+                        <span>设计咨询</span>
+                        <span>美学融合</span>
+                        <span>空间优化</span>
+                    </div>
+                </div>
+
+                <div class="partner-card animate-on-scroll">
+                    <div class="partner-icon">🎓</div>
+                    <h3>
+                        <span lang="zh-CN">科研机构</span>
+                        <span lang="en">Research Institutions</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">高校实验室、研究院所，共同推进 AI 技术在智能家居领域的创新应用</span>
+                        <span lang="en">University laboratories and research institutions jointly advancing innovative applications of AI technology in smart homes</span>
+                    </p>
+                    <div class="partner-features">
+                        <span>技术研发</span>
+                        <span>人才培养</span>
+                        <span>学术交流</span>
+                    </div>
                 </div>
             </div>
-            <div class="ecosystem-block reverse">
-                <div class="ecosystem-text">
+        </div>
+    </section>
+
+    <!-- 合作流程 -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">合作流程</span>
+                <span lang="en">Partnership Process</span>
+            </h2>
+            <div class="process-grid">
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">1</div>
                     <h3>
-                        <span lang="zh-CN">赋能伙伴，共创价值</span>
-                        <span lang="en">Empowering Partners, Creating Value Together</span>
+                        <span lang="zh-CN">咨询洽谈</span>
+                        <span lang="en">Consultation</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">加入循星生态，意味着您可以触达追求高品质、注重隐私和易用性的用户群体。我们致力于赋能合作伙伴，利用 AI 技术（尤其是个性化和无障碍交互能力）提升您的产品竞争力，共同探索新的商业模式和服务场景。</span>
-                        <span lang="en">Joining the SidebyStar ecosystem means reaching users who pursue high quality, value privacy, and appreciate ease of use. We are committed to empowering partners, using AI technology (especially personalization and accessibility features) to enhance your product competitiveness and jointly explore new business models and service scenarios.</span>
+                        <span lang="zh-CN">通过官方渠道联系我们，详细了解您的合作需求和业务模式</span>
+                        <span lang="en">Contact us through official channels to understand your partnership needs and business model</span>
                     </p>
                 </div>
-                 <div class="ecosystem-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                    </svg>
+
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <h3>
+                        <span lang="zh-CN">技术对接</span>
+                        <span lang="en">Technical Integration</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">技术团队深度交流，评估技术兼容性，确定集成方案</span>
+                        <span lang="en">In-depth technical team communication to assess compatibility and determine integration solutions</span>
+                    </p>
+                </div>
+
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <h3>
+                        <span lang="zh-CN">测试验证</span>
+                        <span lang="en">Testing & Validation</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">进行全面的兼容性测试和功能验证，确保用户体验质量</span>
+                        <span lang="en">Comprehensive compatibility testing and functionality validation to ensure user experience quality</span>
+                    </p>
+                </div>
+
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <h3>
+                        <span lang="zh-CN">正式合作</span>
+                        <span lang="en">Official Partnership</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">签署合作协议，共同推广，为用户提供优质的智能家居服务</span>
+                        <span lang="en">Sign partnership agreement and jointly promote to provide users with quality smart home services</span>
+                    </p>
                 </div>
             </div>
-            <div class="ecosystem-block">
-                <div class="ecosystem-text">
+        </div>
+    </section>
+
+    <!-- 合作优势 -->
+    <section class="advantages-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">合作优势</span>
+                <span lang="en">Partnership Advantages</span>
+            </h2>
+            <div class="advantages-grid">
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">🛡️</div>
                     <h3>
-                        <span lang="zh-CN">持续进化，长期共荣</span>
-                        <span lang="en">Continuous Evolution, Long-Term Prosperity</span>
+                        <span lang="zh-CN">隐私保护核心理念</span>
+                        <span lang="en">Privacy-First Core Philosophy</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">循星科技坚持通过软件和算法的持续迭代来提升平台能力。我们寻求建立长期、稳定、互利的合作关系，共同打造一个不断进化、充满活力的 AI2Home 生态系统，让科技真正服务于每个家庭的美好生活。</span>
-                        <span lang="en">SidebyStar enhances platform capabilities through continuous software and algorithm iteration. We seek to establish long-term, stable, mutually beneficial partnerships to jointly build an ever-evolving, vibrant AI2Home ecosystem, letting technology truly serve the good life of every family.</span>
+                        <span lang="zh-CN">我们坚持本地 AI 处理的技术路线，确保用户数据不出户，为合作伙伴提供最高标准的隐私保护解决方案</span>
+                        <span lang="en">We adhere to local AI processing technology to ensure user data stays at home, providing partners with the highest standard privacy protection solutions</span>
                     </p>
                 </div>
-                <div class="ecosystem-image">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
+
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">🚀</div>
+                    <h3>
+                        <span lang="zh-CN">创新技术优势</span>
+                        <span lang="en">Innovative Technology Advantages</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">基于先进的 AI 技术架构，我们能够提供毫秒级响应和智能决策能力，帮助您的产品在市场中脱颖而出</span>
+                        <span lang="en">Based on advanced AI technology architecture, we can provide millisecond response and intelligent decision-making capabilities to help your products stand out in the market</span>
+                    </p>
                 </div>
+
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">📈</div>
+                    <h3>
+                        <span lang="zh-CN">巨大市场潜力</span>
+                        <span lang="en">Enormous Market Potential</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">智能家居市场正快速增长，现在加入我们，共同抢占先机，分享这个万亿级市场的巨大机遇</span>
+                        <span lang="en">The smart home market is growing rapidly. Join us now to seize opportunities and share the enormous potential of this trillion-dollar market</span>
+                    </p>
+                </div>
+
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">🔧</div>
+                    <h3>
+                        <span lang="zh-CN">完整技术支持</span>
+                        <span lang="en">Complete Technical Support</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">我们将提供完整的 SDK、API 文档和专业技术支持，最大程度降低您的集成成本和技术门槛</span>
+                        <span lang="en">We will provide complete SDK, API documentation and professional technical support to minimize your integration costs and technical barriers</span>
+                    </p>
+                </div>
+
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">🌐</div>
+                    <h3>
+                        <span lang="zh-CN">开放共赢生态</span>
+                        <span lang="en">Open Win-Win Ecosystem</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">我们致力于构建真正开放的生态平台，让每个合作伙伴都能发挥自身优势，实现共同成长</span>
+                        <span lang="en">We are committed to building a truly open ecosystem platform where every partner can leverage their strengths for mutual growth</span>
+                    </p>
+                </div>
+
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">💼</div>
+                    <h3>
+                        <span lang="zh-CN">灵活合作模式</span>
+                        <span lang="en">Flexible Partnership Models</span>
+                    </h3>
+                    <p>
+                        <span lang="zh-CN">我们支持多种合作模式，从技术合作到商业合作，为不同类型的伙伴提供个性化的合作方案</span>
+                        <span lang="en">We support various partnership models, from technical cooperation to business partnerships, providing personalized solutions for different types of partners</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA 行动呼吁 -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">期待与您携手合作</span>
+                <span lang="en">Looking Forward to Partnering with You</span>
+            </h2>
+            <p class="animate-on-scroll" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.9;">
+                <span lang="zh-CN">如果您对我们的技术理念和合作模式感兴趣，我们热切期待与您的深入交流</span>
+                <span lang="en">If you are interested in our technical philosophy and partnership models, we look forward to in-depth communication with you</span>
+            </p>
+            <div class="cta-buttons animate-on-scroll">
+                <a href="contact.html" class="cta-btn primary">
+                    <span lang="zh-CN">联系我们</span>
+                    <span lang="en">Contact Us</span>
+                </a>
+                <a href="docs.html" class="cta-btn secondary">
+                    <span lang="zh-CN">了解技术架构</span>
+                    <span lang="en">Learn About Architecture</span>
+                </a>
+                <a href="community.html" class="cta-btn secondary">
+                    <span lang="zh-CN">加入技术讨论</span>
+                    <span lang="en">Join Technical Discussion</span>
+                </a>
             </div>
         </div>
     </section>
@@ -431,7 +798,7 @@
                     <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
                 </p>
                 <p>
-                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="zh-CN">电话：86 15568200088</span>
                     <span lang="en">Phone: +86 15568200088</span>
                 </p>
                 <p>
@@ -441,19 +808,19 @@
             </div>
             <div class="social-links">
                 <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                    <a href="#" aria-label="微信">微信</a>
+                    <span class="tooltiptext">微信：nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
+                    <a href="#" aria-label="微博">微博</a>
                     <span class="tooltiptext">微博: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
+                    <a href="#" aria-label="领英">领英</a>
                     <span class="tooltiptext">领英: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>

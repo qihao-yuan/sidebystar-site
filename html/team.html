@@ -3,655 +3,562 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><span lang="zh-CN">团队成员 - 循星科技</span><span lang="en">Team Members - SidebyStar</span></title>
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>团队成员 - 循星科技</title>
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
     <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #5fa8d3;
-            --accent-color-rgb: 95, 168, 211;
-            --text-color: #ecf0f1;
-            --light-bg: #1e1e1e;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --hover-bg: rgba(var(--accent-color-rgb), 0.2);
-            --link-color: var(--accent-color);
-            --link-hover-color: #8ac6e0;
-            --border-color: rgba(var(--accent-color-rgb), 0.3);
-            --shadow-color: rgba(0, 0, 0, 0.5);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
+        /* 团队页面样式 */
         body {
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 60px 0;
-            margin-top: 40px;
-        }
-        
-        .team-member {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px var(--shadow-color);
-            text-align: center;
-            padding: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            background: var(--dark-bg);
+            min-height: 100vh;
         }
 
-        .team-member:hover {
-             transform: translateY(-5px);
-             box-shadow: 0 12px 25px rgba(var(--accent-color-rgb), 0.3);
-        }
-        
-        .member-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 20px auto;
-            overflow: hidden;
-            border: 3px solid var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--light-bg);
-        }
-        
-        .member-img img {
-             width: 100%;
-             height: 100%;
-             object-fit: cover;
-        }
-        
-        .member-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-        }
-        
-        .member-role {
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-        
-        .member-details-link {
-            display: inline-block;
-            padding: 10px 25px;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-weight: 500;
-        }
-        
-        .member-details-link:hover {
-            background-color: var(--link-hover-color);
-            color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        .social-links {
-            margin-top: 20px;
-        }
-        
-        @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 20px;
-            }
-            .member-img {
-                width: 120px;
-                height: 120px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-             .member-img {
-                width: 100px;
-                height: 100px;
-            }
-            .member-name {
-                font-size: 1.1rem;
-            }
-            .member-role {
-                 font-size: 0.9rem;
-            }
-            .member-details-link {
-                padding: 8px 20px;
-            }
-        }
-
-        /* Ferris Wheel Styles */
-        #ferris-wheel-container {
-            position: relative;
-            height: 65vh;
-            min-height: 450px;
-            width: 100%;
-            max-width: 950px;
-            margin: 30px auto 80px auto;
-            padding: 0;
-            perspective: 1400px;
-            /* overflow: hidden; */ /* <-- TEMPORARILY COMMENT OUT to diagnose clipping */
-        }
-
-        #ferris-wheel-container .team-member {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 80%; /* Slightly decrease relative width */
-            max-width: 850px; /* Increase tag max-width, keep less than container */
-            margin: 0;
-            display: flex !important;
-            align-items: center;
-            padding: 0;
-            border-radius: 20px; /* Increase border-radius */
-            transition: opacity 0.5s ease-out, z-index 0.5s; /* Remove transform from transition? Maybe not needed */
-            opacity: 0;
-            will-change: transform, opacity;
-            transform-origin: center center;
-            /* Inherit background/blur from the standard team-member styles */
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(5px);
-             -webkit-backdrop-filter: blur(5px);
-             box-shadow: 0 8px 20px var(--shadow-color);
-        }
-
-        #ferris-wheel-container .member-content-wrapper {
-             display: flex;
-             align-items: center;
-             /* Adjust padding: Top, Right, Bottom, Left - increase left padding */
-             padding: 15px 15px 15px 25px;
-             width: 100%;
-             height: 100%;
-             transition: background-color 0.3s ease;
-             transform-origin: center center;
-             /* Make wrapper transparent to show card background */
-             background-color: transparent;
-             border-radius: 20px; /* Match parent */
-        }
-
-
-        #ferris-wheel-container .member-img {
-            height: 80px; /* Reduce image container height */
-            width: 80px;  /* Reduce image container width */
-            flex-shrink: 0;
-            margin-bottom: 0;
-            margin-right: 30px; /* Increase right margin to push text further */
-            background-color: var(--light-bg); /* Keep background for placeholder */
-            display: flex; /* Keep flex for centering svg */
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%; /* Make image container circular */
-            overflow: hidden; /* Hide svg parts outside circle */
-            border: 2px solid var(--border-color); /* Use border color var */
-        }
-
-        #ferris-wheel-container .member-img svg {
-            width: 40px; /* Reduce SVG size */
-            height: 40px;
-            fill: var(--text-color); /* Use text color var */
-        }
-
-        #ferris-wheel-container .member-info {
-             flex-grow: 1; /* Allow text info to take remaining space */
-             text-align: left; /* Align text to the left */
-        }
-
-        #ferris-wheel-container .member-name {
-             font-size: 1.2rem; /* Slightly larger name */
-             margin-bottom: 5px;
-             color: var(--primary-color); /* Ensure bright text color */
-             font-weight: 600; /* Match grid style */
-        }
-
-        #ferris-wheel-container .member-role {
-             font-size: 0.9rem;
-             color: var(--accent-color); /* Use accent color */
-             margin-bottom: 12px;
-             font-weight: 500; /* Match grid style */
-        }
-
-        #ferris-wheel-container .member-details-link {
-            /* Adjust link style for better fit */
-             padding: 6px 15px;
-             background-color: rgba(var(--accent-color-rgb), 0.6); /* Semi-transparent accent */
-             color: var(--primary-color);
-             border: 1px solid rgba(var(--accent-color-rgb), 0.8);
-             border-radius: 15px; /* Adjust radius */
-             transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-             font-weight: 500; /* Match grid style */
-             text-decoration: none;
-             display: inline-block;
-        }
-         #ferris-wheel-container .member-details-link:hover {
-             background-color: var(--link-hover-color); /* Lighter accent on hover */
-             color: var(--secondary-color); /* Dark text on hover */
-             border-color: var(--accent-color);
-             transform: translateY(-1px); /* Subtle lift */
-         }
-
-        /* Restore simple hover effect on wrapper if desired, but keep it subtle */
-        #ferris-wheel-container .team-member.hover-effect-card:hover .member-content-wrapper {
-             /* Slightly adjust background on hover if needed, or remove */
-              background-color: rgba(45, 45, 45, 0.85); 
-        }
-
-        /* Dot Indicator Styles */
-        #dot-indicator {
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            /* Combine base centering with a downward offset */
-            transform: translateY(calc(-50% + 86px)); /* Adjust 86px as needed */
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 2000;
-        }
-
-        .indicator-dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.3); /* Dim default color */
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .indicator-dot.active {
-            background-color: var(--accent-color); /* Use accent color for active dot */
-            transform: scale(1.3); /* Make active dot larger */
-        }
-        /* --- End Ferris Wheel Styles --- */
-
-        /* Add margin above footer to separate from content */
-        footer.animate-on-scroll {
-            margin-top: 80px; /* 减少边距，因为上面已经有间距了 */
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0,0,0,0.6);
-        }
-        .modal-content {
-            position: relative;
-            background-color: var(--secondary-color);
-            margin: auto;
-            padding: 30px 40px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
-            z-index: 1001;
-            color: var(--text-color);
-            text-align: center;
-        }
-        .modal-close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .modal-close-btn:focus {
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* 导航样式现在由navigation.js统一管理 - 移除重复样式 */
-        
+        /* Hide inactive language spans by default */
         html[lang="zh-CN"] [lang="en"],
         html[lang="en"] [lang="zh-CN"] {
             display: none;
         }
+        /* Show active language spans */
         html[lang="zh-CN"] [lang="zh-CN"],
         html[lang="en"] [lang="en"] {
             display: initial;
         }
 
+        /* 团队介绍区域 */
+        .team-intro {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(var(--accent-color-rgb), 0.1), rgba(52, 73, 94, 0.2));
+        }
+
+        .team-intro h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .team-intro p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            background: rgba(52, 73, 94, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(236, 240, 241, 0.8);
+        }
+
+        /* 团队成员网格 */
+        .team-members {
+            padding: 80px 0;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.7));
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--accent-color);
+        }
+
+        .member-card:hover::before {
+            left: 100%;
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), rgba(127, 140, 141, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.3);
+        }
+
+        .member-avatar svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary-color);
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .member-bio {
+            font-size: 0.9rem;
+            color: rgba(236, 240, 241, 0.8);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* 团队价值观 */
+        .team-values {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(44, 62, 80, 0.2));
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: rgba(52, 73, 94, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .value-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .value-desc {
+            font-size: 0.9rem;
+            color: rgba(236, 240, 241, 0.8);
+            line-height: 1.5;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-intro h1 {
+                font-size: 2.2rem;
+            }
+            
+            .team-intro p {
+                font-size: 1.1rem;
+            }
+
+            .team-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .member-card {
+                padding: 20px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
-<body>
-    <header class="animate-on-scroll">
+<body class="team-page">
+    <header>
         <div class="container">
-            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="logo">
+                <span lang="zh-CN">循星科技</span>
+                <span lang="en">SidebyStar</span>
+            </div>
             <div class="tagline">
-                <span lang="zh-CN">认识我们的团队</span>
-                <span lang="en">Meet Our Team</span>
+                <span lang="zh-CN">我们的团队</span>
+                <span lang="en">Our Team</span>
             </div>
-            <div class="nav">
-                <!-- 导航将由navigation.js动态生成 -->
-            </div>
+        </div>
+        <div class="nav">
+            <!-- 导航将由navigation.js动态生成 -->
         </div>
     </header>
-    
-    <div class="container">
-        <div id="ferris-wheel-container">
-            <div class="team-member hover-effect-card" id="member-yuanqihao">
-                 <div class="member-content-wrapper">
-                    <div class="member-img hover-effect-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                        </svg>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-name">
-                            <span lang="zh-CN">袁启皓</span>
-                            <span lang="en">Yuan Qihao</span>
-                        </div>
-                        <div class="member-role">
-                            <span lang="zh-CN">CEO & 全链路负责人</span>
-                            <span lang="en">CEO & Full-Stack Lead</span>
-                        </div>
-                        <a href="member-yuan-qihao.html" class="member-details-link">
-                            <span lang="zh-CN">查看详情</span>
-                            <span lang="en">View Details</span>
-                        </a>
-                    </div>
-                 </div>
-            </div>
-             <div class="team-member hover-effect-card" id="member-huangyuchen">
-                  <div class="member-content-wrapper">
-                     <div class="member-img hover-effect-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                         </svg>
-                     </div>
-                      <div class="member-info">
-                         <div class="member-name">
-                            <span lang="zh-CN">黄羽晨</span>
-                            <span lang="en">Huang Yuchen</span>
-                         </div>
-                         <div class="member-role">
-                            <span lang="zh-CN">负责人 - 个性化学习引擎</span>
-                            <span lang="en">Lead - Personalized Learning Engine</span>
-                         </div>
-                         <a href="member-huang-yuchen.html" class="member-details-link">
-                            <span lang="zh-CN">查看详情</span>
-                            <span lang="en">View Details</span>
-                         </a>
-                      </div>
-                  </div>
-             </div>
-            <div class="team-member hover-effect-card" id="member-zhongzhaoxiang">
-                  <div class="member-content-wrapper">
-                     <div class="member-img hover-effect-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                         </svg>
-                     </div>
-                     <div class="member-info">
-                         <div class="member-name">
-                            <span lang="zh-CN">钟兆祥</span>
-                            <span lang="en">Zhong Zhaoxiang</span>
-                         </div>
-                         <div class="member-role">
-                            <span lang="zh-CN">项目经理 - 环境感知系统</span>
-                            <span lang="en">Project Manager - Environmental Sensing System</span>
-                         </div>
-                         <a href="member-zhong-zhaoxiang.html" class="member-details-link">
-                            <span lang="zh-CN">查看详情</span>
-                            <span lang="en">View Details</span>
-                         </a>
-                     </div>
-                 </div>
-             </div>
-             <div class="team-member hover-effect-card" id="member-tanfuren">
-                 <div class="member-content-wrapper">
-                    <div class="member-img hover-effect-icon">
-                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                           <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                       </svg>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-name">
-                            <span lang="zh-CN">谭福仁</span>
-                            <span lang="en">Tan Furen</span>
-                        </div>
-                        <div class="member-role">
-                            <span lang="zh-CN">技术负责人 - 环境感知系统 (ESS)</span>
-                            <span lang="en">Tech Lead - Environmental Sensing System (ESS)</span>
-                        </div>
-                        <a href="member-tan-furen.html" class="member-details-link">
-                            <span lang="zh-CN">查看详情</span>
-                            <span lang="en">View Details</span>
-                        </a>
+
+    <!-- 团队介绍区域 -->
+    <section class="team-intro">
+        <div class="container">
+            <h1 class="animate-on-scroll">
+                <span lang="zh-CN">循星科技团队</span>
+                <span lang="en">SidebyStar Team</span>
+            </h1>
+            <p class="animate-on-scroll">
+                <span lang="zh-CN">我们是一支充满创新精神的年轻团队，致力于用AI技术改变智能家居的未来。每个成员都在各自的专业领域发挥着重要作用，共同构建着开放、智能、安全的AI2Home生态系统。</span>
+                <span lang="en">We are a young team full of innovation, committed to changing the future of smart homes with AI technology. Each member plays an important role in their respective professional fields, jointly building an open, intelligent, and secure AI2Home ecosystem.</span>
+            </p>
+            <div class="team-stats animate-on-scroll">
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">核心成员</span>
+                        <span lang="en">Core Members</span>
                     </div>
                 </div>
-             </div>
-             <div class="team-member hover-effect-card" id="member-liuxuchen">
-                 <div class="member-content-wrapper">
-                     <div class="member-img hover-effect-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                         </svg>
-                     </div>
-                     <div class="member-info">
-                        <div class="member-name">
-                            <span lang="zh-CN">李旭晨</span>
-                            <span lang="en">Li Xuchen</span>
-                        </div>
-                        <div class="member-role">
-                            <span lang="zh-CN">全项目对接负责人</span>
-                            <span lang="en">Project Coordination Lead</span>
-                        </div>
-                        <a href="member-li-xuchen.html" class="member-details-link">
-                            <span lang="zh-CN">查看详情</span>
-                            <span lang="en">View Details</span>
-                        </a>
-                     </div>
-                 </div>
-             </div>
-             <div class="team-member hover-effect-card" id="member-liujiahang">
-                  <div class="member-content-wrapper">
-                     <div class="member-img hover-effect-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                         </svg>
-                     </div>
-                     <div class="member-info">
-                        <div class="member-name">
-                            <span lang="zh-CN">刘家航</span>
-                            <span lang="en">Liu Jiahang</span>
-                        </div>
-                        <div class="member-role">
-                            <span lang="zh-CN">技术负责人 - 智能管家</span>
-                            <span lang="en">Tech Lead - Smart Steward</span>
-                        </div>
-                        <a href="member-liu-jiahang.html" class="member-details-link">
-                            <span lang="zh-CN">查看详情</span>
-                            <span lang="en">View Details</span>
-                        </a>
-                     </div>
-                 </div>
-             </div>
-             <div class="team-member hover-effect-card" id="member-machangyu">
-                  <div class="member-content-wrapper">
-                     <div class="member-img hover-effect-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                         </svg>
-                     </div>
-                     <div class="member-info">
-                        <div class="member-name">
-                            <span lang="zh-CN">马常誉</span>
-                            <span lang="en">Ma Changyu</span>
-                        </div>
-                        <div class="member-role">
-                            <span lang="zh-CN">项目经理 - 智能管家</span>
-                            <span lang="en">Project Manager - Smart Steward</span>
-                        </div>
-                        <a href="member-ma-changyu.html" class="member-details-link">
-                            <span lang="zh-CN">查看详情</span>
-                            <span lang="en">View Details</span>
-                        </a>
-                     </div>
-                 </div>
-             </div>
-             <div class="team-member hover-effect-card" id="member-xinzidong">
-                 <div class="member-content-wrapper">
-                    <div class="member-img hover-effect-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                        </svg>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">核心系统</span>
+                        <span lang="en">Core Systems</span>
                     </div>
-                    <div class="member-info">
-                        <div class="member-name">
-                            <span lang="zh-CN">信子栋</span>
-                            <span lang="en">Xin Zidong</span>
-                        </div>
-                        <div class="member-role">
-                            <span lang="zh-CN">行政、财务与内外对接负责人</span>
-                            <span lang="en">Admin, Finance & External Relations Lead</span>
-                        </div>
-                        <a href="member-xin-zidong.html" class="member-details-link">
-                            <span lang="zh-CN">查看详情</span>
-                            <span lang="en">View Details</span>
-                        </a>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">投入度</span>
+                        <span lang="en">Commitment</span>
                     </div>
                 </div>
             </div>
-            <div id="dot-indicator"></div>
         </div>
-    </div>
+    </section>
+
+    <!-- 团队成员 -->
+    <section class="team-members">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">核心成员</span>
+                <span lang="en">Core Members</span>
+            </h2>
+            <div class="members-grid">
+
+                <div class="member-card animate-on-scroll">
+                    <div class="member-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">
+                        <span lang="zh-CN">袁启皓</span>
+                        <span lang="en">Yuan Qihao</span>
+                    </div>
+                    <div class="member-role">
+                        <span lang="zh-CN">全栈负责人</span>
+                        <span lang="en">Full-Stack Lead</span>   
+                    </div>
+                    <div class="member-bio">
+                        <span lang="zh-CN">负责公司整体战略规划、全栈开发、产品研发管理</span>
+                        <span lang="en">Responsible for overall strategic planning, full-stack development, and product development management</span>
+                    </div>
+                </div>
+
+                <div class="member-card animate-on-scroll">
+                    <div class="member-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">
+                        <span lang="zh-CN">黄羽晨</span>
+                        <span lang="en">Huang Yuchen</span>
+                    </div>
+                    <div class="member-role">
+                        <span lang="zh-CN">大模型与数据分析负责人</span>
+                        <span lang="en">LM & Data Lead</span>
+                    </div>
+                    <div class="member-bio">
+                        <span lang="zh-CN">负责大模型和数据分析</span>
+                        <span lang="en">Responsible for LM and data analysis</span>
+                    </div>
+                </div>
+
+                <div class="member-card animate-on-scroll">
+                    <div class="member-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">
+                        <span lang="zh-CN">钟兆祥</span>
+                        <span lang="en">Zhong Zhaoxiang</span>
+                    </div>
+                    <div class="member-role">
+                        <span lang="zh-CN">CTO</span>
+                        <span lang="en">CTO</span>
+                    </div>
+                    <div class="member-bio">
+                        <span lang="zh-CN">负责设计技术架构和系统架构，以及产品研发管理</span>
+                        <span lang="en">Responsible for designing technical architecture and system architecture, and product development management</span>
+                    </div>
+                </div>
+
+                <div class="member-card animate-on-scroll">
+                    <div class="member-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">
+                        <span lang="zh-CN">谭福仁</span>
+                        <span lang="en">Tan Furen</span>
+                    </div>
+                    <div class="member-role">
+                        <span lang="zh-CN"> CEO </span>
+                        <span lang="en"> CEO </span>
+                    </div>
+                    <div class="member-bio">
+                        <span lang="zh-CN">负责执行公司整体战略规划、落实技术架构设计、产品研发管理</span>
+                        <span lang="en">Responsible for overall strategic planning, technical architecture design, and product development management</span>
+                    </div>
+                </div>
+
+                <div class="member-card animate-on-scroll">
+                    <div class="member-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">
+                        <span lang="zh-CN">佟欣航</span>
+                        <span lang="en">Tong Xinghang</span>
+                    </div>
+                    <div class="member-role">
+                        <span lang="zh-CN">数据与新媒体运营负责人</span>
+                        <span lang="en">Data & Social Media Operations Lead</span>
+                    </div>
+                    <div class="member-bio">
+                        <span lang="zh-CN">负责数据运营和分析，以及新媒体运营</span>
+                        <span lang="en">Responsible for data operations and analysis, and social media operations</span>
+                    </div>
+                </div>
+
+                <div class="member-card animate-on-scroll">
+                    <div class="member-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">
+                        <span lang="zh-CN">刘家航</span>
+                        <span lang="en">Liu Jiahang</span>
+                    </div>
+                    <div class="member-role">
+                        <span lang="zh-CN">算法工程师 & 创新研发负责人</span>
+                        <span lang="en">Algorithm Engineer & Innovation & R&D Lead</span>
+                    </div>
+                    <div class="member-bio">
+                        <span lang="zh-CN">负责算法研发和产品开发，以及创新研发</span>
+                        <span lang="en">Responsible for algorithm research and development, and innovation research and development</span>
+                    </div>
+                </div>
+
+                <div class="member-card animate-on-scroll">
+                    <div class="member-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">
+                        <span lang="zh-CN">马常誉</span>
+                        <span lang="en">Ma Changyu</span>
+                    </div>
+                    <div class="member-role">
+                        <span lang="zh-CN">行政与管理负责人</span>
+                        <span lang="en">Admin & Management Lead</span>
+                    </div>
+                    <div class="member-bio">
+                        <span lang="zh-CN">负责公司行政与管理</span>
+                        <span lang="en">Responsible for company administration and management</span>
+                    </div>
+                </div>
+
+                <div class="member-card animate-on-scroll">
+                    <div class="member-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                        </svg>
+                    </div>
+                    <div class="member-name">
+                        <span lang="zh-CN">信子栋</span>
+                        <span lang="en">Xin Zidong</span>
+                    </div>
+                    <div class="member-role">
+                        <span lang="zh-CN">CFO & 外联负责人</span>
+                        <span lang="en">CFO & External Relations Lead</span>
+                    </div>
+                    <div class="member-bio">
+                        <span lang="zh-CN">负责公司财务管理和外部合作事务</span>
+                        <span lang="en">Responsible for company financial management and external cooperation affairs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队价值观 -->
+    <section class="team-values">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">团队价值观</span>
+                <span lang="en">Team Values</span>
+            </h2>
+            <div class="values-grid">
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🚀</div>
+                    <div class="value-title">
+                        <span lang="zh-CN">创新驱动</span>
+                        <span lang="en">Innovation Driven</span>
+                    </div>
+                    <div class="value-desc">
+                        <span lang="zh-CN">持续探索前沿技术，用创新解决方案推动智能家居行业发展</span>
+                        <span lang="en">Continuously explore cutting-edge technologies and drive smart home industry development with innovative solutions</span>
+                    </div>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🤝</div>
+                    <div class="value-title">
+                        <span lang="zh-CN">团队协作</span>
+                        <span lang="en">Team Collaboration</span>
+                    </div>
+                    <div class="value-desc">
+                        <span lang="zh-CN">相互信任、开放沟通，每个人的专业能力都是团队成功的关键</span>
+                        <span lang="en">Mutual trust and open communication, everyone's professional ability is key to team success</span>
+                    </div>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🛡️</div>
+                    <div class="value-title">
+                        <span lang="zh-CN">隐私至上</span>
+                        <span lang="en">Privacy First</span>
+                    </div>
+                    <div class="value-desc">
+                        <span lang="zh-CN">坚持本地AI处理，确保用户数据安全，构建值得信赖的智能家居</span>
+                        <span lang="en">Insist on local AI processing to ensure user data security and build trustworthy smart homes</span>
+                    </div>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🎯</div>
+                    <div class="value-title">
+                        <span lang="zh-CN">用户中心</span>
+                        <span lang="en">User Centric</span>
+                    </div>
+                    <div class="value-desc">
+                        <span lang="zh-CN">始终以用户需求为出发点，创造真正有价值的产品和服务</span>
+                        <span lang="en">Always start from user needs and create truly valuable products and services</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 团队成就与链接 -->
-    <section style="background: rgba(255,255,255,0.02); padding: 60px 0; margin-top: 120px;">
+    <section style="background: rgba(255,255,255,0.02); padding: 60px 0;">
         <div class="container">
-            <h2 class="section-title">
-                <span lang="zh-CN">🚀 团队成就</span>
-                <span lang="en">🚀 Team Achievements</span>
+            <h2 class="section-title animate-on-scroll">
+                <span lang="zh-CN">团队成就</span>
+                <span lang="en">Team Achievements</span>
             </h2>
             
             <!-- 统计数据亮点 -->
             <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin: 40px 0 60px 0;">
                 <div style="text-align: center; min-width: 120px;">
-                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">100,000+</div>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">10万+</div>
                     <div style="font-size: 1rem; color: rgba(236, 240, 241, 0.9); font-weight: 500;">
                         <span lang="zh-CN">行代码</span>
                         <span lang="en">Lines of Code</span>
                     </div>
                 </div>
                 <div style="text-align: center; min-width: 120px;">
-                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">100+</div>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">50+</div>
                     <div style="font-size: 1rem; color: rgba(236, 240, 241, 0.9); font-weight: 500;">
-                        <span lang="zh-CN">个模块</span>
-                        <span lang="en">Modules</span>
+                        <span lang="zh-CN">功能模块</span>
+                        <span lang="en">Function Modules</span>
                     </div>
                 </div>
                 <div style="text-align: center; min-width: 120px;">
-                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">100+</div>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">3</div>
                     <div style="font-size: 1rem; color: rgba(236, 240, 241, 0.9); font-weight: 500;">
-                        <span lang="zh-CN">个工具</span>
-                        <span lang="en">Tools</span>
+                        <span lang="zh-CN">核心系统</span>
+                        <span lang="en">Core Systems</span>
                     </div>
                 </div>
                 <div style="text-align: center; min-width: 120px;">
-                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">98%</div>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">24/7</div>
                     <div style="font-size: 1rem; color: rgba(236, 240, 241, 0.9); font-weight: 500;">
-                        <span lang="zh-CN">测试覆盖</span>
-                        <span lang="en">Test Coverage</span>
+                        <span lang="zh-CN">持续开发</span>
+                        <span lang="en">Continuous Development</span>
                     </div>
                 </div>
             </div>
@@ -665,7 +572,7 @@
                         <span lang="en">AIOS Architecture</span>
                     </h3>
                     <p style="margin-bottom: 20px; font-size: 0.9rem;">
-                        <span lang="zh-CN">现代化事件驱动AI平台，支持智能家居生态</span>
+                        <span lang="zh-CN">现代化事件驱动AI生态平台</span>
                         <span lang="en">Modern event-driven AI platform supporting smart home ecosystem</span>
                     </p>
                     <a href="aios-showcase.html" style="padding: 10px 20px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 5px;">
@@ -693,8 +600,8 @@
                 <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(var(--accent-color-rgb), 0.2);">
                     <div style="font-size: 3rem; margin-bottom: 20px;">💼</div>
                     <h3 style="color: var(--accent-color); margin-bottom: 15px;">
-                        <span lang="zh-CN">合作机会</span>
-                        <span lang="en">Partnership Opportunities</span>
+                        <span lang="zh-CN">加入我们</span>
+                        <span lang="en">Join Us</span>
                     </h3>
                     <p style="margin-bottom: 20px; font-size: 0.9rem;">
                         <span lang="zh-CN">与我们一起构建AI2Home生态系统</span>
@@ -718,7 +625,7 @@
                     <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
                 </p>
                 <p>
-                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="zh-CN">电话：86 15568200088</span>
                     <span lang="en">Phone: +86 15568200088</span>
                 </p>
                 <p>
@@ -728,19 +635,19 @@
             </div>
             <div class="social-links">
                 <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                    <a href="#" aria-label="微信">微信</a>
+                    <span class="tooltiptext">微信：nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
+                    <a href="#" aria-label="微博">微博</a>
                     <span class="tooltiptext">微博: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
+                    <a href="#" aria-label="领英">领英</a>
                     <span class="tooltiptext">领英: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
@@ -751,35 +658,6 @@
         </div>
     </footer>
 
-    <div id="memberModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modal-name"></h2>
-            <p id="modal-role"></p>
-            <div id="modal-bio"></div>
-        </div>
-    </div>
-
-    <script>
-        function openModal(name, role, bio) {
-            document.getElementById('modal-name').innerText = name;
-            document.getElementById('modal-role').innerText = role;
-            document.getElementById('modal-bio').innerHTML = bio;
-            document.getElementById('memberModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('memberModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('memberModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
-    <script src="../js/ferris-wheel.js"></script>
     <script src="../js/animations.js"></script>
     <script src="../js/navigation.js"></script>
     <script src="../js/language.js"></script>

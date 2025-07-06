@@ -4,307 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关于我们 - 循星科技</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d;
-            --text-color: #ecf0f1;
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 15px auto;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            background-color: #444;
-            height: 400px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .about-image svg {
-            width: 150px;
-            height: 150px;
-            fill: #ccc;
-        }
-        
-        footer {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        /* .social-links styles moved to external CSS */
-        /*
-        .social-links {
-            margin-top: 20px;
-        }
-        */
-        
-        /*
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        */
-        
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            /* background-color: var(--secondary-color); */ /* Removed background */
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-
-        .nav a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav a.current {
-            color: var(--accent-color);
-        }
-
-        /* Added styles from features.html */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-        
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-             /* Combined media queries */
-             .about-content,
-             .features-grid { /* Apply to features grid as well */
-                flex-direction: column; /* Keep for about */
-                grid-template-columns: 1fr; /* Apply to grid */
-            }
-        }
-        /* End added styles */
-
-        /* Basic style to hide non-active language - REMOVED this general rule
-        [lang="en"] {
-            display: none;
-        }
-        */
-        /* Add styles for language switcher */
-        .lang-switch {
-            display: flex;
-            gap: 5px;
-            margin-left: 15px; /* Space from main nav */
-            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
-            padding-left: 15px;
-        }
-        .lang-switch a {
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 15px;
-            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid transparent;
-            background-color: transparent;
-        }
-        .lang-switch a:hover {
-            background-color: rgba(var(--accent-color-rgb), 0.2);
-            color: var(--accent-color);
-            border-color: rgba(var(--accent-color-rgb), 0.4);
-        }
-        .lang-switch a.active-lang {
-            font-weight: bold;
-            background-color: rgba(var(--accent-color-rgb), 0.3);
-            color: var(--primary-color);
-            border-color: rgba(var(--accent-color-rgb), 0.5);
-        }
-        /* Ensure inline spans display correctly */
-         span[lang] {
-             display: inline; /* Override potential block display */
-         }
-        /* Hide inactive language spans by default */
-        html[lang="zh-CN"] [lang="en"],
-        html[lang="en"] [lang="zh-CN"] {
-            display: none;
-        }
-        /* Show active language spans */
-        html[lang="zh-CN"] [lang="zh-CN"],
-        html[lang="en"] [lang="en"] {
-            /* Use specific display, 'inline' is usually safe for spans */
-            display: inline;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
 </head>
 <body>
     <header>
@@ -329,31 +29,33 @@
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
                     <p>
-                        <span lang="zh-CN">循星科技（杭州）有限公司成立于2025年5月，专注AI 赋能的居家服务（AI2Home）。我们致力于研发生产家居智慧数字大脑及配套终端，构建完善AI2Home 服务生态，为万千家庭带来智能、便捷、安全的居家新体验。</span>
-                        <span lang="en">SidebyStar (Hangzhou) Co., Ltd. was established in May 2025, focusing on AI-empowered home services (AI2Home). We are committed to the research, development, and production of smart home digital brains and supporting terminals, building a comprehensive AI2Home service ecosystem to bring intelligent, convenient, and secure new home experiences to thousands of households.</span>
+                        <span lang="zh-CN">循星科技（杭州）有限公司成立于2025年5月，专注AI 赋能的居家服务（AI2Home）。我们致力于研发生产家居智慧数字大脑及配套终端，构建完善AI2Home 服务生态，为万千家庭带来智能、便捷、安全的居家新体验。通过创新的家居MBTI测试系统，我们为每个用户提供个性化的智能家居解决方案。</span>
+                        <span lang="en">SidebyStar (Hangzhou) Co., Ltd. was established in May 2025, focusing on AI-empowered home services (AI2Home). We are committed to the research, development, and production of smart home digital brains and supporting terminals, building a comprehensive AI2Home service ecosystem to bring intelligent, convenient, and secure new home experiences to thousands of households. Through our innovative Home MBTI testing system, we provide personalized smart home solutions for every user.</span>
                     </p>
                     <p>
-                        <span lang="zh-CN">我们的核心团队汇聚了海内外顶尖学府的精英人才，并掌握着丰富的产业链资源。团队深度融合人工智能与智能终端技术，兼具前沿核心技术研发实力与大规模量产经验，具备端边云一体化的综合能力。此外，我们在将 AI 技术灵活应用于多种形态智能终端方面，也积累了丰富的个性化实践经验。</span>
-                        <span lang="en">Our core team brings together elite talents from top universities at home and abroad, possessing rich industry chain resources. The team deeply integrates artificial intelligence and smart terminal technology, boasting both cutting-edge core technology R&D capabilities and large-scale mass production experience, with comprehensive edge-cloud integration capabilities. Furthermore, we have accumulated extensive personalized practical experience in flexibly applying AI technology to various forms of smart terminals.</span>
+                        <span lang="zh-CN">我们的核心团队汇聚了海内外顶尖学府的精英人才，并掌握着丰富的产业链资源。团队深度融合人工智能与智能终端技术，兼具前沿核心技术研发实力与大规模量产经验，具备端边云一体化的综合能力。我们开创性地将传统文化与现代科技结合，基于四象理念（玄武、青龙、白虎、朱雀）构建了独特的16型家居人格测试系统，让AI真正理解每个用户的个性化需求。</span>
+                        <span lang="en">Our core team brings together elite talents from top universities at home and abroad, possessing rich industry chain resources. The team deeply integrates artificial intelligence and smart terminal technology, boasting both cutting-edge core technology R&D capabilities and large-scale mass production experience, with comprehensive edge-cloud integration capabilities. We innovatively combine traditional culture with modern technology, building a unique 16-type home personality testing system based on the Four Symbols philosophy (Xuanwu, Qinglong, Baihu, Zhuque), enabling AI to truly understand each user's personalized needs.</span>
                     </p>
                     <p>
-                        <span lang="zh-CN">我们的使命是以创新科技驱动，解决居家生活中的实际痛点，为消费者打造高效、智能、全方位，无障碍的生态居家解决方案。</span>
-                        <span lang="en">Our mission is to drive innovation with technology, solve real pain points in home life, and create efficient, intelligent, comprehensive, and accessible ecological home solutions for consumers.</span>
+                        <span lang="zh-CN">我们的使命是以创新科技驱动，解决居家生活中的实际痛点，为每个家庭打造个性化、智能化的居家生态系统。通过星璇所感的毫秒级感知、望舒所循的智能学习、曜衡所断的决策引擎，以及丰富的插件生态，我们让"数据主权归用户所有"的理念真正落地，构建真正懂你的智能家居管家。</span>
+                        <span lang="en">Our mission is to drive innovation with technology, solve real pain points in home life, and create personalized, intelligent home ecosystems for every family. Through Xinxuan Sensing's millisecond-level perception, Wangshu Learning's intelligent adaptation, Yaoheng Decision's smart engine, and our rich plugin ecosystem, we make the principle of "data sovereignty belongs to users" truly actionable, building intelligent home assistants that truly understand you.</span>
                     </p>
                     <div style="margin-top: 30px;">
-                        <a href="team.html" class="btn" style="margin-right: 15px;">
-                            <span lang="zh-CN">认识团队</span>
-                            <span lang="en">Meet Our Team</span>
+                        <a href="mbti-test.html" class="btn featured-btn" style="margin-right: 15px;">
+                            <span lang="zh-CN">发现你的家居人格</span>
+                            <span lang="en">Discover Your Home Personality</span>
                         </a>
-                        <a href="products.html" class="btn">
+                        <a href="products.html" class="btn featured-btn" style="margin-right: 15px;">
                             <span lang="zh-CN">了解产品</span>
                             <span lang="en">Our Products</span>
                         </a>
+                        <a href="plugins.html" class="btn featured-btn">
+                            <span lang="zh-CN">探索插件</span>
+                            <span lang="en">Explore Plugins</span>
+                        </a>
                     </div>
                 </div>
-                <div class="about-image animate-on-scroll">
-                    <img src="../pics/about.png" alt="Company Concept Image" style="width: 100%; height: 100%;">
-                </div>
+              
             </div>
         </div>
     </section>
@@ -371,8 +73,12 @@
                     <span lang="en">We are building more than just a central control platform; we are creating an intelligent family steward with smarts, warmth, understanding, and companionship.</span>
                 </strong>
                 <p>
-                    <span lang="zh-CN">我们致力于打造全场景无障碍、轻松上手的友好交互</span>
-                    <span lang="en">We are committed to creating friendly interactions that are accessible in all scenarios and easy to use.</span>
+                    <span lang="zh-CN">循此苦旅，终抵群星。我们相信每个家庭都有独特的生活方式和个性化需求，通过家居MBTI测试系统，我们让AI真正理解您的生活习惯，为您量身定制最适合的智能家居解决方案。</span>
+                    <span lang="en">Through this journey, we reach the stars. We believe every family has unique lifestyle and personalized needs. Through our Home MBTI testing system, we enable AI to truly understand your living habits and customize the most suitable smart home solutions for you.</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">我们致力于打造全场景无障碍、轻松上手的友好交互，让科技适应人而非人适应科技。</span>
+                    <span lang="en">We are committed to creating friendly interactions that are accessible in all scenarios and easy to use, making technology adapt to people rather than people adapting to technology.</span>
                 </p>
                 <p>
                     <span lang="zh-CN">我们要让真正的第六代住宅成为现实，让智慧服务生活，让家成为每个人最舒适的港湾。</span>
@@ -426,8 +132,8 @@
                     <div class="feature-icon hover-effect-icon">🧩</div>
                     <h3><span lang="zh-CN">开放生态</span><span lang="en">Open Ecosystem</span></h3>
                     <p>
-                        <span lang="zh-CN">构建丰富AI2Home 服务生态系统，提供强大的拓展性和多样化的服务选择，满足不断变化的智能家居需求。</span>
-                        <span lang="en">Building a rich AI2Home service ecosystem, providing strong expandability and diverse service options to meet evolving smart home needs.</span>
+                        <span lang="zh-CN">构建丰富AI2Home 服务生态系统，提供强大的拓展性和多样化的服务选择。我们的插件市场涵盖节能优化、环境体验、安全隐私、家庭协同四大领域，满足不断变化的智能家居需求。</span>
+                        <span lang="en">Building a rich AI2Home service ecosystem, providing strong expandability and diverse service options. Our plugin marketplace covers four major areas: energy optimization, environmental experience, security privacy, and family collaboration, meeting evolving smart home needs.</span>
                     </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
@@ -447,11 +153,11 @@
                     </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
-                    <div class="feature-icon hover-effect-icon">🤝</div>
-                    <h3><span lang="zh-CN">创新思维</span><span lang="en">Innovative Thinking</span></h3>
+                    <div class="feature-icon hover-effect-icon">🌟</div>
+                    <h3><span lang="zh-CN">个性化匹配</span><span lang="en">Personalized Matching</span></h3>
                     <p>
-                        <span lang="zh-CN">我们专注AI 在居家服务领域的应用，不断探索前沿技术，致力于为 AI2Home 服务生态带来突破性的解决方案。</span>
-                        <span lang="en">We focus on the application of AI in the home service field, constantly exploring cutting-edge technologies, committed to bringing breakthrough solutions to the AI2Home service ecosystem.</span>
+                        <span lang="zh-CN">基于四象文化理念的16型家居人格测试系统，深度挖掘用户的生活方式和个性需求，为每个家庭匹配最适合的智能家居配置和插件组合。</span>
+                        <span lang="en">Based on the Four Symbols cultural philosophy, our 16-type home personality testing system deeply explores users' lifestyles and personality needs, matching the most suitable smart home configurations and plugin combinations for each family.</span>
                     </p>
                 </div>
                 <div class="feature-card staggered-item hover-effect-card">
@@ -486,19 +192,19 @@
             </div>
             <div class="social-links">
                 <div class="tooltip">
-                    <a href="#" aria-label="微信">🔒</a>
+                    <a href="#" aria-label="微信">微信</a>
                     <span class="tooltiptext">微信：nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="微博">🔒</a>
+                    <a href="#" aria-label="微博">微博</a>
                     <span class="tooltiptext">微博: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">🔒</a>
+                    <a href="#" aria-label="领英">领英</a>
                     <span class="tooltiptext">领英: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="GitHub">🔒</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>

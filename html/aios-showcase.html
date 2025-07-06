@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="深入了解循星科技AIOS智能操作系统的技术架构、核心功能和创新特性。100,000+行代码打造的现代化事件驱动AI平台。">
     <title>AIOS技术架构 - 循星科技</title>
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
     <style>
         .hero-section {
             background: linear-gradient(135deg, rgba(127, 140, 141, 0.1), rgba(0, 0, 0, 0.3));
             padding: 80px 0;
             text-align: center;
-            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.2);
         }
 
         .hero-title {
@@ -40,7 +38,6 @@
 
         .stat-card {
             background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(var(--accent-color-rgb), 0.3);
             border-radius: 15px;
             padding: 30px;
             text-align: center;
@@ -49,7 +46,6 @@
 
         .stat-card:hover {
             transform: translateY(-10px);
-            border-color: var(--accent-color);
             background: rgba(255,255,255,0.1);
         }
 
@@ -71,7 +67,6 @@
             border-radius: 20px;
             padding: 40px;
             margin: 30px 0;
-            border-left: 5px solid var(--accent-color);
         }
 
         .layer-header {
@@ -103,11 +98,434 @@
             gap: 20px;
         }
 
+        /* 专门为4个卡片的层级设计对称布局 */
+        .tech-grid.four-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* 专门为6个卡片的层级设计对称布局 */
+        .tech-grid.six-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* 专门为8个卡片的层级设计对称布局 */
+        .tech-grid.eight-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* 系统流程图样式 */
+        .flow-diagram {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .flow-diagram h3 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+
+        .flow-content {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 10px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .flow-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flow-step {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .flow-arrow {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .flow-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .flow-detail {
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .flow-parallel {
+            margin-top: 20px;
+        }
+
+        .flow-parallel-title {
+            color: #98FB98;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .flow-parallel-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flow-description {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 768px) {
+            .tech-grid.four-items,
+            .tech-grid.six-items,
+            .tech-grid.eight-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .flow-diagram {
+                padding: 20px;
+            }
+
+            .flow-content {
+                padding: 20px;
+            }
+
+            .flow-main {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .flow-step {
+                min-width: 120px;
+            }
+
+                         .flow-details {
+                 grid-template-columns: repeat(2, 1fr);
+             }
+         }
+
+         /* 功能演示新样式 */
+         .demo-content {
+             background: rgba(255,255,255,0.05);
+             border-radius: 10px;
+             padding: 30px;
+             max-width: 100%;
+             overflow: hidden;
+         }
+
+         .interaction-flow {
+             margin-bottom: 20px;
+         }
+
+         .interaction-step {
+             display: flex;
+             align-items: center;
+             margin: 25px 0;
+             gap: 15px;
+         }
+
+         .step-user, .step-ai {
+             display: flex;
+             align-items: center;
+             gap: 12px;
+             flex: 1;
+         }
+
+         .step-icon {
+             font-size: 1.5rem;
+             width: 45px;
+             height: 45px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             background: rgba(255,255,255,0.15);
+             border-radius: 50%;
+             flex-shrink: 0;
+         }
+
+         .step-text {
+             background: rgba(255,255,255,0.1);
+             padding: 12px 18px;
+             border-radius: 18px;
+             font-size: 0.9rem;
+             line-height: 1.4;
+             flex: 1;
+         }
+
+         .step-arrow {
+             color: var(--accent-color);
+             font-size: 1.5rem;
+             font-weight: bold;
+         }
+
+         .demo-features {
+             display: flex;
+             gap: 10px;
+             flex-wrap: wrap;
+             margin-top: 20px;
+         }
+
+         .feature-tag {
+             background: var(--accent-color);
+             color: white;
+             padding: 5px 12px;
+             border-radius: 15px;
+             font-size: 0.8rem;
+         }
+
+         .scene-grid {
+             display: grid;
+             grid-template-columns: repeat(2, 1fr);
+             gap: 20px;
+         }
+
+         .scene-card {
+             background: rgba(255,255,255,0.1);
+             padding: 25px 20px;
+             border-radius: 15px;
+             text-align: center;
+             height: 160px;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             transition: transform 0.3s ease, background-color 0.3s ease;
+         }
+
+         .scene-card:hover {
+             transform: translateY(-5px);
+             background: rgba(255,255,255,0.15);
+         }
+
+         .scene-icon {
+             font-size: 2.5rem;
+             margin-bottom: 12px;
+         }
+
+         .scene-name {
+             font-weight: bold;
+             margin-bottom: 8px;
+             font-size: 1.1rem;
+         }
+
+         .scene-actions {
+             font-size: 0.85rem;
+             color: #bbb;
+             line-height: 1.4;
+         }
+
+         .monitoring-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+             gap: 20px;
+             max-width: 100%;
+         }
+
+         .monitor-card {
+             background: rgba(255,255,255,0.1);
+             padding: 25px 20px;
+             border-radius: 15px;
+             text-align: center;
+             height: 140px;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             transition: transform 0.3s ease, background-color 0.3s ease;
+         }
+
+         .monitor-card:hover {
+             transform: translateY(-3px);
+             background: rgba(255,255,255,0.15);
+         }
+
+         .monitor-icon {
+             font-size: 2.2rem;
+             margin-bottom: 8px;
+         }
+
+         .monitor-value {
+             font-size: 1.8rem;
+             font-weight: bold;
+             color: var(--accent-color);
+             margin-bottom: 6px;
+         }
+
+         .monitor-label {
+             font-size: 0.9rem;
+             margin-bottom: 8px;
+         }
+
+         .monitor-status {
+             padding: 4px 10px;
+             border-radius: 12px;
+             font-size: 0.8rem;
+             font-weight: 500;
+         }
+
+         .monitor-status.excellent {
+             background: #4CAF50;
+             color: white;
+         }
+
+         .monitor-status.good {
+             background: #8BC34A;
+             color: white;
+         }
+
+         .monitor-status.normal {
+             background: #FFC107;
+             color: black;
+         }
+
+         .device-status-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+             gap: 25px;
+             max-width: 100%;
+         }
+
+         .device-group {
+             background: rgba(255,255,255,0.05);
+             padding: 25px;
+             border-radius: 15px;
+             border: 1px solid rgba(255,255,255,0.1);
+         }
+
+         .group-title {
+             font-weight: bold;
+             margin-bottom: 18px;
+             color: var(--accent-color);
+             font-size: 1.1rem;
+         }
+
+         .device-list {
+             display: flex;
+             flex-direction: column;
+             gap: 10px;
+         }
+
+         .device-item {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             padding: 12px 15px;
+             background: rgba(255,255,255,0.1);
+             border-radius: 10px;
+             border-left: 4px solid #4CAF50;
+             transition: background-color 0.3s ease;
+         }
+
+         .device-item:hover {
+             background: rgba(255,255,255,0.15);
+         }
+
+         .device-item.online {
+             border-left-color: #4CAF50;
+         }
+
+         .device-item.offline {
+             border-left-color: #f44336;
+             opacity: 0.6;
+         }
+
+         .device-name {
+             font-size: 0.9rem;
+         }
+
+         .device-protocol {
+             font-size: 0.8rem;
+             background: var(--accent-color);
+             color: white;
+             padding: 2px 6px;
+             border-radius: 4px;
+         }
+
+         .feature-showcase {
+             display: grid;
+             grid-template-columns: 1fr;
+             gap: 40px;
+             max-width: 100%;
+         }
+
+         @media (min-width: 1024px) {
+             .feature-showcase {
+                 grid-template-columns: repeat(2, 1fr);
+                 gap: 50px;
+             }
+         }
+
+         @media (max-width: 768px) {
+             .interaction-step {
+                 flex-direction: column;
+                 gap: 12px;
+             }
+
+             .step-user, .step-ai {
+                 width: 100%;
+                 justify-content: center;
+             }
+
+             .step-arrow {
+                 transform: rotate(90deg);
+             }
+
+             .scene-grid {
+                 grid-template-columns: 1fr;
+             }
+
+             .monitoring-grid {
+                 grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                 gap: 15px;
+             }
+
+             .device-status-grid {
+                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                 gap: 20px;
+             }
+
+             .demo-content {
+                 padding: 20px;
+             }
+         }
+
         .tech-item {
             background: rgba(255,255,255,0.05);
             padding: 20px;
             border-radius: 10px;
-            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
         }
 
         .tech-name {
@@ -127,7 +545,8 @@
             background: rgba(255,255,255,0.05);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            max-width: 100%;
+            overflow: hidden;
         }
 
         .demo-header {
@@ -151,7 +570,6 @@
             font-family: 'Consolas', 'Monaco', monospace;
             font-size: 0.9rem;
             margin: 20px 0;
-            border-left: 3px solid var(--accent-color);
             overflow-x: auto;
         }
 
@@ -215,15 +633,13 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
-            <div class="tagline">
-                <span lang="zh-CN">AIOS智能操作系统技术架构</span>
-                <span lang="en">AIOS Intelligent Operating System Architecture</span>
-            </div>
-            <div class="nav">
-                <!-- 导航将由navigation.js动态生成 -->
-            </div>
+        <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+        <div class="tagline">
+            <span lang="zh-CN">AIOS智能操作系统技术架构</span>
+            <span lang="en">AIOS Intelligent Operating System Architecture</span>
+        </div>
+        <div class="nav">
+            <!-- 导航将由navigation.js动态生成 -->
         </div>
     </header>
 
@@ -299,7 +715,7 @@
                     <span lang="zh-CN">现代化图形用户界面，提供多个功能标签页，支持实时监控、语音交互、测试管理等功能。界面响应迅速，用户体验优秀。</span>
                     <span lang="en">Modern graphical user interface, providing multiple functional tabs, supporting real-time monitoring, voice interaction, test management, and more. Fast interface response with excellent user experience.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid four-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">🎯 实时事件监控</span><span lang="en">🎯 Real-time Event Monitoring</span></div>
                         <p><span lang="zh-CN">事件流表格、过滤搜索、数据导出</span><span lang="en">Event stream tables, filtering, data export</span></p>
@@ -334,7 +750,7 @@
                     <span lang="zh-CN">集成STT语音识别、LLM大语言模型、性能监控等核心AI服务，支持本地推理和云端调用，提供高性能的AI能力。</span>
                     <span lang="en">Integrating core AI services including STT speech recognition, LLM large language models, performance monitoring, supporting both local inference and cloud calls for high-performance AI capabilities.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid four-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">🎤 STT语音识别</span><span lang="en">🎤 STT Speech Recognition</span></div>
                         <p><span lang="zh-CN">OpenAI Whisper + Faster Whisper</span><span lang="en">OpenAI Whisper + Faster Whisper</span></p>
@@ -369,7 +785,7 @@
                     <span lang="zh-CN">基于规则引擎的可扩展插件架构，支持动态加载、热更新、插件管理等功能，为AIOS提供灵活的扩展能力。</span>
                     <span lang="en">Extensible plugin architecture based on rule engine, supporting dynamic loading, hot updates, plugin management, providing flexible expansion capabilities for AIOS.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid four-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">🎯 规则引擎</span><span lang="en">🎯 Rule Engine</span></div>
                         <p><span lang="zh-CN">智能规则匹配和执行</span><span lang="en">Intelligent rule matching and execution</span></p>
@@ -404,7 +820,7 @@
                     <span lang="zh-CN">AIOS的核心架构基础，采用异步事件总线和发布/订阅模式，提供高性能的事件路由、错误处理和性能监控功能。</span>
                     <span lang="en">The core architectural foundation of AIOS, using async event bus and pub/sub pattern, providing high-performance event routing, error handling, and performance monitoring.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid four-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">🚀 异步处理</span><span lang="en">🚀 Async Processing</span></div>
                         <p><span lang="zh-CN">基于AsyncIO的高并发处理</span><span lang="en">High concurrency processing based on AsyncIO</span></p>
@@ -439,7 +855,7 @@
                     <span lang="zh-CN">完整的工具函数库，覆盖路径操作、文件IO、装饰器、并发控制、日志系统、性能分析、安全工具、异常处理等各个方面。</span>
                     <span lang="en">Complete utility function library covering path operations, file IO, decorators, concurrency control, logging system, performance analysis, security tools, exception handling, and more.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid four-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">📁 路径与文件</span><span lang="en">📁 Path & File</span></div>
                         <p><span lang="zh-CN">路径操作、文件IO、原子写入</span><span lang="en">Path operations, file IO, atomic writes</span></p>
@@ -484,7 +900,7 @@
                     <span lang="zh-CN">通过多种传感器和输入设备，实现对环境、用户行为和设备状态的全方位感知，为智能决策提供丰富的数据基础。</span>
                     <span lang="en">Through various sensors and input devices, achieving comprehensive perception of environment, user behavior, and device status, providing rich data foundation for intelligent decision-making.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid six-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">🎤 语音输入</span><span lang="en">🎤 Voice Input</span></div>
                         <p><span lang="zh-CN">麦克风阵列 • 降噪算法 • 远场识别</span><span lang="en">Microphone Array • Noise Reduction • Far-field Recognition</span></p>
@@ -527,7 +943,7 @@
                     <span lang="zh-CN">部署在本地设备的轻量化AI模型集群，实现多模态数据融合、意图理解和智能推理，确保响应速度和数据隐私。</span>
                     <span lang="en">Lightweight AI model cluster deployed on local devices, achieving multimodal data fusion, intent understanding, and intelligent reasoning while ensuring response speed and data privacy.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid eight-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">🔤 语言模型</span><span lang="en">🔤 Language Model</span></div>
                         <p><span lang="zh-CN">Qwen 3B • INT4量化 • QLoRA微调</span><span lang="en">Qwen 3B • INT4 Quantization • QLoRA Fine-tuning</span></p>
@@ -578,7 +994,7 @@
                     <span lang="zh-CN">基于FastAPI + Ray + LangChain的分布式Agent架构，实现任务调度、技能编排和安全控制，支持插件式扩展和智能协同。</span>
                     <span lang="en">Distributed Agent architecture based on FastAPI + Ray + LangChain, implementing task scheduling, skill orchestration, and security control with plugin-based extension and intelligent collaboration.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid six-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">📋 Agent调度器</span><span lang="en">📋 Agent Scheduler</span></div>
                         <p><span lang="zh-CN">FastAPI • Ray分布式 • LangChain集成</span><span lang="en">FastAPI • Ray Distributed • LangChain Integration</span></p>
@@ -599,6 +1015,10 @@
                         <div class="tech-name"><span lang="zh-CN">🔒 安全沙箱</span><span lang="en">🔒 Security Sandbox</span></div>
                         <p><span lang="zh-CN">隐私控制 • 指令校验 • 权限管理</span><span lang="en">Privacy Control • Command Validation • Permission Management</span></p>
                     </div>
+                    <div class="tech-item">
+                        <div class="tech-name"><span lang="zh-CN">📈 性能优化</span><span lang="en">📈 Performance Optimization</span></div>
+                        <p><span lang="zh-CN">负载均衡 • 缓存机制 • 资源池管理</span><span lang="en">Load Balancing • Caching • Resource Pool Management</span></p>
+                    </div>
                 </div>
             </div>
 
@@ -617,7 +1037,7 @@
                     <span lang="zh-CN">支持多种通信协议和设备标准，提供统一的设备控制接口，实现跨品牌、跨协议的智能设备无缝接入和控制。</span>
                     <span lang="en">Supporting multiple communication protocols and device standards, providing unified device control interface for seamless access and control of cross-brand, cross-protocol smart devices.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid six-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">📡 标准协议设备</span><span lang="en">📡 Standard Protocol Devices</span></div>
                         <p><span lang="zh-CN">Zigbee • BLE • Matter • Modbus工业协议</span><span lang="en">Zigbee • BLE • Matter • Modbus Industrial Protocol</span></p>
@@ -638,6 +1058,10 @@
                         <div class="tech-name"><span lang="zh-CN">🎮 语义动作层</span><span lang="en">🎮 Semantic Action Layer</span></div>
                         <p><span lang="zh-CN">统一指令 • open/close/set • 动作抽象</span><span lang="en">Unified Commands • open/close/set • Action Abstraction</span></p>
                     </div>
+                    <div class="tech-item">
+                        <div class="tech-name"><span lang="zh-CN">🔄 状态同步</span><span lang="en">🔄 State Synchronization</span></div>
+                        <p><span lang="zh-CN">设备状态 • 实时同步 • 故障检测</span><span lang="en">Device Status • Real-time Sync • Fault Detection</span></p>
+                    </div>
                 </div>
             </div>
 
@@ -656,7 +1080,7 @@
                     <span lang="zh-CN">覆盖家庭生活各个场景的智能设备控制，从基础的照明空调到复杂的安防系统，实现全方位的智能化管理。</span>
                     <span lang="en">Covering smart device control for all home life scenarios, from basic lighting and HVAC to complex security systems, achieving comprehensive intelligent management.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid six-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">💡 照明控制器</span><span lang="en">💡 Lighting Controller</span></div>
                         <p><span lang="zh-CN">智能调光 • 色温调节 • 场景模式</span><span lang="en">Smart Dimming • Color Temperature • Scene Modes</span></p>
@@ -677,6 +1101,10 @@
                         <div class="tech-name"><span lang="zh-CN">🔊 语音UI反馈</span><span lang="en">🔊 Voice UI Feedback</span></div>
                         <p><span lang="zh-CN">TTS语音播报 • 面板UI • 状态反馈</span><span lang="en">TTS Voice Broadcast • Panel UI • Status Feedback</span></p>
                     </div>
+                    <div class="tech-item">
+                        <div class="tech-name"><span lang="zh-CN">🔐 安全控制</span><span lang="en">🔐 Security Control</span></div>
+                        <p><span lang="zh-CN">门禁系统 • 摄像头监控 • 异常报警</span><span lang="en">Access Control • Camera Monitoring • Anomaly Alerts</span></p>
+                    </div>
                 </div>
             </div>
 
@@ -695,7 +1123,7 @@
                     <span lang="zh-CN">基于联邦学习的边云协同架构，在保护用户隐私的前提下实现模型持续优化，同时提供云端服务支撑和远程管理能力。</span>
                     <span lang="en">Edge-cloud collaborative architecture based on federated learning, achieving continuous model optimization while protecting user privacy, providing cloud service support and remote management capabilities.</span>
                 </p>
-                <div class="tech-grid">
+                <div class="tech-grid six-items">
                     <div class="tech-item">
                         <div class="tech-name"><span lang="zh-CN">🔄 联邦学习客户端</span><span lang="en">🔄 Federated Learning Client</span></div>
                         <p><span lang="zh-CN">LoRA增量上传 • 本地训练 • 隐私保护</span><span lang="en">LoRA Delta Upload • Local Training • Privacy Protection</span></p>
@@ -716,34 +1144,141 @@
                         <div class="tech-name"><span lang="zh-CN">🔗 云端API中继</span><span lang="en">🔗 Cloud API Relay</span></div>
                         <p><span lang="zh-CN">外部服务接入 • API网关 • 负载均衡</span><span lang="en">External Service Access • API Gateway • Load Balancing</span></p>
                     </div>
+                    <div class="tech-item">
+                        <div class="tech-name"><span lang="zh-CN">📊 数据分析</span><span lang="en">📊 Data Analytics</span></div>
+                        <p><span lang="zh-CN">使用模式分析 • 性能统计 • 优化建议</span><span lang="en">Usage Pattern Analysis • Performance Statistics • Optimization Recommendations</span></p>
+                    </div>
                 </div>
             </div>
 
             <!-- 架构流程图 -->
-            <div style="background: rgba(255,255,255,0.03); border-radius: 15px; padding: 40px; margin: 40px 0; border: 1px solid rgba(var(--accent-color-rgb), 0.2);">
-                <h3 style="text-align: center; color: var(--accent-color); margin-bottom: 30px; font-size: 1.5rem;">
+            <div class="flow-diagram">
+                <h3>
                     <span lang="zh-CN">🔄 系统数据流与控制流</span>
                     <span lang="en">🔄 System Data Flow & Control Flow</span>
                 </h3>
-                <div style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 10px; font-family: monospace; overflow-x: auto;">
-                    <pre style="color: var(--text-color); margin: 0; line-height: 1.6; font-size: 0.9rem;">
-<span style="color: var(--accent-color);">感知输入</span> → <span style="color: #90EE90;">多模态融合</span> → <span style="color: #FFB6C1;">意图解析</span> → <span style="color: #87CEEB;">Agent调度</span> → <span style="color: #DDA0DD;">设备控制</span> → <span style="color: #F0E68C;">执行反馈</span>
+                <div class="flow-content">
+                    <!-- 主要数据流 -->
+                    <div class="flow-main">
+                        <div class="flow-step" style="color: var(--accent-color);">
+                            <span lang="zh-CN">🎤📷🌡️<br>感知输入</span>
+                            <span lang="en">🎤📷🌡️<br>Perception Input</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step" style="color: #90EE90;">
+                            <span lang="zh-CN">🧠<br>多模态融合</span>
+                            <span lang="en">🧠<br>Multimodal Fusion</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step" style="color: #FFB6C1;">
+                            <span lang="zh-CN">🎯<br>意图解析</span>
+                            <span lang="en">🎯<br>Intent Parsing</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step" style="color: #87CEEB;">
+                            <span lang="zh-CN">🤖<br>Agent调度</span>
+                            <span lang="en">🤖<br>Agent Scheduling</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step" style="color: #DDA0DD;">
+                            <span lang="zh-CN">⚡<br>设备控制</span>
+                            <span lang="en">⚡<br>Device Control</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step" style="color: #F0E68C;">
+                            <span lang="zh-CN">🔊<br>执行反馈</span>
+                            <span lang="en">🔊<br>Execution Feedback</span>
+                        </div>
+                    </div>
 
-<span style="color: var(--accent-color);">🎤📷🌡️</span>     <span style="color: #90EE90;">🧠 融合模型</span>    <span style="color: #FFB6C1;">🎯 NLU</span>      <span style="color: #87CEEB;">🤖 智能体</span>    <span style="color: #DDA0DD;">⚡ 执行层</span>    <span style="color: #F0E68C;">🔊 反馈</span>
-   ↓            ↓           ↓           ↓           ↓           ↓
-<span style="color: var(--text-color);">语音/图像/    → 特征提取 → 指令理解 → 任务分解 → 设备操作 → 状态更新
-环境数据                语义分析     技能路由     协议转换     用户确认</span>
+                    <!-- 详细处理步骤 -->
+                    <div class="flow-details">
+                        <div class="flow-detail" style="color: var(--accent-color);">
+                            <span lang="zh-CN">语音/图像/<br>环境数据</span>
+                            <span lang="en">Voice/Image/<br>Environmental Data</span>
+                        </div>
+                        <div class="flow-detail" style="color: #90EE90;">
+                            <span lang="zh-CN">特征提取<br>语义分析</span>
+                            <span lang="en">Feature Extraction<br>Semantic Analysis</span>
+                        </div>
+                        <div class="flow-detail" style="color: #FFB6C1;">
+                            <span lang="zh-CN">指令理解<br>技能路由</span>
+                            <span lang="en">Command Understanding<br>Skill Routing</span>
+                        </div>
+                        <div class="flow-detail" style="color: #87CEEB;">
+                            <span lang="zh-CN">任务分解<br>协议转换</span>
+                            <span lang="en">Task Decomposition<br>Protocol Conversion</span>
+                        </div>
+                        <div class="flow-detail" style="color: #DDA0DD;">
+                            <span lang="zh-CN">设备操作<br>状态更新</span>
+                            <span lang="en">Device Operation<br>Status Update</span>
+                        </div>
+                        <div class="flow-detail" style="color: #F0E68C;">
+                            <span lang="zh-CN">用户确认<br>结果反馈</span>
+                            <span lang="en">User Confirmation<br>Result Feedback</span>
+                        </div>
+                    </div>
 
-<span style="color: #98FB98;">并行路径:</span>
-<span style="color: var(--accent-color);">身份识别</span> → <span style="color: #90EE90;">上下文管理</span> → <span style="color: #FFB6C1;">个性化决策</span>
-<span style="color: var(--accent-color);">行为日志</span> → <span style="color: #90EE90;">学习优化</span> → <span style="color: #FFB6C1;">模型更新</span>
-<span style="color: var(--accent-color);">联邦学习</span> → <span style="color: #90EE90;">云端聚合</span> → <span style="color: #FFB6C1;">OTA下发</span>
-                    </pre>
+                    <!-- 并行处理路径 -->
+                    <div class="flow-parallel">
+                        <div class="flow-parallel-title">
+                            <span lang="zh-CN">🔄 并行处理路径</span>
+                            <span lang="en">🔄 Parallel Processing Paths</span>
+                        </div>
+                        <div class="flow-parallel-item">
+                            <div class="flow-step" style="color: var(--accent-color); min-width: 100px;">
+                                <span lang="zh-CN">身份识别</span>
+                                <span lang="en">Identity Recognition</span>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" style="color: #90EE90; min-width: 100px;">
+                                <span lang="zh-CN">上下文管理</span>
+                                <span lang="en">Context Management</span>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" style="color: #FFB6C1; min-width: 100px;">
+                                <span lang="zh-CN">个性化决策</span>
+                                <span lang="en">Personalized Decision</span>
+                            </div>
+                        </div>
+                        <div class="flow-parallel-item">
+                            <div class="flow-step" style="color: var(--accent-color); min-width: 100px;">
+                                <span lang="zh-CN">行为日志</span>
+                                <span lang="en">Behavior Logging</span>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" style="color: #90EE90; min-width: 100px;">
+                                <span lang="zh-CN">学习优化</span>
+                                <span lang="en">Learning Optimization</span>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" style="color: #FFB6C1; min-width: 100px;">
+                                <span lang="zh-CN">模型更新</span>
+                                <span lang="en">Model Updates</span>
+                            </div>
+                        </div>
+                        <div class="flow-parallel-item">
+                            <div class="flow-step" style="color: var(--accent-color); min-width: 100px;">
+                                <span lang="zh-CN">联邦学习</span>
+                                <span lang="en">Federated Learning</span>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" style="color: #90EE90; min-width: 100px;">
+                                <span lang="zh-CN">云端聚合</span>
+                                <span lang="en">Cloud Aggregation</span>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" style="color: #FFB6C1; min-width: 100px;">
+                                <span lang="zh-CN">OTA下发</span>
+                                <span lang="en">OTA Deployment</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+                <div class="flow-description">
                     <span lang="zh-CN">💡 从感知到执行的完整闭环，支持多模态输入、智能推理、安全控制和持续学习</span>
                     <span lang="en">💡 Complete closed loop from perception to execution, supporting multimodal input, intelligent reasoning, security control, and continuous learning</span>
-                </p>
+                </div>
             </div>
         </div>
     </section>
@@ -751,356 +1286,305 @@
     <!-- Code Examples -->
     <section class="container" style="padding: 80px 0;">
         <h2 class="section-title">
-            <span lang="zh-CN">💻 技术演示</span>
-            <span lang="en">💻 Technical Demonstration</span>
+            <span lang="zh-CN">🎯 智能功能演示</span>
+            <span lang="en">🎯 Smart Features Demo</span>
         </h2>
 
         <div class="feature-showcase">
-            <!-- 多模态感知融合 Demo -->
+            <!-- 语音智能交互 -->
+            <div class="feature-demo">
+                <div class="demo-header">
+                    <div class="demo-icon">🎤</div>
+                    <span lang="zh-CN">语音智能交互</span>
+                    <span lang="en">Voice Intelligence Interaction</span>
+                </div>
+                <div class="demo-content">
+                    <div class="interaction-flow">
+                        <div class="interaction-step">
+                            <div class="step-user">
+                                <div class="step-icon">👤</div>
+                                <div class="step-text">
+                                    <span lang="zh-CN">"帮我把客厅的灯调暗一点"</span>
+                                    <span lang="en">"Please dim the living room lights"</span>
+                                </div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step-ai">
+                                <div class="step-icon">🤖</div>
+                                <div class="step-text">
+                                    <span lang="zh-CN">"好的，正在为您调节客厅灯光亮度到60%"</span>
+                                    <span lang="en">"Sure, adjusting living room lights to 60% brightness"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="interaction-step">
+                            <div class="step-user">
+                                <div class="step-icon">👤</div>
+                                <div class="step-text">
+                                    <span lang="zh-CN">"现在温度有点高，开一下空调"</span>
+                                    <span lang="en">"It's getting warm, turn on the AC"</span>
+                                </div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step-ai">
+                                <div class="step-icon">🤖</div>
+                                <div class="step-text">
+                                    <span lang="zh-CN">"已为您开启空调，设置温度24°C，舒适模式"</span>
+                                    <span lang="en">"AC turned on, set to 24°C, comfort mode"</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-features">
+                        <div class="feature-tag">
+                            <span lang="zh-CN">🧠 自然语言理解</span>
+                            <span lang="en">🧠 Natural Language Understanding</span>
+                        </div>
+                        <div class="feature-tag">
+                            <span lang="zh-CN">🎯 意图识别</span>
+                            <span lang="en">🎯 Intent Recognition</span>
+                        </div>
+                        <div class="feature-tag">
+                            <span lang="zh-CN">⚡ 实时响应</span>
+                            <span lang="en">⚡ Real-time Response</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 智能场景控制 -->
+            <div class="feature-demo">
+                <div class="demo-header">
+                    <div class="demo-icon">🏠</div>
+                    <span lang="zh-CN">智能场景控制</span>
+                    <span lang="en">Smart Scene Control</span>
+                </div>
+                <div class="demo-content">
+                    <div class="scene-grid">
+                        <div class="scene-card">
+                            <div class="scene-icon">🌅</div>
+                            <div class="scene-name">
+                                <span lang="zh-CN">晨起模式</span>
+                                <span lang="en">Morning Mode</span>
+                            </div>
+                            <div class="scene-actions">
+                                <span lang="zh-CN">灯光渐亮 • 播放音乐 • 空调调节 • 窗帘开启</span>
+                                <span lang="en">Gradual Lighting • Music • AC Control • Curtain Opening</span>
+                            </div>
+                        </div>
+                        <div class="scene-card">
+                            <div class="scene-icon">🌙</div>
+                            <div class="scene-name">
+                                <span lang="zh-CN">睡眠模式</span>
+                                <span lang="en">Sleep Mode</span>
+                            </div>
+                            <div class="scene-actions">
+                                <span lang="zh-CN">灯光关闭 • 门窗检查 • 安防启动 • 温度调节</span>
+                                <span lang="en">Lights Off • Door Check • Security On • Temperature</span>
+                            </div>
+                        </div>
+                        <div class="scene-card">
+                            <div class="scene-icon">🍽️</div>
+                            <div class="scene-name">
+                                <span lang="zh-CN">用餐模式</span>
+                                <span lang="en">Dining Mode</span>
+                            </div>
+                            <div class="scene-actions">
+                                <span lang="zh-CN">餐厅灯光 • 背景音乐 • 空气净化 • 氛围营造</span>
+                                <span lang="en">Dining Light • Background Music • Air Purifier • Ambiance</span>
+                            </div>
+                        </div>
+                        <div class="scene-card">
+                            <div class="scene-icon">🏠</div>
+                            <div class="scene-name">
+                                <span lang="zh-CN">离家模式</span>
+                                <span lang="en">Away Mode</span>
+                            </div>
+                            <div class="scene-actions">
+                                <span lang="zh-CN">全屋断电 • 安防布防 • 门窗检查 • 节能模式</span>
+                                <span lang="en">Power Off • Security On • Door Check • Energy Save</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 实时数据监控 -->
+            <div class="feature-demo">
+                <div class="demo-header">
+                    <div class="demo-icon">📊</div>
+                    <span lang="zh-CN">实时数据监控</span>
+                    <span lang="en">Real-time Data Monitoring</span>
+                </div>
+                <div class="demo-content">
+                    <div class="monitoring-grid">
+                        <div class="monitor-card">
+                            <div class="monitor-icon">🌡️</div>
+                            <div class="monitor-value">23°C</div>
+                            <div class="monitor-label">
+                                <span lang="zh-CN">室内温度</span>
+                                <span lang="en">Indoor Temperature</span>
+                            </div>
+                            <div class="monitor-status good">
+                                <span lang="zh-CN">舒适</span>
+                                <span lang="en">Comfortable</span>
+                            </div>
+                        </div>
+                        <div class="monitor-card">
+                            <div class="monitor-icon">💧</div>
+                            <div class="monitor-value">45%</div>
+                            <div class="monitor-label">
+                                <span lang="zh-CN">湿度</span>
+                                <span lang="en">Humidity</span>
+                            </div>
+                            <div class="monitor-status good">
+                                <span lang="zh-CN">适宜</span>
+                                <span lang="en">Suitable</span>
+                            </div>
+                        </div>
+                        <div class="monitor-card">
+                            <div class="monitor-icon">🌬️</div>
+                            <div class="monitor-value">12</div>
+                            <div class="monitor-label">
+                                <span lang="zh-CN">PM2.5</span>
+                                <span lang="en">PM2.5</span>
+                            </div>
+                            <div class="monitor-status excellent">
+                                <span lang="zh-CN">优秀</span>
+                                <span lang="en">Excellent</span>
+                            </div>
+                        </div>
+                        <div class="monitor-card">
+                            <div class="monitor-icon">⚡</div>
+                            <div class="monitor-value">2.8kW</div>
+                            <div class="monitor-label">
+                                <span lang="zh-CN">用电功率</span>
+                                <span lang="en">Power Usage</span>
+                            </div>
+                            <div class="monitor-status normal">
+                                <span lang="zh-CN">正常</span>
+                                <span lang="en">Normal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设备连接状态 -->
             <div class="feature-demo">
                 <div class="demo-header">
                     <div class="demo-icon">🔗</div>
-                    <span lang="zh-CN">多模态感知融合</span>
-                    <span lang="en">Multimodal Perception Fusion</span>
+                    <span lang="zh-CN">设备连接状态</span>
+                    <span lang="en">Device Connection Status</span>
                 </div>
-                <div class="code-block">
-<span lang="zh-CN"># 多模态数据融合处理
-async def process_multimodal_input():
-    # 语音识别结果
-    speech_result = await stt_service.transcribe(audio_data)
-    
-    # 视觉检测结果  
-    vision_result = await yolo_detector.detect(image_frame)
-    
-    # 环境传感器数据
-    env_data = await sensors.get_environment_data()
-    
-    # MiniCLIP多模态融合
-    fusion_result = await multimodal_fusion.process({
-        "speech": speech_result,
-        "vision": vision_result, 
-        "environment": env_data,
-        "timestamp": time.time()
-    })
-    
-    return fusion_result</span>
-<span lang="en"># Multimodal data fusion processing
-async def process_multimodal_input():
-    # Speech recognition result
-    speech_result = await stt_service.transcribe(audio_data)
-    
-    # Vision detection result
-    vision_result = await yolo_detector.detect(image_frame)
-    
-    # Environmental sensor data
-    env_data = await sensors.get_environment_data()
-    
-    # MiniCLIP multimodal fusion
-    fusion_result = await multimodal_fusion.process({
-        "speech": speech_result,
-        "vision": vision_result,
-        "environment": env_data,
-        "timestamp": time.time()
-    })
-    
-    return fusion_result</span>
-                </div>
-            </div>
-
-            <!-- Agent调度系统 Demo -->
-            <div class="feature-demo">
-                <div class="demo-header">
-                    <div class="demo-icon">🤖</div>
-                    <span lang="zh-CN">Agent调度系统</span>
-                    <span lang="en">Agent Scheduling System</span>
-                </div>
-                <div class="code-block">
-<span lang="zh-CN"># 基于FastAPI + Ray的Agent调度
-@app.post("/api/intent")
-async def handle_intent(intent: IntentRequest):
-    # 意图解析和安全校验
-    parsed_intent = await intent_parser.parse(intent.text)
-    if not security_sandbox.validate(parsed_intent):
-        raise SecurityError("指令未通过安全校验")
-    
-    # Ray分布式Agent调度
-    agent_id = await agent_scheduler.assign_agent(
-        skill_type=parsed_intent.skill,
-        context=context_manager.get_context(intent.user_id)
-    )
-    
-    # 异步执行并记录日志
-    task = await agent_pool[agent_id].execute(parsed_intent)
-    behavior_logger.log_execution(task)
-    
-    return {"task_id": task.id, "status": "executing"}</span>
-<span lang="en"># Agent scheduling based on FastAPI + Ray
-@app.post("/api/intent")
-async def handle_intent(intent: IntentRequest):
-    # Intent parsing and security validation
-    parsed_intent = await intent_parser.parse(intent.text)
-    if not security_sandbox.validate(parsed_intent):
-        raise SecurityError("Command failed security validation")
-    
-    # Ray distributed Agent scheduling
-    agent_id = await agent_scheduler.assign_agent(
-        skill_type=parsed_intent.skill,
-        context=context_manager.get_context(intent.user_id)
-    )
-    
-    # Async execution and logging
-    task = await agent_pool[agent_id].execute(parsed_intent)
-    behavior_logger.log_execution(task)
-    
-    return {"task_id": task.id, "status": "executing"}</span>
+                <div class="demo-content">
+                    <div class="device-status-grid">
+                        <div class="device-group">
+                            <div class="group-title">
+                                <span lang="zh-CN">照明设备</span>
+                                <span lang="en">Lighting Devices</span>
+                            </div>
+                            <div class="device-list">
+                                <div class="device-item online">
+                                    <div class="device-name">
+                                        <span lang="zh-CN">客厅吊灯</span>
+                                        <span lang="en">Living Room Light</span>
+                                    </div>
+                                    <div class="device-protocol">Zigbee</div>
+                                </div>
+                                <div class="device-item online">
+                                    <div class="device-name">
+                                        <span lang="zh-CN">卧室台灯</span>
+                                        <span lang="en">Bedroom Lamp</span>
+                                    </div>
+                                    <div class="device-protocol">Matter</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="device-group">
+                            <div class="group-title">
+                                <span lang="zh-CN">空调设备</span>
+                                <span lang="en">HVAC Devices</span>
+                            </div>
+                            <div class="device-list">
+                                <div class="device-item online">
+                                    <div class="device-name">
+                                        <span lang="zh-CN">客厅空调</span>
+                                        <span lang="en">Living Room AC</span>
+                                    </div>
+                                    <div class="device-protocol">BLE</div>
+                                </div>
+                                <div class="device-item online">
+                                    <div class="device-name">
+                                        <span lang="zh-CN">新风系统</span>
+                                        <span lang="en">Fresh Air System</span>
+                                    </div>
+                                    <div class="device-protocol">Modbus</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="device-group">
+                            <div class="group-title">
+                                <span lang="zh-CN">安防设备</span>
+                                <span lang="en">Security Devices</span>
+                            </div>
+                            <div class="device-list">
+                                <div class="device-item online">
+                                    <div class="device-name">
+                                        <span lang="zh-CN">智能门锁</span>
+                                        <span lang="en">Smart Lock</span>
+                                    </div>
+                                    <div class="device-protocol">XunProto</div>
+                                </div>
+                                <div class="device-item online">
+                                    <div class="device-name">
+                                        <span lang="zh-CN">监控摄像头</span>
+                                        <span lang="en">Security Camera</span>
+                                    </div>
+                                    <div class="device-protocol">XunProto</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- 协议适配与设备控制 Demo -->
-            <div class="feature-demo">
-                <div class="demo-header">
-                    <div class="demo-icon">🔗</div>
-                    <span lang="zh-CN">协议适配与设备控制</span>
-                    <span lang="en">Protocol Adaptation & Device Control</span>
+        </div>
+    </section>
+    <!-- 性能统计 -->
+    <section class="stats-section" style="padding: 80px 0; background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <h2 class="section-title">
+                <span lang="zh-CN">🚀 性能表现</span>
+                <span lang="en">🚀 Performance Metrics</span>
+            </h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">< 100ms</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">响应时间</span>
+                        <span lang="en">Response Time</span>
+                    </div>
                 </div>
-                <div class="code-block">
-<span lang="zh-CN"># 统一设备控制接口
-class UnifiedDeviceController:
-    def __init__(self):
-        self.adapters = {
-            "zigbee": ZigbeeAdapter(),
-            "ble": BLEAdapter(), 
-            "matter": MatterAdapter(),
-            "xunproto": XunProtoAdapter()
-        }
-    
-    async def control_device(self, device_id: str, action: str, params: dict):
-        # 设备发现和协议识别
-        device_info = await self.discover_device(device_id)
-        adapter = self.adapters[device_info.protocol]
-        
-        # 语义动作映射 (open/close/set)
-        semantic_action = self.map_to_semantic_action(action, params)
-        
-        # 协议转换和设备控制
-        result = await adapter.execute_command(
-            device_id, semantic_action
-        )
-        
-        return result</span>
-<span lang="en"># Unified device control interface
-class UnifiedDeviceController:
-    def __init__(self):
-        self.adapters = {
-            "zigbee": ZigbeeAdapter(),
-            "ble": BLEAdapter(),
-            "matter": MatterAdapter(), 
-            "xunproto": XunProtoAdapter()
-        }
-    
-    async def control_device(self, device_id: str, action: str, params: dict):
-        # Device discovery and protocol identification
-        device_info = await self.discover_device(device_id)
-        adapter = self.adapters[device_info.protocol]
-        
-        # Semantic action mapping (open/close/set)
-        semantic_action = self.map_to_semantic_action(action, params)
-        
-        # Protocol conversion and device control
-        result = await adapter.execute_command(
-            device_id, semantic_action
-        )
-        
-        return result</span>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">准确率</span>
+                        <span lang="en">Accuracy</span>
+                    </div>
                 </div>
-            </div>
-
-            <!-- 联邦学习与模型更新 Demo -->
-            <div class="feature-demo">
-                <div class="demo-header">
-                    <div class="demo-icon">☁️</div>
-                    <span lang="zh-CN">联邦学习与模型更新</span>
-                    <span lang="en">Federated Learning & Model Updates</span>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">支持设备</span>
+                        <span lang="en">Supported Devices</span>
+                    </div>
                 </div>
-                <div class="code-block">
-<span lang="zh-CN"># 联邦学习客户端
-class FederatedLearningClient:
-    async def upload_delta_weights(self):
-        # LoRA增量权重提取
-        delta_weights = self.extract_lora_delta()
-        
-        # 差分隐私保护
-        private_delta = differential_privacy.apply(delta_weights)
-        
-        # 上传到云端聚合服务
-        response = await cloud_service.upload_delta({
-            "client_id": self.client_id,
-            "delta_weights": private_delta,
-            "training_rounds": self.rounds,
-            "performance_metrics": self.get_metrics()
-        })
-        
-        return response
-    
-    async def receive_global_model(self):
-        # 接收全局聚合模型
-        global_model = await cloud_service.get_global_model()
-        
-        # 模型增量更新
-        await self.apply_model_update(global_model)
-        self.model_monitor.check_performance()</span>
-<span lang="en"># Federated learning client
-class FederatedLearningClient:
-    async def upload_delta_weights(self):
-        # LoRA delta weight extraction
-        delta_weights = self.extract_lora_delta()
-        
-        # Differential privacy protection
-        private_delta = differential_privacy.apply(delta_weights)
-        
-        # Upload to cloud aggregation service
-        response = await cloud_service.upload_delta({
-            "client_id": self.client_id,
-            "delta_weights": private_delta,
-            "training_rounds": self.rounds,
-            "performance_metrics": self.get_metrics()
-        })
-        
-        return response
-    
-    async def receive_global_model(self):
-        # Receive global aggregated model
-        global_model = await cloud_service.get_global_model()
-        
-        # Model incremental update
-        await self.apply_model_update(global_model)
-        self.model_monitor.check_performance()</span>
-                </div>
-            </div>
-
-            <!-- 序贯推理与决策 Demo -->
-            <div class="feature-demo">
-                <div class="demo-header">
-                    <div class="demo-icon">🔄</div>
-                    <span lang="zh-CN">序贯推理与决策</span>
-                    <span lang="en">Sequential Reasoning & Decision</span>
-                </div>
-                <div class="code-block">
-<span lang="zh-CN"># HMM + MDP序贯推理模型
-class SequentialReasoningEngine:
-    def __init__(self):
-        self.hmm_model = HiddenMarkovModel()
-        self.mdp_solver = MarkovDecisionProcess()
-        self.bayesian_net = BayesianNetwork()
-        
-    async def make_decision(self, observation_sequence):
-        # HMM状态推断
-        hidden_states = self.hmm_model.infer_states(
-            observation_sequence
-        )
-        
-        # 贝叶斯网络因果推理
-        causal_factors = self.bayesian_net.infer_causality(
-            hidden_states, observation_sequence
-        )
-        
-        # MDP最优决策
-        optimal_action = self.mdp_solver.solve(
-            current_state=hidden_states[-1],
-            context=causal_factors,
-            reward_function=self.get_reward_function()
-        )
-        
-        return optimal_action</span>
-<span lang="en"># HMM + MDP sequential reasoning model  
-class SequentialReasoningEngine:
-    def __init__(self):
-        self.hmm_model = HiddenMarkovModel()
-        self.mdp_solver = MarkovDecisionProcess()
-        self.bayesian_net = BayesianNetwork()
-        
-    async def make_decision(self, observation_sequence):
-        # HMM state inference
-        hidden_states = self.hmm_model.infer_states(
-            observation_sequence
-        )
-        
-        # Bayesian network causal reasoning
-        causal_factors = self.bayesian_net.infer_causality(
-            hidden_states, observation_sequence
-        )
-        
-        # MDP optimal decision
-        optimal_action = self.mdp_solver.solve(
-            current_state=hidden_states[-1],
-            context=causal_factors,
-            reward_function=self.get_reward_function()
-        )
-        
-        return optimal_action</span>
-                </div>
-            </div>
-
-            <!-- XunProto自研协议 Demo -->
-            <div class="feature-demo">
-                <div class="demo-header">
-                    <div class="demo-icon">🌟</div>
-                    <span lang="zh-CN">XunProto自研协议</span>
-                    <span lang="en">XunProto Custom Protocol</span>
-                </div>
-                <div class="code-block">
-<span lang="zh-CN"># XunProto协议实现
-class XunProtoAdapter:
-    def __init__(self):
-        self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.encryption_key = self.load_device_key()
-        
-    async def send_command(self, device_addr: str, command: dict):
-        # JSON格式封装
-        payload = {
-            "version": "1.0",
-            "timestamp": int(time.time()),
-            "device_id": device_addr,
-            "command": command,
-            "checksum": self.calculate_checksum(command)
-        }
-        
-        # 权限校验和加密
-        if self.validate_permissions(device_addr, command):
-            encrypted_payload = self.encrypt(json.dumps(payload))
-            
-            # UDP传输
-            await self.udp_socket.sendto(
-                encrypted_payload, (device_addr, XUNPROTO_PORT)
-            )
-            
-        return await self.wait_for_response()</span>
-<span lang="en"># XunProto protocol implementation
-class XunProtoAdapter:
-    def __init__(self):
-        self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.encryption_key = self.load_device_key()
-        
-    async def send_command(self, device_addr: str, command: dict):
-        # JSON format encapsulation
-        payload = {
-            "version": "1.0",
-            "timestamp": int(time.time()),
-            "device_id": device_addr,
-            "command": command,
-            "checksum": self.calculate_checksum(command)
-        }
-        
-        # Permission validation and encryption
-        if self.validate_permissions(device_addr, command):
-            encrypted_payload = self.encrypt(json.dumps(payload))
-            
-            # UDP transmission
-            await self.udp_socket.sendto(
-                encrypted_payload, (device_addr, XUNPROTO_PORT)
-            )
-            
-        return await self.wait_for_response()</span>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">
+                        <span lang="zh-CN">运行时间</span>
+                        <span lang="en">Uptime</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1114,7 +1598,7 @@ class XunProtoAdapter:
                 <span lang="en">🔗 Explore More</span>
             </h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(var(--accent-color-rgb), 0.2);">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center;">
                     <div style="font-size: 3rem; margin-bottom: 20px;">🏠</div>
                     <h3 style="color: var(--accent-color); margin-bottom: 15px;">
                         <span lang="zh-CN">产品体验</span>
@@ -1136,7 +1620,7 @@ class XunProtoAdapter:
                     </div>
                 </div>
                 
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(var(--accent-color-rgb), 0.2);">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center;">
                     <div style="font-size: 3rem; margin-bottom: 20px;">👥</div>
                     <h3 style="color: var(--accent-color); margin-bottom: 15px;">
                         <span lang="zh-CN">团队介绍</span>
@@ -1158,7 +1642,7 @@ class XunProtoAdapter:
                     </div>
                 </div>
                 
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(var(--accent-color-rgb), 0.2);">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center;">
                     <div style="font-size: 3rem; margin-bottom: 20px;">💻</div>
                     <h3 style="color: var(--accent-color); margin-bottom: 15px;">
                         <span lang="zh-CN">开发者资源</span>
@@ -1183,6 +1667,7 @@ class XunProtoAdapter:
         </div>
     </section>
 
+    <!-- 页脚 -->
     <footer class="animate-on-scroll">
         <div class="container">
             <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
@@ -1192,7 +1677,7 @@ class XunProtoAdapter:
                     <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
                 </p>
                 <p>
-                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="zh-CN">电话：86 15568200088</span>
                     <span lang="en">Phone: +86 15568200088</span>
                 </p>
                 <p>
@@ -1202,19 +1687,19 @@ class XunProtoAdapter:
             </div>
             <div class="social-links">
                 <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                    <a href="#" aria-label="微信">微信</a>
+                    <span class="tooltiptext">微信：nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
+                    <a href="#" aria-label="微博">微博</a>
                     <span class="tooltiptext">微博: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
+                    <a href="#" aria-label="领英">领英</a>
                     <span class="tooltiptext">领英: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
@@ -1225,8 +1710,43 @@ class XunProtoAdapter:
         </div>
     </footer>
 
+    <!-- 样式 -->
+    <style>
+        .stats-section {
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+    </style>
+
+    <!-- 脚本 -->
+    <script src="../js/language.js"></script>
     <script src="../js/animations.js"></script>
     <script src="../js/navigation.js"></script>
-    <script src="../js/language.js"></script>
 </body>
 </html> 

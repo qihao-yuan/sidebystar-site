@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="循星 AIOS 家居 MBTI 测试结果 - 查看你的智能家居人格类型详情">
+    <title>MBTI测试结果 - 循星科技</title>
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
+    <link rel="stylesheet" href="../css/mbti-styles.css">
+    <style>
+        .result-hero {
+            background: linear-gradient(135deg, rgba(30, 122, 110, 0.1), rgba(127, 140, 141, 0.1));
+            border-radius: 20px;
+            padding: 50px 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .type-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .detail-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid rgba(var(--accent-color-rgb), 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .detail-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .detail-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .detail-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-list li::before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .comparison-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .comparison-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+        }
+        
+        .comparison-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .comparison-title {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .comparison-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .next-steps {
+            background: linear-gradient(135deg, rgba(30, 122, 110, 0.1), rgba(127, 140, 141, 0.1));
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .step-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .step-btn {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .step-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(var(--accent-color-rgb), 0.3);
+        }
+        
+        .step-btn.secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-color);
+            border: 2px solid rgba(var(--accent-color-rgb), 0.3);
+        }
+        
+        .step-btn.secondary:hover {
+            background: rgba(var(--accent-color-rgb), 0.2);
+            border-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .result-hero {
+                padding: 30px 20px;
+            }
+            
+            .type-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .step-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span lang="zh-CN">循星科技</span>
+                <span lang="en">SidebyStar</span>
+            </div>
+            <div class="tagline">
+                <span lang="zh-CN">你的家居MBTI结果</span>
+                <span lang="en">Your Home MBTI Result</span>
+            </div>
+            <div class="nav">
+                <!-- 导航将由navigation.js动态生成 -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- 结果概览 -->
+            <div class="result-hero">
+                <h1 id="result-type-title" class="mbti-result-title">
+                    <span lang="zh-CN">你是「苍感型」</span>
+                    <span lang="en">You are "Canggan Type"</span>
+                </h1>
+                <div id="result-code" class="mbti-result-code">SPAI</div>
+                <div id="result-faction-badge"></div>
+                <p id="result-description" class="mbti-result-description">
+                    <span lang="zh-CN">全自动感知，毫秒级响应只为你</span>
+                    <span lang="en">Fully automatic perception, millisecond response just for you</span>
+                </p>
+                <div id="result-keywords" class="mbti-result-description">
+                    <span lang="zh-CN">关键词：极速、极致体验</span>
+                    <span lang="en">Keywords: Ultra-fast, ultimate experience</span>
+                </div>
+            </div>
+
+            <!-- 维度分析 -->
+            <div class="mbti-radar">
+                <div class="mbti-dimension">
+                    <div class="mbti-dimension-label">
+                        <span lang="zh-CN">体验 vs 节能</span>
+                        <span lang="en">Experience vs Energy</span>
+                    </div>
+                    <div class="mbti-dimension-bar">
+                        <div class="mbti-dimension-fill" id="dimension-se" style="width: 75%"></div>
+                    </div>
+                    <div id="dimension-se-label">
+                        <span lang="zh-CN">体验导向</span>
+                        <span lang="en">Experience-oriented</span>
+                    </div>
+                </div>
+                <div class="mbti-dimension">
+                    <div class="mbti-dimension-label">
+                        <span lang="zh-CN">隐私 vs 云端</span>
+                        <span lang="en">Privacy vs Cloud</span>
+                    </div>
+                    <div class="mbti-dimension-bar">
+                        <div class="mbti-dimension-fill" id="dimension-pr" style="width: 80%"></div>
+                    </div>
+                    <div id="dimension-pr-label">
+                        <span lang="zh-CN">隐私本地</span>
+                        <span lang="en">Privacy Local</span>
+                    </div>
+                </div>
+                <div class="mbti-dimension">
+                    <div class="mbti-dimension-label">
+                        <span lang="zh-CN">自动 vs 手动</span>
+                        <span lang="en">Auto vs Manual</span>
+                    </div>
+                    <div class="mbti-dimension-bar">
+                        <div class="mbti-dimension-fill" id="dimension-am" style="width: 90%"></div>
+                    </div>
+                    <div id="dimension-am-label">
+                        <span lang="zh-CN">全自动</span>
+                        <span lang="en">Fully Automatic</span>
+                    </div>
+                </div>
+                <div class="mbti-dimension">
+                    <div class="mbti-dimension-label">
+                        <span lang="zh-CN">个人 vs 集体</span>
+                        <span lang="en">Individual vs Collective</span>
+                    </div>
+                    <div class="mbti-dimension-bar">
+                        <div class="mbti-dimension-fill" id="dimension-ic" style="width: 85%"></div>
+                    </div>
+                    <div id="dimension-ic-label">
+                        <span lang="zh-CN">个人优先</span>
+                        <span lang="en">Individual Priority</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 类型详情 -->
+            <section>
+                <h2 class="section-title">
+                    <span lang="zh-CN">🎯 你的类型特征</span>
+                    <span lang="en">🎯 Your Type Characteristics</span>
+                </h2>
+                
+                <div class="type-details">
+                    <div class="detail-card">
+                        <h3>
+                            <span lang="zh-CN">💡 核心特质</span>
+                            <span lang="en">💡 Core Traits</span>
+                        </h3>
+                        <ul class="detail-list">
+                            <li>
+                                <span lang="zh-CN">追求极致的使用体验</span>
+                                <span lang="en">Pursuit of ultimate user experience</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">重视隐私和数据安全</span>
+                                <span lang="en">Value privacy and data security</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">喜欢全自动化操作</span>
+                                <span lang="en">Prefer fully automated operations</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">个人化定制需求强</span>
+                                <span lang="en">Strong need for personalization</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <h3>
+                            <span lang="zh-CN">🏠 理想家居</span>
+                            <span lang="en">🏠 Ideal Home</span>
+                        </h3>
+                        <ul class="detail-list">
+                            <li>
+                                <span lang="zh-CN">设备响应速度极快</span>
+                                <span lang="en">Ultra-fast device response</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">完全本地化处理</span>
+                                <span lang="en">Completely localized processing</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">智能预测个人需求</span>
+                                <span lang="en">Smart prediction of personal needs</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">无感知的自动调节</span>
+                                <span lang="en">Seamless automatic adjustment</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <h3>
+                            <span lang="zh-CN">⚠️ 需要注意</span>
+                            <span lang="en">⚠️ Considerations</span>
+                        </h3>
+                        <ul class="detail-list">
+                            <li>
+                                <span lang="zh-CN">可能对网络中断敏感</span>
+                                <span lang="en">May be sensitive to network interruptions</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">需要高性能本地设备</span>
+                                <span lang="en">Requires high-performance local devices</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">初期设置可能复杂</span>
+                                <span lang="en">Initial setup may be complex</span>
+                            </li>
+                            <li>
+                                <span lang="zh-CN">成本相对较高</span>
+                                <span lang="en">Relatively higher cost</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 推荐插件 -->
+            <div class="mbti-recommendations">
+                <h3>
+                    <span lang="zh-CN">🔧 为你推荐的插件</span>
+                    <span lang="en">🔧 Recommended Plugins for You</span>
+                </h3>
+                <div class="mbti-plugin-grid">
+                    <div class="mbti-plugin-card">
+                        <div class="mbti-plugin-name">
+                            <span lang="zh-CN">环境氛围光</span>
+                            <span lang="en">Ambient Lighting</span>
+                        </div>
+                        <div class="mbti-plugin-desc">
+                            <span lang="zh-CN">根据时间和情绪自动调光</span>
+                            <span lang="en">Automatic lighting based on time and mood</span>
+                        </div>
+                    </div>
+                    <div class="mbti-plugin-card">
+                        <div class="mbti-plugin-name">
+                            <span lang="zh-CN">隐私场景模式</span>
+                            <span lang="en">Privacy Scene Mode</span>
+                        </div>
+                        <div class="mbti-plugin-desc">
+                            <span lang="zh-CN">本地化智能场景，数据不出网</span>
+                            <span lang="en">Localized smart scenes, data stays offline</span>
+                        </div>
+                    </div>
+                    <div class="mbti-plugin-card">
+                        <div class="mbti-plugin-name">
+                            <span lang="zh-CN">个人偏好学习</span>
+                            <span lang="en">Personal Preference Learning</span>
+                        </div>
+                        <div class="mbti-plugin-desc">
+                            <span lang="zh-CN">本地AI学习个人习惯</span>
+                            <span lang="en">Local AI learning personal habits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 类型对比 -->
+            <section class="comparison-section">
+                <h2 class="section-title">
+                    <span lang="zh-CN">📊 与其他类型对比</span>
+                    <span lang="en">📊 Comparison with Other Types</span>
+                </h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-icon">🟦</div>
+                        <div class="comparison-title">
+                            <span lang="zh-CN">vs 玄武系</span>
+                            <span lang="en">vs Xuanwu</span>
+                        </div>
+                        <div class="comparison-desc">
+                            <span lang="zh-CN">更注重体验而非节能</span>
+                            <span lang="en">Focus more on experience than energy saving</span>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon">⚪</div>
+                        <div class="comparison-title">
+                            <span lang="zh-CN">vs 白虎系</span>
+                            <span lang="en">vs Baihu</span>
+                        </div>
+                        <div class="comparison-desc">
+                            <span lang="zh-CN">更重视隐私保护</span>
+                            <span lang="en">Greater emphasis on privacy protection</span>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon">🟠</div>
+                        <div class="comparison-title">
+                            <span lang="zh-CN">vs 朱雀系</span>
+                            <span lang="en">vs Zhuque</span>
+                        </div>
+                        <div class="comparison-desc">
+                            <span lang="zh-CN">追求体验优于节能</span>
+                            <span lang="en">Prioritize experience over energy efficiency</span>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon">🎯</div>
+                        <div class="comparison-title">
+                            <span lang="zh-CN">独特优势</span>
+                            <span lang="en">Unique Advantage</span>
+                        </div>
+                        <div class="comparison-desc">
+                            <span lang="zh-CN">隐私+体验的完美平衡</span>
+                            <span lang="en">Perfect balance of privacy and experience</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 下一步行动 -->
+            <div class="next-steps">
+                <h2>
+                    <span lang="zh-CN">🚀 开始你的智能家居之旅</span>
+                    <span lang="en">🚀 Start Your Smart Home Journey</span>
+                </h2>
+                <p>
+                    <span lang="zh-CN">基于你的MBTI类型，我们为你准备了专属的产品配置方案</span>
+                    <span lang="en">Based on your MBTI type, we've prepared an exclusive product configuration plan for you</span>
+                </p>
+                
+                <div class="step-buttons">
+                    <a href="products.html" class="step-btn">
+                        <span lang="zh-CN">查看推荐产品</span>
+                        <span lang="en">View Recommended Products</span>
+                    </a>
+                    <a href="plugins.html" class="step-btn">
+                        <span lang="zh-CN">浏览插件生态</span>
+                        <span lang="en">Explore Plugin Ecosystem</span>
+                    </a>
+                    <a href="mbti-test.html" class="step-btn secondary">
+                        <span lang="zh-CN">重新测试</span>
+                        <span lang="en">Retake Test</span>
+                    </a>
+                    <button class="step-btn secondary" onclick="shareResult()">
+                        <span lang="zh-CN">分享结果</span>
+                        <span lang="en">Share Result</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <span lang="zh-CN">循星科技</span>
+                <span lang="en">SidebyStar</span>
+            </div>
+            <div class="contact-info">
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
+            </div>
+            <div class="social-links">
+                <div class="tooltip">
+                    <a href="#" aria-label="微信">微信</a>
+                    <span class="tooltiptext">微信：nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微博">微博</a>
+                    <span class="tooltiptext">微博: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="领英">领英</a>
+                    <span class="tooltiptext">领英: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                    <span class="tooltiptext">GitHub: qihao-yuan</span>
+                </div>
+            </div>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/animations.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/language.js"></script>
+    <script>
+        // 分享功能
+        function shareResult() {
+            const shareText = '我是循星AIOS「苍感型」- 全自动感知，毫秒级响应只为你。快来测试你的家居MBTI吧！';
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: '我的家居MBTI测试结果',
+                    text: shareText,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('结果已复制到剪贴板！');
+                });
+            }
+        }
+        
+        // 页面加载时的动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.detail-card, .mbti-plugin-card, .comparison-item');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('mbti-animate-in');
+            });
+        });
+    </script>
+</body>
+</html> 

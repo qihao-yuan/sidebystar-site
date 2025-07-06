@@ -4,39 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>产品演示 - 循星科技</title>
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
     <style>
-        /* Styles for language switching */
-        .lang-switch {
-            display: flex;
-            gap: 5px;
-            margin-left: 15px;
-            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
-            padding-left: 15px;
+        /* 修复导航栏和标题重叠的特定样式 - 只调整内容区域 */
+        header .logo {
+            margin-top: 60px;
         }
-        .lang-switch a {
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 15px;
-            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid transparent;
-            background-color: transparent;
+        
+        header .tagline {
+            margin-bottom: 40px;
         }
-        .lang-switch a:hover {
-            background-color: rgba(var(--accent-color-rgb), 0.2);
-            color: var(--accent-color);
-            border-color: rgba(var(--accent-color-rgb), 0.4);
-        }
-        .lang-switch a.active-lang {
-            font-weight: bold;
-            background-color: rgba(var(--accent-color-rgb), 0.3);
-            color: var(--primary-color);
-            border-color: rgba(var(--accent-color-rgb), 0.5);
-        }
+        
         /* Hide inactive language spans by default */
         html[lang="zh-CN"] [lang="en"],
         html[lang="en"] [lang="zh-CN"] {
@@ -47,20 +25,312 @@
         html[lang="en"] [lang="en"] {
             display: initial;
         }
+
+        /* 返回按钮和语言切换器样式 */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: transparent;
+        }
+
+        .back-button:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(127, 140, 141, 0.3);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+        }
+
+        .lang-switch a {
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            background-color: transparent;
+        }
+
+        .lang-switch a:hover {
+            background-color: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+            border-color: rgba(var(--accent-color-rgb), 0.5);
+        }
+
+        .lang-switch a.active-lang {
+            font-weight: bold;
+            background-color: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--primary-color);
+            border-color: var(--accent-color);
+        }
+
+        /* 产品演示页面样式 */
+        body {
+            background: var(--dark-bg);
+            min-height: 100vh;
+        }
+
+        #product-demos {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        #product-demos::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(127, 140, 141, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(127, 140, 141, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(127, 140, 141, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .demo-card {
+            background: linear-gradient(135deg, rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.6));
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--accent-color);
+        }
+
+        .demo-card:hover::before {
+            left: 100%;
+        }
+
+        .demo-card h3 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .demo-card p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: rgba(236, 240, 241, 0.9);
+        }
+
+        .demo-card strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .demo-card ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .demo-card li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: rgba(236, 240, 241, 0.9);
+            line-height: 1.5;
+        }
+
+        .demo-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .test-button {
+            background: linear-gradient(45deg, var(--accent-color), rgba(127, 140, 141, 0.8));
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.5);
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(127, 140, 141, 0.4);
+            background: linear-gradient(45deg, rgba(127, 140, 141, 0.9), var(--accent-color));
+        }
+
+        .test-button.secondary {
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .test-button.secondary:hover {
+            background: rgba(var(--accent-color-rgb), 0.1);
+            color: var(--primary-color);
+        }
+
+        .status-output {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--accent-color);
+            color: #90EE90;
+            line-height: 1.5;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .back-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .lang-switch {
+                justify-content: center;
+            }
+
+            .lang-switch a {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+
+            #product-demos {
+                padding: 50px 0;
+            }
+
+            .demo-card {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .demo-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .demo-card p {
+                font-size: 0.9rem;
+            }
+
+            .demo-card li {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .test-button {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+                margin-right: 10px;
+                margin-bottom: 8px;
+            }
+
+            .status-output {
+                padding: 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-button {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .lang-switch a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+
+            .demo-card {
+                padding: 15px;
+            }
+
+            .test-button {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Standard Header -->
     <header class="animate-on-scroll">
         <div class="container">
-            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
-            <div class="tagline">
-                <span lang="zh-CN">AI2Home 产品演示</span>
-                <span lang="en">AI2Home Product Demo</span>
+            <div class="nav">
+                <a href="aios-showcase.html" class="back-button">
+                    <span lang="zh-CN">← 返回展示</span>
+                    <span lang="en">← Back to Showcase</span>
+                </a>
+                <div class="lang-switch">
+                    <a data-lang="zh-CN" class="active-lang">中文</a>
+                    <a data-lang="en">EN</a>
+                </div>
             </div>
-             <div class="nav">
-                 <!-- 导航将由navigation.js动态生成 -->
-             </div>
+            <div class="header-main">
+                <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+                <div class="tagline">
+                    <span lang="zh-CN">AI2Home 产品演示</span>
+                    <span lang="en">AI2Home Product Demo</span>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -230,7 +500,7 @@
                     <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
                 </p>
                 <p>
-                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="zh-CN">电话：86 15568200088</span>
                     <span lang="en">Phone: +86 15568200088</span>
                 </p>
                 <p>
@@ -239,23 +509,22 @@
                 </p>
             </div>
             <div class="social-links">
-                 <!-- Social links remain the same -->
-                 <div class="tooltip">
-                     <a href="#" aria-label="微信">微</a>
-                     <span class="tooltiptext">微信号: nikebiewanle</span>
-                 </div>
-                 <div class="tooltip">
-                     <a href="#" aria-label="微博">博</a>
-                     <span class="tooltiptext">微博: nikebiewanle</span>
-                 </div>
-                 <div class="tooltip">
-                     <a href="#" aria-label="领英">领</a>
-                     <span class="tooltiptext">领英: nikebiewanle</span>
-                 </div>
-                 <div class="tooltip">
-                     <a href="#" aria-label="GitHub">G</a>
-                     <span class="tooltiptext">GitHub: qihao-yuan</span>
-                 </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微信">微信</a>
+                    <span class="tooltiptext">微信：nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微博">微博</a>
+                    <span class="tooltiptext">微博: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="领英">领英</a>
+                    <span class="tooltiptext">领英: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                    <span class="tooltiptext">GitHub: qihao-yuan</span>
+                </div>
             </div>
             <p style="margin-top: 20px;">
                 <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
@@ -265,13 +534,111 @@
     </footer>
 
     <script src="../js/animations.js"></script>
-    <script src="../js/navigation.js"></script>
     <script src="../js/language.js"></script>
     <script>
-        // Add any page-specific JS if needed
+        // 语言切换功能
+        function initLanguageSwitch() {
+            const langSwitchLinks = document.querySelectorAll('.lang-switch a');
+            
+            langSwitchLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetLang = this.getAttribute('data-lang');
+                    
+                    // 更新 HTML 的 lang 属性
+                    document.documentElement.setAttribute('lang', targetLang);
+                    
+                    // 更新按钮状态
+                    langSwitchLinks.forEach(btn => btn.classList.remove('active-lang'));
+                    this.classList.add('active-lang');
+                    
+                    // 保存语言偏好
+                    localStorage.setItem('preferred-language', targetLang);
+                    
+                    console.log(`Language switched to: ${targetLang}`);
+                });
+            });
+            
+            // 检查保存的语言偏好
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                document.documentElement.setAttribute('lang', savedLang);
+                langSwitchLinks.forEach(btn => {
+                    btn.classList.remove('active-lang');
+                    if (btn.getAttribute('data-lang') === savedLang) {
+                        btn.classList.add('active-lang');
+                    }
+                });
+            }
+        }
+
+        // 产品演示页面交互功能
         document.addEventListener('DOMContentLoaded', () => {
-            console.log("Product demo page loaded with site styles.");
-            // Example: Add interactivity to buttons later
+            console.log("Product demo page loaded with enhanced styles.");
+            
+            // 初始化语言切换功能
+            initLanguageSwitch();
+            
+            // 存储每个状态输出区域的原始内容
+            const statusOriginalContent = new Map();
+            const statusOutputs = document.querySelectorAll('.status-output');
+            statusOutputs.forEach(status => {
+                statusOriginalContent.set(status, {
+                    zhText: status.innerHTML,
+                    enText: status.innerHTML
+                });
+            });
+            
+            // 为演示按钮添加点击效果
+            const testButtons = document.querySelectorAll('.test-button');
+            testButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 添加点击动画
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                    
+                    // 模拟执行状态
+                    const demoCard = this.closest('.demo-card');
+                    const statusOutput = demoCard.querySelector('.status-output');
+                    const originalContent = statusOriginalContent.get(statusOutput);
+                    
+                    if (this.textContent.includes('忽略') || this.textContent.includes('Ignore') || 
+                        this.textContent.includes('关闭') || this.textContent.includes('Dismiss')) {
+                        // 忽略操作
+                        statusOutput.style.color = '#FFB84D';
+                        if (document.documentElement.lang === 'zh-CN') {
+                            statusOutput.innerHTML = '<span lang="zh-CN">操作已忽略</span><span lang="en">Operation ignored</span>';
+                        } else {
+                            statusOutput.innerHTML = '<span lang="zh-CN">操作已忽略</span><span lang="en">Operation ignored</span>';
+                        }
+                    } else {
+                        // 执行操作 - 恢复原始状态文本
+                        statusOutput.style.color = '#90EE90';
+                        statusOutput.innerHTML = originalContent.zhText;
+                    }
+                    
+                    // 添加闪烁效果表示操作执行
+                    statusOutput.style.opacity = '0.5';
+                    setTimeout(() => {
+                        statusOutput.style.opacity = '1';
+                    }, 200);
+                });
+            });
+            
+            // 为演示卡片添加更多交互效果
+            const demoCards = document.querySelectorAll('.demo-card');
+            demoCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderColor = 'var(--accent-color)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderColor = 'rgba(var(--accent-color-rgb), 0.2)';
+                });
+            });
         });
     </script>
 </body>

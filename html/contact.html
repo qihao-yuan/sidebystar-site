@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>联系我们 - 循星科技</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -15,6 +14,10 @@
             --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
             --dark-bg: linear-gradient(135deg, #000000, #434343);
             --accent-color-rgb: 127, 140, 141; /* Added for consistency */
+        }
+        
+        html {
+            font-size: 16px; /* 设置根字体大小，确保rem单位正确计算 */
         }
         
         * {
@@ -28,6 +31,7 @@
             color: var(--text-color);
             background: var(--dark-bg);
             line-height: 1.6;
+            font-size: 16px; /* 设置基础字体大小 */
         }
         
         .container {
@@ -46,14 +50,14 @@
         }
         
         .logo {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: 2px;
         }
         
         .tagline {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             opacity: 0.9;
         }
@@ -97,11 +101,40 @@
             margin: 15px auto;
         }
         
+        /* 基础文本样式 */
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(236, 240, 241, 0.9);
+            margin-bottom: 15px;
+        }
+        
         footer {
             background: transparent;
             color: var(--primary-color);
             padding: 40px 0;
             text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        footer .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
         
         .contact-info {
@@ -294,19 +327,19 @@
             </div>
             <div class="social-links">
                 <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
+                    <a href="#" aria-label="微信">微信</a>
                     <span class="tooltiptext">微信号: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
+                    <a href="#" aria-label="微博">微博</a>
                     <span class="tooltiptext">微博: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
+                    <a href="#" aria-label="领英">领英</a>
                     <span class="tooltiptext">领英: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>

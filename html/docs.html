@@ -4,48 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><span lang="zh-CN">AIOS 技术手册 - 循星科技</span><span lang="en">AIOS Technical Manual - SidebyStar</span></title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
     <style>
-        /* Styles specific to documentation pages */
+        /* Modern documentation page styles */
         body {
             line-height: 1.8;
+            min-height: 100vh;
         }
+
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .docs-sidebar {
+            background: rgba(52, 73, 94, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .docs-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .docs-nav li {
+            margin-bottom: 12px;
+        }
+
+        .docs-nav a {
+            display: block;
+            color: rgba(236, 240, 241, 0.8);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .docs-nav a:hover {
+            background: rgba(var(--accent-color-rgb), 0.2);
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .docs-nav a.active {
+            background: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
         .docs-content {
-            background-color: var(--card-bg, rgba(44, 62, 80, 0.6));
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: var(--card-shadow, 0 5px 15px rgba(0,0,0,0.3));
-            margin-top: -20px;
+            background: rgba(44, 62, 80, 0.6);
+            border-radius: 15px;
+            padding: 50px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .docs-content h2 {
-            font-size: 1.8rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 25px;
             color: var(--primary-color);
-            font-weight: 600;
-            border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.4);
-            padding-bottom: 10px;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(var(--accent-color-rgb), 0.5);
+            padding-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .docs-content h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--accent-color), rgba(155, 89, 182, 0.8));
+            border-radius: 2px;
         }
         .docs-content h2:first-of-type {
              margin-top: 0;
         }
 
         .docs-content h3 {
-            font-size: 1.4rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-top: 35px;
+            margin-bottom: 18px;
             color: var(--accent-color);
-            font-weight: 500;
+            font-weight: 600;
+            position: relative;
+            padding-left: 15px;
+        }
+        .docs-content h3::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 0.8rem;
         }
 
         .docs-content h4 {
-            font-size: 1.2rem;
-            margin-top: 25px;
-            margin-bottom: 12px;
+            font-size: 1.3rem;
+            margin-top: 28px;
+            margin-bottom: 15px;
             color: var(--accent-color-light);
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .docs-content p, 
@@ -72,13 +147,25 @@
         }
 
         .docs-content pre {
-            background-color: rgba(0,0,0,0.4);
-            padding: 15px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(44, 62, 80, 0.3));
+            padding: 20px;
+            border-radius: 12px;
             overflow-x: auto;
-            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
             font-size: 0.9rem;
-            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+        .docs-content pre::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), rgba(155, 89, 182, 0.8), var(--accent-color));
+            border-radius: 12px 12px 0 0;
         }
 
         .docs-content pre code {
@@ -97,86 +184,150 @@
             border-bottom-color: var(--primary-color);
         }
 
-        /* Stats grid */
+        /* Enhanced stats grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
+            gap: 25px;
+            margin: 30px 0;
         }
         .stat-item {
-            background: rgba(0,0,0,0.3);
-            padding: 20px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+            padding: 25px;
+            border-radius: 15px;
             text-align: center;
-            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            transition: left 0.6s ease;
+        }
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-color: var(--accent-color);
+        }
+        .stat-item:hover::before {
+            left: 100%;
         }
         .stat-number {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: bold;
             color: var(--accent-color);
+            margin-bottom: 8px;
         }
         .stat-label {
-            margin-top: 5px;
-            font-size: 0.9rem;
-            color: rgba(236, 240, 241, 0.8);
+            font-size: 0.95rem;
+            color: rgba(236, 240, 241, 0.9);
+            font-weight: 500;
         }
 
-        /* Architecture diagram */
+        /* Enhanced architecture diagram */
         .architecture-diagram {
-            margin: 20px 0;
-            padding: 20px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(44, 62, 80, 0.2));
+            border-radius: 15px;
             border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            backdrop-filter: blur(10px);
         }
         .arch-layer {
-            background: rgba(44, 62, 80, 0.6);
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border-left: 3px solid var(--accent-color);
+            background: linear-gradient(135deg, rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.7));
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .arch-layer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--accent-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .arch-layer:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border-left-color: var(--primary-color);
+        }
+        .arch-layer:hover::before {
+            opacity: 1;
         }
         .arch-layer.highlight {
-            background: rgba(52, 152, 219, 0.2);
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.3), rgba(155, 89, 182, 0.2));
             border-left-color: #3498db;
         }
         .arch-layer h4 {
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
             color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
         }
         .arch-components {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
         .arch-components span {
-            background: rgba(127, 140, 141, 0.3);
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.85rem;
+            background: rgba(127, 140, 141, 0.4);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
             color: var(--text-color);
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            transition: all 0.3s ease;
+        }
+        .arch-components span:hover {
+            background: rgba(var(--accent-color-rgb), 0.3);
+            color: var(--primary-color);
+            transform: translateY(-2px);
         }
         .arch-arrow {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--accent-color);
-            margin: 5px 0;
+            margin: 10px 0;
+            opacity: 0.7;
         }
 
-        /* Tool features */
+        /* Enhanced tool features */
         .tool-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 10px;
+            margin-top: 15px;
         }
         .tool-features span {
-            background: rgba(52, 152, 219, 0.3);
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.3), rgba(155, 89, 182, 0.2));
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
             color: var(--text-color);
+            border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .tool-features span:hover {
+            background: rgba(var(--accent-color-rgb), 0.4);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         html[lang="zh-CN"] [lang="en"],
@@ -186,6 +337,78 @@
         html[lang="zh-CN"] [lang="zh-CN"],
         html[lang="en"] [lang="en"] {
             display: inline;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .docs-layout {
+                grid-template-columns: 260px 1fr;
+                gap: 30px;
+            }
+            
+            .docs-sidebar {
+                padding: 25px;
+            }
+            
+            .docs-content {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px 15px;
+            }
+            
+            .docs-sidebar {
+                position: static;
+                order: 2;
+                padding: 20px;
+            }
+            
+            .docs-content {
+                padding: 30px 20px;
+                order: 1;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            
+            .arch-components {
+                gap: 8px;
+            }
+            
+            .arch-components span {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .docs-content {
+                padding: 20px 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .arch-layer {
+                padding: 12px;
+            }
+            
+            .arch-components {
+                flex-direction: column;
+                gap: 6px;
+            }
         }
     </style>
 </head>
@@ -204,9 +427,45 @@
     </header>
 
     <section id="docs">
-        <div class="container">
+        <div class="docs-layout">
+            <nav class="docs-sidebar">
+                <h3 style="color: var(--accent-color); margin-bottom: 20px; font-size: 1.1rem;">
+                    <span lang="zh-CN">文档导航</span>
+                    <span lang="en">Documentation</span>
+                </h3>
+                <ul class="docs-nav">
+                    <li><a href="#overview" class="active">
+                        <span lang="zh-CN">📋 技术概览</span>
+                        <span lang="en">📋 Overview</span>
+                    </a></li>
+                    <li><a href="#architecture">
+                        <span lang="zh-CN">🏗️ 技术架构</span>
+                        <span lang="en">🏗️ Architecture</span>
+                    </a></li>
+                    <li><a href="#tools">
+                        <span lang="zh-CN">🛠️ 开发工具</span>
+                        <span lang="en">🛠️ Dev Tools</span>
+                    </a></li>
+                    <li><a href="#api">
+                        <span lang="zh-CN">🔌 API 接口</span>
+                        <span lang="en">🔌 API</span>
+                    </a></li>
+                    <li><a href="#testing">
+                        <span lang="zh-CN">🧪 测试保证</span>
+                        <span lang="en">🧪 Testing</span>
+                    </a></li>
+                    <li><a href="#quickstart">
+                        <span lang="zh-CN">🚀 快速开始</span>
+                        <span lang="en">🚀 Quick Start</span>
+                    </a></li>
+                    <li><a href="#support">
+                        <span lang="zh-CN">💬 支持社区</span>
+                        <span lang="en">💬 Support</span>
+                    </a></li>
+                </ul>
+            </nav>
             <div class="docs-content animate-on-scroll">
-                <h2>
+                <h2 id="overview">
                     <span lang="zh-CN">AIOS 技术概览</span>
                     <span lang="en">AIOS Technical Overview</span>
                 </h2>
@@ -250,7 +509,7 @@
                     </div>
                 </div>
 
-                <h2>
+                <h2 id="architecture">
                     <span lang="zh-CN">技术架构</span>
                     <span lang="en">Technical Architecture</span>
                 </h2>
@@ -298,7 +557,7 @@
                     </div>
                 </div>
 
-                <h2>
+                <h2 id="tools">
                     <span lang="zh-CN">开发工具</span>
                     <span lang="en">Development Tools</span>
                 </h2>
@@ -425,7 +684,7 @@ print(f"日志级别: {settings.core.log_level}")
 # export AIOS_API_PORT=9000
 # export AIOS_CORE_LOG_LEVEL=DEBUG</code></pre>
 
-                <h2>
+                <h2 id="api">
                     <span lang="zh-CN">API 接口</span>
                     <span lang="en">API Interfaces</span>
                 </h2>
@@ -452,7 +711,7 @@ print(f"日志级别: {settings.core.log_level}")
                     </li>
                 </ul>
 
-                <h2>
+                <h2 id="testing">
                     <span lang="zh-CN">测试与质量保证</span>
                     <span lang="en">Testing & Quality Assurance</span>
                 </h2>
@@ -467,7 +726,7 @@ print(f"日志级别: {settings.core.log_level}")
                     <li><span lang="zh-CN">自动化测试 - CI/CD集成测试流程</span><span lang="en">Automated Testing - CI/CD integrated test processes</span></li>
                 </ul>
 
-                <h2>
+                <h2 id="quickstart">
                     <span lang="zh-CN">快速开始</span>
                     <span lang="en">Quick Start</span>
                 </h2>
@@ -482,7 +741,7 @@ print(f"日志级别: {settings.core.log_level}")
                     <li><span lang="zh-CN">测试和部署应用</span><span lang="en">Test and deploy applications</span></li>
                 </ol>
 
-                <h2>
+                <h2 id="support">
                     <span lang="zh-CN">支持与社区</span>
                     <span lang="en">Support & Community</span>
                 </h2>
@@ -508,7 +767,7 @@ print(f"日志级别: {settings.core.log_level}")
                     <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
                 </p>
                 <p>
-                    <span lang="zh-CN">电话：+86 15568200088</span>
+                    <span lang="zh-CN">电话：86 15568200088</span>
                     <span lang="en">Phone: +86 15568200088</span>
                 </p>
                 <p>
@@ -518,19 +777,19 @@ print(f"日志级别: {settings.core.log_level}")
             </div>
             <div class="social-links">
                 <div class="tooltip">
-                    <a href="#" aria-label="微信">微</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                    <a href="#" aria-label="微信">微信</a>
+                    <span class="tooltiptext">微信：nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="微博">博</a>
+                    <a href="#" aria-label="微博">微博</a>
                     <span class="tooltiptext">微博: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领</a>
+                    <a href="#" aria-label="领英">领英</a>
                     <span class="tooltiptext">领英: nikebiewanle</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="GitHub">G</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
                     <span class="tooltiptext">GitHub: qihao-yuan</span>
                 </div>
             </div>
@@ -544,5 +803,53 @@ print(f"日志级别: {settings.core.log_level}")
     <script src="../js/animations.js"></script>
     <script src="../js/navigation.js"></script>
     <script src="../js/language.js"></script>
+    <script>
+        // 文档页面导航功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 平滑滚动到锚点
+            const navLinks = document.querySelectorAll('.docs-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // 移除所有active类
+                        navLinks.forEach(nav => nav.classList.remove('active'));
+                        // 添加active类到当前链接
+                        this.classList.add('active');
+                        
+                        // 平滑滚动到目标
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // 滚动时高亮当前部分
+            const sections = document.querySelectorAll('[id]');
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        current = section.id;
+                    }
+                });
+
+                if (current) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + current) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

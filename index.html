@@ -1,215 +1,73 @@
 <!DOCTYPE html>
 <!-- 
         循星科技 - 循此苦旅，终抵群星
+        修复版本：移除内嵌样式冲突，使用统一CSS架构
 -->
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><span lang="zh-CN">循星科技 - 循此苦旅，终抵群星</span><span lang="en">SidebyStar - To the Stars Through Hardships</span></title>
-    <link rel="stylesheet" href="css/animations.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d;
-            --accent-color-light: #95a5a6;
-            --accent-color-rgb: 127, 140, 141;
-            --text-color: #ecf0f1;
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: relative; /* Add relative positioning for absolute child */
-        }
-        
-        .container {
-            text-align: center;
-            margin-bottom: 50px; /* 增加底部外边距 */
-        }
-
-        .logo {
-            margin-bottom: 30px; /* 增加底部外边距 */
-        }
-        
-        .btn {
-            display: inline-block;
-            color: var(--text-color);
-            padding: 10px 25px;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-            border: 1px solid transparent;
-            border-radius: 25px;
-            cursor: pointer;
-            background-color: transparent;
-            font-size: 1.1rem;
-            will-change: transform, background-color;
-        }
-        
-        .btn:hover {
-            color: var(--secondary-color);
-            background-color: rgba(var(--accent-color-rgb), 0.7);
-            border-color: rgba(var(--accent-color-rgb), 0.9);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%; /* Position the tooltip above the text */
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .meteor {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
-        }
-
-        .trail {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
-        }
-
-        /* Social link styles moved to animations.css */
-        /*
-        .social-links { ... }
-        .social-links a { ... }
-        .social-links a:hover { ... }
-        */
-
-        /* Styles for language switching */
-        .lang-switch {
-            position: absolute; /* Position absolutely */
-            top: 20px;          /* Distance from top */
-            right: 30px;         /* Distance from right */
-            display: flex;       /* Use flex for internal alignment */
-            gap: 5px;
-            z-index: 10;        /* Ensure it's above other content if needed */
-            /* Removed margin-left and vertical-align */
-        }
-        .lang-switch a {
-            cursor: pointer;
-            padding: 5px 10px; /* Smaller padding than .btn */
-            border-radius: 15px; /* Rounded like .btn */
-            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid transparent;
-            background-color: transparent;
-        }
-        .lang-switch a:hover {
-            background-color: rgba(var(--accent-color-rgb), 0.2);
-            color: var(--accent-color);
-            border-color: rgba(var(--accent-color-rgb), 0.4);
-        }
-        .lang-switch a.active-lang {
-            font-weight: bold;
-            background-color: rgba(var(--accent-color-rgb), 0.3);
-            color: var(--primary-color);
-            border-color: rgba(var(--accent-color-rgb), 0.5);
-        }
-        /* Hide inactive language spans by default */
-        html[lang="zh-CN"] [lang="en"],
-        html[lang="en"] [lang="zh-CN"] {
-            display: none;
-        }
-        /* Show active language spans */
-        html[lang="zh-CN"] [lang="zh-CN"],
-        html[lang="en"] [lang="en"] {
-            display: inline; /* Or initial */
-        }
-    </style>
+    
+    <!-- 使用统一的CSS文件，消除重复和冲突 -->
+    <link rel="stylesheet" href="css/consolidated-styles.css">
+    <link rel="stylesheet" href="css/home-styles.css">
 </head>
-<body>
-    <div class="container">
-        <h1 class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></h1>
-        <nav>
-            <a href="html/about.html" class="btn"><span lang="zh-CN">关于我们</span><span lang="en">About Us</span></a>
-            <a href="html/team.html" class="btn"><span lang="zh-CN">团队成员</span><span lang="en">Team</span></a>
-            <a href="html/products.html" class="btn"><span lang="zh-CN">我们的产品</span><span lang="en">Products</span></a>
-            <a href="html/aios-showcase.html" class="btn"><span lang="zh-CN">AIOS技术</span><span lang="en">AIOS Tech</span></a>
-            <a href="html/docs.html" class="btn"><span lang="zh-CN">技术手册</span><span lang="en">Tech Manual</span></a>
-            <a href="html/community.html" class="btn"><span lang="zh-CN">开发者社区</span><span lang="en">Community</span></a>
-            <a href="html/partners.html" class="btn"><span lang="zh-CN">合作与生态</span><span lang="en">Partners</span></a>
-            <a href="html/contact.html" class="btn"><span lang="zh-CN">联系我们</span><span lang="en">Contact</span></a>
-            <!-- Language Switcher -->
-            <div class="lang-switch">
-               <a data-lang="zh-CN" class="active-lang">中文</a>
-               <a data-lang="en">EN</a>
-           </div>
-        </nav>
+<body class="index-page">
+    <div class="main-content">
+        <h1 class="logo index-logo">
+            <span lang="zh-CN">循星科技</span>
+            <span lang="en">SidebyStar</span>
+        </h1>
+        
+      
+        
+        <h2 class="hero-title">
+            <span lang="zh-CN">私域 AI 操作系统</span>
+            <span lang="en">Private AI Operating System</span>
+        </h2>
+        
+        <p class="hero-subtitle">
+            <span lang="zh-CN">数据主权，智能生活</span>
+            <span lang="en">Data Sovereignty, Smart Living</span>
+        </p>
+        
+        <a href="html/products.html" class="btn hero-btn">
+            <span lang="zh-CN">探索 AIOS</span>
+            <span lang="en">Explore AIOS</span>
+        </a>
     </div>
+    
+    <!-- 语言切换器 -->
+    <div class="lang-switch index-lang-switch">
+        <a data-lang="zh-CN" class="active-lang">中文</a>
+        <a data-lang="en">EN</a>
+    </div>
+    
+    <!-- 流星效果元素 -->
     <div class="meteor" id="meteor"></div>
+    
     <script>
+        // 流星跟随鼠标效果
         document.addEventListener('mousemove', function(e) {
             const meteor = document.getElementById('meteor');
             meteor.style.left = e.pageX + 'px';
             meteor.style.top = e.pageY + 'px';
             meteor.style.opacity = 1;
             meteor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            
             setTimeout(() => {
                 meteor.style.opacity = 0;
                 meteor.style.transform = 'translate(-50%, -50%) scale(1)';
             }, 300);
 
+            // 创建轨迹效果
             const trail = document.createElement('div');
             trail.className = 'trail';
             trail.style.left = e.pageX + 'px';
             trail.style.top = e.pageY + 'px';
             document.body.appendChild(trail);
+            
             setTimeout(() => {
                 trail.style.opacity = 0;
                 trail.style.transform = 'translate(-50%, -50%) scale(1)';
@@ -219,6 +77,8 @@
             }, 300);
         });
     </script>
+    
+    <!-- 语言切换功能 -->
     <script src="js/language.js"></script>
 </body>
-</html>
+</html> 

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="循星 AIOS 插件生态系统 - 丰富的智能家居插件市场">
+    <title>插件生态 - 循星科技</title>
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
+    <link rel="stylesheet" href="../css/mbti-styles.css">
+    <style>
+        /* 插件生态页面专用样式 */
+        .plugins-hero {
+            background: linear-gradient(135deg, rgba(30, 122, 110, 0.1), rgba(127, 140, 141, 0.1));
+            border-radius: 20px;
+            padding: 50px 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .plugins-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .plugins-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .plugins-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+        }
+        
+        .stat-badge .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+        }
+        
+        .stat-badge .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .plugin-categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .category-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid rgba(var(--accent-color-rgb), 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .category-plugins {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-plugins li {
+            background: rgba(255,255,255,0.05);
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .category-plugins li:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+        
+        .plugin-name {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+        
+        .plugin-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .sdk-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+        
+        .sdk-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .sdk-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+        }
+        
+        .sdk-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .code-sample {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .developer-tools {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .tool-name {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+        
+        .tool-status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status-beta {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+        
+        .status-coming {
+            background: rgba(108, 117, 125, 0.2);
+            color: #6c757d;
+        }
+        
+        .status-available {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+        
+        @media (max-width: 1200px) {
+            .plugin-categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .developer-tools {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .sdk-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .plugins-hero {
+                padding: 30px 20px;
+            }
+            
+            .plugins-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .plugin-categories {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .sdk-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .developer-tools {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span lang="zh-CN">循星科技</span>
+                <span lang="en">SidebyStar</span>
+            </div>
+            <div class="tagline">
+                <span lang="zh-CN">插件生态系统 - 让智能家居更懂你</span>
+                <span lang="en">Plugin Ecosystem - Making Smart Homes Smarter</span>
+            </div>
+            <div class="nav">
+                <!-- 导航将由navigation.js动态生成 -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- 插件生态概览 -->
+            <div class="plugins-hero">
+                <h1>
+                    <span lang="zh-CN">🔌 插件生态系统</span>
+                    <span lang="en">🔌 Plugin Ecosystem</span>
+                </h1>
+                <p>
+                    <span lang="zh-CN">丰富的插件库，让你的智能家居系统拥有无限可能</span>
+                    <span lang="en">Rich plugin library, giving your smart home system unlimited possibilities</span>
+                </p>
+                
+                <div class="plugins-stats">
+                    <div class="stat-badge">
+                        <span class="number">50+</span>
+                        <div class="label">
+                            <span lang="zh-CN">可用插件</span>
+                            <span lang="en">Available Plugins</span>
+                        </div>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="number">90%</span>
+                        <div class="label">
+                            <span lang="zh-CN">开发者分成</span>
+                            <span lang="en">Developer Revenue</span>
+                        </div>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="number">100%</span>
+                        <div class="label">
+                            <span lang="zh-CN">开源免费</span>
+                            <span lang="en">Open Source</span>
+                        </div>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="number">24/7</span>
+                        <div class="label">
+                            <span lang="zh-CN">技术支持</span>
+                            <span lang="en">Tech Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 插件分类 -->
+            <section>
+                <h2 class="section-title">
+                    <span lang="zh-CN">🎯 插件分类</span>
+                    <span lang="en">🎯 Plugin Categories</span>
+                </h2>
+                
+                <div class="plugin-categories">
+                    <div class="category-card">
+                        <div class="category-icon">⚡</div>
+                        <div class="category-title">
+                            <span lang="zh-CN">节能优化</span>
+                            <span lang="en">Energy Optimization</span>
+                        </div>
+                        <ul class="category-plugins">
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">峰谷电价调度</span>
+                                    <span lang="en">Peak-Valley Scheduling</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">根据电价自动调整设备运行时间</span>
+                                    <span lang="en">Automatically adjust device runtime based on electricity prices</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">全屋设备一键省电</span>
+                                    <span lang="en">One-click Power Saving</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">智能控制全屋设备进入节能模式</span>
+                                    <span lang="en">Smart control of all devices into energy-saving mode</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">设备能耗监控</span>
+                                    <span lang="en">Energy Consumption Monitor</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">实时监控各设备能耗，优化用电</span>
+                                    <span lang="en">Real-time monitoring of device energy consumption</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">🎨</div>
+                        <div class="category-title">
+                            <span lang="zh-CN">环境体验</span>
+                            <span lang="en">Environmental Experience</span>
+                        </div>
+                        <ul class="category-plugins">
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">环境氛围光</span>
+                                    <span lang="en">Ambient Lighting</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">根据时间和情绪自动调光</span>
+                                    <span lang="en">Automatic lighting based on time and mood</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">音乐场景联动</span>
+                                    <span lang="en">Music Scene Linkage</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">根据音乐风格自动调整灯光和温度</span>
+                                    <span lang="en">Automatic adjustment of lighting and temperature based on music style</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">睡眠优化助手</span>
+                                    <span lang="en">Sleep Optimization Assistant</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">智能调节睡眠环境，提升睡眠质量</span>
+                                    <span lang="en">Smart adjustment of sleep environment to improve sleep quality</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">🔒</div>
+                        <div class="category-title">
+                            <span lang="zh-CN">安全隐私</span>
+                            <span lang="en">Security & Privacy</span>
+                        </div>
+                        <ul class="category-plugins">
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">本地语音控制</span>
+                                    <span lang="en">Local Voice Control</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">离线语音识别，隐私保护</span>
+                                    <span lang="en">Offline voice recognition, privacy protection</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">隐私场景模式</span>
+                                    <span lang="en">Privacy Scene Mode</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">本地化智能场景，数据不出网</span>
+                                    <span lang="en">Localized smart scenes, data stays offline</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">入侵检测警报</span>
+                                    <span lang="en">Intrusion Detection Alert</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">智能检测异常行为，及时预警</span>
+                                    <span lang="en">Smart detection of abnormal behavior, timely warning</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">👥</div>
+                        <div class="category-title">
+                            <span lang="zh-CN">家庭协同</span>
+                            <span lang="en">Family Coordination</span>
+                        </div>
+                        <ul class="category-plugins">
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">家庭协同日程</span>
+                                    <span lang="en">Family Schedule Sync</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">合并家人日历，统一场景</span>
+                                    <span lang="en">Merge family calendars, unified scenes</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">个人偏好学习</span>
+                                    <span lang="en">Personal Preference Learning</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">本地AI学习个人习惯</span>
+                                    <span lang="en">Local AI learning personal habits</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="plugin-name">
+                                    <span lang="zh-CN">老人友好模式</span>
+                                    <span lang="en">Elder-Friendly Mode</span>
+                                </div>
+                                <div class="plugin-desc">
+                                    <span lang="zh-CN">简化操作界面，适合老年人使用</span>
+                                    <span lang="en">Simplified interface suitable for elderly users</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SDK 开发工具 -->
+            <section class="sdk-section">
+                <h2 class="section-title">
+                    <span lang="zh-CN">🛠️ 开发者工具</span>
+                    <span lang="en">🛠️ Developer Tools</span>
+                </h2>
+                
+                <div class="sdk-grid">
+                    <div class="sdk-card">
+                        <h3>
+                            <span lang="zh-CN">🚀 一键生成插件</span>
+                            <span lang="en">🚀 One-Click Plugin Generation</span>
+                        </h3>
+                        <p>
+                            <span lang="zh-CN">只需3步，即可创建功能完整的智能家居插件</span>
+                            <span lang="en">Create a fully functional smart home plugin in just 3 steps</span>
+                        </p>
+                    </div>
+                    
+                    <div class="sdk-card">
+                        <h3>
+                            <span lang="zh-CN">🧪 智能测试</span>
+                            <span lang="en">🧪 Smart Testing</span>
+                        </h3>
+                        <p>
+                            <span lang="zh-CN">AI自动生成测试用例，一键验证插件功能</span>
+                            <span lang="en">AI auto-generates test cases, one-click plugin validation</span>
+                        </p>
+                    </div>
+                    
+                    <div class="sdk-card">
+                        <h3>
+                            <span lang="zh-CN">📦 云端分发</span>
+                            <span lang="en">📦 Cloud Distribution</span>
+                        </h3>
+                        <p>
+                            <span lang="zh-CN">自动打包、分发到全球用户，支持增量更新</span>
+                            <span lang="en">Auto-package and distribute globally, supporting incremental updates</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="developer-tools">
+                    <div class="tool-card">
+                        <div class="tool-icon">📚</div>
+                        <div class="tool-name">
+                            <span lang="zh-CN">开发文档</span>
+                            <span lang="en">Documentation</span>
+                        </div>
+                        <div class="tool-status status-available">
+                            <span lang="zh-CN">已发布</span>
+                            <span lang="en">Available</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">🎮</div>
+                        <div class="tool-name">
+                            <span lang="zh-CN">模拟器</span>
+                            <span lang="en">Simulator</span>
+                        </div>
+                        <div class="tool-status status-beta">
+                            <span lang="zh-CN">内测中</span>
+                            <span lang="en">Beta</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">📊</div>
+                        <div class="tool-name">
+                            <span lang="zh-CN">分析工具</span>
+                            <span lang="en">Analytics</span>
+                        </div>
+                        <div class="tool-status status-coming">
+                            <span lang="zh-CN">即将发布</span>
+                            <span lang="en">Coming Soon</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">🏪</div>
+                        <div class="tool-name">
+                            <span lang="zh-CN">插件商店</span>
+                            <span lang="en">Plugin Store</span>
+                        </div>
+                        <div class="tool-status status-coming">
+                            <span lang="zh-CN">Q4 2025</span>
+                            <span lang="en">Q4 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <span lang="zh-CN">循星科技</span>
+                <span lang="en">SidebyStar</span>
+            </div>
+            <div class="contact-info">
+                <p>
+                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">电话：86 15568200088</span>
+                    <span lang="en">Phone: +86 15568200088</span>
+                </p>
+                <p>
+                    <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                    <span lang="en">Email: sidebystar@outlook.com</span>
+                </p>
+            </div>
+            <div class="social-links">
+                <div class="tooltip">
+                    <a href="#" aria-label="微信">微信</a>
+                    <span class="tooltiptext">微信：nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="微博">微博</a>
+                    <span class="tooltiptext">微博: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="领英">领英</a>
+                    <span class="tooltiptext">领英: nikebiewanle</span>
+                </div>
+                <div class="tooltip">
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                    <span class="tooltiptext">GitHub: qihao-yuan</span>
+                </div>
+            </div>
+            <p style="margin-top: 20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/animations.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+</html> 

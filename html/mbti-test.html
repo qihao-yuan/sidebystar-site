@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="循星 AIOS 家居 MBTI 测试 - 发现你的智能家居人格类型">
+    <title>家居 MBTI 测试 - 循星科技</title>
+    <link rel="stylesheet" href="../css/consolidated-styles.css">
+    <link rel="stylesheet" href="../css/mbti-styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span lang="zh-CN">循星科技</span>
+            <span lang="en">SidebyStar</span>
+        </div>
+        <div class="tagline">
+            <span lang="zh-CN">家居 MBTI 测试 - 发现你的智能家居人格</span>
+            <span lang="en">Home MBTI Test - Discover Your Smart Home Personality</span>
+        </div>
+        <div class="nav">
+            <!-- 导航将由navigation.js动态生成 -->
+        </div>
+    </header>
+
+    <main>
+        <!-- 测试开始页面 -->
+            <div id="mbti-intro" class="mbti-container mbti-animate-in">
+                <div class="mbti-result-card">
+                    <h1 class="mbti-result-title">
+                        <span lang="zh-CN">🏠 家居 MBTI 测试</span>
+                        <span lang="en">🏠 Home MBTI Test</span>
+                    </h1>
+                    <div class="mbti-result-description">
+                        <p lang="zh-CN">
+                            通过 8 个精心设计的问题，了解你的智能家居使用偏好。<br>
+                            我们将为你生成专属的 16 型人格标签，并推荐最适合的产品配置。
+                        </p>
+                        <p lang="en">
+                            Through 8 carefully designed questions, understand your smart home usage preferences.<br>
+                            We'll generate your exclusive 16-type personality label and recommend the most suitable product configuration.
+                        </p>
+                    </div>
+                    
+                    <!-- 四象展示 -->
+                    <div class="faction-preview" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 30px 0;">
+                        <div class="faction-card xuanwu" style="background: rgba(10, 42, 54, 0.3); border: 2px solid #114B5F; border-radius: 12px; padding: 15px; text-align: center; transition: all 0.3s ease;">
+                            <div style="font-size: 2rem; margin-bottom: 8px;">🟦</div>
+                            <div style="font-weight: bold; color: var(--accent-color); margin-bottom: 5px;">
+                                <span lang="zh-CN">玄武</span>
+                                <span lang="en">Xuanwu</span>
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">
+                                <span lang="zh-CN">隐私×节能</span>
+                                <span lang="en">Privacy×Energy</span>
+                            </div>
+                        </div>
+                        <div class="faction-card qinglong" style="background: rgba(30, 122, 110, 0.3); border: 2px solid #28A081; border-radius: 12px; padding: 15px; text-align: center; transition: all 0.3s ease;">
+                            <div style="font-size: 2rem; margin-bottom: 8px;">🟢</div>
+                            <div style="font-weight: bold; color: var(--accent-color); margin-bottom: 5px;">
+                                <span lang="zh-CN">青龙</span>
+                                <span lang="en">Qinglong</span>
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">
+                                <span lang="zh-CN">隐私×体验</span>
+                                <span lang="en">Privacy×Experience</span>
+                            </div>
+                        </div>
+                        <div class="faction-card baihu" style="background: rgba(192, 197, 212, 0.2); border: 2px solid #E5E8F0; border-radius: 12px; padding: 15px; text-align: center; transition: all 0.3s ease;">
+                            <div style="font-size: 2rem; margin-bottom: 8px;">⚪</div>
+                            <div style="font-weight: bold; color: var(--accent-color); margin-bottom: 5px;">
+                                <span lang="zh-CN">白虎</span>
+                                <span lang="en">Baihu</span>
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">
+                                <span lang="zh-CN">云端×体验</span>
+                                <span lang="en">Cloud×Experience</span>
+                            </div>
+                        </div>
+                        <div class="faction-card zhuque" style="background: rgba(230, 92, 67, 0.3); border: 2px solid #FF866D; border-radius: 12px; padding: 15px; text-align: center; transition: all 0.3s ease;">
+                            <div style="font-size: 2rem; margin-bottom: 8px;">🟠</div>
+                            <div style="font-weight: bold; color: var(--accent-color); margin-bottom: 5px;">
+                                <span lang="zh-CN">朱雀</span>
+                                <span lang="en">Zhuque</span>
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">
+                                <span lang="zh-CN">云端×节能</span>
+                                <span lang="en">Cloud×Energy</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 三大核心产品简介 -->
+                    <div style="background: rgba(255,255,255,0.05); border-radius: 15px; padding: 25px; margin: 30px 0;">
+                        <h3 style="text-align: center; color: var(--accent-color); margin-bottom: 20px; font-size: 1.2rem;">
+                            <span lang="zh-CN">🌟 三才智能·家的三大本能</span>
+                            <span lang="en">🌟 Three Intelligent Cores</span>
+                        </h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                            <div style="text-align: center; padding: 15px;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🔍</div>
+                                <div style="font-weight: bold; color: var(--accent-color); margin-bottom: 8px;">
+                                    <span lang="zh-CN">星璇所感</span>
+                                    <span lang="en">Sensor Hub</span>
+                                </div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">
+                                    <span lang="zh-CN">毫秒级本地感知</span>
+                                    <span lang="en">Millisecond Local Sensing</span>
+                                </div>
+                            </div>
+                            <div style="text-align: center; padding: 15px;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🧠</div>
+                                <div style="font-weight: bold; color: var(--accent-color); margin-bottom: 8px;">
+                                    <span lang="zh-CN">望舒所循</span>
+                                    <span lang="en">Learning Unit</span>
+                                </div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">
+                                    <span lang="zh-CN">私域节律学习</span>
+                                    <span lang="en">Private Domain Learning</span>
+                                </div>
+                            </div>
+                            <div style="text-align: center; padding: 15px;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">⚖️</div>
+                                <div style="font-weight: bold; color: var(--accent-color); margin-bottom: 8px;">
+                                    <span lang="zh-CN">曜衡所断</span>
+                                    <span lang="en">Decision Engine</span>
+                                </div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">
+                                    <span lang="zh-CN">边缘智能决策</span>
+                                    <span lang="en">Edge Intelligence Decision</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mbti-controls">
+                        <div></div>
+                        <button class="mbti-btn" onclick="startTest()">
+                            <span lang="zh-CN">开始测试 ▶</span>
+                            <span lang="en">Start Test ▶</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 测试进行页面 -->
+            <div id="mbti-test" class="mbti-container" style="display: none;">
+                <div class="mbti-progress">
+                    <div class="mbti-progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <div class="mbti-question-card" id="question-card">
+                    <div class="mbti-question-title" id="question-title"></div>
+                    <div class="mbti-question-text" id="question-text"></div>
+                    <div class="mbti-options" id="question-options"></div>
+                </div>
+                
+                <div class="mbti-controls">
+                    <button class="mbti-btn secondary" id="prev-btn" onclick="prevQuestion()" disabled>
+                        <span lang="zh-CN">上一题</span>
+                        <span lang="en">Previous</span>
+                    </button>
+                    <div>
+                        <span id="question-counter">1 / 8</span>
+                    </div>
+                    <button class="mbti-btn" id="next-btn" onclick="nextQuestion()" disabled>
+                        <span lang="zh-CN">下一题</span>
+                        <span lang="en">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 测试结果页面 -->
+            <div id="mbti-result" class="mbti-container" style="display: none;">
+                <div class="mbti-result-card">
+                    <h2 class="mbti-result-title" id="result-title"></h2>
+                    <div class="mbti-result-code" id="result-code"></div>
+                    <div class="mbti-result-description" id="result-description"></div>
+                    <div id="result-faction"></div>
+                </div>
+                
+                <div class="mbti-radar">
+                    <div class="mbti-dimension">
+                        <div class="mbti-dimension-label">
+                            <span lang="zh-CN">体验 vs 节能</span>
+                            <span lang="en">Experience vs Energy</span>
+                        </div>
+                        <div class="mbti-dimension-bar">
+                            <div class="mbti-dimension-fill" id="dimension-se"></div>
+                        </div>
+                        <div id="dimension-se-label"></div>
+                    </div>
+                    <div class="mbti-dimension">
+                        <div class="mbti-dimension-label">
+                            <span lang="zh-CN">隐私 vs 云端</span>
+                            <span lang="en">Privacy vs Cloud</span>
+                        </div>
+                        <div class="mbti-dimension-bar">
+                            <div class="mbti-dimension-fill" id="dimension-pr"></div>
+                        </div>
+                        <div id="dimension-pr-label"></div>
+                    </div>
+                    <div class="mbti-dimension">
+                        <div class="mbti-dimension-label">
+                            <span lang="zh-CN">自动 vs 手动</span>
+                            <span lang="en">Auto vs Manual</span>
+                        </div>
+                        <div class="mbti-dimension-bar">
+                            <div class="mbti-dimension-fill" id="dimension-am"></div>
+                        </div>
+                        <div id="dimension-am-label"></div>
+                    </div>
+                    <div class="mbti-dimension">
+                        <div class="mbti-dimension-label">
+                            <span lang="zh-CN">个人 vs 集体</span>
+                            <span lang="en">Individual vs Collective</span>
+                        </div>
+                        <div class="mbti-dimension-bar">
+                            <div class="mbti-dimension-fill" id="dimension-ic"></div>
+                        </div>
+                        <div id="dimension-ic-label"></div>
+                    </div>
+                </div>
+                
+                <div class="mbti-recommendations">
+                    <h3>
+                        <span lang="zh-CN">🔧 推荐插件</span>
+                        <span lang="en">🔧 Recommended Plugins</span>
+                    </h3>
+                    <div class="mbti-plugin-grid" id="plugin-recommendations"></div>
+                </div>
+                
+                <div class="mbti-share-card">
+                    <h3>
+                        <span lang="zh-CN">分享你的结果</span>
+                        <span lang="en">Share Your Result</span>
+                    </h3>
+                    <div class="mbti-share-buttons">
+                        <button class="mbti-share-btn" onclick="shareResult()">
+                            <span lang="zh-CN">生成分享卡片</span>
+                            <span lang="en">Generate Share Card</span>
+                        </button>
+                        <button class="mbti-share-btn" onclick="retakeTest()">
+                            <span lang="zh-CN">重新测试</span>
+                            <span lang="en">Retake Test</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer>
+        <div class="logo">
+            <span lang="zh-CN">循星科技</span>
+            <span lang="en">SidebyStar</span>
+        </div>
+        <div class="contact-info">
+            <p>
+                <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
+                <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
+            </p>
+            <p>
+                <span lang="zh-CN">电话：86 15568200088</span>
+                <span lang="en">Phone: +86 15568200088</span>
+            </p>
+            <p>
+                <span lang="zh-CN">邮箱：sidebystar@outlook.com</span>
+                <span lang="en">Email: sidebystar@outlook.com</span>
+            </p>
+        </div>
+        <div class="social-links">
+            <div class="tooltip">
+                <a href="#" aria-label="微信">微信</a>
+                <span class="tooltiptext">微信：nikebiewanle</span>
+            </div>
+            <div class="tooltip">
+                <a href="#" aria-label="微博">微博</a>
+                <span class="tooltiptext">微博: nikebiewanle</span>
+            </div>
+            <div class="tooltip">
+                <a href="#" aria-label="领英">领英</a>
+                <span class="tooltiptext">领英: nikebiewanle</span>
+            </div>
+            <div class="tooltip">
+                <a href="#" aria-label="GitHub">GitHub</a>
+                <span class="tooltiptext">GitHub: qihao-yuan</span>
+            </div>
+        </div>
+        <p style="margin-top: 20px;">
+            <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+            <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+        </p>
+    </footer>
+
+    <script src="../js/animations.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/language.js"></script>
+    <script src="../js/mbti-test.js"></script>
+</body>
+</html> 

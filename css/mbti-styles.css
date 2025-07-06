@@ -1,0 +1,456 @@
+/* 循星 AIOS 家居 MBTI 测试系统样式 */
+
+/* 四象配色系统 */
+:root {
+    /* 玄武 - 隐私×节能 */
+    --xuanwu-primary: #0A2A36;
+    --xuanwu-secondary: #114B5F;
+    --xuanwu-accent: #1F4E5B;
+    --xuanwu-text: #E8F4F8;
+    
+    /* 青龙 - 隐私×体验 */
+    --qinglong-primary: #1E7A6E;
+    --qinglong-secondary: #28A081;
+    --qinglong-accent: #34C5A5;
+    --qinglong-text: #F0FFF8;
+    
+    /* 白虎 - 云端×体验 */
+    --baihu-primary: #C0C5D4;
+    --baihu-secondary: #E5E8F0;
+    --baihu-accent: #F5F7FA;
+    --baihu-text: #2C3E50;
+    
+    /* 朱雀 - 云端×节能 */
+    --zhuque-primary: #E65C43;
+    --zhuque-secondary: #FF866D;
+    --zhuque-accent: #FFA894;
+    --zhuque-text: #FFF8F5;
+}
+
+/* MBTI 测试容器 */
+.mbti-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+}
+
+/* 测试进度条 */
+.mbti-progress {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.mbti-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), var(--qinglong-primary));
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+/* 测试问题卡片 */
+.mbti-question-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    border-left: 4px solid var(--accent-color);
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.mbti-question-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.mbti-question-text {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* 选项按钮 */
+.mbti-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mbti-option {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(var(--accent-color-rgb), 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mbti-option:hover {
+    background: rgba(var(--accent-color-rgb), 0.15);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.mbti-option.selected {
+    background: rgba(var(--accent-color-rgb), 0.25);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.mbti-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.mbti-option:hover::before {
+    left: 100%;
+}
+
+/* 结果展示卡片 */
+.mbti-result-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px 0;
+    text-align: center;
+    border: 2px solid rgba(var(--accent-color-rgb), 0.3);
+}
+
+.mbti-result-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, var(--accent-color), var(--qinglong-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mbti-result-code {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+}
+
+.mbti-result-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+/* 四象阵营样式 */
+.mbti-faction {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.mbti-faction.xuanwu {
+    background: var(--xuanwu-primary);
+    color: var(--xuanwu-text);
+    border: 1px solid var(--xuanwu-secondary);
+}
+
+.mbti-faction.qinglong {
+    background: var(--qinglong-primary);
+    color: var(--qinglong-text);
+    border: 1px solid var(--qinglong-secondary);
+}
+
+.mbti-faction.baihu {
+    background: var(--baihu-primary);
+    color: var(--baihu-text);
+    border: 1px solid var(--baihu-secondary);
+}
+
+.mbti-faction.zhuque {
+    background: var(--zhuque-primary);
+    color: var(--zhuque-text);
+    border: 1px solid var(--zhuque-secondary);
+}
+
+/* 维度雷达图 */
+.mbti-radar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.mbti-dimension {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.mbti-dimension-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.mbti-dimension-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.mbti-dimension-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), var(--qinglong-primary));
+    transition: width 0.8s ease;
+    border-radius: 4px;
+}
+
+/* 推荐插件 */
+.mbti-recommendations {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;
+}
+
+.mbti-recommendations h3 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.mbti-plugin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.mbti-plugin-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+    transition: all 0.3s ease;
+}
+
+.mbti-plugin-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-color);
+}
+
+.mbti-plugin-name {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+.mbti-plugin-desc {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+/* 分享卡片 */
+.mbti-share-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    border: 2px dashed rgba(var(--accent-color-rgb), 0.3);
+}
+
+.mbti-share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.mbti-share-btn {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.mbti-share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.3);
+}
+
+/* 测试控制按钮 */
+.mbti-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.mbti-btn {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.mbti-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.3);
+}
+
+.mbti-btn.secondary {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-color);
+}
+
+.mbti-btn.secondary:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.mbti-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .mbti-container {
+        padding: 15px;
+    }
+    
+    .mbti-question-card {
+        padding: 20px;
+    }
+    
+    .mbti-result-card {
+        padding: 25px;
+    }
+    
+    .mbti-result-title {
+        font-size: 2rem;
+    }
+    
+    .mbti-radar {
+        grid-template-columns: 1fr;
+    }
+    
+    .mbti-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .mbti-share-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .mbti-plugin-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 加载动画 */
+.mbti-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.mbti-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(var(--accent-color-rgb), 0.3);
+    border-top: 4px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 动画效果 */
+.mbti-animate-in {
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 工具提示 */
+.mbti-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.mbti-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(0,0,0,0.8);
+    color: var(--text-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.9rem;
+}
+
+.mbti-tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+} 

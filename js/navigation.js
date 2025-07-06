@@ -9,9 +9,11 @@ const NAV_CONFIG = {
     // 所有页面导航配置（除首页外）
     standard: [
         { id: 'home', url: '../index.html', zh: '主页', en: 'Home' },
+        { id: 'mbti-test', url: 'mbti-test.html', zh: '家居测试', en: 'Home Test' },
         { id: 'about', url: 'about.html', zh: '关于我们', en: 'About Us' },
         { id: 'team', url: 'team.html', zh: '团队成员', en: 'Team' },
         { id: 'products', url: 'products.html', zh: '我们的产品', en: 'Products' },
+        { id: 'plugins', url: 'plugins.html', zh: '插件生态', en: 'Plugins' },
         { id: 'aios', url: 'aios-showcase.html', zh: 'AIOS技术', en: 'AIOS Tech' },
         { id: 'docs', url: 'docs.html', zh: '技术手册', en: 'Tech Manual' },
         { id: 'community', url: 'community.html', zh: '开发者社区', en: 'Community' },
@@ -161,7 +163,9 @@ function getCurrentPageId() {
         'index': 'home',
         '': 'home',
         'aios-showcase': 'aios',
-        'docs-ess-api': 'docs'
+        'docs-ess-api': 'docs',
+        'mbti-test': 'mbti-test',
+        'mbti-result': 'mbti-test'
     };
     
     return pageMapping[fileName] || fileName;
