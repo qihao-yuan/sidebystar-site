@@ -534,6 +534,9 @@ function showResult(personalityCode) {
     const personality = personalityTypes[personalityCode];
     const lang = document.documentElement.lang || 'zh-CN';
     
+    // 动态更新页面标题
+    document.title = `${personality.name[lang]} (${personalityCode}) - 循星科技`;
+    
     // 显示结果
     document.getElementById('result-title').textContent = `你是「${personality.name[lang]}」`;
     document.getElementById('result-code').textContent = personalityCode;
@@ -599,10 +602,11 @@ function shareResult() {
     const lang = document.documentElement.lang || 'zh-CN';
     
     const shareText = `我是「${personality.name[lang]}」- ${personality.description[lang]}。快来测试你的家居 MBTI 吧！`;
+    const shareTitle = `我的家居MBTI测试结果：${personality.name[lang]}`;
     
     if (navigator.share) {
         navigator.share({
-            title: '家居 MBTI 测试结果',
+            title: shareTitle,
             text: shareText,
             url: window.location.href
         });
@@ -617,6 +621,14 @@ function shareResult() {
 function retakeTest() {
     document.getElementById('mbti-result').style.display = 'none';
     document.getElementById('mbti-intro').style.display = 'block';
+    
+    // 恢复原始页面标题
+    document.title = '家居 MBTI 测试 - 循星科技';
+    
+    // 重置测试状态
+    currentQuestion = 0;
+    answers = [];
+    scores = { S: 0, E: 0, P: 0, R: 0, A: 0, M: 0, I: 0, C: 0 };
 }
 
 function getCurrentPersonalityCode() {

@@ -531,11 +531,23 @@
     <script>
         // 分享功能
         function shareResult() {
-            const shareText = '我是循星AIOS「苍感型」- 全自动感知，毫秒级响应只为你。快来测试你的家居MBTI吧！';
+            // 动态读取页面上的测试结果
+            const resultTitle = document.getElementById('result-type-title');
+            const resultCode = document.getElementById('result-code');
+            const resultDescription = document.getElementById('result-description');
+            
+            // 获取中文结果信息
+            const typeTitle = resultTitle ? resultTitle.querySelector('span[lang="zh-CN"]').textContent : '智能家居人格';
+            const typeCode = resultCode ? resultCode.textContent : '';
+            const typeDesc = resultDescription ? resultDescription.querySelector('span[lang="zh-CN"]').textContent : '';
+            
+            // 动态生成分享文本
+            const shareText = `${typeTitle} (${typeCode}) - ${typeDesc}。快来测试你的家居MBTI吧！`;
+            const shareTitle = `我的家居MBTI测试结果：${typeTitle}`;
             
             if (navigator.share) {
                 navigator.share({
-                    title: '我的家居MBTI测试结果',
+                    title: shareTitle,
                     text: shareText,
                     url: window.location.href
                 });
@@ -546,8 +558,19 @@
             }
         }
         
-        // 页面加载时的动画效果
+        // 页面加载时的动画效果和动态标题更新
         document.addEventListener('DOMContentLoaded', function() {
+            // 动态更新页面标题
+            const resultTitle = document.getElementById('result-type-title');
+            const resultCode = document.getElementById('result-code');
+            
+            if (resultTitle && resultCode) {
+                const typeTitle = resultTitle.querySelector('span[lang="zh-CN"]').textContent;
+                const typeCode = resultCode.textContent;
+                document.title = `${typeTitle} (${typeCode}) - 循星科技`;
+            }
+            
+            // 动画效果
             const cards = document.querySelectorAll('.detail-card, .mbti-plugin-card, .comparison-item');
             cards.forEach((card, index) => {
                 card.style.animationDelay = `${index * 0.1}s`;
