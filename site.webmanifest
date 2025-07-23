@@ -1,0 +1,17 @@
+{
+    "name": "循星科技",
+    "short_name": "SidebyStar",
+    "description": "循此苦旅，终抵群星 - AIOS智能家居平台",
+    "icons": [
+        {
+            "src": "pics/循星科技logo.png",
+            "sizes": "any",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#1e7a6e",
+    "background_color": "#000000",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/"
+} 
