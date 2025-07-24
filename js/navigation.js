@@ -15,6 +15,7 @@ const NAV_CONFIG = {
         { id: 'products', url: 'products.html', zh: '我们的产品', en: 'Products' },
         { id: 'plugins', url: 'plugins.html', zh: '插件生态', en: 'Plugins' },
         { id: 'aios', url: 'aios-showcase.html', zh: 'AIOS技术', en: 'AIOS Tech' },
+        { id: 'aios-3d-demo', url: 'aios-3d-demo.html', zh: '3D智能家居', en: '3D Smart Home' },
         { id: 'docs', url: 'docs.html', zh: '技术手册', en: 'Tech Manual' },
         { id: 'community', url: 'community.html', zh: '开发者社区', en: 'Community' },
         { id: 'partners', url: 'partners.html', zh: '合作与生态', en: 'Partners' },
@@ -121,11 +122,21 @@ function addUnifiedNavigationStyles() {
  */
 function isHomePage() {
     const path = window.location.pathname.toLowerCase();
-    return path.endsWith('index.html') || 
-           path === '/' || 
-           path.endsWith('/') ||
-           path.includes('/index') ||
-           (!path.includes('/html/') && !path.includes('.html'));
+    
+    // 明确指定首页的判断条件
+    if (path.endsWith('index.html') || 
+        path === '/' || 
+        path.endsWith('/') ||
+        path.includes('/index')) {
+        return true;
+    }
+    
+    // 如果路径不包含任何HTML文件，且不在html目录下，认为是首页
+    if (!path.includes('/html/') && !path.includes('.html')) {
+        return true;
+    }
+    
+    return false;
 }
 
 /**
@@ -163,6 +174,7 @@ function getCurrentPageId() {
         'index': 'home',
         '': 'home',
         'aios-showcase': 'aios',
+        'aios-3d-demo': 'aios-3d-demo',
         'docs-ess-api': 'docs',
         'mbti-test': 'mbti-test',
         'mbti-result': 'mbti-test'

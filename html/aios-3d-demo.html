@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIOS 3D 智能家居演示</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../pics/循星科技logo.png">
+  <link rel="apple-touch-icon" href="../pics/循星科技logo.png">
+  
+  <!-- 引入统一样式 -->
+  <link rel="stylesheet" href="../css/consolidated-styles.css">
+  
+  <style>
+    /* 3D演示页面布局 */
+    #demo-section {
+      padding: 60px 0;
+      min-height: 80vh;
+    }
+    
+    /* 3D演示页面布局 - 清理版本 */
+    #demo-section {
+      padding: 60px 0;
+      min-height: 80vh;
+    }
+    
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+      #demo-section {
+        padding: 30px 0;
+      }
+      
+      .demo-canvas-container {
+        height: 75vh !important;
+        min-height: 400px !important;
+        max-height: 600px !important;
+        margin: 10px auto !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .demo-canvas-container {
+        height: 70vh !important;
+        min-height: 350px !important;
+        max-height: 500px !important;
+      }
+    }
+    
+    #loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--accent-color);
+      font-size: 20px;
+      z-index: 100;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+      font-weight: 500;
+    }
+    
+    #controls {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      border: 2px solid var(--accent-color);
+      color: var(--text-color);
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 14px;
+      z-index: 20;
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(10px);
+      min-width: 180px;
+    }
+    
+    #controls h3 {
+      margin: 0 0 10px 0;
+      color: var(--accent-color);
+      font-size: 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(127, 140, 141, 0.3);
+      padding-bottom: 8px;
+    }
+    
+    #controls ul {
+      margin: 0;
+      padding-left: 16px;
+      line-height: 1.5;
+    }
+    
+    #controls li {
+      margin: 6px 0;
+      color: var(--text-color);
+      opacity: 0.9;
+      font-size: 13px;
+    }
+    
+    #info {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--card-bg);
+      border: 2px solid var(--accent-color);
+      color: var(--text-color);
+      padding: 15px;
+      display: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      z-index: 20;
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(10px);
+      min-width: 180px;
+    }
+    
+    .demo-description {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .demo-description h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--accent-color);
+    }
+    
+    .demo-description p {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .demo-container {
+        height: 60vh;
+        min-height: 400px;
+      }
+      
+      #controls {
+        bottom: 10px;
+        right: 10px;
+        padding: 12px;
+        min-width: 160px;
+      }
+      
+      #controls h3 {
+        font-size: 14px;
+      }
+      
+      #controls li {
+        font-size: 12px;
+      }
+      
+      #info {
+        bottom: 10px;
+        left: 10px;
+        padding: 12px;
+        min-width: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 标准导航栏 -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <span lang="zh-CN">循星科技</span>
+        <span lang="en">SidebyStar</span>
+      </div>
+      <div class="tagline">
+        <span lang="zh-CN">AIOS 3D智能家居演示</span>
+        <span lang="en">AIOS 3D Smart Home Demo</span>
+      </div>
+      <div class="nav">
+        <!-- 导航将由navigation.js动态生成 -->
+      </div>
+    </div>
+  </header>
+
+  <!-- 3D演示主要内容 -->
+  <section id="demo-section">
+    <div class="container">
+      <div class="demo-description animate-on-scroll">
+        <h2>
+          <span lang="zh-CN">智能家居 3D 体验</span>
+          <span lang="en">Smart Home 3D Experience</span>
+        </h2>
+        <p>
+          <span lang="zh-CN">体验 AIOS 智能家居系统，点击设备进行交互，感受未来生活方式</span>
+          <span lang="en">Experience the AIOS smart home system, click on devices to interact and feel the future lifestyle</span>
+        </p>
+      </div>
+      
+      <!-- 3D场景容器 -->
+      <div style="
+        position: relative;
+        width: 100%;
+        height: 85vh;
+        min-height: 600px;
+        max-height: 1000px;
+        display: block;
+        margin: 20px auto;
+        box-sizing: border-box;
+      " 
+      class="demo-canvas-container">
+        <!-- 3D场景canvas -->
+        <canvas id="c"></canvas>
+        
+        <!-- 加载提示 -->
+        <div id="loading" style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #7f8c8d;
+          font-size: 20px;
+          z-index: 100;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+          font-weight: 500;
+        ">正在加载3D场景...</div>
+        
+        <!-- 操作说明 - 右下角 -->
+        <div id="controls" style="
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          background: rgba(44, 62, 80, 0.9);
+          border: 2px solid #7f8c8d;
+          color: #ecf0f1;
+          padding: 15px;
+          border-radius: 12px;
+          font-size: 14px;
+          z-index: 20;
+          min-width: 180px;
+        ">
+          <h3 style="
+            margin: 0 0 10px 0;
+            color: #7f8c8d;
+            font-size: 16px;
+            text-align: center;
+            border-bottom: 1px solid #7f8c8d;
+            padding-bottom: 8px;
+          ">操作指南</h3>
+          <ul style="margin: 0; padding-left: 16px; line-height: 1.5;">
+            <li>鼠标拖拽：旋转视角</li>
+            <li>滚轮：缩放场景</li>
+            <li>点击设备：切换状态</li>
+          </ul>
+        </div>
+        
+        <!-- 设备状态信息 -->
+        <div id="info" style="
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          background: rgba(44, 62, 80, 0.9);
+          border: 2px solid #7f8c8d;
+          color: #ecf0f1;
+          padding: 15px;
+          display: none;
+          border-radius: 12px;
+          font-size: 16px;
+          font-weight: 500;
+          z-index: 20;
+          min-width: 180px;
+        "></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 标准页脚 -->
+  <footer>
+    <div class="container">
+      <div class="contact-info">
+        <p>
+          <span lang="zh-CN">© 2025 循星科技（杭州）有限公司</span>
+          <span lang="en">© 2025 SidebyStar (Hangzhou) Co., Ltd.</span>
+        </p>
+        <p>
+          <span lang="zh-CN">循此苦旅，终抵群星</span>
+          <span lang="en">Through this arduous journey, we reach the stars</span>
+        </p>
+      </div>
+    </footer>
+
+  <!-- 语言切换和导航系统 -->
+  <script src="../js/language.js"></script>
+  <script src="../js/navigation.js"></script>
+
+  <!-- Three.js 使用本地文件 -->
+  <script src="../js/three.min.js?v=4"></script>
+  <script src="../js/OrbitControls.js?v=4"></script>
+  
+  <!-- 3D演示脚本 - 完美温暖版 -->
+  <script src="../js/aios-3d-demo.js?v=8"></script>
+  
+  <script>
+    // 全局函数：隐藏加载提示
+    window.hideLoading = function() {
+      const loading = document.getElementById('loading');
+      if (loading) {
+        loading.style.opacity = '0';
+        loading.style.transition = 'opacity 0.5s ease-out';
+        setTimeout(() => {
+          loading.style.display = 'none';
+        }, 500);
+      }
+    };
+  </script>
+</body>
+</html> 
