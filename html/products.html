@@ -15,20 +15,18 @@
     
     <link rel="stylesheet" href="../css/consolidated-styles.css">
    <style>
-       /* 导航样式现在由navigation.js统一管理 - 移除重复样式 */
-       
-       /* Hide inactive language spans by default */
+
        html[lang="zh-CN"] [lang="en"],
        html[lang="en"] [lang="zh-CN"] {
            display: none;
        }
-       /* Show active language spans */
+
        html[lang="zh-CN"] [lang="zh-CN"],
        html[lang="en"] [lang="en"] {
            display: inline;
        }
 
-       /* AIOS架构可视化样式 */
+
        .aios-architecture {
            background: rgba(255,255,255,0.03);
            border-radius: 15px;
@@ -340,6 +338,90 @@
            overflow: hidden;
        }
        
+       /* 星璇所感 - 蓝色调 */
+       .core-system-card[data-system="sensor"] {
+           background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), rgba(30, 144, 255, 0.05));
+           border: 2px solid rgba(0, 191, 255, 0.4);
+           box-shadow: 0 8px 32px rgba(0, 191, 255, 0.15);
+       }
+       
+       .core-system-card[data-system="sensor"] .system-title {
+           color: #00BFFF;
+       }
+       
+       .core-system-card[data-system="sensor"] .feature-title {
+           color: #00BFFF;
+       }
+       
+       .core-system-card[data-system="sensor"] .system-icon {
+           color: #00BFFF;
+       }
+       
+       .core-system-card[data-system="sensor"] .feature-icon {
+           color: #00BFFF;
+       }
+       
+       .core-system-card[data-system="sensor"]:hover {
+           border-color: #00BFFF;
+           box-shadow: 0 20px 40px rgba(0, 191, 255, 0.25);
+       }
+       
+       /* 望舒所循 - 中性深色调 */
+       .core-system-card[data-system="learning"] {
+           background: linear-gradient(135deg, rgba(100, 100, 120, 0.15), rgba(80, 80, 100, 0.1));
+           border: 2px solid rgba(150, 150, 170, 0.4);
+           box-shadow: 0 8px 32px rgba(100, 100, 120, 0.2);
+       }
+       
+       .core-system-card[data-system="learning"] .system-title {
+           color: #9696AA;
+       }
+       
+       .core-system-card[data-system="learning"] .feature-title {
+           color: #9696AA;
+       }
+       
+       .core-system-card[data-system="learning"] .system-icon {
+           color: #9696AA;
+       }
+       
+       .core-system-card[data-system="learning"] .feature-icon {
+           color: #9696AA;
+       }
+       
+       .core-system-card[data-system="learning"]:hover {
+           border-color: #9696AA;
+           box-shadow: 0 20px 40px rgba(100, 100, 120, 0.3);
+       }
+       
+       /* 曜衡所断 - 金色调 */
+       .core-system-card[data-system="decision"] {
+           background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 193, 7, 0.1));
+           border: 2px solid rgba(255, 215, 0, 0.5);
+           box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+       }
+       
+       .core-system-card[data-system="decision"] .system-title {
+           color: #FFD700;
+       }
+       
+       .core-system-card[data-system="decision"] .feature-title {
+           color: #FFD700;
+       }
+       
+       .core-system-card[data-system="decision"] .system-icon {
+           color: #FFD700;
+       }
+       
+       .core-system-card[data-system="decision"] .feature-icon {
+           color: #FFD700;
+       }
+       
+       .core-system-card[data-system="decision"]:hover {
+           border-color: #FFD700;
+           box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+       }
+       
        .core-system-card::before {
            content: '';
            position: absolute;
@@ -360,8 +442,6 @@
        
        .core-system-card:hover {
            transform: translateY(-8px);
-           border-color: var(--accent-color);
-           box-shadow: 0 20px 40px rgba(0,0,0,0.25);
        }
        
        .system-icon {
@@ -525,7 +605,7 @@
                 <span lang="en">AIOS-Powered Intelligent Product Ecosystem</span>
             </div>
             <div class="nav">
-                <!-- 导航将由navigation.js动态生成 -->
+
             </div>
         </div>
     </header>
@@ -534,14 +614,22 @@
     <section id="core-systems">
         <div class="container">
             <h2 class="section-title animate-on-scroll">
-                <span lang="zh-CN">🌟 三才智能·家的三大本能</span>
-                <span lang="en">🌟 Three Intelligent Cores · Home's Three Instincts</span>
+                <span lang="zh-CN">三才智能·家的三大本能</span>
+                <span lang="en">Three Intelligent Cores · Home's Three Instincts</span>
             </h2>
             
             <div class="core-motto animate-on-scroll">
-                <p style="text-align: center; font-size: 1.3rem; margin-bottom: 50px; color: var(--accent-color); white-space: nowrap; overflow-x: auto; width: 100%;">
-                    <span lang="zh-CN" style="display: inline-block; white-space: nowrap;">星璇所感 • 望舒所循 • 曜衡所断</span>
-                    <span lang="en" style="display: inline-block; white-space: nowrap;">Sensor Hub • Learning Unit • Decision Engine</span>
+                <p style="text-align: center; font-size: 1.3rem; margin-bottom: 50px; white-space: nowrap; overflow-x: auto; width: 100%;">
+                    <span lang="zh-CN" style="display: inline-block; white-space: nowrap;">
+                        <span style="color: #00BFFF;">星璇所感</span> • 
+                        <span style="color: #9696AA;">望舒所循</span> • 
+                        <span style="color: #FFD700;">曜衡所断</span>
+                    </span><br>
+                    <span lang="en" style="display: inline-block; white-space: nowrap;">
+                        <span style="color: #00BFFF;">Sensor Hub</span> • 
+                        <span style="color: #9696AA;">Learning Unit</span> • 
+                        <span style="color: #FFD700;">Decision Engine</span>
+                    </span>
                 </p>
                 <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px; opacity: 0.9;">
                     <span lang="zh-CN">一个会思考的家，从感知到决策，全程在你手中</span>
@@ -583,8 +671,8 @@
                                     <span lang="en">Precise Sensing</span>
                                 </div>
                                 <div class="feature-desc">
-                                    <span lang="zh-CN">毫米级 ToF + 多模态融合</span>
-                                    <span lang="en">Millimeter-level ToF + Multimodal fusion</span>
+                                    <span lang="zh-CN">分布式多模态传感器</span>
+                                    <span lang="en">Distributed Multimodal Sensors</span>
                                 </div>
                             </div>
                         </div>
@@ -592,12 +680,12 @@
                             <span class="feature-icon">🔒</span>
                             <div class="feature-content">
                                 <div class="feature-title">
-                                    <span lang="zh-CN">零云依赖</span>
-                                    <span lang="en">Zero Cloud Dependency</span>
+                                    <span lang="zh-CN">Xun自研协议</span>
+                                    <span lang="en">Self-developed Protocol</span>
                                 </div>
                                 <div class="feature-desc">
-                                    <span lang="zh-CN">完全离线运行，隐私不出网</span>
-                                    <span lang="en">Completely offline operation, privacy stays local</span>
+                                    <span lang="zh-CN">机制自研，隐私自控</span>
+                                    <span lang="en">Mechanism self-developed, privacy self-controlled</span>
                                 </div>
                             </div>
                         </div>
@@ -624,7 +712,7 @@
                                 </div>
                                 <div class="feature-desc">
                                     <span lang="zh-CN">30 天自适应作息曲线</span>
-                                    <span lang="en">30-day adaptive routine curves</span>
+                                    <span lang="en">30-day adaptive routine curve</span>
                                 </div>
                             </div>
                         </div>
@@ -632,12 +720,12 @@
                             <span class="feature-icon">🔄</span>
                             <div class="feature-content">
                                 <div class="feature-title">
-                                    <span lang="zh-CN">联邦蒸馏</span>
-                                    <span lang="en">Federated Distillation</span>
+                                    <span lang="zh-CN">联邦学习</span>
+                                    <span lang="en">Federated Learning</span>
                                 </div>
                                 <div class="feature-desc">
-                                    <span lang="zh-CN">在局域网内多设备共享经验</span>
-                                    <span lang="en">Multi-device experience sharing within LAN</span>
+                                    <span lang="zh-CN">在私域内多设备共享经验</span>
+                                    <span lang="en">Multi-device experience sharing within private domain</span>
                                 </div>
                             </div>
                         </div>
@@ -669,15 +757,15 @@
                     </div>
                     <div class="system-features">
                         <div class="feature-item">
-                            <span class="feature-icon">🎲</span>
+                            <span class="feature-icon">🌇</span>
                             <div class="feature-content">
                                 <div class="feature-title">
-                                    <span lang="zh-CN">峰谷预测</span>
-                                    <span lang="en">Peak-Valley Prediction</span>
+                                    <span lang="zh-CN">峰谷调度</span>
+                                    <span lang="en">Peak-Valley Scheduling</span>
                                 </div>
                                 <div class="feature-desc">
-                                    <span lang="zh-CN">AI 计算最优运行时段</span>
-                                    <span lang="en">AI calculates optimal operation periods</span>
+                                    <span lang="zh-CN">统计计算最优运行时段</span>
+                                    <span lang="en">Statistical calculation of optimal operation time</span>
                                 </div>
                             </div>
                         </div>
@@ -689,8 +777,8 @@
                                     <span lang="en">Low-Power Inference</span>
                                 </div>
                                 <div class="feature-desc">
-                                    <span lang="zh-CN">FPGA + Tiny RL 网络</span>
-                                    <span lang="en">FPGA + Tiny RL Network</span>
+                                    <span lang="zh-CN">端侧芯片推理</span>
+                                    <span lang="en">Edge-side chip inference</span>
                                 </div>
                             </div>
                         </div>
@@ -716,26 +804,26 @@
                 <div class="stat-card">
                     <span class="stat-number">100,000+</span>
                     <div class="stat-label">
-                        <span lang="zh-CN">行Python代码</span>
-                        <span lang="en">Lines of Python Code</span>
+                        <span lang="zh-CN">行源代码</span><br>
+                        <span lang="en">Lines of Source Code</span>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">200+</span>
+                    <span class="stat-number">20+</span>
                     <div class="stat-label">
-                        <span lang="zh-CN">个Python文件</span>
-                        <span lang="en">Python Files</span>
+                        <span lang="zh-CN">个核心模块</span>
+                        <span lang="en">Core Modules</span>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">98%</span>
+                    <span class="stat-number">100%</span>
                     <div class="stat-label">
                         <span lang="zh-CN">测试覆盖率</span>
-                        <span lang="en">Test Coverage</span>
+                        <span lang="en"> Test Coverage</span>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">≤ 50ms</span>
+                    <span class="stat-number">≤ 1s</span>
                     <div class="stat-label">
                         <span lang="zh-CN">响应时间</span>
                         <span lang="en">Response Time</span>
@@ -750,58 +838,7 @@
                     </div>
                 </div>
 
-                <!-- 架构图 -->
-                <div class="architecture-diagram">
-                    <div class="architecture-layer">
-                        <div class="layer-title">
-                            <span lang="zh-CN">🖥️ UI层</span>
-                            <span lang="en">🖥️ UI Layer</span>
-                        </div>
-                        <ul class="layer-features">
-                            <li><span lang="zh-CN">UI界面</span><span lang="en">UI Interface</span></li>
-                            <li><span lang="zh-CN">多个监控标签</span><span lang="en">Multiple Monitor Tabs</span></li>
-                            <li><span lang="zh-CN">实时性能显示</span><span lang="en">Real-time Performance</span></li>
-                            <li><span lang="zh-CN">测试管理</span><span lang="en">Test Management</span></li>
-                        </ul>
-                    </div>
-                    <div class="architecture-layer">
-                        <div class="layer-title">
-                            <span lang="zh-CN">⚙️ 服务层</span>
-                            <span lang="en">⚙️ Service Layer</span>
-                        </div>
-                        <ul class="layer-features">
-                            <li><span lang="zh-CN">STT语音识别</span><span lang="en">STT Speech Recognition</span></li>
-                            <li><span lang="zh-CN">LLM大语言模型</span><span lang="en">LLM Large Language Model</span></li>
-                            <li><span lang="zh-CN">性能监控</span><span lang="en">Performance Monitoring</span></li>
-                            <li><span lang="zh-CN">事件处理</span><span lang="en">Event Processing</span></li>
-                        </ul>
-                    </div>
-                    <div class="architecture-layer">
-                        <div class="layer-title">
-                            <span lang="zh-CN">🔌 插件系统</span>
-                            <span lang="en">🔌 Plugin System</span>
-                        </div>
-                        <ul class="layer-features">
-                            <li><span lang="zh-CN">规则引擎</span><span lang="en">Rule Engine</span></li>
-                            <li><span lang="zh-CN">插件管理</span><span lang="en">Plugin Management</span></li>
-                            <li><span lang="zh-CN">动态加载</span><span lang="en">Dynamic Loading</span></li>
-                            <li><span lang="zh-CN">热更新</span><span lang="en">Hot Updates</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin: 30px 0;">
-                    <div style="background: rgba(var(--accent-color-rgb), 0.2); padding: 20px; border-radius: 10px;">
-                        <h3 style="color: var(--accent-color); margin-bottom: 15px;">
-                            <span lang="zh-CN">🌐 事件总线核心 (AsyncIO)</span>
-                            <span lang="en">🌐 Event Bus Core (AsyncIO)</span>
-                        </h3>
-                        <p>
-                            <span lang="zh-CN">异步事件总线 + 发布/订阅模式 • 事件路由 • 错误处理 • 性能监控</span>
-                            <span lang="en">Async Event Bus + Pub/Sub Pattern • Event Routing • Error Handling • Performance Monitoring</span>
-                        </p>
-                    </div>
-                </div>
+                
 
                 <div style="text-align: center;">
                     <a href="aios-showcase.html" class="product-link" style="font-size: 1.2rem; padding: 15px 30px;">
@@ -828,14 +865,13 @@
                         <span lang="en">SidebyStar Smart Steward</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">基于AIOS事件驱动架构的个性化家庭中枢，集成MiniCPM 3B语言模型和YOLOv5-Nano视觉识别，支持多模态融合、语音交互、设备联动、智能学习。本地处理，保护隐私，持续进化。</span>
-                        <span lang="en">Personalized home hub based on AIOS event-driven architecture, integrating MiniCPM 3B language model and YOLOv5-Nano vision recognition, supporting multimodal fusion, voice interaction, device coordination, and intelligent learning. Local processing, privacy protection, continuous evolution.</span>
+                        <span lang="zh-CN">基于AIOS事件驱动架构的个性化家庭中枢，集成视觉识别、语音识别，支持多模态融合、语音交互、设备联动、智能学习，持续进化</span>
+                        <span lang="en">Personalized home hub based on AIOS event-driven architecture, integrating vision recognition, supporting multimodal fusion, voice interaction, device coordination, and intelligent learning.</span>
                     </p>
                     <div style="margin: 15px 0;">
-                        <span class="feature-tech">MiniCPM 3B</span>
-                        <span class="feature-tech">YOLOv5-Nano</span>
-                        <span class="feature-tech">FastAPI+Ray</span>
-                        <span class="feature-tech">XunProto</span>
+                        <span class="feature-tech">可解释AI</span>
+                        <span class="feature-tech">个性化智能中枢</span>
+                       
                     </div>
                     <div class="product-links">
                         <a href="aios-showcase.html" class="product-link">
@@ -854,14 +890,13 @@
                         <span lang="en">SidebyStar Environmental Sensing System</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">基于AIOS多模态融合架构的智能感知系统，集成温湿度、PM2.5、CO2、红外热成像等传感器，支持行为识别、身份验证、时间标签分析。序贯推理模型(HMM+MDP+贝叶斯网络)实现智能决策。</span>
-                        <span lang="en">Intelligent sensing system based on AIOS multimodal fusion architecture, integrating temperature/humidity, PM2.5, CO2, IR thermal sensors, supporting behavior recognition, identity verification, and time tag analysis. Sequential reasoning models (HMM+MDP+Bayesian Network) for intelligent decision-making.</span>
+                        <span lang="zh-CN">基通过自研分布式非传统意义多模态传感器获取数据，自研模型处理多模态数据，形成随时间成长、贯穿空间结构的“世界状态认知系统”</span>
+                        <span lang="en">Based on self-developed distributed non-traditional multi-modal sensors, the world state cognition system is formed by self-developed models processing multi-modal data.</span>
                     </p>
                     <div style="margin: 15px 0;">
-                        <span class="feature-tech">多传感器融合</span>
-                        <span class="feature-tech">HMM+MDP</span>
-                        <span class="feature-tech">贝叶斯网络</span>
-                        <span class="feature-tech">红外热成像</span>
+                        <span class="feature-tech">分布式多模态传感器</span>
+                        <span class="feature-tech">自研模型</span>
+                        <span class="feature-tech">世界状态认知</span>
                     </div>
                     <div class="product-links">
                         <a href="aios-showcase.html" class="product-link">
@@ -877,14 +912,13 @@
                         <span lang="en">SidebyStar Personalized Learning Engine</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">基于联邦学习的边缘AI引擎，支持MiniCPM INT4量化、QLoRA微调、Cross-Attention多模态融合。LoRA增量上传，FedAvgM云端聚合，OTA模型更新，在保护隐私的前提下实现持续学习优化。</span>
-                        <span lang="en">Edge AI engine based on federated learning, supporting MiniCPM INT4 quantization, QLoRA fine-tuning, Cross-Attention multimodal fusion. LoRA delta upload, FedAvgM cloud aggregation, OTA model updates, achieving continuous learning optimization while protecting privacy.</span>
+                        <span lang="zh-CN">通过最优化理论与深度学习并行建模系统性自演化机制，逐步形成“拟合个人的认知行为世界模型”并能与其他模块协商鲁棒处理事件流</span>
+                        <span lang="en">Through the parallel modeling of optimization theory and deep learning, the system's self-evolution mechanism is gradually formed, and the "cognitive behavior world model of the individual" is gradually formed, and the event stream can be robustly processed through negotiation with other modules.</span>
                     </p>
                     <div style="margin: 15px 0;">
-                        <span class="feature-tech">联邦学习</span>
-                        <span class="feature-tech">QLoRA微调</span>
-                        <span class="feature-tech">FedAvgM</span>
-                        <span class="feature-tech">差分隐私</span>
+                        <span class="feature-tech">自演化机制</span>
+                        <span class="feature-tech">拟合世界模型</span>
+                        <span class="feature-tech">协商事件流</span>
                     </div>
                     <div class="product-links">
                         <a href="aios-showcase.html" class="product-link">
@@ -900,14 +934,13 @@
                         <span lang="en">SidebyStar Voice Interaction Platform</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">集成OpenAI Whisper、Faster Whisper的多模态语音平台，支持麦克风阵列降噪、远场识别、Slot Filling意图解析、DSL语义映射。身份识别模块结合人脸识别和声纹识别，确保安全交互。</span>
-                        <span lang="en">Multimodal voice platform integrating OpenAI Whisper and Faster Whisper, supporting microphone array noise reduction, far-field recognition, Slot Filling intent parsing, and DSL semantic mapping. Identity recognition module combines face recognition and voiceprint for secure interaction.</span>
+                        <span lang="zh-CN">集成身份识别模块，结合人脸识别和声纹识别，确保安全交互</span>
+                        <span lang="en">Identity recognition module combines face recognition and voiceprint for secure interaction.</span>
                     </p>
                     <div style="margin: 15px 0;">
-                        <span class="feature-tech">Faster Whisper</span>
-                        <span class="feature-tech">Slot Filling</span>
-                        <span class="feature-tech">声纹识别</span>
-                        <span class="feature-tech">麦克风阵列</span>
+                        <span class="feature-tech">本地语音助手</span>
+                        <span class="feature-tech">无障碍交互</span>
+                        <span class="feature-tech">多语言支持</span>
                     </div>
                     <div class="product-links">
                         <a href="aios-showcase.html" class="product-link">
@@ -923,14 +956,13 @@
                         <span lang="en">SidebyStar Performance Monitoring Center</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">基于AIOS实时监控系统，提供模型自诊断(漂移检测、精度评估)、行为日志记录、执行轨迹分析。UI界面展示系统性能、AI服务状态、事件流量的全方位监控数据。</span>
-                        <span lang="en">Based on AIOS real-time monitoring system, providing model self-diagnosis (drift detection, accuracy assessment), behavior logging, and execution trace analysis. UI interface displays comprehensive monitoring data for system performance, AI service status, and event traffic.</span>
+                        <span lang="zh-CN">基于AIOS实时监控系统，提供模型自诊断、行为日志记录、执行轨迹分析。UI界面展示系统性能、AI服务状态、事件流量的全方位监控数据</span>
+                        <span lang="en">Based on AIOS real-time monitoring system, providing model self-diagnosis, behavior logging, and execution trace analysis. UI interface displays comprehensive monitoring data for system performance, AI service status, and event traffic.</span>
                     </p>
                     <div style="margin: 15px 0;">
                         <span class="feature-tech">模型自诊断</span>
-                        <span class="feature-tech">漂移检测</span>
                         <span class="feature-tech">UI监控</span>
-                        <span class="feature-tech">行为轨迹</span>
+                        <span class="feature-tech">行为日志</span>
                     </div>
                     <div class="product-links">
                         <a href="aios-showcase.html" class="product-link">
@@ -946,11 +978,11 @@
                         <span lang="en">SidebyStar Developer Toolkit</span>
                     </h3>
                     <p>
-                        <span lang="zh-CN">完整的AIOS开发工具链，支持Zigbee/BLE/Matter/Modbus协议适配，XunProto自研协议开发，统一语义动作层(open/close/set)，安全沙箱策略模块，权限校验和加密传输。</span>
-                        <span lang="en">Complete AIOS development toolchain, supporting Zigbee/BLE/Matter/Modbus protocol adaptation, XunProto custom protocol development, unified semantic action layer (open/close/set), security sandbox policy module, permission validation and encrypted transmission.</span>
+                        <span lang="zh-CN">完整的AIOS开发工具链，支持Zigbee/BLE/Matter/Modbus协议适配，XunProto自研协议开发，安全沙箱策略模块，权限校验和加密传输</span>
+                        <span lang="en">Complete AIOS development toolchain, supporting Zigbee/BLE/Matter/Modbus protocol adaptation, XunProto custom protocol development, security sandbox policy module, permission validation and encrypted transmission.</span>
                     </p>
                     <div style="margin: 15px 0;">
-                        <span class="feature-tech">协议适配器</span>
+                        <span class="feature-tech">协议适配层</span>
                         <span class="feature-tech">安全沙箱</span>
                         <span class="feature-tech">权限校验</span>
                         <span class="feature-tech">加密传输</span>
@@ -970,51 +1002,47 @@
                     <span lang="en">Technology Philosophy</span>
                 </h2>
                 
-                <!-- New Value Chain Representation -->
+                <!-- AIOS核心架构 -->
                 <div class="value-chain-section staggered-item">
                     <h3 class="value-chain-title">
-                        <span lang="zh-CN">AIOS驱动的创新价值链</span>
-                        <span lang="en">AIOS-Driven Innovation Value Chain</span>
+                        <span lang="zh-CN">以大脑为核心的智能循环系统</span>
+                        <span lang="en">Brain-Centric Intelligent Circular System</span>
                     </h3>
                     <div class="value-chain-steps">
                         <div class="value-chain-step">
-                            <span class="step-icon">💡</span>
-                            <h4><span lang="zh-CN">本地智能</span><span lang="en">Local Intelligence</span></h4>
-                            <p><span lang="zh-CN">事件驱动架构，毫秒级响应</span><span lang="en">Event-driven architecture, millisecond response</span></p>
+                            <span class="step-icon">🔍</span>
+                            <h4><span lang="zh-CN">感知</span><span lang="en">Sensing</span></h4>
+                            <p><span lang="zh-CN">多模态环境感知理解</span><span lang="en">Multimodal Environmental Understanding</span></p>
                         </div>
                         <span class="chain-arrow">→</span>
                         <div class="value-chain-step">
-                            <span class="step-icon">🗣️</span>
-                            <h4><span lang="zh-CN">多模态交互</span><span lang="en">Multimodal Interaction</span></h4>
-                            <p><span lang="zh-CN">语音、视觉、传感融合处理</span><span lang="en">Voice, vision, sensor fusion processing</span></p>
+                            <span class="step-icon">💭</span>
+                            <h4><span lang="zh-CN">推理</span><span lang="en">Reasoning</span></h4>
+                            <p><span lang="zh-CN">分布式推理统一决策</span><span lang="en">Distributed Reasoning Unified Decision</span></p>
                         </div>
                         <span class="chain-arrow">→</span>
                         <div class="value-chain-step">
                             <span class="step-icon">⚙️</span>
-                            <h4><span lang="zh-CN">智能决策引擎</span><span lang="en">Intelligent Decision Engine</span></h4>
-                            <p><span lang="zh-CN">插件化学习，个性推荐</span><span lang="en">Plugin-based learning, personalized recommendations</span></p>
+                            <h4><span lang="zh-CN">决策</span><span lang="en">Decision</span></h4>
+                            <p><span lang="zh-CN">个性化情感支持</span><span lang="en">Personalized Emotional Support</span></p>
                         </div>
-                        <span class="chain-arrow">→</span>
-                        <div class="value-chain-step">
-                            <span class="step-icon">🔒</span>
-                            <h4><span lang="zh-CN">隐私优先服务</span><span lang="en">Privacy-First Service</span></h4>
-                            <p><span lang="zh-CN">本地处理，端到端加密</span><span lang="en">Local processing, end-to-end encryption</span></p>
-                        </div>
+                        
                     </div>
                 </div>
 
-                <!-- Philosophy Points -->
+                <!-- 六大核心能力 -->
                 <div class="philosophy-points staggered-item">
                      <h3 class="philosophy-title">
-                        <span lang="zh-CN">AIOS核心优势</span>  
-                        <span lang="en">AIOS Core Advantages</span>
+                        <span lang="zh-CN">六大核心技术能力</span>  
+                        <span lang="en">Six Core Technical Capabilities</span>
                     </h3>
                     <ul>
-                        <li><span class="point-icon">🎯</span> <span lang="zh-CN">事件驱动架构确保高性能和低延迟响应</span><span lang="en">Event-driven architecture ensures high performance and low latency</span></li>
-                        <li><span class="point-icon">🛡️</span> <span lang="zh-CN">本地优先设计，100,000+行代码保障数据安全</span><span lang="en">Local-first design with 100,000+ lines of code ensuring data security</span></li>
-                        <li><span class="point-icon">🤝</span> <span lang="zh-CN">丰富的API接口支持第三方生态集成</span><span lang="en">Rich API interfaces supporting third-party ecosystem integration</span></li>
-                        <li><span class="point-icon">🔄</span> <span lang="zh-CN">插件化架构支持持续学习和功能扩展</span><span lang="en">Plugin architecture supporting continuous learning and feature expansion</span></li>
-                        <li><span class="point-icon">📊</span> <span lang="zh-CN">98%测试覆盖率确保系统稳定性和可靠性</span><span lang="en">98% test coverage ensuring system stability and reliability</span></li>
+                        <li><span class="point-icon">🌐</span> <span lang="zh-CN">多模态环境感知理解：融合视觉、听觉、触觉等多维度信息</span><span lang="en">Multimodal Environmental Understanding: Fusing visual, auditory, tactile multi-dimensional information</span></li>
+                        <li><span class="point-icon">🧠</span> <span lang="zh-CN">分布式推理统一决策：本地边-端协同的智能推理架构</span><span lang="en">Distributed Reasoning Unified Decision: Edge-side collaborative intelligent reasoning architecture</span></li>
+                        <li><span class="point-icon">❤️</span> <span lang="zh-CN">个性化情感支持：基于用户行为的情感计算与响应</span><span lang="en">Personalized Emotional Support: Emotional computing and response based on user behavior</span></li>
+                        <li><span class="point-icon">🎛️</span> <span lang="zh-CN">高自由度设备控制：全场景智能设备协调管理</span><span lang="en">High-Freedom Device Control: Full-scenario intelligent device coordination management</span></li>
+                        <li><span class="point-icon">👤</span> <span lang="zh-CN">用户状态建模长期记忆：持续学习用户偏好与习惯</span><span lang="en">User State Modeling Long-term Memory: Continuous learning of user preferences and habits</span></li>
+                        <li><span class="point-icon">🔄</span> <span lang="zh-CN">自适应权重更新机制：动态优化系统响应策略</span><span lang="en">Adaptive Weight Update Mechanism: Dynamic optimization of system response strategies</span></li>
                     </ul>
                 </div>
             </div>
@@ -1041,15 +1069,15 @@
             <div class="social-links">
                 <div class="tooltip">
                     <a href="#" aria-label="微信">微信</a>
-                    <span class="tooltiptext">微信号: nikebiewanle</span>
+                    <span class="tooltiptext">微信: 循星科技</span>
                 </div>
                 <div class="tooltip">
                     <a href="#" aria-label="微博">微博</a>
-                    <span class="tooltiptext">微博: nikebiewanle</span>
+                    <span class="tooltiptext">微博: 循星科技</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领英</a>
-                    <span class="tooltiptext">领英: nikebiewanle</span>
+                    <a href="#" aria-label="哔哩哔哩">哔哩哔哩</a>
+                    <span class="tooltiptext">哔哩哔哩: 循星予你</span>
                 </div>
                 <div class="tooltip">
                     <a href="#" aria-label="GitHub">GitHub</a>

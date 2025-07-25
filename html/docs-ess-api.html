@@ -196,230 +196,63 @@
                     <span lang="en">We are committed to providing a secure, reliable, and easy-to-integrate interface that helps you incorporate environmental intelligence into your applications and services. All core data processing is completed on local devices, with API calls limited to authorized access and control.</span>
                 </p>
 
-                <h2>
-                    <span lang="zh-CN">快速开始</span>
-                    <span lang="en">Quick Start</span>
-                </h2>
-                <p>
-                    <span lang="zh-CN">要开始使用 API，您需要：</span>
-                    <span lang="en">To start using the API, you need to:</span>
-                </p>
-                <ul>
-                    <li>
-                        <span lang="zh-CN">获取 API 密钥和设备 ID (请参考 <a href="#authentication">认证</a> 部分)。</span>
-                        <span lang="en">Obtain API key and device ID (please refer to <a href="#authentication">Authentication</a> section).</span>
-                    </li>
-                    <li>
-                        <span lang="zh-CN">熟悉 REST API 的基本概念。</span>
-                        <span lang="en">Familiarize yourself with basic REST API concepts.</span>
-                    </li>
-                    <li>
-                        <span lang="zh-CN">选择您偏好的编程语言和 HTTP 客户端库。</span>
-                        <span lang="en">Choose your preferred programming language and HTTP client library.</span>
-                    </li>
-                </ul>
-                <p>
-                    <span lang="zh-CN">(更多详细步骤和设置指南即将推出...)</span>
-                    <span lang="en">(More detailed steps and setup guides coming soon...)</span>
-                </p>
-
-                <h2 id="authentication">
-                    <span lang="zh-CN">认证</span>
-                    <span lang="en">Authentication</span>
-                </h2>
-                <p>
-                    <span lang="zh-CN">所有 API 请求都需要通过 API 密钥进行认证。请将您的密钥包含在请求的 `Authorization` 头中。</span>
-                    <span lang="en">All API requests require authentication through API keys. Please include your key in the `Authorization` header of your request.</span>
-                </p>
-                <pre><code class="language-http">Authorization: Bearer YOUR_API_KEY</code></pre>
-                <p>
-                    <span lang="zh-CN">请妥善保管您的 API 密钥，不要在客户端代码中公开。(认证流程细节待补充...)</span>
-                    <span lang="en">Please keep your API key secure and do not expose it in client-side code. (Authentication process details to be added...)</span>
-                </p>
-
-                <h2 id="api-reference">
-                    <span lang="zh-CN">API 参考</span>
-                    <span lang="en">API Reference</span>
-                </h2>
-                
-                <h3>
-                    <span lang="zh-CN">获取传感器列表</span>
-                    <span lang="en">Get Sensor List</span>
-                </h3>
-                <div class="api-endpoint">
-                    <p><span class="method get">GET</span> <span class="path">/v1/sensors</span></p>
-                    <p>
-                        <span lang="zh-CN">返回当前设备连接的所有可用传感器及其元数据。</span>
-                        <span lang="en">Returns all available sensors connected to the current device and their metadata.</span>
+                <!-- 开发状态提示 -->
+                <div style="background: rgba(255, 193, 7, 0.1); border: 2px solid rgba(255, 193, 7, 0.5); border-radius: 15px; padding: 40px; margin: 40px 0; text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
+                    <h2 style="color: #FFC107; margin-bottom: 20px;">
+                        <span lang="zh-CN">API 开发中</span>
+                        <span lang="en">API Under Development</span>
+                    </h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 25px;">
+                        <span lang="zh-CN">环境感知系统 API 正在紧锣密鼓地开发中，即将与您见面！</span>
+                        <span lang="en">The Environmental Sensing System API is under active development and will be available soon!</span>
                     </p>
-                    <h4>
-                        <span lang="zh-CN">响应示例 (JSON):</span>
-                        <span lang="en">Response Example (JSON):</span>
-                    </h4>
-                    <pre><code class="language-json">{
-  "sensors": [
-    {
-      "id": "temp-livingroom",
-      "type": "temperature",
-      "unit": "Celsius",
-      "location": "<span lang="zh-CN">客厅</span><span lang="en">Living Room</span>",
-      "status": "active"
-    },
-    {
-      "id": "humidity-bedroom",
-      "type": "humidity",
-      "unit": "%",
-      "location": "<span lang="zh-CN">卧室</span><span lang="en">Bedroom</span>",
-      "status": "active"
-    }
-    // ... more sensors
-  ]
-}</code></pre>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
+                            <h4 style="color: var(--accent-color); margin-bottom: 10px;">
+                                <span lang="zh-CN">API 文档</span>
+                                <span lang="en">API Documentation</span>
+                            </h4>
+                            <p style="font-size: 0.9rem;">
+                                <span lang="zh-CN">详细的接口文档和使用指南</span>
+                                <span lang="en">Detailed interface docs and usage guides</span>
+                            </p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🛠️</div>
+                            <h4 style="color: var(--accent-color); margin-bottom: 10px;">
+                                <span lang="zh-CN">开发工具</span>
+                                <span lang="en">Development Tools</span>
+                            </h4>
+                            <p style="font-size: 0.9rem;">
+                                <span lang="zh-CN">SDK 和测试工具包</span>
+                                <span lang="en">SDKs and testing toolkits</span>
+                            </p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">💡</div>
+                            <h4 style="color: var(--accent-color); margin-bottom: 10px;">
+                                <span lang="zh-CN">示例代码</span>
+                                <span lang="en">Code Examples</span>
+                            </h4>
+                            <p style="font-size: 0.9rem;">
+                                <span lang="zh-CN">多语言集成示例</span>
+                                <span lang="en">Multi-language integration examples</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <p style="font-size: 1rem; opacity: 0.8;">
+                            <span lang="zh-CN">想要获得最新进展通知？请关注我们的</span>
+                            <span lang="en">Want to get notified of the latest progress? Follow our</span>
+                            <a href="community.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">
+                                <span lang="zh-CN">开发者社区</span>
+                                <span lang="en">Developer Community</span>
+                            </a>
+                        </p>
+                    </div>
                 </div>
-
-                <h3>
-                    <span lang="zh-CN">读取实时传感器数据</span>
-                    <span lang="en">Read Real-time Sensor Data</span>
-                </h3>
-                 <div class="api-endpoint">
-                    <p><span class="method get">GET</span> <span class="path">/v1/sensors/{sensor_id}/reading</span></p>
-                     <p>
-                        <span lang="zh-CN">获取指定传感器的最新读数。</span>
-                        <span lang="en">Get the latest reading from the specified sensor.</span>
-                     </p>
-                     <h4>
-                        <span lang="zh-CN">路径参数:</span>
-                        <span lang="en">Path Parameters:</span>
-                     </h4>
-                    <ul>
-                        <li>
-                            <code>sensor_id</code> (string, required): 
-                            <span lang="zh-CN">要查询的传感器 ID。</span>
-                            <span lang="en">The sensor ID to query.</span>
-                        </li>
-                    </ul>
-                    <h4>
-                        <span lang="zh-CN">响应示例 (JSON):</span>
-                        <span lang="en">Response Example (JSON):</span>
-                    </h4>
-                    <pre><code class="language-json">{
-  "sensor_id": "temp-livingroom",
-  "value": 23.5,
-  "unit": "Celsius",
-  "timestamp": "2025-10-26T10:30:00Z"
-}</code></pre>
-                 </div>
-
-                <h3>
-                    <span lang="zh-CN">订阅事件 (通过 WebSocket - 示例)</span>
-                    <span lang="en">Subscribe to Events (via WebSocket - Example)</span>
-                </h3>
-                 <div class="api-endpoint">
-                     <p><span class="method">WS</span> <span class="path">/v1/events/subscribe</span></p>
-                     <p>
-                        <span lang="zh-CN">通过 WebSocket 连接实时接收传感器事件（例如，阈值触发、状态变化）。</span>
-                        <span lang="en">Receive real-time sensor events via WebSocket connection (e.g., threshold triggers, status changes).</span>
-                     </p>
-                     <p>
-                        <span lang="zh-CN">(连接协议和消息格式待详细说明...)</span>
-                        <span lang="en">(Connection protocol and message format to be detailed...)</span>
-                     </p>
-                 </div>
-
-                <h2 id="sdk">SDK</h2>
-                <p>
-                    <span lang="zh-CN">为了简化集成，我们提供了适用于常用语言的 SDK。(SDK 列表和下载链接即将推出...)</span>
-                    <span lang="en">To simplify integration, we provide SDKs for commonly used languages. (SDK list and download links coming soon...)</span>
-                </p>
-                <ul>
-                    <li>
-                        <span lang="zh-CN">Python SDK</span>
-                        <span lang="en">Python SDK</span>
-                    </li>
-                    <li>
-                        <span lang="zh-CN">JavaScript SDK</span>
-                        <span lang="en">JavaScript SDK</span>
-                    </li>
-                    <li>
-                        <span lang="zh-CN">Java SDK (规划中)</span>
-                        <span lang="en">Java SDK (planned)</span>
-                    </li>
-                </ul>
-
-                <h2 id="error-handling">
-                    <span lang="zh-CN">错误处理</span>
-                    <span lang="en">Error Handling</span>
-                </h2>
-                <p>
-                    <span lang="zh-CN">API 使用标准的 HTTP 状态码来指示请求的成功或失败。</span>
-                    <span lang="en">The API uses standard HTTP status codes to indicate the success or failure of requests.</span>
-                </p>
-                <ul>
-                    <li>
-                        <code>200 OK</code>: 
-                        <span lang="zh-CN">请求成功。</span>
-                        <span lang="en">Request successful.</span>
-                    </li>
-                    <li>
-                        <code>400 Bad Request</code>: 
-                        <span lang="zh-CN">请求参数无效。</span>
-                        <span lang="en">Invalid request parameters.</span>
-                    </li>
-                    <li>
-                        <code>401 Unauthorized</code>: 
-                        <span lang="zh-CN">无效的 API 密钥或未授权。</span>
-                        <span lang="en">Invalid API key or unauthorized.</span>
-                    </li>
-                    <li>
-                        <code>404 Not Found</code>: 
-                        <span lang="zh-CN">请求的资源（如传感器 ID）不存在。</span>
-                        <span lang="en">Requested resource (such as sensor ID) does not exist.</span>
-                    </li>
-                    <li>
-                        <code>500 Internal Server Error</code>: 
-                        <span lang="zh-CN">服务器内部错误。</span>
-                        <span lang="en">Internal server error.</span>
-                    </li>
-                </ul>
-                <p>
-                    <span lang="zh-CN">失败的请求通常会在响应体中包含一个 JSON 对象，提供更详细的错误信息。(错误响应格式待定义...)</span>
-                    <span lang="en">Failed requests typically include a JSON object in the response body providing more detailed error information. (Error response format to be defined...)</span>
-                </p>
-
-                <h2 id="code-examples">
-                    <span lang="zh-CN">示例代码</span>
-                    <span lang="en">Code Examples</span>
-                </h2>
-                <p>
-                    <span lang="zh-CN">以下是使用 Python 获取传感器列表的简单示例：</span>
-                    <span lang="en">Here's a simple example of getting the sensor list using Python:</span>
-                </p>
-                <pre><code class="language-python">import requests
-
-API_KEY = "YOUR_API_KEY"
-BASE_URL = "https://ess.sidebystar.local/api" # <span lang="zh-CN">假设的本地设备地址</span><span lang="en">Assumed local device address</span>
-
-headers = {
-    "Authorization": f"Bearer {API_KEY}"
-}
-
-try:
-    response = requests.get(f"{BASE_URL}/v1/sensors", headers=headers, verify=False) # verify=False for local dev only
-    response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
-    sensors = response.json()
-    print("<span lang="zh-CN">可用传感器:</span><span lang="en">Available sensors:</span>")
-    for sensor in sensors.get('sensors', []):
-        print(f"- {sensor['id']} ({sensor['type']} @ {sensor.get('location', 'N/A')})")
-except requests.exceptions.RequestException as e:
-    print(f"<span lang="zh-CN">请求错误:</span><span lang="en">Request error:</span> {e}")
-except Exception as e:
-    print(f"<span lang="zh-CN">发生错误:</span><span lang="en">Error occurred:</span> {e}")
-
-</code></pre>
-                <p>
-                    <span lang="zh-CN">(更多语言的示例即将添加...)</span>
-                    <span lang="en">(Examples in more languages to be added...)</span>
-                </p>
 
             </div>
         </div>
@@ -434,7 +267,7 @@ except Exception as e:
                     <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
                 </p>
                 <p>
-                    <span lang="zh-CN">电话：86 15568200088</span>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
                     <span lang="en">Phone: +86 15568200088</span>
                 </p>
                 <p>
@@ -445,15 +278,15 @@ except Exception as e:
             <div class="social-links">
                 <div class="tooltip">
                     <a href="#" aria-label="微信">微信</a>
-                    <span class="tooltiptext">微信：nikebiewanle</span>
+                    <span class="tooltiptext">微信：循星科技</span>
                 </div>
                 <div class="tooltip">
                     <a href="#" aria-label="微博">微博</a>
-                    <span class="tooltiptext">微博: nikebiewanle</span>
+                    <span class="tooltiptext">微博: 循星科技</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领英</a>
-                    <span class="tooltiptext">领英: nikebiewanle</span>
+                    <a href="#" aria-label="哔哩哔哩">哔哩哔哩</a>
+                    <span class="tooltiptext">哔哩哔哩: 循星予你</span>
                 </div>
                 <div class="tooltip">
                     <a href="#" aria-label="GitHub">GitHub</a>
