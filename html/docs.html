@@ -115,13 +115,10 @@
             font-weight: 600;
             position: relative;
             padding-left: 15px;
-        }
-        .docs-content h3::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-size: 0.8rem;
+            border-left: 3px solid var(--accent-color);
+            background: rgba(var(--accent-color-rgb), 0.1);
+            padding: 12px 0 12px 15px;
+            border-radius: 0 8px 8px 0;
         }
 
         .docs-content h4 {
@@ -143,8 +140,17 @@
             list-style: disc;
             padding-left: 25px;
         }
+        
+        .docs-content ol {
+            padding-left: 25px;
+            margin-left: 0;
+        }
+        
         .docs-content li {
              margin-bottom: 8px;
+             line-height: 1.6;
+             word-wrap: break-word;
+             overflow-wrap: break-word;
         }
 
         .docs-content code {
@@ -308,11 +314,25 @@
             transform: translateY(-2px);
         }
         .arch-arrow {
-            text-align: center;
-            font-size: 1.8rem;
-            color: var(--accent-color);
-            margin: 10px 0;
-            opacity: 0.7;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            margin: 15px auto;
+            width: 60%;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .arch-arrow::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid var(--accent-color);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            opacity: 0.8;
         }
 
         /* Enhanced tool features */
@@ -376,7 +396,9 @@
                 order: 1;
                 padding: 15px;
                 margin-bottom: 20px;
-                background: rgba(52, 73, 94, 0.9);
+                background: rgba(52, 73, 94, 0.95);
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             }
             
             .docs-sidebar h3 {
@@ -420,15 +442,28 @@
                 order: 2;
             }
             
+            .docs-content ol {
+                padding-left: 20px;
+                margin-left: 5px;
+            }
+            
+            .docs-content ul {
+                padding-left: 20px;
+                margin-left: 5px;
+            }
+            
             .docs-content h2 {
                 font-size: 1.6rem;
                 margin-top: 30px;
+                margin-bottom: 20px;
                 padding-left: 15px;
             }
             
             .docs-content h3 {
-                font-size: 1.3rem;
+                font-size: 1.25rem;
                 margin-top: 25px;
+                margin-bottom: 15px;
+                padding: 10px 0 10px 12px;
             }
             
             .stats-grid {
@@ -446,11 +481,44 @@
             }
             
             .arch-layer {
-                padding: 15px;
-                margin: 10px 0;
+                padding: 12px;
+                margin: 8px 0;
+                border-radius: 8px;
+            }
+            
+            .arch-layer h4 {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            
+            .arch-arrow {
+                width: 80%;
+                margin: 12px auto;
+            }
+            
+            .arch-arrow::after {
+                border-left: 4px solid var(--accent-color);
+                border-top: 3px solid transparent;
+                border-bottom: 3px solid transparent;
+                right: -4px;
+                top: -3px;
+            }
+                }
+        
+        /* 大屏手机优化 (iPhone 15 Pro Max等) */
+        @media (max-width: 430px) {
+            .docs-content ol,
+            .docs-content ul {
+                padding-left: 20px;
+                margin-left: 0;
+            }
+            
+            .docs-content li {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
         }
-
+        
         @media (max-width: 480px) {
             .docs-layout {
                 padding: 15px 10px;
@@ -465,16 +533,30 @@
                 padding: 15px 10px;
             }
             
+            .docs-content ol,
+            .docs-content ul {
+                padding-left: 18px;
+                margin-left: 2px;
+            }
+            
+            .docs-content li {
+                margin-bottom: 10px;
+                line-height: 1.5;
+            }
+            
             .docs-content h2 {
                 font-size: 1.4rem;
                 margin-top: 25px;
+                margin-bottom: 15px;
                 padding-left: 10px;
             }
             
             .docs-content h3 {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
                 margin-top: 20px;
-                padding-left: 10px;
+                margin-bottom: 12px;
+                padding: 8px 0 8px 10px;
+                border-radius: 0 6px 6px 0;
             }
             
             .stats-grid {
@@ -484,6 +566,7 @@
             
             .stat-item {
                 padding: 15px 10px;
+                border-radius: 10px;
             }
             
             .stat-number {
@@ -500,8 +583,8 @@
             }
             
             .arch-layer h4 {
-                font-size: 1rem;
-                margin-bottom: 10px;
+                font-size: 0.95rem;
+                margin-bottom: 8px;
             }
             
             .arch-components {
@@ -517,6 +600,20 @@
             .tool-features span {
                 font-size: 0.7rem;
                 padding: 4px 8px;
+            }
+            
+            .arch-arrow {
+                width: 90%;
+                margin: 8px auto;
+                height: 1px;
+            }
+            
+            .arch-arrow::after {
+                border-left: 3px solid var(--accent-color);
+                border-top: 2px solid transparent;
+                border-bottom: 2px solid transparent;
+                right: -3px;
+                top: -2px;
             }
         }
     </style>
@@ -722,7 +819,7 @@
                             <span lang="zh-CN">会话管理</span><span lang="en">Session Management</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">👁️ 星璇感知层 (Stellar Perception Layer)</span><span lang="en">👁️ Stellar Perception Layer</span></h4>
                         <div class="arch-components">
@@ -732,7 +829,7 @@
                             <span lang="zh-CN">传感器网络</span><span lang="en">Sensor Network</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">🧠 记忆层 - MoonGuide望舒</span><span lang="en">🧠 Memory Layer - MoonGuide</span></h4>
                         <div class="arch-components">
@@ -742,7 +839,7 @@
                             <span lang="zh-CN">L3语义记忆</span><span lang="en">L3 Semantic Memory</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">⚖️ 决策层 - 曜衡YaoHeng</span><span lang="en">⚖️ Decision Layer - YaoHeng</span></h4>
                         <div class="arch-components">
@@ -752,7 +849,7 @@
                             <span lang="zh-CN">推理图谱</span><span lang="en">Reasoning Graph</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">🔧 嵌入式硬件传感器系统扩展中 (Arduino)</span><span lang="en">🔧 Embedded Hardware Sensor System (2K Arduino)</span></h4>
                         <div class="arch-components">
@@ -763,7 +860,7 @@
                             <span lang="zh-CN">更多系统扩展中</span><span lang="en">More System Extensions</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">👁️ 计算机视觉AI算法引擎</span><span lang="en">👁️ Computer Vision AI Algorithm Engine</span></h4>
                         <div class="arch-components">
@@ -773,7 +870,7 @@
                             <span lang="zh-CN">目标检测</span><span lang="en">Object Detection</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">🌐 联邦学习·分布式训练系统</span><span lang="en">🌐 Federated Learning & Distributed Training</span></h4>
                         <div class="arch-components">
@@ -783,7 +880,7 @@
                             <span lang="zh-CN">边缘学习</span><span lang="en">Edge Learning</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">✂️ 大模型训练优化·剪枝系统</span><span lang="en">✂️ Large Model Training Optimization & Pruning</span></h4>
                         <div class="arch-components">
@@ -793,7 +890,7 @@
                             <span lang="zh-CN">硬件加速</span><span lang="en">Hardware Acceleration</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">🔐 数据传输加密·安全系统</span><span lang="en">🔐 Data Transmission Encryption & Security</span></h4>
                         <div class="arch-components">
@@ -803,7 +900,7 @@
                             <span lang="zh-CN">密钥管理</span><span lang="en">Key Management</span>
                         </div>
                     </div>
-                    <div class="arch-arrow">↕</div>
+                    <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">🔥 AI推理引擎 </span><span lang="en">🔥 AI Inference Engine (174K C++)</span></h4>
                         <div class="arch-components">
@@ -1024,7 +1121,7 @@
                     <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
                 </p>
                 <p>
-                    <span lang="zh-CN">电话：86 15568200088</span>
+                    <span lang="zh-CN">电话：+86 15568200088</span>
                     <span lang="en">Phone: +86 15568200088</span>
                 </p>
                 <p>
@@ -1035,15 +1132,15 @@
             <div class="social-links">
                 <div class="tooltip">
                     <a href="#" aria-label="微信">微信</a>
-                    <span class="tooltiptext">微信：nikebiewanle</span>
+                    <span class="tooltiptext">微信: 循星科技</span>
                 </div>
                 <div class="tooltip">
                     <a href="#" aria-label="微博">微博</a>
-                    <span class="tooltiptext">微博: nikebiewanle</span>
+                    <span class="tooltiptext">微博: 循星科技</span>
                 </div>
                 <div class="tooltip">
-                    <a href="#" aria-label="领英">领英</a>
-                    <span class="tooltiptext">领英: nikebiewanle</span>
+                    <a href="#" aria-label="哔哩哔哩">哔哩哔哩</a>
+                    <span class="tooltiptext">哔哩哔哩: 循星予你</span>
                 </div>
                 <div class="tooltip">
                     <a href="#" aria-label="GitHub">GitHub</a>
