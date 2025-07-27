@@ -373,50 +373,150 @@
             
             .docs-sidebar {
                 position: static;
-                order: 2;
-                padding: 20px;
+                order: 1;
+                padding: 15px;
+                margin-bottom: 20px;
+                background: rgba(52, 73, 94, 0.9);
+            }
+            
+            .docs-sidebar h3 {
+                margin-bottom: 15px;
+                font-size: 1rem;
+                cursor: pointer;
+                position: relative;
+                padding-right: 30px;
+            }
+            
+            .docs-sidebar h3:after {
+                content: '▼';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: transform 0.3s ease;
+                font-size: 0.8rem;
+            }
+            
+            .docs-sidebar.collapsed h3:after {
+                transform: translateY(-50%) rotate(-90deg);
+            }
+            
+            .docs-sidebar.collapsed .docs-nav {
+                display: none;
+            }
+            
+            .docs-nav {
+                max-height: 300px;
+                overflow-y: auto;
+            }
+            
+            .docs-nav a {
+                font-size: 0.85rem;
+                padding: 8px 12px;
             }
             
             .docs-content {
-                padding: 30px 20px;
-                order: 1;
+                padding: 25px 15px;
+                order: 2;
+            }
+            
+            .docs-content h2 {
+                font-size: 1.6rem;
+                margin-top: 30px;
+                padding-left: 15px;
+            }
+            
+            .docs-content h3 {
+                font-size: 1.3rem;
+                margin-top: 25px;
             }
             
             .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
             }
             
             .arch-components {
-                gap: 8px;
+                gap: 6px;
             }
             
             .arch-components span {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 padding: 4px 8px;
+            }
+            
+            .arch-layer {
+                padding: 15px;
+                margin: 10px 0;
             }
         }
 
         @media (max-width: 480px) {
+            .docs-layout {
+                padding: 15px 10px;
+            }
+            
+            .docs-sidebar {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            
             .docs-content {
-                padding: 20px 15px;
+                padding: 15px 10px;
+            }
+            
+            .docs-content h2 {
+                font-size: 1.4rem;
+                margin-top: 25px;
+                padding-left: 10px;
+            }
+            
+            .docs-content h3 {
+                font-size: 1.2rem;
+                margin-top: 20px;
+                padding-left: 10px;
             }
             
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            
+            .stat-item {
+                padding: 15px 10px;
             }
             
             .stat-number {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
             }
             
             .arch-layer {
-                padding: 12px;
+                padding: 10px;
+                margin: 8px 0;
+            }
+            
+            .arch-layer h4 {
+                font-size: 1rem;
+                margin-bottom: 10px;
             }
             
             .arch-components {
                 flex-direction: column;
-                gap: 6px;
+                gap: 4px;
+            }
+            
+            .arch-components span {
+                font-size: 0.7rem;
+                padding: 3px 6px;
+            }
+            
+            .tool-features span {
+                font-size: 0.7rem;
+                padding: 4px 8px;
             }
         }
     </style>
@@ -963,8 +1063,33 @@
     <script>
         // 文档页面导航功能
         document.addEventListener('DOMContentLoaded', function() {
-            // 平滑滚动到锚点
+            const sidebar = document.querySelector('.docs-sidebar');
+            const sidebarTitle = sidebar.querySelector('h3');
             const navLinks = document.querySelectorAll('.docs-nav a');
+            
+            // 移动端侧边栏折叠功能
+            function checkMobileView() {
+                if (window.innerWidth <= 768) {
+                    sidebarTitle.style.cursor = 'pointer';
+                    sidebarTitle.addEventListener('click', toggleSidebar);
+                    // 默认在移动端折叠侧边栏
+                    sidebar.classList.add('collapsed');
+                } else {
+                    sidebarTitle.style.cursor = 'default';
+                    sidebarTitle.removeEventListener('click', toggleSidebar);
+                    sidebar.classList.remove('collapsed');
+                }
+            }
+            
+            function toggleSidebar() {
+                sidebar.classList.toggle('collapsed');
+            }
+            
+            // 初始检查和窗口大小变化监听
+            checkMobileView();
+            window.addEventListener('resize', checkMobileView);
+            
+            // 平滑滚动到锚点
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -976,6 +1101,11 @@
                         navLinks.forEach(nav => nav.classList.remove('active'));
                         // 添加active类到当前链接
                         this.classList.add('active');
+                        
+                        // 在移动端点击导航后自动折叠侧边栏
+                        if (window.innerWidth <= 768) {
+                            sidebar.classList.add('collapsed');
+                        }
                         
                         // 平滑滚动到目标
                         targetElement.scrollIntoView({
