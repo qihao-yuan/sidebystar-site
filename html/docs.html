@@ -116,7 +116,7 @@
             position: relative;
             padding-left: 15px;
             border-left: 3px solid var(--accent-color);
-            background: rgba(var(--accent-color-rgb), 0.1);
+            background: rgba(var(--accent-color-rgb), 0);
             padding: 12px 0 12px 15px;
             border-radius: 0 8px 8px 0;
         }
@@ -252,7 +252,7 @@
             padding: 30px;
             background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(44, 62, 80, 0.2));
             border-radius: 15px;
-            border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+            border: 1px solid rgba(var(--accent-color-rgb), 0);
             backdrop-filter: blur(10px);
         }
         .arch-layer {
@@ -680,8 +680,8 @@
                     <span lang="en">AIOS Technical Overview</span>
                 </h2>
                 <p>
-                    <span lang="zh-CN">循星科技AIOS (AI-Integrated Operating System) 是一个基于事件驱动架构的现代化AI居家服务平台。本手册详细介绍了AIOS的技术架构、开发工具和API接口。</span>
-                    <span lang="en">SidebyStar AIOS (AI-Integrated Operating System) is a modern AI home service platform based on event-driven architecture. This manual provides detailed information about AIOS technical architecture, development tools, and API interfaces.</span>
+                    <span lang="zh-CN">循星科技AIOS (AI-Integrated Operating System) 是一个基于事件驱动架构的现代化AI居家服务系统。本手册详细介绍了AIOS的技术架构、开发工具和API接口。</span>
+                    <span lang="en">SidebyStar AIOS (AI-Integrated Operating System) is a modern AI home service system based on event-driven architecture. This manual provides detailed information about AIOS technical architecture, development tools, and API interfaces.</span>
                 </p>
 
                 <h3>
@@ -689,13 +689,7 @@
                     <span lang="en">System Statistics</span>
                 </h3>
                 <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">532,636+</div>
-                        <div class="stat-label">
-                            <span lang="zh-CN">行代码总量</span>
-                            <span lang="en">Total Lines of Code</span>
-                        </div>
-                    </div>
+                    
                     <div class="stat-item">
                         <div class="stat-number">20+</div>
                         <div class="stat-label">
@@ -703,15 +697,9 @@
                             <span lang="en">Core Modules</span>
                         </div>
                     </div>
+                   
                     <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">
-                            <span lang="zh-CN">种编程语言</span>
-                            <span lang="en">Programming Languages</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3+</div>
+                        <div class="stat-number">8</div>
                         <div class="stat-label">
                             <span lang="zh-CN">个自研AI模型</span>
                             <span lang="en">Self-developed AI Models</span>
@@ -724,7 +712,7 @@
                     <span lang="en">🧠 Self-developed AI Algorithm Models</span>
                 </h2>
                 <p>
-                    <span lang="zh-CN">循星科技自主研发了三大前沿AI算法模型，涵盖多模态融合、异构域适应和隐私保护等核心技术。</span>
+                    <span lang="zh-CN">循星科技自主研发了三大前沿AI算法模型和五种AI大模型，涵盖多模态融合、异构域适应和隐私保护等核心技术。</span>
                     <span lang="en">SidebyStar has independently developed three cutting-edge AI algorithm models, covering multimodal fusion, heterogeneous domain adaptation, and privacy protection technologies.</span>
                 </p>
 
@@ -851,35 +839,26 @@
                     </div>
                     <div class="arch-arrow"></div>
                     <div class="arch-layer">
-                        <h4><span lang="zh-CN">🔧 嵌入式硬件传感器系统扩展中 (Arduino)</span><span lang="en">🔧 Embedded Hardware Sensor System (2K Arduino)</span></h4>
+                        <h4><span lang="zh-CN">🔧 嵌入式硬件传感器节点 </span><span lang="en">🔧 Embedded Hardware Sensor Nodes </span></h4>
                         <div class="arch-components">
-                            <span>TSL2584</span>
-                            <span>DHT22</span>
-                            <span>MQ35</span>
-                            <span>HW740</span>
-                            <span lang="zh-CN">更多系统扩展中</span><span lang="en">More System Extensions</span>
+                            <span lang="zh-CN">智能花盆</span><span lang="en">Smart Flower Pot</span>
+                            <span lang="zh-CN">智能灯具</span><span lang="en">Smart Light</span>
+                            <span lang="zh-CN">智能传感器</span><span lang="en">Smart Sensor</span>
+                            <span lang="zh-CN">智能摄像头</span><span lang="en">Smart Camera</span>
+                            <span lang="zh-CN">智能门铃</span><span lang="en">Smart Doorbell</span>
+                            <span lang="zh-CN">更多节点扩展中</span><span lang="en">More Nodes Extensions</span>
                         </div>
                     </div>
                     <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">👁️ 计算机视觉AI算法引擎</span><span lang="en">👁️ Computer Vision AI Algorithm Engine</span></h4>
                         <div class="arch-components">
-                            <span>JEPA</span>
                             <span lang="zh-CN">语义匹配</span><span lang="en">Semantic Matching</span>
                             <span lang="zh-CN">场景理解</span><span lang="en">Scene Understanding</span>
                             <span lang="zh-CN">目标检测</span><span lang="en">Object Detection</span>
                         </div>
                     </div>
-                    <div class="arch-arrow"></div>
-                    <div class="arch-layer">
-                        <h4><span lang="zh-CN">🌐 联邦学习·分布式训练系统</span><span lang="en">🌐 Federated Learning & Distributed Training</span></h4>
-                        <div class="arch-components">
-                            <span lang="zh-CN">分布式学习</span><span lang="en">Distributed Learning</span>
-                            <span lang="zh-CN">增量学习</span><span lang="en">Incremental Learning</span>
-                            <span lang="zh-CN">隐私保护</span><span lang="en">Privacy Preservation</span>
-                            <span lang="zh-CN">边缘学习</span><span lang="en">Edge Learning</span>
-                        </div>
-                    </div>
+
                     <div class="arch-arrow"></div>
                     <div class="arch-layer">
                         <h4><span lang="zh-CN">✂️ 大模型训练优化·剪枝系统</span><span lang="en">✂️ Large Model Training Optimization & Pruning</span></h4>
@@ -895,21 +874,12 @@
                         <h4><span lang="zh-CN">🔐 数据传输加密·安全系统</span><span lang="en">🔐 Data Transmission Encryption & Security</span></h4>
                         <div class="arch-components">
                             <span lang="zh-CN">密码学核心</span><span lang="en">Cryptographic Core</span>
-                            <span>TLS</span>
                             <span lang="zh-CN">数字签名</span><span lang="en">Digital Signature</span>
                             <span lang="zh-CN">密钥管理</span><span lang="en">Key Management</span>
                         </div>
                     </div>
                     <div class="arch-arrow"></div>
-                    <div class="arch-layer">
-                        <h4><span lang="zh-CN">🔥 AI推理引擎 </span><span lang="en">🔥 AI Inference Engine (174K C++)</span></h4>
-                        <div class="arch-components">
-                            <span>llama.cpp</span>
-                            <span>GPU</span>
-                            <span lang="zh-CN">模型优化</span><span lang="en">Model Optimization</span>
-                            <span lang="zh-CN">推理管道</span><span lang="en">Inference Pipeline</span>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <h2 id="tools">
@@ -922,15 +892,10 @@
                     <span lang="en">Event Bus SDK</span>
                 </h3>
                 <p>
-                    <span lang="zh-CN">基于AsyncIO的高性能事件系统，支持发布/订阅模式、事件路由和优先级处理。</span>
-                    <span lang="en">High-performance event system based on AsyncIO, supporting pub/sub pattern, event routing, and priority handling.</span>
+                    <span lang="zh-CN">高性能事件系统，支持发布/订阅模式、事件路由和优先级处理。</span>
+                    <span lang="en">High-performance event system, supporting pub/sub pattern, event routing, and priority handling.</span>
                 </p>
-                <div class="tool-features">
-                    <span>AsyncIO</span>
-                    <span>Pub/Sub</span>
-                    <span lang="zh-CN">类型安全</span>
-                    <span lang="en">Type Safety</span>
-                </div>
+            
 
 
 
@@ -939,15 +904,10 @@
                     <span lang="en">Utils Library API</span>
                 </h3>
                 <p>
-                    <span lang="zh-CN">44个标准化工具函数，涵盖路径操作、文件IO、时间处理、装饰器、并发控制等。</span>
-                    <span lang="en">44 standardized utility functions covering path operations, file I/O, time processing, decorators, and concurrency control.</span>
+                    <span lang="zh-CN">标准化工具函数，涵盖路径操作、文件IO、时间处理、装饰器、并发控制等。</span>
+                    <span lang="en">Standardized utility functions covering path operations, file I/O, time processing, decorators, and concurrency control.</span>
                 </p>
-                <div class="tool-features">
-                    <span lang="zh-CN">零依赖</span><span lang="en">Zero Dependencies</span>
-                    <span lang="zh-CN">类型提示</span><span lang="en">Type Hints</span>
-                    <span lang="zh-CN">跨平台</span><span lang="en">Cross-Platform</span>
-                </div>
-
+                
 
 
                 <h3>
@@ -958,11 +918,6 @@
                     <span lang="zh-CN">基于规则的可扩展插件系统，支持设备控制、任务执行和动态加载。</span>
                     <span lang="en">Rule-based extensible plugin system supporting device control, task execution, and dynamic loading.</span>
                 </p>
-                <div class="tool-features">
-                    <span lang="zh-CN">规则引擎</span><span lang="en">Rule Engine</span>
-                    <span lang="zh-CN">动态加载</span><span lang="en">Dynamic Loading</span>
-                    <span lang="zh-CN">插件管理</span><span lang="en">Plugin Management</span>
-                </div>
 
 
 
@@ -974,11 +929,7 @@
                     <span lang="zh-CN">分布式机器学习系统，支持隐私保护的协作训练和边缘智能部署。</span>
                     <span lang="en">Distributed machine learning system supporting privacy-preserving collaborative training and edge intelligence deployment.</span>
                 </p>
-                <div class="tool-features">
-                    <span lang="zh-CN">隐私保护</span><span lang="en">Privacy Protection</span>
-                    <span lang="zh-CN">分布式训练</span><span lang="en">Distributed Training</span>
-                    <span lang="zh-CN">边缘部署</span><span lang="en">Edge Deployment</span>
-                </div>
+
 
 
 
@@ -990,12 +941,6 @@
                     <span lang="zh-CN">模型压缩、剪枝、量化和知识蒸馏的完整工具链，显著提升推理效率。</span>
                     <span lang="en">Complete toolchain for model compression, pruning, quantization, and knowledge distillation, significantly improving inference efficiency.</span>
                 </p>
-                <div class="tool-features">
-                    <span lang="zh-CN">结构化剪枝</span><span lang="en">Structured Pruning</span>
-                    <span lang="zh-CN">动态量化</span><span lang="en">Dynamic Quantization</span>
-                    <span lang="zh-CN">知识蒸馏</span><span lang="en">Knowledge Distillation</span>
-                </div>
-
 
 
                 <h3>
@@ -1006,12 +951,6 @@
                     <span lang="zh-CN">端到端加密、数字签名、密钥管理的完整安全解决方案。</span>
                     <span lang="en">Complete security solution with end-to-end encryption, digital signatures, and key management.</span>
                 </p>
-                <div class="tool-features">
-                    <span>AES-256</span>
-                    <span>RSA-4096</span>
-                    <span>HMAC-SHA256</span>
-                    <span lang="zh-CN">零知识证明</span><span lang="en">Zero-Knowledge Proof</span>
-                </div>
 
 
 
@@ -1023,11 +962,6 @@
                     <span lang="zh-CN">三层数据源、热更新、多环境支持的现代化配置系统。</span>
                     <span lang="en">Modern configuration system with three-layer data sources, hot updates, and multi-environment support.</span>
                 </p>
-                <div class="tool-features">
-                    <span lang="zh-CN">热更新</span><span lang="en">Hot Reload</span>
-                    <span lang="zh-CN">多环境</span><span lang="en">Multi-Environment</span>
-                    <span>YAML/JSON</span>
-                </div>
 
 
 
@@ -1042,19 +976,21 @@
                 <ul>
                     <li>
                         <a href="docs-ess-api.html">
-                            <span lang="zh-CN">环境感知系统 API</span>
-                            <span lang="en">Environmental Sensing System API</span>
+                            <span lang="zh-CN">环境感知系统 API - 与环境感知硬件交互的标准接口</span>
+                            <span lang="en">Environmental Sensing System API - Standard interfaces for interacting with environmental sensing hardware</span>
                         </a>
-                        - <span lang="zh-CN">与环境感知硬件交互的标准接口</span>
-                        <span lang="en">Standard interfaces for interacting with environmental sensing hardware</span>
                     </li>
                     <li>
-                        <span lang="zh-CN">事件总线 API - 异步事件系统核心API</span>
-                        <span lang="en">Event Bus API - Core API for asynchronous event system</span>
+                        <a href="docs-event-bus-api.html">
+                            <span lang="zh-CN">事件总线 API - 异步事件系统核心API</span>
+                            <span lang="en">Event Bus API - Core API for asynchronous event system</span>
+                        </a>
                     </li>
-                    <li>
-                        <span lang="zh-CN">插件开发 API - 插件系统开发接口</span>
-                        <span lang="en">Plugin Development API - Plugin system development interface</span>
+                    <li>    
+                        <a href="docs-plugin-api.html">
+                            <span lang="zh-CN">插件开发 API - 插件系统开发接口</span>
+                            <span lang="en">Plugin Development API - Plugin system development interface</span>
+                        </a>
                     </li>
                 </ul>
 
@@ -1063,8 +999,8 @@
                     <span lang="en">Testing & Quality Assurance</span>
                 </h2>
                 <p>
-                    <span lang="zh-CN">AIOS拥有完整的测试工具链，涵盖53万+行代码的全面测试，确保代码质量和系统稳定性。</span>
-                    <span lang="en">AIOS has a complete testing toolchain covering comprehensive testing of 530K+ lines of code, ensuring code quality and system stability.</span>
+                    <span lang="zh-CN">AIOS拥有完整的测试工具链，涵盖全面测试，确保代码质量和系统稳定性。</span>
+                    <span lang="en">AIOS has a complete testing toolchain, ensuring code quality and system stability.</span>
                 </p>
 
                 <h3>
