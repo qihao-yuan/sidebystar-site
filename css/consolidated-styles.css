@@ -184,9 +184,9 @@ header {
 .nav a {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: color 0.3s ease, transform 0.3s ease;
-    padding: 5px 0;
+    padding: 5px 10px;
     position: relative;
 }
 

@@ -247,7 +247,7 @@
 
          /* 功能演示新样式 */
          .demo-content {
-             background: rgba(255,255,255,0.05);
+             background: rgba(255,255,255,0);
              border-radius: 10px;
              padding: 30px;
              max-width: 100%;
@@ -367,7 +367,7 @@
              padding: 25px 20px;
              border-radius: 15px;
              text-align: center;
-             height: 140px;
+             height: 200px;
              display: flex;
              flex-direction: column;
              justify-content: center;
@@ -427,10 +427,10 @@
          }
 
          .device-group {
-             background: rgba(255,255,255,0.05);
+             background: rgba(255,255,255,0);
              padding: 25px;
              border-radius: 15px;
-             border: 1px solid rgba(255,255,255,0.1);
+             border: 1px solid rgba(255,255,255,0);
          }
 
          .group-title {
@@ -462,7 +462,7 @@
          }
 
          .device-item.online {
-             border-left-color: #4CAF50;
+             border-left-color: #af4c4c;
          }
 
          .device-item.offline {
@@ -655,8 +655,8 @@
     <section class="hero-section">
         <div class="container">
             <h1 class="hero-title">
-                <span lang="zh-CN">🤖 AIOS</span>
-                <span lang="en">🤖 AIOS</span>
+                <span lang="zh-CN">AIOS</span>
+                <span lang="en">AIOS</span>
             </h1>
             <p class="hero-subtitle">
                 <span lang="zh-CN">AI智能操作系统 - 现代化事件驱动架构</span>
@@ -665,7 +665,7 @@
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <span class="stat-number">6</span>
+                    <span class="stat-number">4</span>
                     <div><span lang="zh-CN">层智能架构</span><span lang="en">Layer Smart Architecture</span></div>
                 </div>
                 <div class="stat-card">
@@ -1104,134 +1104,9 @@
                 </div>
             </div>
 
-            <!-- 架构流程图 -->
-            <div class="flow-diagram">
-                <h3>
-                    <span lang="zh-CN">🔄 系统数据流与控制流</span>
-                    <span lang="en">🔄 System Data Flow & Control Flow</span>
-                </h3>
-                <div class="flow-content">
-                    <!-- 主要数据流 -->
-                    <div class="flow-main">
-                        <div class="flow-step" style="color: var(--accent-color);">
-                            <span lang="zh-CN">🎤📷🌡️<br>感知输入</span>
-                            <span lang="en">🎤📷🌡️<br>Perception Input</span>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step" style="color: #90EE90;">
-                            <span lang="zh-CN">🧠<br>多模态融合</span>
-                            <span lang="en">🧠<br>Multimodal Fusion</span>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step" style="color: #FFB6C1;">
-                            <span lang="zh-CN">🎯<br>意图解析</span>
-                            <span lang="en">🎯<br>Intent Parsing</span>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step" style="color: #87CEEB;">
-                            <span lang="zh-CN">🤖<br>Agent调度</span>
-                            <span lang="en">🤖<br>Agent Scheduling</span>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step" style="color: #DDA0DD;">
-                            <span lang="zh-CN">⚡<br>设备控制</span>
-                            <span lang="en">⚡<br>Device Control</span>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step" style="color: #F0E68C;">
-                            <span lang="zh-CN">🔊<br>执行反馈</span>
-                            <span lang="en">🔊<br>Execution Feedback</span>
-                        </div>
-                    </div>
-
-                    <!-- 详细处理步骤 -->
-                    <div class="flow-details">
-                        <div class="flow-detail" style="color: var(--accent-color);">
-                            <span lang="zh-CN">语音/图像/<br>环境数据</span>
-                            <span lang="en">Voice/Image/<br>Environmental Data</span>
-                        </div>
-                        <div class="flow-detail" style="color: #90EE90;">
-                            <span lang="zh-CN">特征提取<br>语义分析</span>
-                            <span lang="en">Feature Extraction<br>Semantic Analysis</span>
-                        </div>
-                        <div class="flow-detail" style="color: #FFB6C1;">
-                            <span lang="zh-CN">指令理解<br>技能路由</span>
-                            <span lang="en">Command Understanding<br>Skill Routing</span>
-                        </div>
-                        <div class="flow-detail" style="color: #87CEEB;">
-                            <span lang="zh-CN">任务分解<br>协议转换</span>
-                            <span lang="en">Task Decomposition<br>Protocol Conversion</span>
-                        </div>
-                        <div class="flow-detail" style="color: #DDA0DD;">
-                            <span lang="zh-CN">设备操作<br>状态更新</span>
-                            <span lang="en">Device Operation<br>Status Update</span>
-                        </div>
-                        <div class="flow-detail" style="color: #F0E68C;">
-                            <span lang="zh-CN">用户确认<br>结果反馈</span>
-                            <span lang="en">User Confirmation<br>Result Feedback</span>
-                        </div>
-                    </div>
-
-                    <!-- 并行处理路径 -->
-                    <div class="flow-parallel">
-                        <div class="flow-parallel-title">
-                            <span lang="zh-CN">🔄 并行处理路径</span>
-                            <span lang="en">🔄 Parallel Processing Paths</span>
-                        </div>
-                        <div class="flow-parallel-item">
-                            <div class="flow-step" style="color: var(--accent-color); min-width: 100px;">
-                                <span lang="zh-CN">身份识别</span>
-                                <span lang="en">Identity Recognition</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step" style="color: #90EE90; min-width: 100px;">
-                                <span lang="zh-CN">上下文管理</span>
-                                <span lang="en">Context Management</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step" style="color: #FFB6C1; min-width: 100px;">
-                                <span lang="zh-CN">个性化决策</span>
-                                <span lang="en">Personalized Decision</span>
-                            </div>
-                        </div>
-                        <div class="flow-parallel-item">
-                            <div class="flow-step" style="color: var(--accent-color); min-width: 100px;">
-                                <span lang="zh-CN">行为日志</span>
-                                <span lang="en">Behavior Logging</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step" style="color: #90EE90; min-width: 100px;">
-                                <span lang="zh-CN">学习优化</span>
-                                <span lang="en">Learning Optimization</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step" style="color: #FFB6C1; min-width: 100px;">
-                                <span lang="zh-CN">模型更新</span>
-                                <span lang="en">Model Updates</span>
-                            </div>
-                        </div>
-                        <div class="flow-parallel-item">
-                            <div class="flow-step" style="color: var(--accent-color); min-width: 100px;">
-                                <span lang="zh-CN">联邦学习</span>
-                                <span lang="en">Federated Learning</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step" style="color: #90EE90; min-width: 100px;">
-                                <span lang="zh-CN">云端聚合</span>
-                                <span lang="en">Cloud Aggregation</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step" style="color: #FFB6C1; min-width: 100px;">
-                                <span lang="zh-CN">OTA下发</span>
-                                <span lang="en">OTA Deployment</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flow-description">
-                    <span lang="zh-CN">💡 从感知到执行的完整闭环，支持多模态输入、智能推理、安全控制和持续学习</span>
-                    <span lang="en">💡 Complete closed loop from perception to execution, supporting multimodal input, intelligent reasoning, security control, and continuous learning</span>
-                </div>
+      
+           
+                
             </div>
         </div>
     </section>
@@ -1510,27 +1385,6 @@
                     </div>
                 </div>
                 
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 20px;">👥</div>
-                    <h3 style="color: var(--accent-color); margin-bottom: 15px;">
-                        <span lang="zh-CN">团队介绍</span>
-                        <span lang="en">Our Team</span>
-                    </h3>
-                    <p style="margin-bottom: 20px; font-size: 0.9rem;">
-                        <span lang="zh-CN">了解构建AIOS系统的技术团队</span>
-                        <span lang="en">Meet the technical team behind AIOS system</span>
-                    </p>
-                    <div style="display: flex; gap: 10px; justify-content: center;">
-                        <a href="team.html" style="padding: 8px 16px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 5px; font-size: 0.9rem;">
-                            <span lang="zh-CN">团队成员</span>
-                            <span lang="en">Team Members</span>
-                        </a>
-                        <a href="about.html" style="padding: 8px 16px; background: transparent; color: var(--accent-color); text-decoration: none; border: 1px solid var(--accent-color); border-radius: 5px; font-size: 0.9rem;">
-                            <span lang="zh-CN">公司介绍</span>
-                            <span lang="en">About Us</span>
-                        </a>
-                    </div>
-                </div>
                 
                 <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center;">
                     <div style="font-size: 3rem; margin-bottom: 20px;">💻</div>
