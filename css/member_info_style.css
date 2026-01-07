@@ -59,7 +59,7 @@ section#member-details {
     margin-bottom: 25px; 
     font-weight: 500; 
 }
-.member-bio h3, .member-skills h3, .member-contact h3 { /* Grouped headings */
+.member-bio h3, .member-skills h3, .member-contact h3, .member-education h3, .member-research h3 { /* Grouped headings */
     font-size: 1.4rem; 
     margin-top: 30px; 
     margin-bottom: 15px; 
@@ -68,9 +68,22 @@ section#member-details {
     border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.4); 
     padding-bottom: 8px; 
 }
-.member-bio p, .member-skills ul, .member-contact p { /* Grouped text elements */
+.member-bio p, .member-skills ul, .member-contact p, .member-education p, .member-research ul { /* Grouped text elements */
     margin-bottom: 15px; 
     color: rgba(236, 240, 241, 0.9); 
+}
+.member-research ul {
+    list-style: none; 
+    padding: 0; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+.member-research li {
+    background-color: rgba(var(--accent-color-rgb), 0.2); 
+    padding: 5px 12px; 
+    border-radius: 15px; 
+    font-size: 0.9rem; 
 }
 .member-skills ul { 
     list-style: none; 
