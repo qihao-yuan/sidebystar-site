@@ -3,359 +3,141 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="联系循星科技，开启智能家居合作之旅。" />
-    <meta property="og:title" content="联系我们 - 循星科技" />
-    <meta property="og:description" content="联系循星科技，开启智能家居合作之旅。" />
+    <meta name="description" content="联系循星科技销售团队 - 预约演示、申请试点、获取方案书。" />
+    <meta property="og:title" content="联系销售 - 循星科技" />
+    <meta property="og:description" content="联系循星科技，开启空间智能合作之旅。" />
     <meta property="og:type" content="website" />
-    <title>联系我们 - 循星科技</title>
-    
-    <!-- Favicon -->
+    <title>联系销售 - 循星科技</title>
     <link rel="icon" type="image/png" href="../pics/循星科技logo.png">
     <link rel="apple-touch-icon" href="../pics/循星科技logo.png">
-    
     <link rel="stylesheet" href="../css/consolidated-styles.css">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --accent-color: #7f8c8d;
-            --text-color: #ecf0f1;
-            --light-bg: linear-gradient(135deg, #2c3e50, #1c1c1c);
-            --dark-bg: linear-gradient(135deg, #000000, #434343);
-            --accent-color-rgb: 127, 140, 141; /* Added for consistency */
-        }
-        
-        html {
-            font-size: 16px; /* 设置根字体大小，确保rem单位正确计算 */
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            background: var(--dark-bg);
-            line-height: 1.6;
-            font-size: 16px; /* 设置基础字体大小 */
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        
-        .tagline {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px; /* Add margin-top to move the button down */
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 15px auto;
-        }
-        
-        /* 基础文本样式 */
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-        
-        p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: rgba(236, 240, 241, 0.9);
-            margin-bottom: 15px;
-        }
-        
-        footer {
-            background: transparent;
-            color: var(--primary-color);
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        footer .logo {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        /* .social-links styles moved to external CSS */
-        /*
-        .social-links {
-            margin-top: 20px;
-        }
-        */
-        
-        /*
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        */
-        
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%; /* Position the tooltip above the text */
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            /* background-color: var(--secondary-color); */ /* Removed background */
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-
-        .nav a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav a.current {
-            color: var(--accent-color);
-        }
-
-        /* Styles for language switching */
-        .lang-switch {
-            display: flex;
-            gap: 5px;
-            margin-left: 15px;
-            border-left: 1px solid rgba(var(--accent-color-rgb), 0.3);
-            padding-left: 15px;
-        }
-        .lang-switch a {
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 15px;
-            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid transparent;
-            background-color: transparent;
-        }
-        .lang-switch a:hover {
-            background-color: rgba(var(--accent-color-rgb), 0.2);
-            color: var(--accent-color);
-            border-color: rgba(var(--accent-color-rgb), 0.4);
-        }
-        .lang-switch a.active-lang {
-            font-weight: bold;
-            background-color: rgba(var(--accent-color-rgb), 0.3);
-            color: var(--primary-color);
-            border-color: rgba(var(--accent-color-rgb), 0.5);
-        }
-        /* Hide inactive language spans by default */
-        html[lang="zh-CN"] [lang="en"],
-        html[lang="en"] [lang="zh-CN"] {
-            display: none;
-        }
-        /* Show active language spans */
-        html[lang="zh-CN"] [lang="zh-CN"],
-        html[lang="en"] [lang="en"] {
-            display: inline;
-        }
-    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="tagline">
-                <span lang="zh-CN">联系我们</span>
-                <span lang="en">Contact Us</span>
+                <span lang="zh-CN">联系销售</span>
+                <span lang="en">Contact Sales</span>
             </div>
-            <div class="nav">
-                <!-- 导航将由navigation.js动态生成 -->
-            </div>
+            <div class="nav"></div>
         </div>
     </header>
-    
-    <section id="contact">
+
+    <section class="scenario-detail-section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">
-                <span lang="zh-CN">联系我们</span>
-                <span lang="en">Contact Us</span>
+            <p class="section-label"><span lang="zh-CN">开始合作</span><span lang="en">GET STARTED</span></p>
+            <h2 class="section-title">
+                <span lang="zh-CN">告诉我们您的需求</span>
+                <span lang="en">Tell Us About Your Needs</span>
             </h2>
-            <div style="text-align: center;">
-                <div class="contact-method animate-on-scroll">
-                    <h3>
-                        <span lang="zh-CN">📧 电子邮件</span>
-                        <span lang="en">📧 Email</span>
-                    </h3>
-                    <p>
-                        <span lang="zh-CN">我们会在24小时内回复您的邮件</span>
-                        <span lang="en">We will reply to your email within 24 hours</span>
-                    </p>
-                    <a href="mailto:contact@sidebystar.com" class="btn">
-                        <span lang="zh-CN">发送邮件</span>
-                        <span lang="en">Send Email</span>
-                    </a>
+            <p style="text-align:center; max-width:600px; margin:-30px auto 40px; color:rgba(236,240,241,0.8); font-size:1rem;">
+                <span lang="zh-CN">填写以下信息，我们的团队将在 24 小时内与您联系，为您提供针对性的方案咨询。</span>
+                <span lang="en">Fill in the form below, our team will contact you within 24 hours with tailored solution consultation.</span>
+            </p>
+
+            <form class="contact-form" id="contactForm" onsubmit="return handleContactSubmit(event)">
+                <div class="form-group">
+                    <label><span lang="zh-CN">姓名</span><span lang="en">Name</span></label>
+                    <input type="text" id="cf-name" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label><span lang="zh-CN">公司 / 机构</span><span lang="en">Company / Organization</span></label>
+                    <input type="text" id="cf-company">
+                </div>
+                <div class="form-group">
+                    <label><span lang="zh-CN">职务</span><span lang="en">Title</span></label>
+                    <input type="text" id="cf-title">
+                </div>
+                <div class="form-group">
+                    <label><span lang="zh-CN">联系方式（手机或邮箱）</span><span lang="en">Contact (Phone or Email)</span></label>
+                    <input type="text" id="cf-contact" required>
+                </div>
+                <div class="form-group">
+                    <label><span lang="zh-CN">感兴趣的场景</span><span lang="en">Scenarios of Interest</span></label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" class="cf-scenario" value="养老与照护"><span lang="zh-CN">养老与照护</span><span lang="en">Elderly Care</span></label>
+                        <label><input type="checkbox" class="cf-scenario" value="智能家居"><span lang="zh-CN">智能家居</span><span lang="en">Smart Home</span></label>
+                        <label><input type="checkbox" class="cf-scenario" value="居家守护"><span lang="zh-CN">居家守护</span><span lang="en">Home Guardian</span></label>
+                        <label><input type="checkbox" class="cf-scenario" value="智能房间"><span lang="zh-CN">智能房间</span><span lang="en">Smart Room</span></label>
+                        <label><input type="checkbox" class="cf-scenario" value="其他"><span lang="zh-CN">其他</span><span lang="en">Other</span></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><span lang="zh-CN">需求描述</span><span lang="en">Requirements</span></label>
+                    <textarea id="cf-message" rows="4"></textarea>
+                </div>
+                <div style="text-align:center; margin-top:30px;">
+                    <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer; font-size:1rem; padding:14px 40px;">
+                        <span lang="zh-CN">提交咨询</span>
+                        <span lang="en">Submit Inquiry</span>
+                    </button>
+                </div>
+            </form>
+            <script>
+            function handleContactSubmit(e) {
+                e.preventDefault();
+                var name = document.getElementById('cf-name').value;
+                var company = document.getElementById('cf-company').value;
+                var title = document.getElementById('cf-title').value;
+                var contact = document.getElementById('cf-contact').value;
+                var message = document.getElementById('cf-message').value;
+                var scenarios = [];
+                document.querySelectorAll('.cf-scenario:checked').forEach(function(cb) {
+                    scenarios.push(cb.value);
+                });
+                var subject = '循星科技 - 咨询来自 ' + name;
+                var body = '姓名: ' + name + '\n' +
+                    '公司/机构: ' + company + '\n' +
+                    '职务: ' + title + '\n' +
+                    '联系方式: ' + contact + '\n' +
+                    '感兴趣场景: ' + (scenarios.length ? scenarios.join(', ') : '未选择') + '\n' +
+                    '需求描述: ' + message;
+                var mailto = 'mailto:contact@sidebystar.com?subject=' +
+                    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+                window.location.href = mailto;
+                return false;
+            }
+            </script>
         </div>
     </section>
 
-    <footer class="animate-on-scroll">
+    <section class="scenario-detail-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span lang="zh-CN">其他联系方式</span>
+                <span lang="en">Other Ways to Reach Us</span>
+            </h2>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">电子邮件</span><span lang="en">Email</span></h4>
+                    <p><a href="mailto:contact@sidebystar.com" style="color:var(--accent-color);">contact@sidebystar.com</a></p>
+                </div>
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">电话</span><span lang="en">Phone</span></h4>
+                    <p>+86 15568200088</p>
+                </div>
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">地址</span><span lang="en">Address</span></h4>
+                    <p><span lang="zh-CN">中国浙江省杭州市萧山区杭州湾信息港E座</span><span lang="en">Block E, Hangzhou Bay Information Port, Xiaoshan, Hangzhou, China</span></p>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:30px; color:rgba(236,240,241,0.7); font-size:0.9rem;">
+                <span lang="zh-CN">我们承诺在 24 小时内回复您的咨询。</span>
+                <span lang="en">We promise to respond to your inquiry within 24 hours.</span>
+            </p>
+        </div>
+    </section>
+
+    <footer>
         <div class="container">
             <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
             <div class="contact-info">
-                <p>
-                    <span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span>
-                    <span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan District, Hangzhou, Zhejiang Province, China</span>
-                </p>
-                <p>
-                    <span lang="zh-CN">电话：+86 15568200088</span>
-                    <span lang="en">Phone: +86 15568200088</span>
-                </p>
-                <p>
-                    <span lang="zh-CN">邮箱：contact@sidebystar.com</span>
-                    <span lang="en">Email: contact@sidebystar.com</span>
-                </p>
+                <p><span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span><span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan, Hangzhou, China</span></p>
+                <p><span lang="zh-CN">电话：+86 15568200088</span><span lang="en">Phone: +86 15568200088</span></p>
+                <p><span lang="zh-CN">邮箱：contact@sidebystar.com</span><span lang="en">Email: contact@sidebystar.com</span></p>
             </div>
-            <div class="social-links">
-                <div class="tooltip">
-                    <a href="#" aria-label="微信">微信</a>
-                    <span class="tooltiptext">微信: 循星科技</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="微博">微博</a>
-                    <span class="tooltiptext">微博: 循星科技</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="哔哩哔哩">哔哩哔哩</a>
-                    <span class="tooltiptext">哔哩哔哩: 循星予你</span>
-                </div>
-                <div class="tooltip">
-                    <a href="#" aria-label="GitHub">GitHub</a>
-                    <span class="tooltiptext">GitHub: qihao-yuan</span>
-                </div>
-            </div>
-            <p style="margin-top: 20px;">
-                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
-                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
-            </p>
+            <p style="margin-top:20px;"><span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span><span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span></p>
         </div>
     </footer>
     <script src="../js/animations.js"></script>

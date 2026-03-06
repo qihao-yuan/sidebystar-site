@@ -1,84 +1,330 @@
 <!DOCTYPE html>
-
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="循星科技 - 循此苦旅，终抵群星。专注于AIOS智能家居平台开发。" />
-    <meta property="og:title" content="循星科技 - 循此苦旅，终抵群星" />
-    <meta property="og:description" content="循星科技 - 循此苦旅，终抵群星。专注于AIOS智能家居平台开发。" />
+    <meta name="description" content="循星科技 - 面向真实空间场景的端侧AI智能系统与解决方案提供商，覆盖养老照护、智能家居、居家守护与智能房间。" />
+    <meta property="og:title" content="循星科技 - 端侧AI空间智能平台" />
+    <meta property="og:description" content="面向真实空间场景的端侧AI智能系统，提供多模态感知、边缘推理、事件联动与隐私优先的本地部署方案。" />
     <meta property="og:type" content="website" />
-    <title>循星科技 - 循此苦旅，终抵群星</title>
-    
-    <!-- Favicon -->
+    <title>循星科技 - 端侧AI空间智能平台</title>
     <link rel="icon" type="image/png" href="pics/循星科技logo.png">
     <link rel="apple-touch-icon" href="pics/循星科技logo.png">
-    
     <link rel="stylesheet" href="css/consolidated-styles.css">
-    <link rel="stylesheet" href="css/home-styles.css">
+    <style>
+        body { overflow-x: hidden; }
+        .index-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 32px;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(127,140,141,0.15);
+        }
+        .index-nav .nav-logo {
+            font-size: 1.3rem; font-weight: 700; color: #fff;
+            text-decoration: none; letter-spacing: 1px;
+        }
+        .index-nav .nav-links { display: flex; gap: 8px; align-items: center; }
+        .index-nav .nav-links a {
+            color: rgba(236,240,241,0.8); text-decoration: none; font-size: 0.85rem;
+            padding: 6px 12px; border-radius: 6px; transition: all 0.2s;
+        }
+        .index-nav .nav-links a:hover { background: rgba(127,140,141,0.2); color: #fff; }
+        .index-footer-nav { padding-top: 30px; }
+        @media (max-width: 768px) {
+            .index-nav { padding: 12px 16px; }
+            .index-nav .nav-links { flex-wrap: wrap; gap: 4px; }
+            .index-nav .nav-links a { font-size: 0.78rem; padding: 5px 8px; }
+        }
+    </style>
 </head>
-<body class="index-page">
-    <div class="main-content">
-        <h1 class="logo index-logo">
+<body>
+    <nav class="index-nav">
+        <a href="index.html" class="nav-logo">
             <span lang="zh-CN">循星科技</span>
             <span lang="en">SidebyStar</span>
-        </h1>
-        
-      
-        
-        <h2 class="hero-title">
-            <span lang="zh-CN">私域 AI 操作系统</span>
-            <span lang="en">Private AI Operating System</span>
-        </h2>
-        
-        <p class="hero-subtitle">
-            <span lang="zh-CN">数据主权，智能生活</span>
-            <span lang="en">Data Sovereignty, Smart Living</span>
-        </p>
-        
-        <a href="html/products.html" class="btn hero-btn">
-            <span lang="zh-CN">探索 AIOS</span>
-            <span lang="en">Explore AIOS</span>
         </a>
-    </div>
-    
-    <div class="lang-switch index-lang-switch">
-        <a data-lang="zh-CN" class="active-lang">中文</a>
-        <a data-lang="en">EN</a>
-    </div>
-    
-    <!-- 流星效果元素 -->
-    <div class="meteor" id="meteor"></div>
-    
-    <script>
-        // 流星跟随鼠标效果
-        document.addEventListener('mousemove', function(e) {
-            const meteor = document.getElementById('meteor');
-            meteor.style.left = e.pageX + 'px';
-            meteor.style.top = e.pageY + 'px';
-            meteor.style.opacity = 1;
-            meteor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            
-            setTimeout(() => {
-                meteor.style.opacity = 0;
-                meteor.style.transform = 'translate(-50%, -50%) scale(1)';
-            }, 300);
+        <div class="nav-links">
+            <a href="html/scenarios.html"><span lang="zh-CN">场景方案</span><span lang="en">Scenarios</span></a>
+            <a href="html/platform.html"><span lang="zh-CN">平台能力</span><span lang="en">Platform</span></a>
+            <a href="html/deployment.html"><span lang="zh-CN">部署交付</span><span lang="en">Deployment</span></a>
+            <a href="html/cases.html"><span lang="zh-CN">案例中心</span><span lang="en">Cases</span></a>
+            <a href="html/about.html"><span lang="zh-CN">关于我们</span><span lang="en">About</span></a>
+            <a href="html/contact.html"><span lang="zh-CN">联系销售</span><span lang="en">Contact Sales</span></a>
+            <div class="lang-switch" style="margin-left:8px; border-left:1px solid rgba(127,140,141,0.3); padding-left:8px;">
+                <a data-lang="zh-CN" class="active-lang">中文</a>
+                <a data-lang="en">EN</a>
+            </div>
+        </div>
+    </nav>
 
-            // 创建轨迹效果
-            const trail = document.createElement('div');
-            trail.className = 'trail';
-            trail.style.left = e.pageX + 'px';
-            trail.style.top = e.pageY + 'px';
-            document.body.appendChild(trail);
-            
-            setTimeout(() => {
-                trail.style.opacity = 0;
-                trail.style.transform = 'translate(-50%, -50%) scale(1)';
-                setTimeout(() => {
-                    trail.remove();
-                }, 300);
-            }, 300);
-        });
-    </script>
+    <!-- 第一屏：品牌层 Hero -->
+    <section class="hero-platform" style="padding-top:120px;">
+        <div class="container">
+            <h1 class="hero-title">
+                <span lang="zh-CN">面向真实空间场景的<br>端侧 AI 智能系统</span>
+                <span lang="en">Edge AI Intelligent Systems<br>for Real-World Spaces</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span lang="zh-CN">覆盖养老照护、智能家居、居家守护与智能房间等场景，提供多模态感知、边缘推理、事件联动与隐私优先的本地部署方案。</span>
+                <span lang="en">Covering elderly care, smart home, home guardian, and smart room scenarios with multimodal sensing, edge inference, event orchestration, and privacy-first local deployment.</span>
+            </p>
+            <div class="hero-actions">
+                <a href="html/scenarios.html" class="btn btn-primary">
+                    <span lang="zh-CN">查看场景方案</span>
+                    <span lang="en">View Scenarios</span>
+                </a>
+                <a href="html/platform.html" class="btn">
+                    <span lang="zh-CN">了解平台能力</span>
+                    <span lang="en">Platform Capabilities</span>
+                </a>
+                <a href="html/contact.html" class="btn">
+                    <span lang="zh-CN">申请试点演示</span>
+                    <span lang="en">Request Demo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第二屏：当前重点场景 -->
+    <section class="section-block">
+        <div class="container">
+            <p class="section-label">
+                <span lang="zh-CN">当前重点场景</span>
+                <span lang="en">KEY SCENARIOS</span>
+            </p>
+            <h2 class="section-title">
+                <span lang="zh-CN">我们正在服务的空间场景</span>
+                <span lang="en">Spaces We Are Serving</span>
+            </h2>
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <span class="card-icon">&#x1F3E5;</span>
+                    <h3><span lang="zh-CN">养老与照护</span><span lang="en">Elderly Care</span></h3>
+                    <p class="card-desc">
+                        <span lang="zh-CN">为养老机构、护理院、康养中心提供跌倒检测、离床预警、事件闭环处置等本地智能监护能力。</span>
+                        <span lang="en">Local intelligent monitoring for elderly care facilities with fall detection, bed-leaving alerts, and event-loop response.</span>
+                    </p>
+                    <div class="card-tags">
+                        <span class="card-tag"><span lang="zh-CN">养老机构</span><span lang="en">Care Facilities</span></span>
+                        <span class="card-tag"><span lang="zh-CN">护理院</span><span lang="en">Nursing Homes</span></span>
+                    </div>
+                    <a href="html/scenario-elderly-care.html" class="card-link">
+                        <span lang="zh-CN">查看方案</span><span lang="en">View Solution</span>
+                    </a>
+                </div>
+                <div class="scenario-card">
+                    <span class="card-icon">&#x1F3E0;</span>
+                    <h3><span lang="zh-CN">居家守护</span><span lang="en">Home Guardian</span></h3>
+                    <p class="card-desc">
+                        <span lang="zh-CN">面向独居长者与家庭关怀场景，提供异常行为识别、远程关怀、本地隐私保护的居家安全方案。</span>
+                        <span lang="en">Home safety solutions for elderly living alone with anomaly detection, remote care, and local privacy protection.</span>
+                    </p>
+                    <div class="card-tags">
+                        <span class="card-tag"><span lang="zh-CN">独居长者</span><span lang="en">Elderly Living Alone</span></span>
+                        <span class="card-tag"><span lang="zh-CN">家庭关怀</span><span lang="en">Family Care</span></span>
+                    </div>
+                    <a href="html/scenario-home-guardian.html" class="card-link">
+                        <span lang="zh-CN">查看方案</span><span lang="en">View Solution</span>
+                    </a>
+                </div>
+                <div class="scenario-card">
+                    <span class="card-icon">&#x1F4A1;</span>
+                    <h3><span lang="zh-CN">智能家居</span><span lang="en">Smart Home</span></h3>
+                    <p class="card-desc">
+                        <span lang="zh-CN">环境感知、设备联动、个性化自适应，打造真正理解用户习惯的本地智能家居体验。</span>
+                        <span lang="en">Environmental sensing, device orchestration, and personalized adaptation for a truly intelligent home experience.</span>
+                    </p>
+                    <div class="card-tags">
+                        <span class="card-tag"><span lang="zh-CN">家庭用户</span><span lang="en">Households</span></span>
+                        <span class="card-tag"><span lang="zh-CN">地产精装</span><span lang="en">Real Estate</span></span>
+                    </div>
+                    <a href="html/scenario-smart-home.html" class="card-link">
+                        <span lang="zh-CN">查看方案</span><span lang="en">View Solution</span>
+                    </a>
+                </div>
+                <div class="scenario-card">
+                    <span class="card-icon">&#x1F6CF;&#xFE0F;</span>
+                    <h3><span lang="zh-CN">智能房间</span><span lang="en">Smart Room</span></h3>
+                    <p class="card-desc">
+                        <span lang="zh-CN">多模态中枢、本地决策、空间协同，将单一房间升级为具备感知-记忆-决策能力的智能单元。</span>
+                        <span lang="en">Multimodal hub with local decision-making, upgrading single rooms into intelligent units with sensing, memory, and action.</span>
+                    </p>
+                    <div class="card-tags">
+                        <span class="card-tag"><span lang="zh-CN">酒店公寓</span><span lang="en">Hotels</span></span>
+                        <span class="card-tag"><span lang="zh-CN">康养空间</span><span lang="en">Wellness Spaces</span></span>
+                    </div>
+                    <a href="html/scenario-smart-room.html" class="card-link">
+                        <span lang="zh-CN">查看方案</span><span lang="en">View Solution</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三屏：问题类型 -->
+    <section class="section-block">
+        <div class="container">
+            <p class="section-label">
+                <span lang="zh-CN">跨场景通用能力</span>
+                <span lang="en">CROSS-SCENARIO CAPABILITIES</span>
+            </p>
+            <h2 class="section-title">
+                <span lang="zh-CN">我们解决的问题类型</span>
+                <span lang="en">Problems We Solve</span>
+            </h2>
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <span class="item-icon">&#x1F6E1;&#xFE0F;</span>
+                    <h4><span lang="zh-CN">安全监护与预警</span><span lang="en">Safety Monitoring</span></h4>
+                    <p><span lang="zh-CN">跌倒、离床、异常事件的实时检测与分级告警</span><span lang="en">Real-time detection and graded alerts for falls, bed-leaving, and anomalies</span></p>
+                </div>
+                <div class="problem-item">
+                    <span class="item-icon">&#x1F50D;</span>
+                    <h4><span lang="zh-CN">行为识别与检测</span><span lang="en">Behavior Detection</span></h4>
+                    <p><span lang="zh-CN">基于多模态数据的行为模式识别与异常检测</span><span lang="en">Multimodal behavior pattern recognition and anomaly detection</span></p>
+                </div>
+                <div class="problem-item">
+                    <span class="item-icon">&#x1F321;&#xFE0F;</span>
+                    <h4><span lang="zh-CN">环境感知与联动</span><span lang="en">Environment & Control</span></h4>
+                    <p><span lang="zh-CN">温湿度、光照、气体等环境监测与设备自动联动</span><span lang="en">Environmental monitoring and automated device orchestration</span></p>
+                </div>
+                <div class="problem-item">
+                    <span class="item-icon">&#x1F9E0;</span>
+                    <h4><span lang="zh-CN">本地记忆与决策</span><span lang="en">Local Memory & Decisions</span></h4>
+                    <p><span lang="zh-CN">端侧行为建模、自适应学习与边缘推理决策</span><span lang="en">On-device behavior modeling, adaptive learning, and edge inference</span></p>
+                </div>
+                <div class="problem-item">
+                    <span class="item-icon">&#x1F517;</span>
+                    <h4><span lang="zh-CN">多设备协同</span><span lang="en">Multi-Device Sync</span></h4>
+                    <p><span lang="zh-CN">跨协议、跨设备的统一接入与协同控制</span><span lang="en">Unified access and coordinated control across protocols and devices</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第四屏：平台能力摘要 -->
+    <section class="section-block">
+        <div class="container">
+            <p class="section-label">
+                <span lang="zh-CN">底层平台支撑</span>
+                <span lang="en">UNDERLYING PLATFORM</span>
+            </p>
+            <h2 class="section-title">
+                <span lang="zh-CN">AIOS 端侧 AI 平台</span>
+                <span lang="en">AIOS Edge AI Platform</span>
+            </h2>
+            <p style="text-align:center; max-width:650px; margin:0 auto 10px; color:rgba(236,240,241,0.8); font-size:1rem;">
+                <span lang="zh-CN">所有场景方案的底层能力基座，支撑从感知到决策的全链路本地智能。</span>
+                <span lang="en">The foundational layer powering all scenario solutions, enabling end-to-end local intelligence from sensing to decision-making.</span>
+            </p>
+            <div class="platform-summary">
+                <div class="platform-item">
+                    <span class="item-icon">&#x1F50D;</span>
+                    <h4><span lang="zh-CN">多模态感知</span><span lang="en">Multimodal Sensing</span></h4>
+                    <p><span lang="zh-CN">视觉/红外/毫米波/声音/环境多源融合</span><span lang="en">Vision, IR, mmWave, audio, environmental fusion</span></p>
+                </div>
+                <div class="platform-item">
+                    <span class="item-icon">&#x26A1;</span>
+                    <h4><span lang="zh-CN">边缘推理</span><span lang="en">Edge Inference</span></h4>
+                    <p><span lang="zh-CN">50ms 事件触发，端侧芯片低功耗推理</span><span lang="en">50ms event triggering, low-power on-chip inference</span></p>
+                </div>
+                <div class="platform-item">
+                    <span class="item-icon">&#x1F9E0;</span>
+                    <h4><span lang="zh-CN">本地记忆</span><span lang="en">Local Memory</span></h4>
+                    <p><span lang="zh-CN">30天自适应行为建模，个体化策略演化</span><span lang="en">30-day adaptive modeling, personalized strategy evolution</span></p>
+                </div>
+                <div class="platform-item">
+                    <span class="item-icon">&#x1F517;</span>
+                    <h4><span lang="zh-CN">多端接入</span><span lang="en">Multi-Protocol</span></h4>
+                    <p><span lang="zh-CN">Zigbee/BLE/Matter/Modbus + 自研 XunProto</span><span lang="en">Zigbee/BLE/Matter/Modbus + proprietary XunProto</span></p>
+                </div>
+                <div class="platform-item">
+                    <span class="item-icon">&#x1F512;</span>
+                    <h4><span lang="zh-CN">隐私优先</span><span lang="en">Privacy First</span></h4>
+                    <p><span lang="zh-CN">数据本地化、断网可用、用户全权控制</span><span lang="en">Local data, offline capable, full user control</span></p>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:36px;">
+                <a href="html/platform.html" class="btn">
+                    <span lang="zh-CN">深入了解 AIOS 平台</span>
+                    <span lang="en">Explore AIOS Platform</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第五屏：CTA -->
+    <section class="section-block">
+        <div class="container">
+            <div class="cta-bar">
+                <h3>
+                    <span lang="zh-CN">开启您的空间智能之旅</span>
+                    <span lang="en">Start Your Spatial Intelligence Journey</span>
+                </h3>
+                <p>
+                    <span lang="zh-CN">无论您关注养老照护、智能家居还是其他空间场景，我们都可以为您提供定制化的本地 AI 解决方案。</span>
+                    <span lang="en">Whether you focus on elderly care, smart home, or other spatial scenarios, we can provide customized local AI solutions.</span>
+                </p>
+                <div class="cta-actions">
+                    <a href="html/contact.html" class="btn btn-primary">
+                        <span lang="zh-CN">预约演示</span><span lang="en">Book Demo</span>
+                    </a>
+                    <a href="html/pilot.html" class="btn">
+                        <span lang="zh-CN">申请试点</span><span lang="en">Apply for Pilot</span>
+                    </a>
+                    <a href="html/deployment.html" class="btn">
+                        <span lang="zh-CN">了解部署交付</span><span lang="en">Deployment Info</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <div class="footer-nav-group">
+                    <h4><span lang="zh-CN">场景入口</span><span lang="en">Scenarios</span></h4>
+                    <ul>
+                        <li><a href="html/scenario-elderly-care.html"><span lang="zh-CN">养老与照护</span><span lang="en">Elderly Care</span></a></li>
+                        <li><a href="html/scenario-smart-home.html"><span lang="zh-CN">智能家居</span><span lang="en">Smart Home</span></a></li>
+                        <li><a href="html/scenario-home-guardian.html"><span lang="zh-CN">居家守护</span><span lang="en">Home Guardian</span></a></li>
+                        <li><a href="html/scenario-smart-room.html"><span lang="zh-CN">智能房间</span><span lang="en">Smart Room</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-group">
+                    <h4><span lang="zh-CN">平台与产品</span><span lang="en">Platform</span></h4>
+                    <ul>
+                        <li><a href="html/products.html"><span lang="zh-CN">产品矩阵</span><span lang="en">Products</span></a></li>
+                        <li><a href="html/docs.html"><span lang="zh-CN">技术文档</span><span lang="en">Tech Docs</span></a></li>
+                        <li><a href="html/docs-ess-api.html"><span lang="zh-CN">API 文档</span><span lang="en">API Docs</span></a></li>
+                        <li><a href="html/community.html"><span lang="zh-CN">开发者中心</span><span lang="en">Developers</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-group">
+                    <h4><span lang="zh-CN">信任与合作</span><span lang="en">Trust</span></h4>
+                    <ul>
+                        <li><a href="html/privacy.html"><span lang="zh-CN">隐私与合规</span><span lang="en">Privacy</span></a></li>
+                        <li><a href="html/pilot.html"><span lang="zh-CN">试点合作</span><span lang="en">Pilot Program</span></a></li>
+                        <li><a href="html/cases.html"><span lang="zh-CN">案例中心</span><span lang="en">Cases</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="logo"><span lang="zh-CN">循星科技</span><span lang="en">SidebyStar</span></div>
+            <div class="contact-info">
+                <p><span lang="zh-CN">地址：中国浙江省杭州市萧山区杭州湾信息港E座</span><span lang="en">Address: Block E, Hangzhou Bay Information Port, Xiaoshan, Hangzhou, China</span></p>
+                <p><span lang="zh-CN">电话：+86 15568200088</span><span lang="en">Phone: +86 15568200088</span></p>
+                <p><span lang="zh-CN">邮箱：contact@sidebystar.com</span><span lang="en">Email: contact@sidebystar.com</span></p>
+            </div>
+            <p style="margin-top:20px;">
+                <span lang="zh-CN">&copy; 2025 循星科技. 保留所有权利。</span>
+                <span lang="en">&copy; 2025 SidebyStar. All rights reserved.</span>
+            </p>
+        </div>
+    </footer>
 
     <script src="js/language.js"></script>
 </body>
+</html>
