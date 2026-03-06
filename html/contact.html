@@ -64,6 +64,17 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label><span lang="zh-CN">预估部署规模</span><span lang="en">Estimated Scale</span></label>
+                    <select id="cf-scale" style="width:100%; padding:10px 14px; border-radius:6px; border:1px solid rgba(127,140,141,0.3); background:rgba(255,255,255,0.05); color:#ecf0f1; font-size:0.95rem;">
+                        <option value=""><span lang="zh-CN">-- 请选择 --</span></option>
+                        <option value="单房间验证">单房间验证</option>
+                        <option value="单楼层试点（10-30床位）">单楼层试点（10-30床位）</option>
+                        <option value="单机构部署">单机构部署</option>
+                        <option value="多机构/社区级">多机构/社区级</option>
+                        <option value="尚未确定">尚未确定</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label><span lang="zh-CN">需求描述</span><span lang="en">Requirements</span></label>
                     <textarea id="cf-message" rows="4"></textarea>
                 </div>
@@ -81,6 +92,7 @@
                 var company = document.getElementById('cf-company').value;
                 var title = document.getElementById('cf-title').value;
                 var contact = document.getElementById('cf-contact').value;
+                var scale = document.getElementById('cf-scale').value;
                 var message = document.getElementById('cf-message').value;
                 var scenarios = [];
                 document.querySelectorAll('.cf-scenario:checked').forEach(function(cb) {
@@ -92,6 +104,7 @@
                     '职务: ' + title + '\n' +
                     '联系方式: ' + contact + '\n' +
                     '感兴趣场景: ' + (scenarios.length ? scenarios.join(', ') : '未选择') + '\n' +
+                    '预估部署规模: ' + (scale || '未选择') + '\n' +
                     '需求描述: ' + message;
                 var mailto = 'mailto:contact@sidebystar.com?subject=' +
                     encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);

@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="循星科技案例中心 - 查看我们在安全监护、居家场景、房间联动等领域的典型案例与试点成果。" />
-    <meta property="og:title" content="案例中心 - 循星科技" />
+    <meta name="description" content="案例中心与试点成果 - 养老机构跌倒预警试点、居家守护Demo、智能房间样板间等真实场景验证案例，附参考部署架构与可演示功能。" />
+    <meta property="og:title" content="案例中心试点成果 - 循星科技" />
     <meta property="og:type" content="website" />
-    <title>案例中心 - 循星科技</title>
+    <title>案例中心试点成果 - 循星科技</title>
     <link rel="icon" type="image/png" href="../pics/循星科技logo.png">
     <link rel="apple-touch-icon" href="../pics/循星科技logo.png">
     <link rel="stylesheet" href="../css/consolidated-styles.css">
@@ -95,6 +95,62 @@
                     <h4><span lang="zh-CN">输出验收报告</span><span lang="en">Acceptance Report</span></h4>
                     <p><span lang="zh-CN">输出包含指标达成情况、系统表现、优化建议的完整试点报告。</span><span lang="en">Deliver comprehensive pilot report with KPI achievement, system performance, and optimization recommendations.</span></p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scenario-detail-section">
+        <div class="container">
+            <h2 class="section-title"><span lang="zh-CN">参考部署架构</span><span lang="en">Reference Deployment Architecture</span></h2>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">单房间部署</span><span lang="en">Single Room</span></h4>
+                    <p><span lang="zh-CN">1 个边缘主机 + 2-4 个感知节点 + 护理端 / 用户端 APP，适用于试点验证与小规模场景。</span><span lang="en">1 edge host + 2-4 sensing nodes + caregiver/user APP, suitable for pilot validation and small-scale scenarios.</span></p>
+                </div>
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">单楼层部署</span><span lang="en">Single Floor</span></h4>
+                    <p><span lang="zh-CN">1 个楼层网关 + 多房间感知覆盖 + 护理站大屏，适用于养老机构楼层级试点。</span><span lang="en">1 floor gateway + multi-room sensing coverage + nursing station dashboard, suitable for floor-level institutional pilots.</span></p>
+                </div>
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">机构级部署</span><span lang="en">Institution-Wide</span></h4>
+                    <p><span lang="zh-CN">多楼层联网 + 中控管理平台 + 远程运维通道，适用于整体机构或多站点部署。</span><span lang="en">Multi-floor networking + central management platform + remote O&M channel, suitable for full institution or multi-site deployment.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scenario-detail-section">
+        <div class="container">
+            <h2 class="section-title"><span lang="zh-CN">可演示场景</span><span lang="en">Demo Scenarios</span></h2>
+            <p style="text-align:center; max-width:650px; margin:-30px auto 30px; color:rgba(236,240,241,0.8); font-size:1rem;">
+                <span lang="zh-CN">以下功能已在真实或模拟环境中完成验证，可安排现场或远程演示。</span>
+                <span lang="en">The following capabilities have been validated in real or simulated environments and are available for on-site or remote demonstration.</span>
+            </p>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">跌倒检测与分级告警</span><span lang="en">Fall Detection & Graded Alert</span></h4>
+                    <p><span lang="zh-CN">多模态跌倒识别，50ms 级事件触发，自动推送至护理端并记录事件链。</span><span lang="en">Multimodal fall recognition, 50ms event trigger, auto-push to caregiver with full event chain logging.</span></p>
+                </div>
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">离床预警与超时联动</span><span lang="en">Bed-Leaving Alert & Timeout</span></h4>
+                    <p><span lang="zh-CN">离床事件触发后自动计时，超时未归床逐级升级告警，支持自定义阈值。</span><span lang="en">Auto-timer on bed-leaving, escalating alerts on timeout, with customizable thresholds.</span></p>
+                </div>
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">环境感知与设备联动</span><span lang="en">Environment Sensing & Control</span></h4>
+                    <p><span lang="zh-CN">温湿度 / 光照 / 气体多参数监测，自动触发空调、灯光、窗帘等设备联动。</span><span lang="en">Multi-parameter monitoring (temp, humidity, light, gas) with auto-triggered device orchestration.</span></p>
+                </div>
+                <div class="detail-item">
+                    <h4><span lang="zh-CN">自适应行为学习</span><span lang="en">Adaptive Behavior Learning</span></h4>
+                    <p><span lang="zh-CN">系统运行 30 天后自动形成个性化行为基线，持续优化误报率与策略精度。</span><span lang="en">System auto-generates personalized behavior baseline after 30 days, continuously optimizing false alarm rates.</span></p>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:36px;">
+                <a href="contact.html" class="btn btn-primary">
+                    <span lang="zh-CN">预约演示</span><span lang="en">Book a Demo</span>
+                </a>
+                <a href="pilot.html" class="btn">
+                    <span lang="zh-CN">申请试点</span><span lang="en">Apply for Pilot</span>
+                </a>
             </div>
         </div>
     </section>
