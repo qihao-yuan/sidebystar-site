@@ -223,6 +223,23 @@ function renderFooterNav() {
     container.insertAdjacentHTML('afterbegin', html);
 }
 
+var ICP_BEIAN_HREF = 'https://beian.miit.gov.cn/';
+var ICP_BEIAN_TEXT = '浙ICP备2026020439号-1';
+
+function injectIcpBeian() {
+    var footer = document.querySelector('footer');
+    if (!footer) return;
+    if (footer.querySelector('.icp-beian')) return;
+
+    var target = footer.querySelector('.container') || footer;
+
+    var p = document.createElement('p');
+    p.className = 'icp-beian';
+    p.innerHTML = '<a href="' + ICP_BEIAN_HREF + '" target="_blank" rel="noopener noreferrer">' +
+        ICP_BEIAN_TEXT + '</a>';
+    target.appendChild(p);
+}
+
 function initNavigation() {
     if (isHomePage()) return;
 
@@ -253,7 +270,10 @@ function getNavigationConfig() {
     return NAV_CONFIG;
 }
 
-document.addEventListener('DOMContentLoaded', initNavigation);
+document.addEventListener('DOMContentLoaded', function() {
+    injectIcpBeian();
+    initNavigation();
+});
 
 window.Navigation = {
     init: initNavigation,

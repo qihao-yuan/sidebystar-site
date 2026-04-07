@@ -375,6 +375,22 @@ footer {
     color: rgba(255, 255, 255, 0.8);
 }
 
+footer .icp-beian {
+    margin-top: 12px;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+}
+
+footer .icp-beian a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+}
+
+footer .icp-beian a:hover {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+
 /* 动画类 */
 .animate-on-scroll {
     opacity: 0;
