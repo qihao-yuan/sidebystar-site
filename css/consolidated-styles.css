@@ -397,6 +397,21 @@ footer .icp-beian .beian-sep {
     user-select: none;
 }
 
+footer .icp-beian .police-beian-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    vertical-align: baseline;
+}
+
+footer .icp-beian .police-beian-icon {
+    display: block;
+    width: 16px;
+    height: 17px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
 /* 动画类 */
 .animate-on-scroll {
     opacity: 0;

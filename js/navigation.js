@@ -228,12 +228,21 @@ var ICP_BEIAN_TEXT = '浙ICP备2026020439号';
 var POLICE_BEIAN_HREF = 'https://beian.mps.gov.cn/#/query/webSearch?code=33010902004609';
 var POLICE_BEIAN_TEXT = '浙公网安备33010902004609号';
 
+function beianPoliceIconSrc() {
+    var path = window.location.pathname.toLowerCase();
+    if (path.indexOf('/html/') !== -1) {
+        return '../pics/备案图标.png';
+    }
+    return 'pics/备案图标.png';
+}
+
 function beianLinksHtml() {
     var sep = ' <span class="beian-sep" aria-hidden="true">|</span> ';
+    var icon = '<img src="' + beianPoliceIconSrc() + '" alt="" width="16" height="17" class="police-beian-icon" />';
+    var police = '<a href="' + POLICE_BEIAN_HREF + '" target="_blank" rel="noreferrer" class="police-beian-link">' +
+        icon + '<span class="police-beian-text">' + POLICE_BEIAN_TEXT + '</span></a>';
     return '<a href="' + ICP_BEIAN_HREF + '" target="_blank" rel="noopener noreferrer">' +
-        ICP_BEIAN_TEXT + '</a>' + sep +
-        '<a href="' + POLICE_BEIAN_HREF + '" target="_blank" rel="noreferrer">' +
-        POLICE_BEIAN_TEXT + '</a>';
+        ICP_BEIAN_TEXT + '</a>' + sep + police;
 }
 
 function injectIcpBeian() {
