@@ -391,6 +391,12 @@ footer .icp-beian a:hover {
     text-decoration: underline;
 }
 
+footer .icp-beian .beian-sep {
+    margin: 0 0.5em;
+    opacity: 0.45;
+    user-select: none;
+}
+
 /* 动画类 */
 .animate-on-scroll {
     opacity: 0;
