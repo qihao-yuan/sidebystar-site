@@ -76,7 +76,7 @@ export default async function PluginStory({
                     <Users size={12} />
                     {p.kind === 'official' ? t('byOfficial') : t('byPartner')} · {isZh ? p.vendorZh : p.vendorEn}
                   </span>
-                  <span className={`rounded-full border px-2 py-0.5 uppercase tracking-wide ${stageColor}`}>
+                  <span className={`whitespace-nowrap rounded-full border px-2 py-0.5 uppercase tracking-wide ${stageColor}`}>
                     {isZh ? stageLabel.zh : stageLabel.en}
                   </span>
                 </div>

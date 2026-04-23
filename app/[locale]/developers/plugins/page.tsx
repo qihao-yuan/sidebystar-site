@@ -173,8 +173,8 @@ export default async function DevelopersPluginsPage({
                         <span className="text-caption text-ink-500">—</span>
                       )}
                     </td>
-                    <td className="px-6 py-4 align-top">
-                      <span className={`rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide ${stageColor[p.stage]}`}>
+                    <td className="px-6 py-4 align-top whitespace-nowrap">
+                      <span className={`inline-block whitespace-nowrap rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide ${stageColor[p.stage]}`}>
                         {stageLabel(p.stage)}
                       </span>
                     </td>

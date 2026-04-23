@@ -137,7 +137,7 @@ export default async function PluginsStorePage({
                           <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
                             <p.icon size={20} className="text-brand-halo" />
                           </div>
-                          <span className={`rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide ${stageColor}`}>
+                          <span className={`whitespace-nowrap rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide ${stageColor}`}>
                             {isZh ? stageLabel.zh : stageLabel.en}
                           </span>
                         </div>
