@@ -46,6 +46,23 @@ function getTransport() {
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
 
+  // Debug-only (safe): log presence + visible length so we can tell if dotenv
+  // is reading a BOM-prefixed username or a password with trailing whitespace,
+  // without ever leaking the secret itself.
+  if (process.env.SMTP_DEBUG === '1') {
+    const safe = (s?: string) =>
+      s === undefined
+        ? 'undefined'
+        : `len=${s.length} head=${JSON.stringify(s.slice(0, 3))} tail=${JSON.stringify(s.slice(-2))}`;
+    console.log('[contact] smtp env check', {
+      host,
+      port,
+      secure,
+      user: safe(user),
+      pass: safe(pass),
+    });
+  }
+
   if (!host || !user || !pass) return null;
 
   return nodemailer.createTransport({
