@@ -151,6 +151,23 @@
       "secondary": "Apply for Pilot"
     }
   },
+  "system": {
+    "hero": {
+      "eyebrow": "AIOS Family",
+      "title": "A space is held up by many roles, together.",
+      "subtitle": "AIOS is not a single box. It is a system that divides labor -- a mind at the center, eyes and ears across the room, a few quiet ways to talk back, a polyglot layer of protocols, and finally the hands that carry out the action."
+    },
+    "closing": {
+      "eyebrow": "The Whole Picture",
+      "title": "Why five roles, not one product.",
+      "body": "A truly intelligent space should not be carried by one device alone. It needs a mind that thinks, senses that read the whole room, a few considered ways to talk back, a network that embraces what is already installed, and hands that can actually act. Only when each plays its part does a space that understands you become solid.",
+      "bullet1": "The mind thinks on-site. No cloud, no far-away.",
+      "bullet2": "Sensing never stares at you. It reads the whole room.",
+      "bullet3": "Traces the system leaves can be checked by family and managers alike.",
+      "ctaProducts": "See the three products",
+      "ctaSolutions": "See scenario bundles"
+    }
+  },
   "solutions": {
     "title": "Solutions",
     "subtitle": "One kernel, many scales. From a single bed to a city block -- already deployed in real spaces.",
