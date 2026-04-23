@@ -14,29 +14,45 @@ export function ArchTraversal() {
       icon: Eye,
       eyebrow: 'Stage 01',
       title: isZh ? '感知 Sensing' : 'Sensing',
-      body: '视觉 + 毫米波 + 红外 + 声音 + 环境五源融合。50ms 事件触发, FactBase 白名单路由决定让哪个能力处理哪一类事件。',
-      bullets: ['Matter 1.3 / HA / MQTT 接入', '本地流式处理 ROI', '感知级隐私蒙板'],
+      body: isZh
+        ? '五种感官同时在线 —— 眼睛、耳朵、温度、光线、距离。像人一样整体感知空间, 而不是靠一只摄像头。隐私敏感的部位, 在进入系统之前就被遮住。'
+        : 'Five senses, in parallel -- eyes, ears, temperature, light, distance. It takes in the whole room, not a single camera feed. Private parts get masked before anything else sees them.',
+      bullets: isZh
+        ? ['兼容主流生态, 不强迫换品牌', '所有感知都在本地完成', '关键部位自动打马赛克']
+        : ['Works with mainstream ecosystems, no forced rip-and-replace', 'All sensing stays on-device', 'Sensitive areas auto-masked'],
     },
     {
       icon: Brain,
       eyebrow: 'Stage 02',
       title: isZh ? '记忆 Memory' : 'Memory',
-      body: 'L0 静态设备 / L1 动态状态 / L2 习惯行为 / L3 语义意图,四层并行工作。因果图谱让推理可以 why 到根因。',
-      bullets: ['FactBase 统一事实源', '四层分层记忆', 'Causal Memory Graph'],
+      body: isZh
+        ? '从当下的感受到长期的习惯, 系统一层一层真正记住你 —— 谁在哪个房间、这周谁作息变了、最近一个月你更爱哪种光。'
+        : 'From the moment to the long-term, it builds up real memory -- who is in which room, whose rhythm shifted this week, which lighting you have favored lately.',
+      bullets: isZh
+        ? ['从当下到长期, 分层记住', '不只记"发生了什么", 还记"为什么"', '所有记忆只属于你家']
+        : ['Layered memory, from now to habits', 'Not only what happened, but why', 'Memory never leaves your home'],
     },
     {
       icon: Sparkles,
       eyebrow: 'Stage 03',
       title: isZh ? '推理 Reasoning' : 'Reasoning',
-      body: '端侧 LLM + 组合技能审批链。每一次调用走 draft -> approve -> shadow -> live,所有中间态写入 hash-chain。',
-      bullets: ['组合技能审批链', '影子执行 + 灰度', 'AuditLedger 不可篡改'],
+      body: isZh
+        ? '一个本地运行的大脑, 在你家里思考。每一次它想做点什么, 都先预演再执行, 留下可查的痕迹, 家属与管理员随时能回放。'
+        : 'A local brain, thinking inside your home. Every action gets rehearsed before it runs, and leaves behind a trace anyone with permission can replay.',
+      bullets: isZh
+        ? ['风险动作先审批再执行', '先"演一遍"再真做', '留下的痕迹无法被悄悄改写']
+        : ['High-risk actions need approval', 'Shadow runs before live', 'Traces cannot be quietly rewritten'],
     },
     {
       icon: Share2,
       eyebrow: 'Stage 04',
       title: isZh ? '联邦 Federation' : 'Federation',
-      body: '画像以 bundle 为单位签名交换。机构间可订阅跌倒模型, 也可导出本地模型供合作方使用。',
-      bullets: ['画像 bundle 签名交换', '多站点 RBAC', '零知识审计规划'],
+      body: isZh
+        ? '一家机构积累下来的经验, 可以分享给另一家, 却不泄露具体的个人信息。每一个家、每一座社区, 共同生长。'
+        : 'Experience learned at one site can be shared with another -- without sharing the people behind it. Every home and every community grow together.',
+      bullets: isZh
+        ? ['经验可共享, 隐私不共享', '多个站点可以统一管理', '家属也能看到自己该看的']
+        : ['Share experience, not identities', 'Unified management across sites', 'Families see what they are meant to see'],
     },
   ];
 

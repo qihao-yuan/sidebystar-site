@@ -37,8 +37,8 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
     {
       title: isZh ? '审计与可追溯' : 'Audit & Traceability',
       body: isZh
-        ? '所有涉及数据访问的决策都通过 AuditLedger hash-chain 记录, 用户与机构可随时请求导出并核验。'
-        : 'Every decision involving data access is logged in the AuditLedger hash-chain. Users and institutions can request and verify an export at any time.',
+        ? '所有涉及数据访问的决策, 都会留下一条不可悄悄改写的记录。用户与机构都可以随时请求导出并核验。'
+        : 'Every decision involving data access leaves a trace that cannot be quietly rewritten. Users and institutions can request and verify an export at any time.',
     },
   ];
 
