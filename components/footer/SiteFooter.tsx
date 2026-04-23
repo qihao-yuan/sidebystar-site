@@ -2,12 +2,10 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Wordmark } from '@/components/brand/Wordmark';
 import { LangSwitch } from '@/components/nav/LangSwitch';
-import { ShieldCheck, Lock, GitBranch, Globe } from 'lucide-react';
 
 export function SiteFooter() {
   const t = useTranslations('footer');
   const n = useTranslations('nav');
-  const h = useTranslations('home.trust');
   const sol = useTranslations('solutions.items');
   const pilotT = useTranslations('pilot');
   const privacyT = useTranslations('privacy');
@@ -15,17 +13,6 @@ export function SiteFooter() {
   return (
     <footer className="relative z-10 border-t border-white/5 bg-surface-void">
       <div className="container-page py-16">
-        <div className="mb-12 flex flex-wrap items-center justify-center gap-5 text-caption text-ink-300 md:gap-8">
-          <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-brand-halo" />{h('badge1')}</span>
-          <span className="flex items-center gap-2"><Lock size={14} className="text-brand-halo" />{h('badge2')}</span>
-          <span className="flex items-center gap-2"><Globe size={14} className="text-brand-halo" />{h('badge3')}</span>
-          <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-brand-halo" />{h('badge4')}</span>
-          <span className="flex items-center gap-2"><GitBranch size={14} className="text-brand-halo" />{h('badge5')}</span>
-          <span className="flex items-center gap-2"><Lock size={14} className="text-brand-halo" />{h('badge6')}</span>
-        </div>
-
-        <div className="divider-soft mb-12" />
-
         <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2 md:col-span-2">
             <Link href="/"><Wordmark size="lg" /></Link>
