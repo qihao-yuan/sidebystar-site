@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #05060A;
+  color: #E5E9F2;
+  font-feature-settings: 'ss01', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: rgba(75, 107, 251, 0.35);
+  color: #fff;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1280px] px-5 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply text-overline uppercase text-brand-stardust/70;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-pill border border-white/10 bg-white/[0.03] px-3 py-1 text-caption text-ink-200 backdrop-blur-sm;
+  }
+
+  .card-vision {
+    @apply relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.02] p-7 backdrop-blur-sm transition-all duration-500 ease-apple-out;
+  }
+  .card-vision:hover {
+    @apply border-white/20 bg-white/[0.04];
+    box-shadow: 0 0 40px rgba(125, 211, 252, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill bg-white px-6 py-3 text-sm font-medium text-surface-void transition-all duration-300 ease-apple-out hover:scale-[1.02] hover:shadow-glow-edge active:scale-[0.99];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-medium text-ink-100 backdrop-blur-sm transition-all duration-300 ease-apple-out hover:border-white/30 hover:bg-white/[0.08];
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-brand-halo transition-colors hover:text-white;
+  }
+
+  .divider-soft {
+    background: linear-gradient(90deg, transparent, rgba(177, 156, 244, 0.25), transparent);
+    height: 1px;
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.4'/></svg>");
+    background-size: 220px 220px;
+    opacity: 0.02;
+  }
+
+  .grid-faint {
+    background-image: linear-gradient(to right, rgba(177, 156, 244, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(177, 156, 244, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hero-mesh {
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 0%, rgba(75, 107, 251, 0.35), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 80% 30%, rgba(177, 156, 244, 0.22), transparent 60%),
+      radial-gradient(ellipse 80% 70% at 20% 85%, rgba(125, 211, 252, 0.18), transparent 70%),
+      linear-gradient(180deg, #05060A 0%, #0B0F1E 100%);
+  }
+
+  .aurora-border {
+    position: relative;
+  }
+  .aurora-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(75, 107, 251, 0.6), rgba(177, 156, 244, 0.3), rgba(125, 211, 252, 0.5));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .reveal-init {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+  }
+  .reveal-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .char-mask {
+    display: inline-block;
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

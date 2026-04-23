@@ -1,0 +1,352 @@
+{
+  "brand": {
+    "name": "循星科技",
+    "nameLatin": "SidebyStar",
+    "tagline": "留在本地的空间智能"
+  },
+  "nav": {
+    "solutions": "场景方案",
+    "intelligence": "智能内核",
+    "products": "产品矩阵",
+    "platform": "平台能力",
+    "trust": "信任合规",
+    "research": "前瞻研究",
+    "developers": "开发者",
+    "cases": "案例",
+    "company": "关于",
+    "contact": "联系销售",
+    "demoRequest": "预约演示",
+    "locale": "中文"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "AIOS · 环境智能操作系统",
+      "title": "让空间,先于语言理解你。",
+      "subtitle": "一套只运行在端侧的智能内核。让你身边的每一个地方,都真正懂你。",
+      "ctaPrimary": "预约演示",
+      "ctaSecondary": "看看它的智能",
+      "scrollHint": "继续向下"
+    },
+    "era": {
+      "eyebrow": "The Shift",
+      "title": "计算,正在回到你身边。",
+      "subtitle": "过去十年,我们把一切交给了云。下一个十年,最贴身的那一部分,会回到你脚下。",
+      "col1From": "云端中心",
+      "col1To": "端侧优先",
+      "col1Body": "推理回到你能看见、能拔下电源的地方。",
+      "col2From": "被动响应",
+      "col2To": "主动前瞻",
+      "col2Body": "在你开口之前,它就已经在看、在听、在准备。",
+      "col3From": "通用模型",
+      "col3To": "属于你的模型",
+      "col3Body": "一套只为你、你的家、你所在的空间而生长的智能。"
+    },
+    "spectrum": {
+      "eyebrow": "Everywhere You Are",
+      "title": "从一盏床头灯,到一座城市。",
+      "subtitle": "同一个内核,不同的尺度。无论你在哪里,智能都以你为中心。",
+      "bedsideTitle": "床畔",
+      "bedsideBody": "第一束光,懂你的夜晚。",
+      "deskTitle": "书桌",
+      "deskBody": "在思绪之前,把环境准备好。",
+      "homeTitle": "家",
+      "homeBody": "一栋不用教,就懂家人的房子。",
+      "communityTitle": "社区",
+      "communityBody": "一栋楼、一条街,彼此照应,而不彼此窥视。",
+      "cta": "查看所有落地场景"
+    },
+    "intelligence": {
+      "eyebrow": "What Makes It Intelligent",
+      "title": "不是反应,是理解。",
+      "subtitle": "真正的智能,不在于它能回答你什么,而在于它早已懂你。",
+      "card1Title": "感知",
+      "card1Body": "它看见你走进房间,在你开口之前。",
+      "card2Title": "记忆",
+      "card2Body": "它记得昨夜你关灯的方式。",
+      "card3Title": "因果",
+      "card3Body": "它知道为什么,不只是知道发生了什么。",
+      "card4Title": "协同",
+      "card4Body": "一个意图,全屋响应。",
+      "cta": "深入了解属于你的智能"
+    },
+    "vision": {
+      "eyebrow": "The Next Platform",
+      "title": "下一代计算平台,不在口袋里,在房间里。",
+      "body": "手机是个人 AI。空间是我们要做的新平台。从感知起笔,在端侧完结,让每一个房间都拥有属于自己的本地智能内核。"
+    },
+    "platform": {
+      "eyebrow": "AIOS Platform",
+      "title": "七年工程,一套底座。",
+      "subtitle": "每一次心跳,都在本地完成。",
+      "sensingTitle": "多模态感知",
+      "sensingBody": "视觉 · 红外 · 毫米波 · 声音 · 环境,五源融合",
+      "edgeTitle": "端侧推理",
+      "edgeBody": "事件触发到响应 50ms,低功耗芯片实时完成",
+      "memoryTitle": "四层记忆",
+      "memoryBody": "L0 静态 · L1 动态 · L2 习惯 · L3 语义",
+      "protocolsTitle": "协议矩阵",
+      "protocolsBody": "Matter 1.3 · Home Assistant · MCP · MQTT · XunProto",
+      "privacyTitle": "本地优先",
+      "privacyBody": "四层网络锁 · 断网零例外 · 数据默认不出家门",
+      "exploreCta": "深入 Platform"
+    },
+    "trust": {
+      "eyebrow": "Trust, Verified",
+      "title": "每一条决策,都写进 hash-chain。",
+      "body": "append-only 审计链不可篡改,等保 2.0 / HIPAA / GDPR 控制点全量映射,RBAC 四角色 × 多站点分级授权,监管与家属随时可查。",
+      "badge1": "等保 2.0 · 三级",
+      "badge2": "ICP 浙备",
+      "badge3": "Matter 1.3",
+      "badge4": "ISO 27001 · 规划中",
+      "badge5": "核心开源 · Apache 2.0",
+      "badge6": "公网安备"
+    },
+    "cta": {
+      "eyebrow": "Start Building",
+      "title": "把会思考的空间,带进下一个十年。",
+      "primary": "预约演示",
+      "secondary": "申请试点",
+      "tertiary": "下载 2026 年度白皮书"
+    }
+  },
+  "intelligence": {
+    "hero": {
+      "eyebrow": "Intelligence",
+      "title": "属于你,只属于你。",
+      "subtitle": "你的习惯、你的节奏、你的家 —— 被理解,不被共享。",
+      "imageLabel": "INTELLIGENCE/HERO · 16:9 · 2560x1440"
+    },
+    "capabilities": {
+      "memory": {
+        "title": "专属记忆",
+        "body": "你的偏好、习惯与节律,全部在本地建模。这套记忆只属于你一个人,不会被合并、不会被上传、不会被训练。"
+      },
+      "personalization": {
+        "title": "个性化设定",
+        "body": "每位家庭成员一套独立画像。爸妈的作息、孩子的课表、你的通勤节奏 —— 互不干扰,也互不打扰。"
+      },
+      "learning": {
+        "title": "习惯学习",
+        "body": "30 天自适应建模。从第一盏灯、第一杯水开始,越用越懂你。无需设置,不用训练。"
+      },
+      "orchestra": {
+        "title": "跨设备协同",
+        "body": "不分品牌、不分协议。一句话、一个动作、一个意图,全屋统一响应,像一套乐器而不是一堆开关。"
+      },
+      "anticipatory": {
+        "title": "主动前瞻",
+        "body": "告警走在事故之前,关心走在呼唤之前。跌倒可以被提前识别,需求可以被提前响应。"
+      },
+      "privacy": {
+        "title": "隐私守护",
+        "body": "四层网络锁 + 默认零外发白名单。面部、体征、房间画面,原始数据一刻也不离开你的家。"
+      },
+      "offline": {
+        "title": "离线可用",
+        "body": "网络断了,灯依然能开,门依然能锁,急救依然能呼。关键能力永远在本地完成。"
+      },
+      "household": {
+        "title": "家庭画像",
+        "body": "一家人一套记忆。可以共享给家人,可以对客人隐藏,可以在长辈离开后继续守护下一代。"
+      }
+    },
+    "cta": {
+      "eyebrow": "开始合作",
+      "title": "让这份智能,走进你的空间。",
+      "primary": "预约演示",
+      "secondary": "申请试点"
+    }
+  },
+  "solutions": {
+    "title": "场景方案",
+    "subtitle": "同一个内核,多种尺度。从一张床到一整座城市,我们已经在真实空间里落地。",
+    "comingSoon": "规划中 · 2026 Q2+",
+    "groups": {
+      "health": {
+        "title": "健康医养",
+        "body": "最重的守护,最轻的存在。"
+      },
+      "home": {
+        "title": "家居生活",
+        "body": "让房子懂家人,让家人少操心。"
+      },
+      "commercial": {
+        "title": "商业空间",
+        "body": "酒店、办公、零售 —— 让空间学会接待。"
+      },
+      "public": {
+        "title": "教育与公共",
+        "body": "校园、文化场馆 —— 大尺度下的体贴。"
+      }
+    },
+    "items": {
+      "elderlyCare": { "title": "居家养老", "brief": "跌倒、久卧、离床、夜间巡检" },
+      "communityCare": { "title": "社区照护", "brief": "机构集中管理,家属远程可视" },
+      "clinicalAssist": { "title": "专科医疗辅助", "brief": "术后康复、用药节拍、异常上报" },
+      "smartHome": { "title": "智能家居", "brief": "跨品牌设备编排,自适应建模" },
+      "smartRoom": { "title": "智能房间", "brief": "酒店、康养单间智能升级" },
+      "hospitality": { "title": "酒店智能", "brief": "客房从按钮化,升级为懂客人" },
+      "workspace": { "title": "办公智能", "brief": "让会议室知道下一步该做什么" },
+      "retail": { "title": "零售空间", "brief": "货架学会看,空间学会读客流" },
+      "campus": { "title": "智慧校园", "brief": "教室、宿舍与公共空间的环境智能" },
+      "cultural": { "title": "文化场馆", "brief": "让展陈懂观众,让动线读人潮" }
+    }
+  },
+  "products": {
+    "title": "产品矩阵",
+    "subtitle": "三个 SKU,覆盖家庭到机构,硬件加订阅加画像内容。",
+    "homeBox": {
+      "name": "Home Box",
+      "tag": "C 端盒子",
+      "price": "1,999 元首购 + 199 元 / 年",
+      "desc": "面向家庭的端侧 AI 盒子,RK3588 + 16G RAM + 256G eMMC",
+      "bullet1": "开箱即用,2 小时接入全家设备",
+      "bullet2": "Zigbee / BLE / Matter 三协议并发",
+      "bullet3": "本地 LLM,断网可用"
+    },
+    "communityKit": {
+      "name": "Community Kit",
+      "tag": "社区网关",
+      "price": "30k 起步 + 50 元 / 户 / 月",
+      "desc": "为 20 至 200 户社区 / 长者公寓的预装网关,x86 J4125 + 32G + 1T",
+      "bullet1": "多站点 RBAC,家属远程可视",
+      "bullet2": "机构级管理后台 + 画像库",
+      "bullet3": "等保 2.0 合规支撑"
+    },
+    "enterpriseStack": {
+      "name": "Enterprise Stack",
+      "tag": "私有化部署",
+      "price": "200k 起步 + 80k / 年订阅",
+      "desc": "为三甲医院、专科医院、大型养老机构的私有化部署,Jetson Orin + 定制集成",
+      "bullet1": "7x24 SLA + 定制画像",
+      "bullet2": "HIPAA-like 审计导出",
+      "bullet3": "对接 HIS / CIS / 第三方系统"
+    }
+  },
+  "trust": {
+    "title": "信任与合规",
+    "subtitle": "本地优先不是一句口号,而是从网络、审计、权限到合规报表,每一层都拿得出证据。",
+    "localFirst": {
+      "title": "四层网络保护",
+      "body": "从应用到系统,共四道关卡,默认只允许通过白名单通信,断网也不影响关键功能。"
+    },
+    "auditChain": {
+      "title": "不可篡改的审计链",
+      "body": "AI 的每一次判断、每一次执行、每一次规则变更,都被完整记录、无法修改,可直接导出给监管与家属。"
+    },
+    "rbac": {
+      "title": "分层权限",
+      "body": "管理员、操作员、观察员、用户四类角色,配合多站点与楼层隔离,每个人只看自己该看的部分。"
+    },
+    "compliance": {
+      "title": "合规映射",
+      "body": "完整对照等保 2.0 三级、医疗合规、隐私保护要求,审计日志可一键导出为 JSONL / CSV / PDF。"
+    }
+  },
+  "research": {
+    "manifesto": {
+      "eyebrow": "我们的信念",
+      "title": "让推理,回到你身边。",
+      "p1": "过去十年,我们习惯了把一切交给云。它放大了信息,也带走了一部分我们原本该掌握的东西 —— 时延、隐私,以及对系统的理解。",
+      "p2": "我们相信,最贴身的那一部分智能,应该留在你能看见、能拔掉电源的地方。它不一定最快,但一定更安心。",
+      "p3": "循星做的,不只是一个产品。我们希望搭起一个底座,让未来的空间智能,有机会在每一个家庭、每一间诊室、每一栋社区楼里自然生长。",
+      "predictions": "三件我们相信会发生的事",
+      "pred1": "每个家庭都会有属于自己的本地智能中枢,就像今天家家都有一台路由器。",
+      "pred2": "可追溯、可审计,会像今天的 HTTPS 一样,变成 AI 产品的基本要求。",
+      "pred3": "设备之间越来越多的协作会在本地完成,而不再绕一圈回到云端。"
+    },
+    "frontiers": {
+      "title": "我们正在研究的方向",
+      "subtitle": "已经落地的、在实验室里的,以及希望在 2030 年前推动成标准的。",
+      "jepa": {
+        "title": "能预测的视觉模型",
+        "body": "让系统不止认出现在发生了什么,还能提前感知接下来可能发生的事,让告警走在意外前面。"
+      },
+      "causal": {
+        "title": "会讲因果的记忆",
+        "body": "不只记录事件,还理解为什么发生、如何避免,让系统真的能在服务中成长。"
+      },
+      "endSideLlm": {
+        "title": "更小更强的端侧大模型",
+        "body": "在本地芯片上运行的轻量大模型,让每个家庭都有属于自己的'家庭脑'。"
+      },
+      "zkAudit": {
+        "title": "零知识审计",
+        "body": "让用户可以向监管证明'我合规',而不需要交出任何一条原始数据。"
+      },
+      "fedBundle": {
+        "title": "经验可共享的网络",
+        "body": "把一家机构沉淀下来的经验,以签名的形式共享给另一家,而不共享具体的个人信息。"
+      }
+    },
+    "roadmap": {
+      "title": "2026 — 2030 路线",
+      "subtitle": "每一步都配有可以核验的里程碑。",
+      "y2026": "稳固本地事实库与完整审计链",
+      "y2027": "端侧视觉世界模型 + 跨机构经验共享",
+      "y2028": "家庭脑标准接口开放,吸引更多开发者加入",
+      "y2029": "跨品牌设备的新一代协同协议落地",
+      "y2030": "推动本地 AI 与零知识审计进入行业标准"
+    }
+  },
+  "developers": {
+    "title": "开发者与集成",
+    "subtitle": "稳定的 API、可插拔的扩展机制、开源内核,面向开发者与系统集成伙伴。",
+    "docs": "技术文档",
+    "api": "API 接口",
+    "plugins": "插件清单",
+    "github": "GitHub"
+  },
+  "cases": {
+    "title": "案例中心",
+    "subtitle": "已在真实场景部署的验证,每一组数据都带有试点时间、规模与口径。"
+  },
+  "pilot": {
+    "title": "申请试点",
+    "subtitle": "2 至 4 周单房间 / 单楼层试点,验证后再扩展。",
+    "cta": "提交试点申请"
+  },
+  "contact": {
+    "title": "联系销售",
+    "subtitle": "说明场景与规模,我们在 1 个工作日内回复。",
+    "name": "您的称呼",
+    "org": "机构 / 公司",
+    "email": "邮箱",
+    "phone": "电话",
+    "scenario": "场景",
+    "message": "需求说明",
+    "submit": "提交",
+    "ok": "已收到。我们会在 1 个工作日内联系您。"
+  },
+  "company": {
+    "about": {
+      "title": "关于循星",
+      "subtitle": "一支相信空间智能会改变世界的团队,在杭州萧山。"
+    },
+    "team": { "title": "团队成员", "subtitle": "工程、研究、交付、运营。" },
+    "partners": { "title": "合作伙伴", "subtitle": "机构、厂商、研究机构。" }
+  },
+  "privacy": {
+    "title": "隐私与合规",
+    "subtitle": "我们相信数据是用户的,不是我们的。"
+  },
+  "labs": {
+    "title": "实验室 / Labs",
+    "subtitle": "早期探索内容归档。与主商业线无关。"
+  },
+  "footer": {
+    "scenarios": "场景入口",
+    "platformCol": "平台与产品",
+    "trustCol": "信任与合作",
+    "companyCol": "关于公司",
+    "address": "地址:中国浙江省杭州市萧山区杭州湾信息港 E 座",
+    "phone": "电话:+86 15568200088",
+    "email": "邮箱:contact@sidebystar.com",
+    "copyright": "2026 循星科技. 保留所有权利。",
+    "icp": "浙 ICP 备 2026020439 号",
+    "police": "浙公网安备 33010902004609 号",
+    "subscribeHint": "每月一封信,聊聊我们在做什么",
+    "subscribePlaceholder": "请输入邮箱",
+    "subscribeBtn": "订阅"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "members": [
+    {
+      "slug": "founder",
+      "name": { "zh": "创始人 & CEO", "en": "Founder & CEO" },
+      "role": { "zh": "战略 / 产品 / 交付", "en": "Strategy / Product / Delivery" },
+      "bio": {
+        "zh": "连续创业者, 前某智能家居厂商技术负责人。相信空间智能会改变养老、医疗、居住的底层范式。",
+        "en": "Serial founder, former head of engineering at a smart-home vendor. Believes spatial intelligence will change the base paradigm of care, medicine and living."
+      }
+    },
+    {
+      "slug": "cto",
+      "name": { "zh": "CTO", "en": "CTO" },
+      "role": { "zh": "AIOS 架构 / 端侧推理 / 联邦", "en": "AIOS Architecture / Edge Inference / Federation" },
+      "bio": {
+        "zh": "前 AI 基础设施团队核心成员, 主导 FactBase / AuditLedger / 四层记忆的设计与实现。",
+        "en": "Core member of AI infra team, led the design and implementation of FactBase, AuditLedger and the four-layer memory stack."
+      }
+    },
+    {
+      "slug": "head-of-research",
+      "name": { "zh": "研究负责人", "en": "Head of Research" },
+      "role": { "zh": "因果记忆 / JEPA / 端侧 LLM 蒸馏", "en": "Causal Memory / JEPA / Edge LLM Distillation" },
+      "bio": {
+        "zh": "多模态感知与因果推理方向博士, 主导前瞻研究路线, 推动论文与学术合作。",
+        "en": "PhD in multimodal sensing and causal reasoning. Leads the frontier research roadmap and academic collaborations."
+      }
+    },
+    {
+      "slug": "head-of-delivery",
+      "name": { "zh": "交付负责人", "en": "Head of Delivery" },
+      "role": { "zh": "B+G 机构交付 / 试点 / 运维", "en": "B+G delivery / Pilots / Operations" },
+      "bio": {
+        "zh": "10 年医疗 / 养老系统交付经验, 带队完成多地机构级试点与等保合规支撑。",
+        "en": "10 years of healthcare and eldercare delivery. Led multi-region facility pilots and MLPS compliance engagements."
+      }
+    },
+    {
+      "slug": "head-of-design",
+      "name": { "zh": "设计负责人", "en": "Head of Design" },
+      "role": { "zh": "品牌 / UI / 空间交互", "en": "Brand / UI / Spatial Interaction" },
+      "bio": {
+        "zh": "前高端消费品牌设计师, 负责循星的空间智能视觉语言与交互范式。",
+        "en": "Former senior designer at premium consumer brands. Owns the spatial-intelligence visual and interaction language."
+      }
+    },
+    {
+      "slug": "head-of-partnerships",
+      "name": { "zh": "生态负责人", "en": "Head of Partnerships" },
+      "role": { "zh": "行业合作 / 设备厂商 / 学术", "en": "Industry / Device Vendors / Academia" },
+      "bio": {
+        "zh": "对接养老、医疗、设备厂商与高校的战略合作, 推动联邦画像市场的机构间协议。",
+        "en": "Runs strategic partnerships with care facilities, hospitals, device vendors and universities. Drives inter-institution federation protocols."
+      }
+    }
+  ],
+  "partners": [
+    { "name": "Hailo", "desc": { "zh": "端侧 AI 加速", "en": "Edge AI acceleration" } },
+    { "name": "NVIDIA Jetson", "desc": { "zh": "企业级推理平台", "en": "Enterprise inference platform" } },
+    { "name": "Matter Alliance", "desc": { "zh": "跨品牌设备协议", "en": "Cross-brand device protocol" } },
+    { "name": "Home Assistant", "desc": { "zh": "开源智能家居生态", "en": "Open-source smart-home ecosystem" } },
+    { "name": "Zhejiang University", "desc": { "zh": "学术研究合作", "en": "Academic research collab" } },
+    { "name": "Local Civil Affairs", "desc": { "zh": "养老试点政府合作方", "en": "Elderly-care pilot government partner" } }
+  ]
+}
