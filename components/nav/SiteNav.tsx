@@ -27,15 +27,14 @@ export function SiteNav() {
   }, []);
 
   const items = [
-    { href: '/solutions', label: t('solutions') },
-    { href: '/intelligence', label: t('intelligence') },
-    { href: '/products', label: t('products') },
-    { href: '/platform', label: t('platform') },
-    { href: '/trust', label: t('trust') },
-    { href: '/research', label: t('research') },
-    { href: '/developers', label: t('developers') },
-    { href: '/cases', label: t('cases') },
-    { href: '/company/about', label: t('company') },
+    { href: '/products', label: t('products'), group: 'hw' as const },
+    { href: '/system', label: t('system'), group: 'hw' as const },
+    { href: '/solutions', label: t('solutions'), group: 'hw' as const },
+    { href: '/platform', label: t('platform'), group: 'sw' as const },
+    { href: '/plugins', label: t('plugins'), group: 'sw' as const },
+    { href: '/intelligence', label: t('intelligence'), group: 'sw' as const },
+    { href: '/developers', label: t('developers'), group: 'meta' as const },
+    { href: '/company/about', label: t('company'), group: 'meta' as const },
   ] as const;
 
   return (
@@ -51,15 +50,23 @@ export function SiteNav() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="primary">
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href as any}
-              className="rounded-pill px-3 py-1.5 text-sm text-ink-200 transition-colors hover:bg-white/[0.05] hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {items.map((item, i) => {
+            const prev = items[i - 1];
+            const showDivider = prev && prev.group !== item.group;
+            return (
+              <span key={item.href} className="flex items-center">
+                {showDivider ? (
+                  <span aria-hidden className="mx-1 h-3 w-px bg-white/10" />
+                ) : null}
+                <Link
+                  href={item.href as any}
+                  className="rounded-pill px-3 py-1.5 text-sm text-ink-200 transition-colors hover:bg-white/[0.05] hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              </span>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -92,16 +99,32 @@ export function SiteNav() {
       {mobileOpen && (
         <div className="border-t border-white/5 bg-surface-void/95 backdrop-blur-xl lg:hidden">
           <div className="container-page flex flex-col gap-1 py-4">
-            {items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href as any}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-3 py-2.5 text-sm text-ink-200 hover:bg-white/[0.05] hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {items.map((item, i) => {
+              const prev = items[i - 1];
+              const showGroup = !prev || prev.group !== item.group;
+              const groupLabel =
+                item.group === 'hw'
+                  ? t('groupHardware')
+                  : item.group === 'sw'
+                    ? t('groupSoftware')
+                    : '';
+              return (
+                <span key={item.href} className="flex flex-col">
+                  {showGroup && groupLabel ? (
+                    <span className="mt-2 px-3 text-[11px] uppercase tracking-[0.18em] text-ink-500">
+                      {groupLabel}
+                    </span>
+                  ) : null}
+                  <Link
+                    href={item.href as any}
+                    onClick={() => setMobileOpen(false)}
+                    className="rounded-xl px-3 py-2.5 text-sm text-ink-200 hover:bg-white/[0.05] hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </span>
+              );
+            })}
             <div className="mt-2 flex items-center justify-between border-t border-white/5 pt-3">
               <LangSwitch />
               <Link href="/contact" className="btn-primary h-9 px-4 py-0 text-[13px]" onClick={() => setMobileOpen(false)}>

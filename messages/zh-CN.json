@@ -7,8 +7,10 @@
   "nav": {
     "solutions": "场景方案",
     "intelligence": "智能内核",
-    "products": "产品矩阵",
-    "platform": "平台能力",
+    "products": "产品",
+    "system": "系统家族",
+    "platform": "平台",
+    "plugins": "插件",
     "trust": "信任合规",
     "research": "前瞻研究",
     "developers": "开发者",
@@ -16,7 +18,9 @@
     "company": "关于",
     "contact": "联系销售",
     "demoRequest": "预约演示",
-    "locale": "中文"
+    "locale": "中文",
+    "groupHardware": "硬件",
+    "groupSoftware": "软件"
   },
   "home": {
     "hero": {
@@ -383,8 +387,10 @@
   },
   "footer": {
     "scenarios": "场景入口",
+    "hardwareCol": "硬件",
+    "softwareCol": "软件",
     "platformCol": "平台与产品",
-    "trustCol": "信任与合作",
+    "trustCol": "信任与洞察",
     "companyCol": "关于公司",
     "address": "地址:中国浙江省杭州市萧山区杭州湾信息港 E 座",
     "phone": "电话:+86 15568200088",
