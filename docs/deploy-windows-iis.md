@@ -161,14 +161,21 @@ pm2 restart sidebystar
 
 站点的"联系销售 / 试点申请"表单会 POST 到 `/api/contact`,后端调 SMTP 把用户填写的信息发邮件给 `contact@sidebystar.com`。未配置时提交不会报错,但会被丢弃(日志里看得到)。
 
-### 1. 申请企业邮箱
+### 1. 准备企业邮箱
 
-以腾讯企业邮箱(免费版,50 账户)为例:
+当前生产环境用**阿里企业邮箱**。如果还没开通,去 <https://qiye.aliyun.com/> 买 / 开通,用 `sidebystar.com` 做域名,加好它要求的 MX / TXT / SPF 记录。
 
-1. 到 <https://work.weixin.qq.com/mail/> 注册 → 用 `sidebystar.com` 做企业邮箱域名
-2. 按提示加 MX / TXT 记录到 DNS(阿里云 / 腾讯云 / Cloudflare DNS 控制台)
-3. 建两个邮箱: `no-reply@sidebystar.com`(发信用)、`contact@sidebystar.com`(收信用)
-4. 登录 `no-reply@sidebystar.com` → 邮箱设置 → 客户端专用密码 → 生成一个 16 位密码记下来
+需要两个邮箱账户:
+
+- `no-reply@sidebystar.com` 发信用
+- `contact@sidebystar.com` 收信用
+
+登录 `no-reply@sidebystar.com` 的 Web 端:
+
+1. **设置 → POP3/SMTP/IMAP** → **开启 SMTP 服务**
+2. 同一页面 **安全设置 → 客户端独立密码 → 开启** → 生成一个独立密码记下来(不是登录密码)
+
+如果你用的是旧版 `smtp.mxhichina.com` 的免费域名邮箱,SMTP 服务器地址要换成 `smtp.mxhichina.com`,其它步骤一样。
 
 ### 2. 在云端写入环境变量
 
@@ -178,7 +185,9 @@ Copy-Item .\.env.example .\.env.production.local
 notepad .\.env.production.local
 ```
 
-把里面的 `SMTP_PASS` 换成上一步生成的客户端专用密码,其它项默认值对腾讯企业邮箱直接可用。保存。
+把 `SMTP_PASS` 换成上一步生成的**客户端独立密码**,其它项默认就是阿里企业邮箱的配置。保存。
+
+如果用的是旧版 `mxhichina` 免费域名邮箱,再把 `SMTP_HOST` 改成 `smtp.mxhichina.com`。
 
 ### 3. 重启 Node 让变量生效
 
@@ -210,7 +219,8 @@ Invoke-RestMethod -Method POST -Uri http://127.0.0.1/api/contact `
 `pm2 logs sidebystar` 里如果看到:
 
 - `[contact] SMTP not configured, logging only` → `.env.production.local` 没被 Node 读到,检查文件名是否对、`pm2 restart --update-env` 是否跑过
-- `[contact] send failed: ...` → SMTP 登录 / 证书问题,常见是密码错了、没用客户端专用密码,或端口 465/587 被云厂商安全组拦(出站)
+- `[contact] send failed: ... 535 ...` → 密码错或没开客户端访问,阿里邮箱要生成**客户端独立密码**并在 Web 端开启 SMTP 服务
+- `[contact] send failed: ... ETIMEDOUT ... :465` → 云厂商出站安全组拦了 465 端口,去阿里云 / 腾讯云控制台出方向放行 TCP 465
 
 ### 5. 安全提示
 
