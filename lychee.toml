@@ -1,0 +1,11 @@
+max_redirects = 5
+max_concurrency = 8
+accept = [200, 206, 301, 302, 403, 429]
+exclude = [
+  "^https?://localhost",
+  "^https?://127\\.0\\.0\\.1",
+  "beian\\.miit\\.gov\\.cn",
+  "beian\\.mps\\.gov\\.cn",
+]
+exclude_all_private = true
+no_progress = true
