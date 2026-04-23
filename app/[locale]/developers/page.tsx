@@ -27,14 +27,8 @@ export default async function DevelopersPage({ params }: { params: Promise<{ loc
     { icon: Github, title: t('github'), desc: isZh ? 'Apache 2.0 开源内核' : 'Apache 2.0 open-source kernel', href: 'https://github.com/sidebystar', external: true },
   ];
 
-  const codeSample = `// Node / fetch example: get FactBase device inventory
-const res = await fetch('http://aios.local/api/v1/facts/devices', {
-  headers: {
-    Authorization: \`Bearer \${token}\`,
-    'X-Site-Id': 'floor-3',
-  },
-});
-const { devices } = await res.json();
+  const codeSample = `import { aios } from '@sidebystar/sdk';
+const devices = await aios.facts.devices({ site: 'floor-3' });
 console.log(devices.length, 'devices on floor 3');`;
 
   return (
