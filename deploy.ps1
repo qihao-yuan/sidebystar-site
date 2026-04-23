@@ -22,13 +22,13 @@ Step "next build"
 npm run build
 
 Step "pm2 restart"
-# First-run creates the process, later runs just restart it.
-# NOTE: on Windows we point pm2 straight at next's JS entry (node_modules\next\dist\bin\next)
-# instead of "pm2 start npm -- run start", because the latter silently drops CLI args on Windows
-# (bug: pm2 treats 'run' as a script path and fails with "Script not found: ...\run").
+# First-run creates the process from ecosystem.config.cjs, later runs just restart it.
+# We use ecosystem.config.cjs (not inline pm2 start args) because PowerShell + pm2 on
+# Windows silently drops args after '--', which would end up running `next dev` instead
+# of `next start`.
 $exists = (pm2 id sidebystar 2>$null)
 if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($exists)) {
-    pm2 start "node_modules\next\dist\bin\next" --name sidebystar -- start -p 3000
+    pm2 start ecosystem.config.cjs
 } else {
     pm2 restart sidebystar --update-env
 }
