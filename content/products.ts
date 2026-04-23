@@ -1,3 +1,6 @@
+import type { FamilyRole } from './family';
+import type { SolutionSlug } from './solutions';
+
 export type SkuSlug = 'home-box' | 'community-kit' | 'enterprise-stack';
 
 export type Sku = {
@@ -15,6 +18,8 @@ export type Sku = {
   };
   deploymentWeeks: string;
   users: string;
+  family: FamilyRole[];
+  recommendedFor: SolutionSlug[];
 };
 
 export const skus: Sku[] = [
@@ -33,6 +38,8 @@ export const skus: Sku[] = [
     },
     deploymentWeeks: '0.5',
     users: '1 household',
+    family: ['gateway', 'sense', 'control', 'connect'],
+    recommendedFor: ['smart-home'],
   },
   {
     slug: 'community-kit',
@@ -49,6 +56,8 @@ export const skus: Sku[] = [
     },
     deploymentWeeks: '2-4',
     users: '20-200 units',
+    family: ['gateway', 'sense', 'control', 'connect'],
+    recommendedFor: ['elderly-care', 'community-care', 'smart-room'],
   },
   {
     slug: 'enterprise-stack',
@@ -65,6 +74,8 @@ export const skus: Sku[] = [
     },
     deploymentWeeks: '6-12',
     users: 'Floor / ward / campus',
+    family: ['gateway', 'sense', 'control', 'connect'],
+    recommendedFor: ['clinical-assist'],
   },
 ];
 

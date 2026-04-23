@@ -205,33 +205,33 @@
   },
   "products": {
     "title": "Products",
-    "subtitle": "Three SKUs from home to enterprise. Hardware plus subscription plus profile content.",
+    "subtitle": "Three forms, one kernel -- from a single home, to a building, to a whole hospital.",
     "homeBox": {
       "name": "Home Box",
-      "tag": "Consumer",
+      "tag": "One box, for the home",
       "price": "USD 299 first buy + USD 30 / year",
-      "desc": "Edge AI box for households. RK3588 + 16G RAM + 256G eMMC.",
-      "bullet1": "Works out of the box, onboarding in 2 hours",
-      "bullet2": "Zigbee / BLE / Matter concurrent",
-      "bullet3": "Local LLM, offline capable"
+      "desc": "A local intelligence hub that lives in your home. All thinking happens on it, and all data stays with it.",
+      "bullet1": "Unboxed and running. Half a day to bring your devices together.",
+      "bullet2": "The lights, locks, and sensors you already own -- they can all join in.",
+      "bullet3": "Every decision stays on-device. Offline, the essentials keep running."
     },
     "communityKit": {
       "name": "Community Kit",
-      "tag": "Community gateway",
+      "tag": "For a building, for a community",
       "price": "USD 4.5k kickoff + USD 8 / unit / month",
-      "desc": "Pre-configured gateway for communities of 20 to 200 units. x86 J4125 + 32G + 1T.",
-      "bullet1": "Multi-site RBAC, family remote view",
-      "bullet2": "Facility-grade admin + profile library",
-      "bullet3": "MLPS 2.0 compliance support"
+      "desc": "Designed for senior apartments, community care centers, and properties of 20-200 units. Families see their own door, staff see the whole building -- each their own view.",
+      "bullet1": "One unit serves dozens to hundreds of homes. No far-away cloud.",
+      "bullet2": "Families, managers, operators -- each sees only their own view.",
+      "bullet3": "Ready for MLPS 2.0 audit and compliance flows."
     },
     "enterpriseStack": {
       "name": "Enterprise Stack",
-      "tag": "On-prem",
+      "tag": "For hospitals and institutions",
       "price": "USD 30k kickoff + USD 12k / year",
-      "desc": "On-prem deployment for top hospitals, specialty clinics and large care facilities. Jetson Orin + custom integration.",
-      "bullet1": "7x24 SLA + custom profiles",
-      "bullet2": "HIPAA-like audit export",
-      "bullet3": "Integrates with HIS / CIS / 3rd-party"
+      "desc": "On-prem deployment for top hospitals, specialty clinics, and large care facilities. Data stays inside, working alongside your existing systems.",
+      "bullet1": "7x24 dedicated support, customized alongside the department",
+      "bullet2": "Full, exportable audit trace that plugs into your compliance flow",
+      "bullet3": "Plugs into the hospital systems you already run -- no rip-and-replace"
     }
   },
   "trust": {
