@@ -168,6 +168,25 @@
       "ctaSolutions": "看场景落地套装"
     }
   },
+  "plugins": {
+    "hero": {
+      "eyebrow": "AIOS Plugins · 插件生态",
+      "title": "让空间不止懂你, 还能被别人继续扩展。",
+      "subtitle": "每一枚插件, 都在让一间房间, 能做更多的事。全部在本地运行, 全部可审计, 全部只属于你家。"
+    },
+    "filterAll": "全部",
+    "byOfficial": "循星官方",
+    "byPartner": "合作伙伴",
+    "topicLabel": "按场景看",
+    "stageLabel": "进度",
+    "cta": {
+      "eyebrow": "Build with AIOS",
+      "title": "想把你的插件交给这个空间?",
+      "body": "我们为开发者准备了完整的插件开发文档、示例工程与上架流程。从一段 story, 到一份可审计的 manifest, 我们陪你走完。",
+      "primary": "前往开发者中心",
+      "secondary": "查看 Plugin Manifest 规范"
+    }
+  },
   "solutions": {
     "title": "场景方案",
     "subtitle": "同一个内核,多种尺度。从一张床到一整座城市,我们已经在真实空间里落地。",

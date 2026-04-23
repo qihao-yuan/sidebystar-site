@@ -168,6 +168,25 @@
       "ctaSolutions": "See scenario bundles"
     }
   },
+  "plugins": {
+    "hero": {
+      "eyebrow": "AIOS Plugins",
+      "title": "A space that understands you, stays open for others to extend.",
+      "subtitle": "Every plugin gives a room one more thing it can do. All run locally, all stay auditable, all belong only to your home."
+    },
+    "filterAll": "All",
+    "byOfficial": "By SidebyStar",
+    "byPartner": "Partner",
+    "topicLabel": "By scenario",
+    "stageLabel": "Stage",
+    "cta": {
+      "eyebrow": "Build with AIOS",
+      "title": "Want to give your plugin to this space?",
+      "body": "We have full developer docs, a sample project, and a ship-to-store path ready for builders. From a story to an auditable manifest, we walk it with you.",
+      "primary": "Head to developer center",
+      "secondary": "See Plugin Manifest spec"
+    }
+  },
   "solutions": {
     "title": "Solutions",
     "subtitle": "One kernel, many scales. From a single bed to a city block -- already deployed in real spaces.",
