@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
 }
 
 const layers = [
-  { icon: Radar, zh: 'L0 静态事实', en: 'L0 Static Facts', desc: { zh: '设备、能力、房间、规则', en: 'Devices, capabilities, rooms, rules' } },
-  { icon: Cpu, zh: 'L1 动态状态', en: 'L1 Dynamic State', desc: { zh: '传感器实时流、行为事件', en: 'Sensor streams, behavior events' } },
-  { icon: Database, zh: 'L2 习惯记忆', en: 'L2 Habit Memory', desc: { zh: '30 天建模、时段偏好', en: '30d modeling, temporal preference' } },
-  { icon: Boxes, zh: 'L3 语义意图', en: 'L3 Semantic Intent', desc: { zh: '目标、动机、因果图', en: 'Goals, motivation, causal graph' } },
+  { icon: Radar, zh: '当下的样子', en: 'The moment', desc: { zh: '谁在哪个房间, 现在亮着哪些灯, 此刻的温度与光线', en: 'Who is in which room, what is on, how the air and light feel right now' } },
+  { icon: Cpu, zh: '这一刻的节奏', en: 'The flow', desc: { zh: '空间在如何变化, 谁的作息在偏离日常', en: 'How the space is shifting, whose rhythm is drifting from usual' } },
+  { icon: Database, zh: '长期的习惯', en: 'The habits', desc: { zh: '晚上几点会关这盏灯, 周末更喜欢哪种光', en: 'When that lamp usually goes off, which lighting feels like weekend' } },
+  { icon: Boxes, zh: '你的意图', en: 'The intent', desc: { zh: '你想要什么, 为什么想要, 下一步大概会怎么做', en: 'What you want, why you want it, what likely comes next' } },
 ];
 
 export default async function PlatformPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -42,8 +42,8 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
           <Reveal delay={200}>
             <p className="mx-auto mt-6 max-w-2xl text-body-lg text-ink-300">
               {isZh
-                ? '225 个后端模块、112 个 REST 端点、67 个稳定 v1 API、55 分钟完整体检。所有能力从 FactBase 渲染, 所有决策写入 AuditLedger hash-chain。'
-                : '225 backend modules, 112 REST endpoints, 67 stable v1 APIs, 55-minute full health check. All capabilities render from FactBase. Every decision is written to an AuditLedger hash-chain.'}
+                ? '一个本地运行的智能内核。它能感知, 能记忆, 能思考, 每一步都留下可查的痕迹, 也能被第三方继续扩展。'
+                : 'A local intelligence kernel. It senses, remembers, reasons -- leaves an auditable trace at every step, and stays open for third parties to extend.'}
             </p>
           </Reveal>
         </div>
@@ -51,10 +51,10 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
         {/* stats */}
         <div className="container-page mt-16 grid grid-cols-2 gap-6 border-y border-white/5 py-8 md:grid-cols-4">
           {[
-            { v: 225, s: '', l: 'Modules' },
-            { v: 112, s: '', l: 'REST' },
-            { v: 67, s: '', l: 'v1 APIs' },
-            { v: 55, s: 'min', l: 'Health Check' },
+            { v: 5, s: '', l: isZh ? '种感知' : 'Senses' },
+            { v: 4, s: '', l: isZh ? '层记忆' : 'Memory Layers' },
+            { v: 50, s: 'ms', l: isZh ? '级响应' : 'Response' },
+            { v: 100, s: '%', l: isZh ? '本地' : 'On-device' },
           ].map((it) => (
             <div key={it.l} className="text-center">
               <div className="font-display text-display-md text-white"><NumberTicker value={it.v} suffix={it.s} /></div>
@@ -72,7 +72,12 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
         <div className="container-page">
           <Reveal>
             <span className="eyebrow">Four-Layer Memory</span>
-            <h2 className="mt-4 text-display-lg text-white">{isZh ? '四层记忆栈' : 'Memory Stack'}</h2>
+            <h2 className="mt-4 text-display-lg text-white">{isZh ? '真正记得你的记忆' : 'Memory that remembers you'}</h2>
+            <p className="mt-4 max-w-2xl text-body text-ink-300">
+              {isZh
+                ? '从眼前这一刻, 到经年累月的习惯, 一层一层积累。它不是把所有事情存下来, 而是把"你是谁、你想要什么"一点点理解清楚。'
+                : 'From the immediate moment to years of habit, one layer at a time. It is not storage. It is understanding, slowly, who you are and what you mean.'}
+            </p>
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {layers.map((l, i) => (
@@ -97,25 +102,36 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
               <div>
                 <ShieldCheck size={32} className="text-brand-halo" />
                 <h2 className="mt-5 text-display-lg text-white">
-                  {isZh ? 'AuditLedger hash-chain' : 'AuditLedger hash-chain'}
+                  {isZh ? '留下可查的痕迹' : 'Every step, traceable'}
                 </h2>
                 <p className="mt-4 text-body-lg text-ink-200">
                   {isZh
-                    ? '每次 LLM 调用、每次执行、每次规则变更都串入不可篡改的 hash-chain。可直接导出等保 2.0、HIPAA-like 的映射报表。'
-                    : 'Every LLM call, every execution, every rule change is linked into an append-only hash-chain with direct export of MLPS 2.0 and HIPAA-like mappings.'}
+                    ? 'AI 的每一次思考、每一次执行、每一条规则变动, 都像账本一样留下一行。家属可以看到老人昨夜的情况, 管理员可以回放一周前的判断, 监管方可以导出所需的那部分 —— 不多, 不少。'
+                    : 'Every thought, every action, every rule change leaves a line, like a ledger. Family members see last night. Managers replay last week. Regulators export exactly what they are owed -- no more, no less.'}
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-surface-void/60 p-6 font-mono text-caption text-ink-200">
                 <div className="flex justify-between border-b border-white/5 pb-2 text-ink-500">
-                  <span>block</span><span>sha256 hash (truncated)</span>
+                  <span>{isZh ? '记录' : 'entry'}</span><span>{isZh ? '可查的痕迹' : 'trace'}</span>
                 </div>
-                {['#001', '#002', '#003', '#004', '#005'].map((b, i) => (
-                  <div key={b} className="flex justify-between border-b border-white/5 py-1.5">
-                    <span className="text-brand-halo">{b}</span>
-                    <span>0x{(7 - i).toString(16).padStart(2, '0')}a4{(i * 17).toString(16)}e2...fd{i}</span>
-                  </div>
-                ))}
-                <div className="pt-2 text-brand-halo">{'// append-only. verified.'}</div>
+                {[
+                  { zh: '昨夜 03:12', en: 'last night 03:12' },
+                  { zh: '昨夜 03:14', en: 'last night 03:14' },
+                  { zh: '昨夜 03:15', en: 'last night 03:15' },
+                  { zh: '今早 06:30', en: 'this morning 06:30' },
+                  { zh: '今早 06:31', en: 'this morning 06:31' },
+                ].map((b, i) => {
+                  const actions = isZh
+                    ? ['老人起身走向卫生间', '走廊灯亮起, 10% 柔光', '门口门磁触发', '日光模式, 逐段亮起', '厨房就绪, 水壶提示']
+                    : ['Resident rose, walking to bathroom', 'Hallway light raised to 10% warm', 'Doorway contact triggered', 'Daylight scene, ramped in', 'Kitchen ready, kettle nudge'];
+                  return (
+                    <div key={i} className="flex justify-between gap-4 border-b border-white/5 py-1.5">
+                      <span className="text-brand-halo whitespace-nowrap">{isZh ? b.zh : b.en}</span>
+                      <span className="text-right">{actions[i]}</span>
+                    </div>
+                  );
+                })}
+                <div className="pt-2 text-brand-halo">{isZh ? '// 每一行都无法被悄悄改写' : '// every line is append-only'}</div>
               </div>
             </div>
           </div>

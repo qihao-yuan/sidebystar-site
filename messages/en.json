@@ -2,7 +2,7 @@
   "brand": {
     "name": "SidebyStar",
     "nameLatin": "SidebyStar",
-    "tagline": "Spatial intelligence, kept local"
+    "tagline": "An operating system for space"
   },
   "nav": {
     "solutions": "Solutions",
@@ -20,9 +20,9 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "AIOS · Ambient Intelligence OS",
+      "eyebrow": "AIOS · An Operating System for Space",
       "title": "A space that understands you -- before you speak.",
-      "subtitle": "An intelligence kernel that lives entirely on the edge. So every place you are, truly knows you.",
+      "subtitle": "An intelligence kernel that lives entirely in your home -- knows you, earns your trust, and stays open to extend.",
       "ctaPrimary": "Book a Demo",
       "ctaSecondary": "See its intelligence",
       "scrollHint": "Keep scrolling"
@@ -72,28 +72,28 @@
     "vision": {
       "eyebrow": "The Next Platform",
       "title": "The next computing platform isn't in your pocket. It's in the room.",
-      "body": "Phones are personal AI. The space is the new platform we are building. Starts from sensing. Finishes on-device. Gives every room an intelligence kernel of its own."
+      "body": "Phones are personal AI. The space is the new platform we are building. It starts from sensing, finishes in your home, earns your trust, and stays open to extend. Every room grows an intelligence kernel of its own."
     },
     "platform": {
       "eyebrow": "AIOS Platform",
       "title": "Seven years of engineering, one foundation.",
-      "subtitle": "Every heartbeat, computed locally.",
-      "sensingTitle": "Multimodal sensing",
-      "sensingBody": "Vision . IR . mmWave . Audio . Environment -- five-source fusion",
-      "edgeTitle": "On-device inference",
-      "edgeBody": "Event to response in 50 ms. Real-time on low-power silicon.",
-      "memoryTitle": "Four-layer memory",
-      "memoryBody": "L0 Static . L1 Dynamic . L2 Habit . L3 Semantic",
-      "protocolsTitle": "Protocol matrix",
-      "protocolsBody": "Matter 1.3 . Home Assistant . MCP . MQTT . XunProto",
+      "subtitle": "Runs locally. Earns your trust. Stays open to extend.",
+      "sensingTitle": "Whole-room sensing",
+      "sensingBody": "Five senses at once -- it reads the room like a person, not a single camera feed.",
+      "edgeTitle": "Local reasoning",
+      "edgeBody": "All thinking happens inside your home. No round trips to the cloud; even offline, the essentials stay on.",
+      "memoryTitle": "Memory that grows",
+      "memoryBody": "From the moment to the long-term, one layer at a time, it actually remembers you.",
+      "protocolsTitle": "Meets your devices",
+      "protocolsBody": "Works with mainstream ecosystems and protocols. No forced rebrand, no rip-and-replace.",
       "privacyTitle": "Local-first",
-      "privacyBody": "Four-layer network lock . Offline-capable . Data stays home",
+      "privacyBody": "Data stays home by default; when the network drops, the essentials keep running.",
       "exploreCta": "Explore Platform"
     },
     "trust": {
       "eyebrow": "Trust, Verified",
-      "title": "Every decision, written to the hash-chain.",
-      "body": "Append-only ledger, tamper-evident. Full control-point mapping to HIPAA / GDPR. RBAC four-role x multi-site tiered authorisation. Ready for regulators and families, any time."
+      "title": "Every step leaves a trace anyone can check.",
+      "body": "Every thought, every action, every rule change is written down and cannot be quietly rewritten. Families, managers, regulators each see their own view -- no more, no less."
     },
     "cta": {
       "eyebrow": "Start Building",

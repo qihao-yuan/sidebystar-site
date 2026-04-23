@@ -2,7 +2,7 @@
   "brand": {
     "name": "循星科技",
     "nameLatin": "SidebyStar",
-    "tagline": "留在本地的空间智能"
+    "tagline": "空间的操作系统"
   },
   "nav": {
     "solutions": "场景方案",
@@ -20,9 +20,9 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "AIOS · 环境智能操作系统",
+      "eyebrow": "AIOS · 空间的操作系统",
       "title": "让空间,先于语言理解你。",
-      "subtitle": "一套只运行在端侧的智能内核。让你身边的每一个地方,都真正懂你。",
+      "subtitle": "一套只在你家里完成的智能内核 —— 懂你、能被你信任、能被你扩展。",
       "ctaPrimary": "预约演示",
       "ctaSecondary": "看看它的智能",
       "scrollHint": "继续向下"
@@ -72,28 +72,28 @@
     "vision": {
       "eyebrow": "The Next Platform",
       "title": "下一代计算平台,不在口袋里,在房间里。",
-      "body": "手机是个人 AI。空间是我们要做的新平台。从感知起笔,在端侧完结,让每一个房间都拥有属于自己的本地智能内核。"
+      "body": "手机是个人 AI。空间, 是我们正在做的新平台。从感知开始, 在家里完成, 能被你信任, 也能被继续扩展。每一个房间, 都会长出属于自己的智能内核。"
     },
     "platform": {
       "eyebrow": "AIOS Platform",
       "title": "七年工程,一套底座。",
-      "subtitle": "每一次心跳,都在本地完成。",
+      "subtitle": "运行在本地, 能被信任, 能被扩展。",
       "sensingTitle": "多模态感知",
-      "sensingBody": "视觉 · 红外 · 毫米波 · 声音 · 环境,五源融合",
-      "edgeTitle": "端侧推理",
-      "edgeBody": "事件触发到响应 50ms,低功耗芯片实时完成",
-      "memoryTitle": "四层记忆",
-      "memoryBody": "L0 静态 · L1 动态 · L2 习惯 · L3 语义",
-      "protocolsTitle": "协议矩阵",
-      "protocolsBody": "Matter 1.3 · Home Assistant · MCP · MQTT · XunProto",
+      "sensingBody": "五种感官同时在线, 像人一样整体感知空间, 不靠单一摄像头。",
+      "edgeTitle": "本地推理",
+      "edgeBody": "所有思考都在你家完成, 不必绕云, 网络断了也不会停。",
+      "memoryTitle": "会成长的记忆",
+      "memoryBody": "从当下的感受到长期的习惯, 一层一层真正记住你。",
+      "protocolsTitle": "认识家里的设备",
+      "protocolsBody": "兼容主流生态与协议, 不强迫你换牌子、拆现场。",
       "privacyTitle": "本地优先",
-      "privacyBody": "四层网络锁 · 断网零例外 · 数据默认不出家门",
+      "privacyBody": "数据默认不出家门; 网络断了, 关键能力依旧在线。",
       "exploreCta": "深入 Platform"
     },
     "trust": {
       "eyebrow": "Trust, Verified",
-      "title": "每一条决策,都写进 hash-chain。",
-      "body": "append-only 审计链不可篡改,HIPAA / GDPR 控制点全量映射,RBAC 四角色 × 多站点分级授权,监管与家属随时可查。"
+      "title": "每一次判断, 都留下可查的痕迹。",
+      "body": "AI 的每一次思考、每一次执行、每一次规则变更, 都被完整记下, 无法悄悄改写。家属、管理员、监管方各看各的那一份, 不多不少。"
     },
     "cta": {
       "eyebrow": "Start Building",
