@@ -10,6 +10,8 @@ export function MagneticButton({
   variant = 'primary',
   onClick,
   ariaLabel,
+  type = 'submit',
+  disabled = false,
 }: {
   children: ReactNode;
   href?: string;
@@ -17,10 +19,13 @@ export function MagneticButton({
   variant?: 'primary' | 'ghost';
   onClick?: () => void;
   ariaLabel?: string;
+  type?: 'submit' | 'button' | 'reset';
+  disabled?: boolean;
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
   const handleMove = (e: MouseEvent<HTMLElement>) => {
+    if (disabled) return;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -35,7 +40,12 @@ export function MagneticButton({
     el.style.transform = 'translate(0, 0)';
   };
 
-  const cls = cn(variant === 'primary' ? 'btn-primary' : 'btn-ghost', 'transition-transform duration-300 ease-apple-out', className);
+  const cls = cn(
+    variant === 'primary' ? 'btn-primary' : 'btn-ghost',
+    'transition-transform duration-300 ease-apple-out',
+    disabled && 'pointer-events-none opacity-60',
+    className,
+  );
 
   if (href) {
     return (
@@ -55,8 +65,9 @@ export function MagneticButton({
   return (
     <button
       ref={ref as any}
-      type="button"
+      type={type}
       aria-label={ariaLabel}
+      disabled={disabled}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       onClick={onClick}

@@ -8,10 +8,15 @@ node_modules/
 out/
 build/
 
-# env
+# env (never commit these; use .env.example as the template)
 .env
+.env.*.local
 .env.local
+.env.development
+.env.development.local
 .env.production
+.env.production.local
+!.env.example
 
 # debug
 npm-debug.log*
