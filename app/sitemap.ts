@@ -1,21 +1,25 @@
 import type { MetadataRoute } from 'next';
 import { solutions } from '@/content/solutions';
 import { cases } from '@/content/cases';
+import { plugins } from '@/content/plugins';
 
 const siteUrl = process.env.SITE_URL ?? 'https://sidebystar.com';
 const locales = ['zh-CN', 'en'] as const;
 
 const staticPaths = [
   '',
-  '/solutions',
-  '/intelligence',
   '/products',
+  '/system',
+  '/solutions',
   '/platform',
+  '/plugins',
+  '/intelligence',
   '/trust',
   '/research',
   '/developers',
   '/developers/docs',
   '/developers/api',
+  '/developers/hardware',
   '/developers/plugins',
   '/cases',
   '/pilot',
@@ -51,6 +55,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly',
         priority: 0.6,
       });
+    }
+    for (const p of plugins) {
+      entries.push({
+        url: `${siteUrl}/${locale}/plugins/${p.slug}`,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+      });
+      if (p.manifest) {
+        entries.push({
+          url: `${siteUrl}/${locale}/developers/plugins/${p.slug}`,
+          changeFrequency: 'monthly',
+          priority: 0.5,
+        });
+      }
     }
   }
 
