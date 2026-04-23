@@ -38,6 +38,11 @@ export type Solution = {
   architecture?: Array<{ zh: string; en: string }>;
   pilot?: { weeks: string; scale: { zh: string; en: string } };
   sku?: { zh: string; en: string };
+  bundle?: {
+    headline: { zh: string; en: string };
+    items: Array<{ zh: string; en: string }>;
+    rhythm?: { zh: string; en: string };
+  };
 };
 
 export const solutions: Solution[] = [
@@ -59,12 +64,29 @@ export const solutions: Solution[] = [
       { label: { zh: '数据本地化', en: 'Data Localization' }, value: '100%' },
     ],
     architecture: [
-      { zh: '红外 + 毫米波 + 视觉三模态融合,夜间零漏检', en: 'IR + mmWave + vision triple fusion, zero nighttime miss' },
-      { zh: '边缘盒子本地推理 + 影子执行审批', en: 'Edge box inference + shadow-execution approval' },
-      { zh: '对接护理工单系统,告警闭环', en: 'Integrates with nursing ticket systems, closed-loop alerts' },
+      { zh: '不靠摄像头对着脸 —— 用毫米波、红外、声学判断', en: 'No camera on the face -- senses through mmWave, IR and sound' },
+      { zh: '所有告警在本地完成, 断网也不会掉链子', en: 'All alerts run locally and hold even when the network drops' },
+      { zh: '与护理工单系统打通, 告警直达值班护士', en: 'Wired into nursing ticket systems, alerts land on the on-duty nurse' },
     ],
     pilot: { weeks: '2-4', scale: { zh: '单楼层 10-30 床', en: 'Single floor, 10-30 beds' } },
     sku: { zh: 'Community Kit', en: 'Community Kit' },
+    bundle: {
+      headline: {
+        zh: '让一张床, 夜里可以被依靠。',
+        en: 'Make one bed, dependable through the night.',
+      },
+      items: [
+        { zh: '床畔中枢 —— 不在云端, 就在床头', en: 'A bedside hub -- not in the cloud, right by the bed' },
+        { zh: '夜间感知套件 —— 不用摄像头照着脸', en: 'Nighttime sensing -- no camera pointed at the face' },
+        { zh: '一键急救呼叫 —— 按钮在手边, 响应在本地', en: 'One-touch help call -- button by hand, response on-site' },
+        { zh: '家属端 APP —— 只看该看的那一份', en: 'Family app -- sees only what it should' },
+        { zh: '两周驻场 —— 我们陪你上线', en: 'Two weeks on-site -- we walk you live' },
+      ],
+      rhythm: {
+        zh: '起夜一次, 走廊灯先亮到 10%。跌倒、久卧、离床、超时坐起, 四种情况分头告警。白天回到普通房间, 设备几乎看不见。',
+        en: 'A trip up at night nudges the hallway light to 10%. Falls, prolonged bed rest, leaving bed, too-long sitting -- four kinds of alerts, each with its own path. By day the room looks ordinary.',
+      },
+    },
   },
   {
     slug: 'community-care',
@@ -84,12 +106,29 @@ export const solutions: Solution[] = [
       { label: { zh: '家属响应', en: 'Family Response' }, value: '<= 5min' },
     ],
     architecture: [
-      { zh: '社区网关 + 单户边缘节点两级架构', en: 'Community gateway + per-unit edge node, two-tier' },
-      { zh: '多站点 principal + extra_sites 授权模型', en: 'Multi-site principal + extra_sites authorization' },
-      { zh: '家属 APP 分级可视 + 视频不出场', en: 'Family app tiered view + video stays on site' },
+      { zh: '一台社区网关 + 每户一小套, 两级协同', en: 'One community gateway and small per-unit kits, two tiers in concert' },
+      { zh: '一位家属看自家、一位管理员管全楼, 各看各的', en: 'Family sees their own door, managers see the whole building -- each their own view' },
+      { zh: '视频不出现场, 家属看到的只是状态而非画面', en: 'Video never leaves the site; families see status, not footage' },
     ],
     pilot: { weeks: '4-6', scale: { zh: '50-100 户', en: '50-100 units' } },
     sku: { zh: 'Community Kit', en: 'Community Kit' },
+    bundle: {
+      headline: {
+        zh: '一楼到十楼, 用一套系统照看。',
+        en: 'From ground floor to the top, watched over by one system.',
+      },
+      items: [
+        { zh: '社区网关 —— 一台管几十到几百户, 本地运行', en: 'Community gateway -- one unit for dozens to hundreds of homes, run locally' },
+        { zh: '户内感知小套件 —— 无摄像头优先, 克制地关心', en: 'Small in-unit sensing kit -- no-camera first, a gentle kind of care' },
+        { zh: '管理员控制台 —— 工单、巡查、事件, 一屏到底', en: 'Manager console -- tickets, rounds and incidents, on one screen' },
+        { zh: '家属 APP —— 家人看自家, 机构管全楼', en: 'Family app -- families see home, staff see the building' },
+        { zh: '四到六周交付 —— 含培训与调优', en: 'Four to six weeks to live -- training and tuning included' },
+      ],
+      rhythm: {
+        zh: '白天是社区活动的一部分, 提醒老人按时吃药、喝水、晒太阳。夜里是安静的看护, 出事第一时间到人。',
+        en: 'By day it is part of community life -- reminding pills, water, a walk in the sun. By night it is quiet care; when something happens, the right person is reached first.',
+      },
+    },
   },
   {
     slug: 'clinical-assist',
@@ -109,12 +148,29 @@ export const solutions: Solution[] = [
       { label: { zh: 'SLA', en: 'SLA' }, value: '7x24' },
     ],
     architecture: [
-      { zh: '私有化部署 + Jetson Orin 端侧推理', en: 'On-prem + Jetson Orin edge inference' },
-      { zh: '对接 HIS / CIS / PACS 系统', en: 'Integrates HIS / CIS / PACS' },
-      { zh: '临床 SOP 自动化规则定制', en: 'Clinical SOP automation rule customization' },
+      { zh: '全栈私有化部署, 患者数据不出院', en: 'Fully on-prem -- patient data never leaves the hospital' },
+      { zh: '与医院既有信息系统打通, 不推倒重来', en: 'Works with the hospital information systems you already have' },
+      { zh: '临床科室 SOP 定制化, 与现有流程对齐', en: 'Clinical SOPs customized with you -- aligned to current workflow' },
     ],
     pilot: { weeks: '6-8', scale: { zh: '单病区 20-50 床', en: 'Single ward, 20-50 beds' } },
     sku: { zh: 'Enterprise Stack', en: 'Enterprise Stack' },
+    bundle: {
+      headline: {
+        zh: '把术后康复的节拍, 延续到病房之外。',
+        en: 'Carry the rhythm of recovery past the ward.',
+      },
+      items: [
+        { zh: '病区边缘节点 —— 私有化部署, 数据不出院', en: 'Ward edge node -- on-prem, data stays inside' },
+        { zh: '夜间生理关注 —— 睡眠、离床、呼吸异常, 持续在看', en: 'Overnight vitals watch -- sleep, bed-leaving, abnormal breath, under gentle watch' },
+        { zh: 'SOP 自动化 —— 按科室既有流程走, 不改规则', en: 'SOP automation -- follows existing clinical flow, no rule rewrite' },
+        { zh: '临床系统对接 —— 与 HIS / 电子病历打通', en: 'Clinical integration -- plugs into HIS / EMR' },
+        { zh: '六到八周定制 —— 科室与我们共同调试', en: 'Six to eight weeks of customization -- tuned with your team' },
+      ],
+      rhythm: {
+        zh: '入院时读入基线, 每一次异常都留下一条可回溯的记录。家属端只在必要时被打扰, 临床团队第一时间拿到事实。',
+        en: 'Baselines read in at admission; every anomaly leaves a traceable line. Families are only disturbed when it matters; clinicians get the facts first.',
+      },
+    },
   },
   {
     slug: 'smart-home',
@@ -134,12 +190,29 @@ export const solutions: Solution[] = [
       { label: { zh: '语音延迟', en: 'Voice Latency' }, value: '<= 500ms' },
     ],
     architecture: [
-      { zh: 'Matter 1.3 + HA + Zigbee + BLE 统一接入', en: 'Matter 1.3 + HA + Zigbee + BLE unified' },
-      { zh: '四层记忆 L0-L3 学习习惯', en: 'Four-layer memory L0-L3 habit learning' },
-      { zh: '本地 LLM 语音交互', en: 'Local LLM voice interaction' },
+      { zh: '主流生态和协议都能说, 家里现有的设备不用换', en: 'Speaks the mainstream ecosystems and protocols -- no rip-and-replace' },
+      { zh: '一层一层学习你的习惯, 从当下感受到长期节奏', en: 'Layer by layer, learns your habits -- from the present to your long rhythm' },
+      { zh: '语音交互在本地完成, 说话不离家', en: 'Voice stays on-device -- your words never leave home' },
     ],
     pilot: { weeks: '1-2', scale: { zh: '单户全屋', en: 'Single household whole-home' } },
     sku: { zh: 'Home Box', en: 'Home Box' },
+    bundle: {
+      headline: {
+        zh: '你家的灯, 最后一次被教。',
+        en: 'The last time your lights ever need teaching.',
+      },
+      items: [
+        { zh: 'Home Box —— 一只盒子, 接管所有自动化', en: 'Home Box -- one box, takes over all automations' },
+        { zh: '夜间路径照明 —— 走过哪里, 哪里自己亮起', en: 'Nighttime pathway lighting -- where you walk is where it wakes' },
+        { zh: '情景面板 / 旋钮 —— 不开口时, 也有入口', en: 'Scene panel and dial -- a way in, even when you do not speak' },
+        { zh: '跨品牌兼容 —— 你家原来的, 不必换', en: 'Cross-brand -- what you already have stays' },
+        { zh: '一到两周自适应 —— 越用越懂你', en: 'One to two weeks of self-adaptation -- knows you more each day' },
+      ],
+      rhythm: {
+        zh: '第一周学习你的作息, 第二周开始前置安排。一个月后, 它已经知道你下班回家想要什么。',
+        en: 'Week one, it learns your rhythm. Week two, it begins preparing ahead. A month in, it already knows what you want when you walk home.',
+      },
+    },
   },
   {
     slug: 'smart-room',
@@ -159,12 +232,29 @@ export const solutions: Solution[] = [
       { label: { zh: '运维成本', en: 'Ops Cost' }, value: '-30%' },
     ],
     architecture: [
-      { zh: '一房一中枢,标准化 PoE 安装', en: 'One hub per room, standardized PoE install' },
-      { zh: '画像 bundle 可随客人跨房间转移', en: 'Profile bundle follows guest across rooms' },
-      { zh: '场景预设 + 语音自适应', en: 'Scene presets + adaptive voice' },
+      { zh: '一房一中枢, 不破坏现有装修', en: 'One hub per room, no damage to existing interior' },
+      { zh: '客人的偏好能随他一起换房, 不用重新设置', en: 'A guest\'s preferences follow them between rooms -- no reconfiguration' },
+      { zh: '一句话能把房间调到想要的状态', en: 'One sentence sets the room the way you like' },
     ],
     pilot: { weeks: '2-3', scale: { zh: '10-30 间房', en: '10-30 rooms' } },
     sku: { zh: 'Community Kit', en: 'Community Kit' },
+    bundle: {
+      headline: {
+        zh: '从按按钮的房间, 升级为懂客人的房间。',
+        en: 'From rooms that take buttons, to rooms that know the guest.',
+      },
+      items: [
+        { zh: '一房一中枢 —— 标准化安装, 不破坏装修', en: 'One hub per room -- standardized install, no interior damage' },
+        { zh: '场景预设与语音 —— 客人一句话, 房间听得懂', en: 'Preset scenes and voice -- one sentence, understood' },
+        { zh: '画像随客人走 —— 换房不用重新设置', en: 'Guest profile travels -- re-room without reset' },
+        { zh: '客房管理台 —— 前台、工程、客房一屏', en: 'Housekeeping console -- front desk, engineering, guest rooms in one view' },
+        { zh: '两到三周试点 —— 先做 10-30 间', en: 'Two to three weeks of pilot -- start with 10-30 rooms' },
+      ],
+      rhythm: {
+        zh: '入住前, 房间已为这位客人准备好光线与温度。退房后, 个人设定随画像离开, 房间回到安静的默认。',
+        en: 'Before check-in, light and temperature are already set for this guest. After check-out, personal settings leave with the profile; the room returns to a quiet default.',
+      },
+    },
   },
   {
     slug: 'hospitality',
