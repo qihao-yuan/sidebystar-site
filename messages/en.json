@@ -316,7 +316,16 @@
     "scenario": "Scenario",
     "message": "Message",
     "submit": "Submit",
-    "ok": "Received. We will contact you within one business day."
+    "sending": "Sending",
+    "ok": "Received. We will contact you within one business day.",
+    "errors": {
+      "missing_fields": "Please fill in name, organization and email.",
+      "bad_email": "Email format is invalid.",
+      "too_long": "Some field is too long.",
+      "rate_limited": "Too many submissions. Please try again later.",
+      "send_failed": "Failed to send. Please retry, or email us directly at contact@sidebystar.com.",
+      "network": "Network error. Please check your connection and retry."
+    }
   },
   "company": {
     "about": {
