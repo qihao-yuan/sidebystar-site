@@ -32,24 +32,23 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="eyebrow mb-4">{t('scenarios')}</h4>
+            <h4 className="eyebrow mb-4">{t('hardwareCol')}</h4>
             <ul className="space-y-2.5 text-sm text-ink-200">
+              <li><Link className="hover:text-white" href="/products">{n('products')}</Link></li>
+              <li><Link className="hover:text-white" href={'/system' as any}>{n('system')}</Link></li>
+              <li><Link className="hover:text-white" href="/solutions">{n('solutions')}</Link></li>
               <li><Link className="hover:text-white" href="/solutions/elderly-care">{sol('elderlyCare.title')}</Link></li>
-              <li><Link className="hover:text-white" href="/solutions/community-care">{sol('communityCare.title')}</Link></li>
-              <li><Link className="hover:text-white" href="/solutions/clinical-assist">{sol('clinicalAssist.title')}</Link></li>
               <li><Link className="hover:text-white" href="/solutions/smart-home">{sol('smartHome.title')}</Link></li>
-              <li><Link className="hover:text-white" href="/solutions/smart-room">{sol('smartRoom.title')}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="eyebrow mb-4">{t('platformCol')}</h4>
+            <h4 className="eyebrow mb-4">{t('softwareCol')}</h4>
             <ul className="space-y-2.5 text-sm text-ink-200">
-              <li><Link className="hover:text-white" href={'/intelligence' as any}>{n('intelligence')}</Link></li>
-              <li><Link className="hover:text-white" href="/products">{n('products')}</Link></li>
               <li><Link className="hover:text-white" href="/platform">{n('platform')}</Link></li>
+              <li><Link className="hover:text-white" href={'/plugins' as any}>{n('plugins')}</Link></li>
+              <li><Link className="hover:text-white" href={'/intelligence' as any}>{n('intelligence')}</Link></li>
               <li><Link className="hover:text-white" href="/developers">{n('developers')}</Link></li>
-              <li><Link className="hover:text-white" href="/research">{n('research')}</Link></li>
             </ul>
           </div>
 
@@ -58,8 +57,10 @@ export function SiteFooter() {
             <ul className="space-y-2.5 text-sm text-ink-200">
               <li><Link className="hover:text-white" href="/trust">{n('trust')}</Link></li>
               <li><Link className="hover:text-white" href="/cases">{n('cases')}</Link></li>
+              <li><Link className="hover:text-white" href="/research">{n('research')}</Link></li>
               <li><Link className="hover:text-white" href="/pilot">{pilotT('title')}</Link></li>
               <li><Link className="hover:text-white" href="/privacy">{privacyT('title')}</Link></li>
+              <li><Link className="hover:text-white" href="/company/about">{n('company')}</Link></li>
             </ul>
           </div>
         </div>

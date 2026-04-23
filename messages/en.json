@@ -8,7 +8,9 @@
     "solutions": "Solutions",
     "intelligence": "Intelligence",
     "products": "Products",
+    "system": "System",
     "platform": "Platform",
+    "plugins": "Plugins",
     "trust": "Trust",
     "research": "Research",
     "developers": "Developers",
@@ -16,7 +18,9 @@
     "company": "Company",
     "contact": "Contact",
     "demoRequest": "Book a Demo",
-    "locale": "EN"
+    "locale": "EN",
+    "groupHardware": "Hardware",
+    "groupSoftware": "Software"
   },
   "home": {
     "hero": {
@@ -383,8 +387,10 @@
   },
   "footer": {
     "scenarios": "Scenarios",
+    "hardwareCol": "Hardware",
+    "softwareCol": "Software",
     "platformCol": "Platform & Products",
-    "trustCol": "Trust & Partners",
+    "trustCol": "Trust & Insight",
     "companyCol": "Company",
     "address": "Address: Block E, Hangzhou Bay Information Port, Xiaoshan, Hangzhou, China",
     "phone": "Phone: +86 15568200088",
