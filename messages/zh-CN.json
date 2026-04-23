@@ -93,13 +93,7 @@
     "trust": {
       "eyebrow": "Trust, Verified",
       "title": "每一条决策,都写进 hash-chain。",
-      "body": "append-only 审计链不可篡改,等保 2.0 / HIPAA / GDPR 控制点全量映射,RBAC 四角色 × 多站点分级授权,监管与家属随时可查。",
-      "badge1": "等保 2.0 · 三级",
-      "badge2": "ICP 浙备",
-      "badge3": "Matter 1.3",
-      "badge4": "ISO 27001 · 规划中",
-      "badge5": "核心开源 · Apache 2.0",
-      "badge6": "公网安备"
+      "body": "append-only 审计链不可篡改,HIPAA / GDPR 控制点全量映射,RBAC 四角色 × 多站点分级授权,监管与家属随时可查。"
     },
     "cta": {
       "eyebrow": "Start Building",

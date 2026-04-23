@@ -93,13 +93,7 @@
     "trust": {
       "eyebrow": "Trust, Verified",
       "title": "Every decision, written to the hash-chain.",
-      "body": "Append-only ledger, tamper-evident. Full control-point mapping to MLPS 2.0 / HIPAA / GDPR. RBAC four-role x multi-site tiered authorisation. Ready for regulators and families, any time.",
-      "badge1": "MLPS 2.0 · Tier 3",
-      "badge2": "ICP Filed",
-      "badge3": "Matter 1.3",
-      "badge4": "ISO 27001 · Planned",
-      "badge5": "Core OSS · Apache 2.0",
-      "badge6": "Public Security Filed"
+      "body": "Append-only ledger, tamper-evident. Full control-point mapping to HIPAA / GDPR. RBAC four-role x multi-site tiered authorisation. Ready for regulators and families, any time."
     },
     "cta": {
       "eyebrow": "Start Building",
