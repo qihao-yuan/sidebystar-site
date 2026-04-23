@@ -80,10 +80,17 @@ glow.edge         0 0 40px rgba(125,211,252,0.25)
 
 ## 部署
 
-### 方案 A · Vercel (推荐)
+### 方案 A · Windows + IIS 反代 (当前生产方案)
+完整步骤见 [`docs/deploy-windows-iis.md`](./docs/deploy-windows-iis.md).
+核心: IIS(80/443) + URL Rewrite + ARR 反代到 pm2 守护的 `next start` (127.0.0.1:3000).
+更新: 云端 `cd C:\www\sidebystar-site && .\deploy.ps1` 一键拉取 + 构建 + 重启.
+
+反代模板: [`iis/web.config`](./iis/web.config).
+
+### 方案 B · Vercel
 push 到 main 自动走 `.github/workflows/deploy.yml`.
 
-### 方案 B · 静态导出 (兼容现有静态托管)
+### 方案 C · 静态导出 (兼容现有静态托管)
 把 `next.config.mjs` 顶层加 `output: 'export'` 后执行 `next build`, 产物在 `out/`.
 注意 `app/opengraph-image.tsx` 与 `app/icon.tsx` 使用 edge runtime, 静态导出需改为静态 PNG 或移除.
 
