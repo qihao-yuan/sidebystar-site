@@ -314,6 +314,14 @@
     "email": "Email",
     "phone": "Phone",
     "scenario": "Scenario",
+    "scenarioPlaceholder": "Select one",
+    "scenarios": {
+      "elderly-care": "Elderly Care",
+      "community-care": "Community Care",
+      "clinical-assist": "Clinical Assist",
+      "smart-home": "Smart Home",
+      "smart-room": "Smart Room"
+    },
     "message": "Message",
     "submit": "Submit",
     "sending": "Sending",

@@ -92,13 +92,22 @@ export function ContactForm({ defaultScenario }: { defaultScenario?: string } = 
       </label>
       <label className="flex flex-col gap-2 md:col-span-2">
         <span className="text-caption text-ink-300">{t('scenario')}</span>
-        <select name="scenario" defaultValue={defaultScenario} disabled={sending} className={base}>
-          <option value="">--</option>
-          <option value="elderly-care">Elderly Care</option>
-          <option value="community-care">Community Care</option>
-          <option value="clinical-assist">Clinical Assist</option>
-          <option value="smart-home">Smart Home</option>
-          <option value="smart-room">Smart Room</option>
+        <select
+          name="scenario"
+          defaultValue={defaultScenario ?? ''}
+          disabled={sending}
+          className={`${base} appearance-none [color-scheme:dark]`}
+        >
+          <option value="" className="bg-ink-900 text-white">
+            {t('scenarioPlaceholder')}
+          </option>
+          {(['elderly-care', 'community-care', 'clinical-assist', 'smart-home', 'smart-room'] as const).map(
+            (key) => (
+              <option key={key} value={key} className="bg-ink-900 text-white">
+                {t(`scenarios.${key}`)}
+              </option>
+            )
+          )}
         </select>
       </label>
       <label className="flex flex-col gap-2 md:col-span-2">

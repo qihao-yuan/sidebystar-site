@@ -314,6 +314,14 @@
     "email": "邮箱",
     "phone": "电话",
     "scenario": "场景",
+    "scenarioPlaceholder": "请选择",
+    "scenarios": {
+      "elderly-care": "居家养老",
+      "community-care": "社区照护",
+      "clinical-assist": "专科医疗辅助",
+      "smart-home": "智能家居",
+      "smart-room": "智能房间"
+    },
     "message": "需求说明",
     "submit": "提交",
     "sending": "正在发送",
