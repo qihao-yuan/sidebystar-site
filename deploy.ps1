@@ -23,9 +23,12 @@ npm run build
 
 Step "pm2 restart"
 # First-run creates the process, later runs just restart it.
+# NOTE: on Windows we point pm2 straight at next's JS entry (node_modules\next\dist\bin\next)
+# instead of "pm2 start npm -- run start", because the latter silently drops CLI args on Windows
+# (bug: pm2 treats 'run' as a script path and fails with "Script not found: ...\run").
 $exists = (pm2 id sidebystar 2>$null)
 if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($exists)) {
-    pm2 start npm --name sidebystar -- run start -- -p 3000
+    pm2 start "node_modules\next\dist\bin\next" --name sidebystar -- start -p 3000
 } else {
     pm2 restart sidebystar --update-env
 }
