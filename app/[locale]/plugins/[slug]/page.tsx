@@ -152,7 +152,7 @@ export default async function PluginStory({
                 {isZh ? '面向开发者' : 'For developers'}
               </div>
               <h3 className="mt-3 text-display-sm text-white">
-                {isZh ? '想看 manifest 与安装命令?' : 'Looking for the manifest and install?'}
+                {isZh ? 'Manifest　与安装命令' : 'Looking for the manifest and install?'}
               </h3>
               <p className="mt-3 text-body text-ink-300">
                 {isZh

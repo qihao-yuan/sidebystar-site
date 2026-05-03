@@ -27,7 +27,7 @@ export default async function CasesPage({ params }: { params: Promise<{ locale: 
         <div className="container-page relative max-w-4xl">
           <Reveal><span className="eyebrow">Cases</span></Reveal>
           <h1 className="mt-6 text-display-2xl text-balance text-white">
-            <TextReveal stagger={70}>{isZh ? '真实部署, 真实数据。' : 'Real deployments, real data.'}</TextReveal>
+            <TextReveal stagger={70}>{isZh ? '真实部署　真实数据' : 'Real deployments, real data.'}</TextReveal>
           </h1>
           <Reveal delay={200}>
             <p className="mt-6 max-w-2xl text-body-lg text-ink-300">{t('subtitle')}</p>

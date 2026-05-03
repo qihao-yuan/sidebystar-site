@@ -55,7 +55,7 @@ export function SkuCompare() {
         <Reveal>
           <span className="eyebrow">Side by Side</span>
           <h2 className="mt-4 text-display-lg text-white">
-            {isZh ? '三款放在一起看一眼。' : 'All three, at a glance.'}
+            {isZh ? '三款放在一起　看一眼' : 'All three, at a glance.'}
           </h2>
           <p className="mt-3 max-w-2xl text-body text-ink-300">
             {isZh
@@ -97,7 +97,7 @@ export function SkuCompare() {
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-5">
           <div>
             <div className="text-caption uppercase tracking-wide text-ink-500">
-              {isZh ? '需要完整的硬件规格?' : 'Need the full hardware spec?'}
+              {isZh ? '完整的硬件规格' : 'Need the full hardware spec?'}
             </div>
             <p className="mt-1 text-body text-ink-200">
               {isZh ? '芯片、内存、存储、接口、功耗、尺寸, 都在开发者专区里。' : 'Chip, memory, storage, ports, power, dimensions -- all in the developer zone.'}

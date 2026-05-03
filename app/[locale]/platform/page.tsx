@@ -36,7 +36,7 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
           <Reveal><span className="eyebrow">AIOS Platform</span></Reveal>
           <h1 className="mt-6 text-display-2xl text-balance text-white">
             <TextReveal stagger={60}>
-              {isZh ? '平台即操作系统。' : 'The platform is an operating system.'}
+              {isZh ? '平台\n就是操作系统' : 'The platform is an operating system.'}
             </TextReveal>
           </h1>
           <Reveal delay={200}>

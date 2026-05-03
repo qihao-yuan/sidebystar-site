@@ -184,7 +184,7 @@ export default async function SolutionDetail({
               <div>
                 <span className="eyebrow">03 · {isZh ? '让我们陪你落地' : 'Let us walk you in'}</span>
                 <h3 className="mt-3 text-display-lg text-white">
-                  {isZh ? '先从一个楼层, 一间病房, 或一个家开始。' : 'Start from one floor, one ward, or one home.'}
+                  {isZh ? '从一个楼层　一间病房　或一个家开始' : 'Start from one floor, one ward, or one home.'}
                 </h3>
               </div>
               <div className="flex flex-wrap gap-3">

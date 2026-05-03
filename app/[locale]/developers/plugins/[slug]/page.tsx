@@ -146,7 +146,7 @@ export default async function PluginTechnicalDetail({
                 <div className="text-display-sm text-white">{isZh ? '能力' : 'Capabilities'}</div>
               </div>
               <p className="mt-3 text-caption text-ink-400">
-                {isZh ? '插件对外提供的能力接口, 供系统编排调用。' : 'Capabilities the plugin exposes for the runtime to orchestrate.'}
+                {isZh ? '插件　对外提供的能力接口' : 'Capabilities the plugin exposes for the runtime to orchestrate.'}
               </p>
               <ul className="mt-4 space-y-3">
                 {manifest.capabilities.map((c, i) => (
@@ -165,7 +165,7 @@ export default async function PluginTechnicalDetail({
                 <div className="text-display-sm text-white">{isZh ? '可调用动作' : 'Actions'}</div>
               </div>
               <p className="mt-3 text-caption text-ink-400">
-                {isZh ? '可在规则或脚本中显式触发的动作。' : 'Actions you can trigger from rules or scripts.'}
+                {isZh ? '可在规则或脚本里　显式触发的动作' : 'Actions you can trigger from rules or scripts.'}
               </p>
               <ul className="mt-4 space-y-3">
                 {manifest.actions.map((a, i) => (
@@ -186,7 +186,7 @@ export default async function PluginTechnicalDetail({
           <Reveal>
             <span className="eyebrow">{isZh ? 'Manifest 预览' : 'Manifest Preview'}</span>
             <h2 className="mt-4 text-display-lg text-white">
-              {isZh ? '完整的清单, 一份就够了。' : 'The complete manifest, in one file.'}
+              {isZh ? '一份完整清单　就够了' : 'The complete manifest, in one file.'}
             </h2>
           </Reveal>
           <div className="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula">

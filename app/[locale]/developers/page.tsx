@@ -35,7 +35,7 @@ export default async function DevelopersPage({ params }: { params: Promise<{ loc
           <Reveal><span className="eyebrow">Developers</span></Reveal>
           <h1 className="mt-6 text-display-2xl text-balance text-white">
             <TextReveal stagger={70}>
-              {isZh ? '为开发者准备的本地 AI 基建。' : 'Local AI infrastructure for builders.'}
+              {isZh ? '为开发者准备的\n本地 AI 基建' : 'Local AI infrastructure for builders.'}
             </TextReveal>
           </h1>
           <Reveal delay={200}>

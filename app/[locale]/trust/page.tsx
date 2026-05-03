@@ -41,7 +41,7 @@ export default async function TrustPage({ params }: { params: Promise<{ locale: 
           <Reveal><span className="eyebrow">Trust & Compliance</span></Reveal>
           <h1 className="mt-6 text-display-2xl text-balance text-white">
             <TextReveal stagger={60}>
-              {isZh ? '每一条决策, 可追溯。' : 'Every decision, traceable.'}
+              {isZh ? '每一条决策\n都可追溯' : 'Every decision, traceable.'}
             </TextReveal>
           </h1>
           <Reveal delay={200}>
