@@ -43,12 +43,13 @@ export function HomeHero() {
         </h1>
 
         <p className="max-w-2xl text-body-lg text-ink-200">{t('subtitle')}</p>
+        <p className="max-w-2xl text-caption text-ink-400">{t('footnote')}</p>
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
           <MagneticButton href="/contact" variant="primary">
             {t('ctaPrimary')} <ArrowRight size={16} />
           </MagneticButton>
-          <MagneticButton href="/research" variant="ghost">
+          <MagneticButton href="#night-care" variant="ghost">
             {t('ctaSecondary')}
           </MagneticButton>
         </div>

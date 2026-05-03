@@ -24,11 +24,12 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "AIOS · An Operating System for Space",
+      "eyebrow": "AIOS · A Local Intelligence Kernel for Real Spaces",
       "title": "A space that understands you -- before you speak.",
-      "subtitle": "An intelligence kernel that lives entirely in your home -- knows you, earns your trust, and stays open to extend.",
+      "subtitle": "From care spaces to homes -- AIOS lets the space understand its people, protect their privacy, and act within a trusted boundary. One local kernel, two product directions, two kinds of customers.",
+      "footnote": "AIOS Care for facilities and care    /    AIOS Home for households and residences",
       "ctaPrimary": "Book a Demo",
-      "ctaSecondary": "See its intelligence",
+      "ctaSecondary": "See AIOS Care and AIOS Home",
       "scrollHint": "Keep scrolling"
     },
     "era": {
@@ -45,6 +46,35 @@
       "col3To": "A model of your own",
       "col3Body": "An intelligence grown for you, your family, your space -- no one else."
     },
+    "lines": {
+      "eyebrow": "Two Lines, One Kernel",
+      "title": "One kernel.\nTwo product lines.",
+      "subtitle": "The same AIOS underneath -- but eldercare and home-AI cannot share one pitch. Different customers, different problems, different growth paths.",
+      "careEyebrow": "AIOS Care",
+      "careTitle": "For facilities and care",
+      "careTagline": "Sells safety, efficiency and a chain of evidence",
+      "careBody": "Anomaly detection, dispatch, response loop, full-chain audit -- fewer incidents on the floor, fewer doubts from families, fewer disputes for the operator. This is our near-term commercial focus.",
+      "carePoint1": "Tiered alerts for night bed-leaving and falls",
+      "carePoint2": "Tickets routed to a person, every step on record",
+      "carePoint3": "Family, staff and operator each see their own view",
+      "careCta": "See the night-care loop",
+      "homeEyebrow": "AIOS Home",
+      "homeTitle": "For households and high-end residences",
+      "homeTagline": "Sells understanding, the home, and long-term memory",
+      "homeBody": "Not making you adapt to smart home -- the home learns to understand you. Preferences, family rhythm, the state of the space. A local AI that belongs to this home, with data that never leaves.",
+      "homePoint1": "Remembers each member's preferences and rhythm",
+      "homePoint2": "Reads the space without relying on cameras",
+      "homePoint3": "Suggests first, never acts alone; high-risk steps need confirmation",
+      "homeCta": "Meet the intelligence",
+      "footnote": "AIOS Care answers \"how can a care space be safer and more efficient?\";\nAIOS Home answers \"how can a home truly understand me?\""
+    },
+    "nightCare": {
+      "eyebrow": "AIOS Care · Night Loop",
+      "title": "AIOS Care on the floor.\nOne night shift. One bed leaving. One record.",
+      "subtitle": "This is what AIOS Care looks like on the floor of an eldercare or community-care site -- not a talking box, but an acceptable event stream. The same record, seen by the resident, the system, the staff, the family and the operator, each from their own angle.",
+      "ctaPrimary": "See the elderly-care solution",
+      "ctaSecondary": "Apply for a night-care pilot"
+    },
     "spectrum": {
       "eyebrow": "Everywhere You Are",
       "title": "From a bedside lamp, to a city block.",
@@ -60,9 +90,9 @@
       "cta": "See all deployed scenarios"
     },
     "intelligence": {
-      "eyebrow": "What Makes It Intelligent",
+      "eyebrow": "AIOS Home · Understanding",
       "title": "Not reaction. Understanding.",
-      "subtitle": "Real intelligence is not about what it can answer. It is that it already knows you.",
+      "subtitle": "AIOS Home is not about being able to talk -- it is about truly understanding this home. Not what it can answer, but that it already knows you.",
       "card1Title": "Sense",
       "card1Body": "It sees you walk into the room, before you speak.",
       "card2Title": "Remember",
@@ -193,24 +223,24 @@
   },
   "solutions": {
     "title": "Solutions",
-    "subtitle": "One kernel, many scales. From a single bed to a city block -- already deployed in real spaces.",
-    "comingSoon": "Planned · 2026 Q2+",
+    "subtitle": "AIOS is a reusable local-space intelligence kernel that powers two product directions -- AIOS Care for facilities and care, selling safety, efficiency and a chain of evidence; AIOS Home for households and high-end residences, selling understanding, the home and long-term memory. Same kernel underneath, very different pitch, customers and pace.",
+    "comingSoon": "In Labs",
     "groups": {
       "health": {
-        "title": "Health & Care",
-        "body": "The heaviest watch, the lightest presence."
+        "title": "AIOS Care · Eldercare and Care Sites",
+        "body": "Near-term commercial focus. Home-based eldercare, community care, clinical assistance -- high responsibility, sharp demand, clear acceptance. Trades safety, efficiency and a chain of evidence for pilots and procurement."
       },
       "home": {
-        "title": "Home & Living",
-        "body": "A house that understands the family. A family that worries less."
+        "title": "AIOS Home · Households and Residences",
+        "body": "Long-term brand vision. Households, high-end residences, designer and developer channels -- selling \"a home that grows to understand you\": preferences, rhythm, spatial state, local privacy. Starts from showcase residences and extends outward."
       },
       "commercial": {
-        "title": "Commercial Spaces",
-        "body": "Hotels, offices, retail -- spaces that learn to host."
+        "title": "Commercial Spaces (In Labs)",
+        "body": "Hotel, office, retail -- on the same AIOS kernel, validated in Labs. Engaged after the Care and Home delivery packages prove repeatable."
       },
       "public": {
-        "title": "Education & Public",
-        "body": "Campuses and cultural venues -- care at larger scale."
+        "title": "Education & Public (In Labs)",
+        "body": "Campuses and cultural venues -- on the same AIOS kernel, in Labs validation. Outside the phase-one commercial commitment."
       }
     },
     "items": {
@@ -261,20 +291,20 @@
     "title": "Trust & Compliance",
     "subtitle": "Local-First is not a slogan. It is a four-layer network lock, hash-chain audit, tiered RBAC and compliance mapping.",
     "localFirst": {
-      "title": "Local-First",
-      "body": "Four-layer network lock at Application / Audit / Container / Host iptables. Zero exceptions offline, zero outbound enterprise allowlist."
+      "title": "Defense in Depth, Engineered",
+      "body": "Applied as a standard enterprise pattern: application allowlist, egress audit, container isolation, host firewall — four layers of least-privilege networking, with critical paths remaining online when disconnected."
     },
     "auditChain": {
-      "title": "Hash-Chain Audit",
-      "body": "Every LLM inference, every execution, every rule change is written to an append-only, tamper-evident AuditLedger with direct report export."
+      "title": "AuditLedger · Append-only Audit",
+      "body": "Every LLM inference, every execution, every rule change is appended to a local ledger and exportable as a compliance report."
     },
     "rbac": {
-      "title": "Multi-Role RBAC",
-      "body": "admin / operator / observer / user plus multi-site principal with extra_sites. Floor-level isolation for institutions."
+      "title": "RBAC · Roles and Multi-site Isolation",
+      "body": "Standard role model (admin / operator / observer / user) with multi-site and floor-level access scopes — each person sees only what their role covers."
     },
     "compliance": {
-      "title": "Compliance Mapping",
-      "body": "Full control-point mapping for MLPS 2.0 Level 3, HIPAA-like, GDPR-like. Audit logs export as JSONL, CSV, or PDF."
+      "title": "Aligned with MLPS / HIPAA / GDPR",
+      "body": "Selected control-point mapping against MLPS 2.0 L3, HIPAA-like, and GDPR-like; the full matrix ships with the procurement brief. Audit logs export as JSONL, CSV, or PDF."
     }
   },
   "research": {
@@ -301,12 +331,12 @@
         "body": "Going beyond event logs. We record why something happened, and how to avoid it next time."
       },
       "endSideLlm": {
-        "title": "Small, strong, on-device models",
-        "body": "Lightweight language models running directly on local hardware -- a 'home brain' of your own."
+        "title": "Small, intimate, on-device models",
+        "body": "Lightweight models running directly on local hardware in homes and facilities -- a kernel of intelligence that belongs to that space."
       },
       "zkAudit": {
-        "title": "Zero-knowledge audit",
-        "body": "Let users prove they are compliant to regulators, without handing over a single line of raw data."
+        "title": "Provable compliance, no raw data shared",
+        "body": "Let facilities prove to regulators that they are compliant, without ever handing over a single line of personal data."
       },
       "fedBundle": {
         "title": "A network that shares experience",

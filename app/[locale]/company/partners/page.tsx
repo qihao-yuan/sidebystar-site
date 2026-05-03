@@ -25,10 +25,10 @@ export default async function PartnersPage({ params }: { params: Promise<{ local
 
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {team.partners.map((p, i) => (
-            <Reveal key={p.name} delay={i * 50}>
+            <Reveal key={p.name.en} delay={i * 50}>
               <div className="card-vision flex items-center justify-between">
                 <div>
-                  <div className="text-body-lg text-white">{p.name}</div>
+                  <div className="text-body-lg text-white">{isZh ? p.name.zh : p.name.en}</div>
                   <p className="mt-1 text-caption text-ink-300">{isZh ? p.desc.zh : p.desc.en}</p>
                 </div>
                 <div className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.04]" />

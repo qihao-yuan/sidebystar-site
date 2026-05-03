@@ -71,8 +71,13 @@ export default async function TrustPage({ params }: { params: Promise<{ locale: 
       <section className="py-section">
         <div className="container-page">
           <Reveal>
-            <span className="eyebrow">Network Guard</span>
-            <h2 className="mt-4 text-display-lg text-white">{isZh ? '四层网络锁' : 'Four-Layer Network Lock'}</h2>
+            <span className="eyebrow">Defense in Depth</span>
+            <h2 className="mt-4 text-display-lg text-white">{isZh ? '纵深防御 · 网络分层保护' : 'Defense in Depth · Layered Network Protection'}</h2>
+            <p className="mt-3 max-w-2xl text-caption text-ink-400">
+              {isZh
+                ? '本节为按企业网络与等保 2.0 实践工程化的设计,非自创安全模型。'
+                : 'This section reflects standard enterprise networking and MLPS 2.0 engineering practice — not a proprietary security model.'}
+            </p>
           </Reveal>
 
           <div className="mt-12 grid gap-4 md:grid-cols-4">
@@ -93,8 +98,13 @@ export default async function TrustPage({ params }: { params: Promise<{ locale: 
       <section className="py-section-lg">
         <div className="container-page">
           <Reveal>
-            <span className="eyebrow">Compliance Mapping</span>
-            <h2 className="mt-4 text-display-lg text-white">{isZh ? '合规映射表' : 'Control Point Map'}</h2>
+            <span className="eyebrow">Control Point Examples</span>
+            <h2 className="mt-4 text-display-lg text-white">{isZh ? '控制点对照(节选)' : 'Selected Control Points'}</h2>
+            <p className="mt-3 max-w-2xl text-caption text-ink-400">
+              {isZh
+                ? '以下为节选示例,完整控制点矩阵随《采购说明》文档发布,验收阶段对照执行。'
+                : 'A selection of control points. The full matrix ships with the procurement brief and is enforced at acceptance.'}
+            </p>
           </Reveal>
 
           <div className="mt-10 overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.02]">

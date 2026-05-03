@@ -1,14 +1,15 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Eye, Zap, Brain, Network, Lock, ArrowRight } from 'lucide-react';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Reveal } from '@/components/motion/Reveal';
-import { NumberTicker } from '@/components/motion/NumberTicker';
 
 export function HomePlatform() {
   const t = useTranslations('home.platform');
+  const locale = useLocale();
+  const isZh = locale === 'zh-CN';
 
   const items = [
     { icon: Eye, title: t('sensingTitle'), body: t('sensingBody') },
@@ -18,42 +19,24 @@ export function HomePlatform() {
     { icon: Lock, title: t('privacyTitle'), body: t('privacyBody') },
   ];
 
+  const principles = [
+    { kZh: '本地推理', kEn: 'On-device inference', vZh: '默认配置下不外发', vEn: 'No outbound by default' },
+    { kZh: '断网可用', kEn: 'Offline-capable', vZh: '关键能力不依赖云', vEn: 'Critical paths free of cloud' },
+    { kZh: '可审计', kEn: 'Auditable', vZh: '每一次判断都留痕', vEn: 'Every decision, traced' },
+  ];
+
   return (
     <section className="relative py-section-lg">
       <div className="container-page">
         <SectionHeader eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
-        <div className="mt-16 grid grid-cols-3 gap-8 border-y border-white/5 py-10 md:grid-cols-5">
-          <div className="col-span-1 text-center">
-            <div className="font-display text-display-md text-white">
-              <NumberTicker value={225} />
+        <div className="mt-16 grid grid-cols-1 gap-6 border-y border-white/5 py-10 md:grid-cols-3">
+          {principles.map((p) => (
+            <div key={p.kEn} className="text-center">
+              <div className="font-display text-display-sm text-white">{isZh ? p.kZh : p.kEn}</div>
+              <div className="mt-2 text-caption text-ink-400">{isZh ? p.vZh : p.vEn}</div>
             </div>
-            <div className="mt-1 text-caption text-ink-400">Modules</div>
-          </div>
-          <div className="col-span-1 text-center">
-            <div className="font-display text-display-md text-white">
-              <NumberTicker value={112} />
-            </div>
-            <div className="mt-1 text-caption text-ink-400">REST</div>
-          </div>
-          <div className="col-span-1 text-center">
-            <div className="font-display text-display-md text-white">
-              <NumberTicker value={67} />
-            </div>
-            <div className="mt-1 text-caption text-ink-400">v1 APIs</div>
-          </div>
-          <div className="col-span-1 text-center">
-            <div className="font-display text-display-md text-white">
-              <NumberTicker value={50} suffix="ms" />
-            </div>
-            <div className="mt-1 text-caption text-ink-400">Event trigger</div>
-          </div>
-          <div className="col-span-3 text-center md:col-span-1">
-            <div className="font-display text-display-md text-white">
-              <NumberTicker value={100} suffix="%" />
-            </div>
-            <div className="mt-1 text-caption text-ink-400">Local-First</div>
-          </div>
+          ))}
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">

@@ -54,7 +54,7 @@ export const plugins: Plugin[] = [
     kind: 'official',
     stage: 'ga',
     topic: 'home',
-    taglineZh: '让夜里的灯, 懂怎么陪你起床。',
+    taglineZh: '夜里给你一束柔光, 清晨陪你慢慢醒来。',
     taglineEn: 'A light that knows how to walk you through the night.',
     storyZh:
       '夜里起身时, 它让走廊先亮到 10% 柔光。清晨, 它顺着日光的节奏慢慢把房间唤起 —— 不需要你设闹钟, 也不需要你设场景。用得久了, 它知道谁晚上会渴、谁习惯在哪一侧下床。',
@@ -65,7 +65,7 @@ export const plugins: Plugin[] = [
       { zh: '日光渐亮唤醒, 比闹钟温柔', en: 'Daylight-ramped wake, kinder than an alarm' },
       { zh: '越用越懂, 不用手动设置', en: 'Learns with use -- no scene to configure' },
     ],
-    outcomeZh: '夜里不用再摸着墙找开关; 清晨醒来, 屋子已经知道这是你要的早晨。',
+    outcomeZh: '夜里不必摸墙, 清晨不必闹钟。',
     outcomeEn: 'No more fumbling along the wall at night; by morning the room already knows which kind of day is yours.',
     manifest: {
       permissions: ['sense:presence:read', 'sense:light:read', 'actuate:light:write', 'memory:habit:read'],
@@ -91,7 +91,7 @@ export const plugins: Plugin[] = [
     kind: 'official',
     stage: 'ga',
     topic: 'health',
-    taglineZh: '跌倒可以被提前识别, 关心可以走在呼唤之前。',
+    taglineZh: '让告警, 走在呼唤之前。',
     taglineEn: 'A fall seen before it finishes. Care that arrives before the call.',
     storyZh:
       '它用毫米波读取呼吸、姿态与轨迹, 再用声学感知判断动静。不靠摄像头对着老人, 却能分清"夜里起身、离床、超时坐起、跌倒"这四种情况。告警分级送达家属与值班护士, 断网也不影响。',
@@ -102,7 +102,7 @@ export const plugins: Plugin[] = [
       { zh: '四种情况分级告警, 少扰少漏', en: 'Four kinds of alerts, finely tiered' },
       { zh: '断网也能告警, 本地完成', en: 'Alerts hold offline, finished locally' },
     ],
-    outcomeZh: '夜里那张床, 真的可以被依靠。',
+    outcomeZh: '夜里那张床, 能让人放心睡。',
     outcomeEn: 'The bed at night truly becomes something to count on.',
     manifest: {
       permissions: ['sense:mmwave:read', 'sense:acoustic:read', 'alert:emit', 'profile:resident:read'],
@@ -121,14 +121,14 @@ export const plugins: Plugin[] = [
   {
     slug: 'energy-keeper',
     icon: Zap,
-    nameZh: '能量守',
+    nameZh: '节流',
     nameEn: 'Energy Keeper',
     vendorZh: '循星官方',
     vendorEn: 'By SidebyStar',
     kind: 'official',
     stage: 'beta',
     topic: 'home',
-    taglineZh: '每一度电去了哪, 都能被看见, 也能自动省。',
+    taglineZh: '看清每一度电去了哪, 顺便帮你省下来。',
     taglineEn: 'Every kilowatt-hour, accounted for -- and quietly saved.',
     storyZh:
       '它从空调、地暖、热水器、照明的节拍里找节能空间, 在你感觉不到的时候调一调 —— 让舒适保持原样, 账单低一些。每一次调整, 都留下可查的记录, 让你知道是哪一次让电费少了几十块。',
@@ -139,7 +139,7 @@ export const plugins: Plugin[] = [
       { zh: '所有节能调整都可回放', en: 'Every saving nudge is replayable' },
       { zh: '开着它不扰人, 关着它也不失控', en: 'On: quiet. Off: safe.' },
     ],
-    outcomeZh: '一个月后, 你会在账单上第一次看见它。',
+    outcomeZh: '一个月后, 第一次在账单上看见它。',
     outcomeEn: 'In a month, you see it for the first time -- on the bill.',
     manifest: {
       permissions: ['sense:energy:read', 'sense:temperature:read', 'actuate:hvac:write', 'actuate:light:write', 'ledger:write'],
@@ -158,14 +158,14 @@ export const plugins: Plugin[] = [
   {
     slug: 'matter-bridge',
     icon: Cable,
-    nameZh: 'Matter 桥',
+    nameZh: '通译',
     nameEn: 'Matter Bridge',
     vendorZh: '合作伙伴',
     vendorEn: 'Partner',
     kind: 'partner',
     stage: 'ga',
     topic: 'infra',
-    taglineZh: '让你家现在的设备, 都能在 AIOS 里一起说话。',
+    taglineZh: '让家里原有的设备, 说同一种语言。',
     taglineEn: 'Lets the devices you already own speak the same language in AIOS.',
     storyZh:
       '它把你家里原有的设备 —— 不管是新买的、旧的、从邻居那继承来的 —— 接进 AIOS 的同一张协议网。你不用换牌子, 不用重新布线, 也不用担心哪一天某个云下线了。',
@@ -176,7 +176,7 @@ export const plugins: Plugin[] = [
       { zh: '不用换你家原有的灯与门锁', en: 'No need to replace existing lights and locks' },
       { zh: '云下线, 设备依然能用', en: 'Devices keep working when a cloud goes dark' },
     ],
-    outcomeZh: '家里看似杂乱的一堆品牌, 终于能在一张表上被看清楚。',
+    outcomeZh: '杂乱的品牌, 终于在同一张表上对齐。',
     outcomeEn: 'That mess of brands in your home finally reads as one list.',
     manifest: {
       permissions: ['connect:matter:read', 'connect:matter:write', 'facts:devices:write'],
@@ -201,7 +201,7 @@ export const plugins: Plugin[] = [
     kind: 'partner',
     stage: 'ga',
     topic: 'infra',
-    taglineZh: '你在 HA 里写过的每一条自动化, 都不会白费。',
+    taglineZh: '让你写过的每一条规则, 继续生效。',
     taglineEn: 'Every automation you wrote in HA comes along.',
     storyZh:
       '如果你之前用 Home Assistant 管着全屋, 这个插件会把你的自动化、实体、仪表板都映射进 AIOS 的事实库, 让两边并行运行, 甚至互相学习。换系统, 不等于从零开始。',
@@ -212,7 +212,7 @@ export const plugins: Plugin[] = [
       { zh: '实体、仪表板、区域自动同步', en: 'Entities, dashboards, areas auto-synced' },
       { zh: '两边并行, 不用一刀切', en: 'Run both sides in parallel, no hard cut' },
     ],
-    outcomeZh: '你花在 Home Assistant 上的每个周末, 都没有白费。',
+    outcomeZh: '你在 Home Assistant 上的每个周末, 都还在生效。',
     outcomeEn: 'Every weekend you spent on Home Assistant, still pays.',
     manifest: {
       permissions: ['ha:entities:read', 'ha:automations:read', 'facts:entities:write'],
@@ -235,7 +235,7 @@ export const plugins: Plugin[] = [
     kind: 'partner',
     stage: 'beta',
     topic: 'commercial',
-    taglineZh: '客人未到, 房间已经为他准备好。',
+    taglineZh: '客人还在路上, 房间已经准备好。',
     taglineEn: 'The room is ready for the guest before check-in.',
     storyZh:
       '把客人的温度偏好、光线偏好、喜好的欢迎场景, 做成一份可随身画像。预订信息一到, 房间就开始轻轻调温、调光。退房后, 个人设定随画像离开, 下一位客人进来, 房间又回到安静的默认。',
@@ -270,7 +270,7 @@ export const plugins: Plugin[] = [
     kind: 'partner',
     stage: 'ga',
     topic: 'health',
-    taglineZh: '把医院既有的信息系统, 接进 AIOS 的可审计闭环。',
+    taglineZh: '让医院既有的系统, 接入可审计闭环。',
     taglineEn: 'Brings the hospital\'s existing systems into the auditable loop of AIOS.',
     storyZh:
       '在医院不出院的前提下, 把科室级的 SOP、病区的巡查工单、既有的信息系统对接进 AIOS。护士站和科主任看到的是自己熟悉的工作面, 而 AIOS 只在后台安静地做它那份事。',
@@ -281,7 +281,7 @@ export const plugins: Plugin[] = [
       { zh: '对接既有流程, 不推倒重来', en: 'Integrates existing flows, no rip-and-replace' },
       { zh: '护士站面不变, 工作节奏不变', en: 'Nursing view unchanged, working rhythm unchanged' },
     ],
-    outcomeZh: '新系统上线, 科室感觉不到被换了一套。',
+    outcomeZh: '新系统上线, 科室感觉不到换了一套。',
     outcomeEn: 'Going live feels, to the department, like nothing was replaced.',
     manifest: {
       permissions: ['clinical:sop:read', 'clinical:tickets:write', 'facts:resident:write', 'ledger:write'],
@@ -298,14 +298,14 @@ export const plugins: Plugin[] = [
   {
     slug: 'auditable-voice',
     icon: Mic2,
-    nameZh: '可查的声音',
+    nameZh: '留声',
     nameEn: 'Auditable Voice',
     vendorZh: '循星官方',
     vendorEn: 'By SidebyStar',
     kind: 'official',
     stage: 'roadmap',
     topic: 'home',
-    taglineZh: '每一次对话, 都能被本人回放、被家属查看、被监管导出。',
+    taglineZh: '屋里说过的每一句话, 都留下可查的痕迹。',
     taglineEn: 'Every conversation -- replayable by you, viewable by family, exportable for regulators.',
     storyZh:
       '语音进入一个房间以后, 不该就此消失。这枚插件让每一句交互都写入本地账本, 本人可以回放, 家属可以查阅, 监管方可以导出合规报表。全程不离家, 也不被悄悄抹掉。',
@@ -316,7 +316,7 @@ export const plugins: Plugin[] = [
       { zh: '本人可回放, 家属可查阅', en: 'Replay for you, review for family' },
       { zh: '监管视角可导出合规报表', en: 'Compliance exports for regulators' },
     ],
-    outcomeZh: '屋里说过的每一句话, 都能被本人重新听见。',
+    outcomeZh: '你说过的话, 自己听得见, 别人改不掉。',
     outcomeEn: 'Every word spoken in the house, you can hear yourself again.',
   },
 ];

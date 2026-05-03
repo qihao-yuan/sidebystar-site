@@ -12,18 +12,18 @@
     {
       "slug": "cto",
       "name": { "zh": "CTO", "en": "CTO" },
-      "role": { "zh": "AIOS 架构 / 端侧推理 / 联邦", "en": "AIOS Architecture / Edge Inference / Federation" },
+      "role": { "zh": "系统架构 / 端侧推理", "en": "System Architecture / Edge Inference" },
       "bio": {
-        "zh": "前 AI 基础设施团队核心成员, 主导 FactBase / AuditLedger / 四层记忆的设计与实现。",
-        "en": "Core member of AI infra team, led the design and implementation of FactBase, AuditLedger and the four-layer memory stack."
+        "zh": "长期 AI 基础设施背景, 负责 AIOS 的整体架构与可信执行链路设计。",
+        "en": "Long-time AI infrastructure background, leads the overall AIOS architecture and the design of the trusted execution path."
       }
     },
     {
       "slug": "head-of-research",
       "name": { "zh": "研究负责人", "en": "Head of Research" },
-      "role": { "zh": "因果记忆 / JEPA / 端侧 LLM 蒸馏", "en": "Causal Memory / JEPA / Edge LLM Distillation" },
+      "role": { "zh": "多模态感知 / 端侧模型", "en": "Multimodal Sensing / Edge Models" },
       "bio": {
-        "zh": "多模态感知与因果推理方向博士, 主导前瞻研究路线, 推动论文与学术合作。",
+        "zh": "多模态感知与因果推理方向博士, 主导前瞻研究路线与学术合作。",
         "en": "PhD in multimodal sensing and causal reasoning. Leads the frontier research roadmap and academic collaborations."
       }
     },
@@ -56,11 +56,10 @@
     }
   ],
   "partners": [
-    { "name": "Hailo", "desc": { "zh": "端侧 AI 加速", "en": "Edge AI acceleration" } },
-    { "name": "NVIDIA Jetson", "desc": { "zh": "企业级推理平台", "en": "Enterprise inference platform" } },
-    { "name": "Matter Alliance", "desc": { "zh": "跨品牌设备协议", "en": "Cross-brand device protocol" } },
-    { "name": "Home Assistant", "desc": { "zh": "开源智能家居生态", "en": "Open-source smart-home ecosystem" } },
-    { "name": "Zhejiang University", "desc": { "zh": "学术研究合作", "en": "Academic research collab" } },
-    { "name": "Local Civil Affairs", "desc": { "zh": "养老试点政府合作方", "en": "Elderly-care pilot government partner" } }
+    { "name": { "zh": "Matter 标准联盟", "en": "Matter Alliance" }, "desc": { "zh": "跨品牌设备互操作协议(公开生态)", "en": "Cross-brand device interoperability (public ecosystem)" } },
+    { "name": { "zh": "Home Assistant 生态", "en": "Home Assistant Ecosystem" }, "desc": { "zh": "开源智能家居生态(公开生态)", "en": "Open-source smart-home ecosystem (public)" } },
+    { "name": { "zh": "端侧 AI 推理硬件", "en": "On-device AI Inference Hardware" }, "desc": { "zh": "面向不同算力档位的本地推理芯片与平台", "en": "Local inference silicon and platforms across compute tiers" } },
+    { "name": { "zh": "院校与研究合作", "en": "Academic & Research" }, "desc": { "zh": "在端侧多模态、可信 AI、因果记忆方向的联合研究", "en": "Joint research on on-device multimodal sensing, trustworthy AI, and causal memory" } },
+    { "name": { "zh": "民政与照护体系试点", "en": "Civil Affairs & Care Pilots" }, "desc": { "zh": "地方民政与机构照护体系试点合作", "en": "Pilots with local civil-affairs and care systems" } }
   ]
 }
