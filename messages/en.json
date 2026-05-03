@@ -24,12 +24,12 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "AIOS · A Local Intelligence Kernel for Real Spaces",
+      "eyebrow": "AIOS · A Local AI Hub for Real Spaces",
       "title": "A space that understands you -- before you speak.",
-      "subtitle": "From care spaces to homes -- AIOS lets the space understand its people, protect their privacy, and act within a trusted boundary. One local kernel, two product directions, two kinds of customers.",
-      "footnote": "AIOS Care for facilities and care    /    AIOS Home for households and residences",
+      "subtitle": "One local AI hub, in use across eldercare facilities and high-end residences -- yet what each side is paying for is two very different things.",
+      "footnote": "AIOS Care | care facilities & operators    ·    AIOS Home | households & residences",
       "ctaPrimary": "Book a Demo",
-      "ctaSecondary": "See AIOS Care and AIOS Home",
+      "ctaSecondary": "See it inside both kinds of spaces",
       "scrollHint": "Keep scrolling"
     },
     "era": {
@@ -47,25 +47,25 @@
       "col3Body": "An intelligence grown for you, your family, your space -- no one else."
     },
     "lines": {
-      "eyebrow": "Two Lines, One Kernel",
-      "title": "One kernel.\nTwo product lines.",
-      "subtitle": "The same AIOS underneath -- but eldercare and home-AI cannot share one pitch. Different customers, different problems, different growth paths.",
+      "eyebrow": "Two Lines, One Hub",
+      "title": "One local hub.\nTwo kinds of spaces.",
+      "subtitle": "Eldercare and homes both look like \"a space that understands you\" -- but they are not the same thing. One side wants to avoid incidents; the other wants to be remembered.",
       "careEyebrow": "AIOS Care",
       "careTitle": "For facilities and care",
-      "careTagline": "Sells safety, efficiency and a chain of evidence",
-      "careBody": "Anomaly detection, dispatch, response loop, full-chain audit -- fewer incidents on the floor, fewer doubts from families, fewer disputes for the operator. This is our near-term commercial focus.",
-      "carePoint1": "Tiered alerts for night bed-leaving and falls",
-      "carePoint2": "Tickets routed to a person, every step on record",
-      "carePoint3": "Family, staff and operator each see their own view",
+      "careTagline": "Sold to fewer incidents -- and to being able to explain the ones that happen",
+      "careBody": "An elder gets out of bed at night. The system decides whether to call someone, routes it to the on-duty staff member's phone, and keeps the whole thread on record. This is the line we are actually pushing in the near term.",
+      "carePoint1": "Bed-leaving and falls -- the system tells what is serious, no alert flood",
+      "carePoint2": "Tickets routed to a person; who took it, how fast, all on record",
+      "carePoint3": "Family, staff, operator -- each sees what they should, no more",
       "careCta": "See the night-care loop",
       "homeEyebrow": "AIOS Home",
       "homeTitle": "For households and high-end residences",
-      "homeTagline": "Sells understanding, the home, and long-term memory",
-      "homeBody": "Not making you adapt to smart home -- the home learns to understand you. Preferences, family rhythm, the state of the space. A local AI that belongs to this home, with data that never leaves.",
-      "homePoint1": "Remembers each member's preferences and rhythm",
-      "homePoint2": "Reads the space without relying on cameras",
-      "homePoint3": "Suggests first, never acts alone; high-risk steps need confirmation",
-      "homeCta": "Meet the intelligence",
+      "homeTagline": "Don't ask you to adapt to it -- it grows into the shape of your home",
+      "homeBody": "Not another box that talks back, but a local AI that quietly learns this household -- who runs cold, who sleeps light, when the living room should dim. Data never leaves home.",
+      "homePoint1": "Remembers who likes what, who runs on what schedule -- you don't keep explaining",
+      "homePoint2": "Reads the home without putting cameras everywhere",
+      "homePoint3": "Suggests first, acts second; the consequential moves always ask you",
+      "homeCta": "See how it learns your home",
       "footnote": "AIOS Care answers \"how can a care space be safer and more efficient?\";\nAIOS Home answers \"how can a home truly understand me?\""
     },
     "nightCare": {
@@ -223,16 +223,16 @@
   },
   "solutions": {
     "title": "Solutions",
-    "subtitle": "AIOS is a reusable local-space intelligence kernel that powers two product directions -- AIOS Care for facilities and care, selling safety, efficiency and a chain of evidence; AIOS Home for households and high-end residences, selling understanding, the home and long-term memory. Same kernel underneath, very different pitch, customers and pace.",
+    "subtitle": "The same local AI hub, sitting in an eldercare site and sitting in a home, is not the same thing. One side wants fewer incidents; the other wants to be remembered. AIOS pursues both -- on two separate tracks.",
     "comingSoon": "In Labs",
     "groups": {
       "health": {
         "title": "AIOS Care · Eldercare and Care Sites",
-        "body": "Near-term commercial focus. Home-based eldercare, community care, clinical assistance -- high responsibility, sharp demand, clear acceptance. Trades safety, efficiency and a chain of evidence for pilots and procurement."
+        "body": "This is the line we are actually pushing right now. Home-based eldercare, community care, clinical assistance -- in these spaces, when something happens, someone is responsible. The system has to be able to explain what it did."
       },
       "home": {
         "title": "AIOS Home · Households and Residences",
-        "body": "Long-term brand vision. Households, high-end residences, designer and developer channels -- selling \"a home that grows to understand you\": preferences, rhythm, spatial state, local privacy. Starts from showcase residences and extends outward."
+        "body": "This line moves slower, and runs longer. It begins with high-end residences, designers and developer showcases, then extends to ordinary households. The pitch is not another smart speaker -- it is \"this home gradually remembers me\"."
       },
       "commercial": {
         "title": "Commercial Spaces (In Labs)",
