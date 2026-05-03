@@ -11,6 +11,10 @@ import {
 } from 'lucide-react';
 
 export type PluginKind = 'official' | 'partner';
+// stage 含义: 'ga' = 已发布可用, 任何普通用户可装可跑;
+//             'beta' = 内部已完成, 真实用户安装尚未规模化验证;
+//             'roadmap' = 规划中.
+// 全部插件目前默认 'beta'. 真实跑通过 + 有真实使用方后, 再单独改回 'ga'.
 export type PluginStage = 'ga' | 'beta' | 'roadmap';
 export type PluginTopic = 'health' | 'home' | 'commercial' | 'infra';
 
@@ -52,7 +56,7 @@ export const plugins: Plugin[] = [
     vendorZh: '循星官方',
     vendorEn: 'By SidebyStar',
     kind: 'official',
-    stage: 'ga',
+    stage: 'beta',
     topic: 'home',
     taglineZh: '夜里给你一束柔光, 清晨陪你慢慢醒来。',
     taglineEn: 'A light that knows how to walk you through the night.',
@@ -89,7 +93,7 @@ export const plugins: Plugin[] = [
     vendorZh: '循星官方',
     vendorEn: 'By SidebyStar',
     kind: 'official',
-    stage: 'ga',
+    stage: 'beta',
     topic: 'health',
     taglineZh: '让告警, 走在呼唤之前。',
     taglineEn: 'A fall seen before it finishes. Care that arrives before the call.',
@@ -163,7 +167,7 @@ export const plugins: Plugin[] = [
     vendorZh: '合作伙伴',
     vendorEn: 'Partner',
     kind: 'partner',
-    stage: 'ga',
+    stage: 'beta',
     topic: 'infra',
     taglineZh: '让家里原有的设备, 说同一种语言。',
     taglineEn: 'Lets the devices you already own speak the same language in AIOS.',
@@ -199,7 +203,7 @@ export const plugins: Plugin[] = [
     vendorZh: 'Home Assistant 社区',
     vendorEn: 'Home Assistant Community',
     kind: 'partner',
-    stage: 'ga',
+    stage: 'beta',
     topic: 'infra',
     taglineZh: '让你写过的每一条规则, 继续生效。',
     taglineEn: 'Every automation you wrote in HA comes along.',
@@ -268,7 +272,7 @@ export const plugins: Plugin[] = [
     vendorZh: '合作伙伴',
     vendorEn: 'Partner',
     kind: 'partner',
-    stage: 'ga',
+    stage: 'beta',
     topic: 'health',
     taglineZh: '让医院既有的系统, 接入可审计闭环。',
     taglineEn: 'Brings the hospital\'s existing systems into the auditable loop of AIOS.',

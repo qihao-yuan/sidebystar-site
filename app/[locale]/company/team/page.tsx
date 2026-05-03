@@ -32,7 +32,9 @@ export default async function TeamPage({ params }: { params: Promise<{ locale: s
                 </div>
                 <h3 className="mt-5 text-display-sm text-white">{isZh ? m.name.zh : m.name.en}</h3>
                 <p className="mt-1 text-caption text-brand-halo">{isZh ? m.role.zh : m.role.en}</p>
-                <p className="mt-4 text-body text-ink-300">{isZh ? m.bio.zh : m.bio.en}</p>
+                {(isZh ? m.bio.zh : m.bio.en) ? (
+                  <p className="mt-4 text-body text-ink-300">{isZh ? m.bio.zh : m.bio.en}</p>
+                ) : null}
               </div>
             </Reveal>
           ))}

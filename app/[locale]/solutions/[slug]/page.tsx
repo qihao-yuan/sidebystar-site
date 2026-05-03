@@ -143,19 +143,26 @@ export default async function SolutionDetail({
               <p className="mt-4 text-body-lg text-white">{pick(buyer)}</p>
             </div>
 
-            <div className="card-vision">
-              <div className="text-caption uppercase tracking-wide text-ink-500">
-                {isZh ? '可以期待的结果' : 'What you can expect'}
+            {kpis.length > 0 ? (
+              <div className="card-vision">
+                <div className="text-caption uppercase tracking-wide text-ink-500">
+                  {isZh ? '试点验收目标' : 'Pilot acceptance targets'}
+                </div>
+                <p className="mt-1 text-caption text-ink-500">
+                  {isZh
+                    ? '与试点机构共定的目标值, 非已实现数据。'
+                    : 'Targets set with the pilot site -- not realized metrics.'}
+                </p>
+                <div className="mt-4 grid grid-cols-2 gap-4">
+                  {kpis.slice(0, 4).map((k, i) => (
+                    <div key={i}>
+                      <div className="font-display text-display-sm text-white">{k.value}</div>
+                      <div className="mt-1 text-caption text-ink-400">{pick(k.label)}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="mt-4 grid grid-cols-2 gap-4">
-                {kpis.slice(0, 4).map((k, i) => (
-                  <div key={i}>
-                    <div className="font-display text-display-sm text-white">{k.value}</div>
-                    <div className="mt-1 text-caption text-ink-400">{pick(k.label)}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ) : null}
 
             <div className="card-vision">
               <div className="text-caption uppercase tracking-wide text-ink-500">

@@ -14,7 +14,7 @@
     "trust": "信任合规",
     "research": "前瞻研究",
     "developers": "开发者",
-    "cases": "案例",
+    "cases": "试点",
     "company": "关于",
     "contact": "联系销售",
     "demoRequest": "预约演示",
@@ -26,7 +26,7 @@
     "hero": {
       "eyebrow": "AIOS · 真实空间的本地 AI 中枢",
       "title": "让空间\n先于语言理解你",
-      "subtitle": "一个本地 AI 中枢, 同时被养老院和高端住宅在用 —— 但它卖给这两边的, 是完全不同的两件事。",
+      "subtitle": "",
       "footnote": "AIOS Care｜养老与机构    ·    AIOS Home｜家庭与住宅",
       "ctaPrimary": "预约演示",
       "ctaSecondary": "看它在两种空间里的样子",
@@ -87,7 +87,7 @@
       "homeBody": "一栋不用教,就懂家人的房子。",
       "communityTitle": "社区",
       "communityBody": "一栋楼、一条街,彼此照应,而不彼此窥视。",
-      "cta": "查看所有落地场景"
+      "cta": "查看所有适用场景"
     },
     "intelligence": {
       "eyebrow": "AIOS Home · Understanding",
@@ -362,8 +362,31 @@
     "github": "GitHub"
   },
   "cases": {
-    "title": "案例中心",
-    "subtitle": "已在真实场景部署的验证,每一组数据都带有试点时间、规模与口径。"
+    "title": "试点征集",
+    "subtitle": "我们暂时不在网站上放任何客户案例 —— 当前正在征集首批 3-5 家试点机构, 跑完后再写真实的客户故事。",
+    "heroTitle": "我们暂时\n不放案例",
+    "heroBody": "AIOS 已经过工程验收, 但还没和真实机构一起跑过完整一轮试点。在这之前, 与其编一份漂亮的案例页, 不如把这一页留给愿意一起把第一份真实数据跑出来的伙伴。",
+    "fitEyebrow": "Who fits",
+    "fitTitle": "我们在找什么样的机构",
+    "fitSubtitle": "条件不是越大越好, 是越合适越好。",
+    "fit1": "长者公寓 / 社区照护中心 / 康复机构辅助病区, 或其他高责任的私域空间",
+    "fit2": "单楼层或单楼, 20-200 床或户, 4-8 周可完整试点",
+    "fit3": "有一位能拍板的运营或护理负责人, 而不是一路向上汇报",
+    "fit4": "允许必要的网络与设备改造, 接受工程师驻场",
+    "provideEyebrow": "What we bring",
+    "provideTitle": "我们这边出什么",
+    "provide1": "试点周期内硬件与软件按合作模式补贴或免费",
+    "provide2": "工程师驻场布置 + 远程支持, 试点结束前不撤",
+    "provide3": "验收 KPI 与流程跟你们一起共定, 不是单方拍板",
+    "provide4": "试点结束写一份诚实的内部复盘, 双方各拿一份",
+    "notProvideEyebrow": "What we don't",
+    "notProvideTitle": "我们不会做的事",
+    "notProvide1": "不替代护理人员, 也不取代你现有的工单与排班流程",
+    "notProvide2": "不上传任何视频或语音到云, 数据默认留在现场",
+    "notProvide3": "不在没跟你核对过的情况下, 把你的名字或数据写进任何对外材料",
+    "promise": "等首批试点跑完, 这一页会贴出真实的客户故事 —— 含双方核对过的数据、签字版的指标、以及那些没达预期的部分。在那之前, 这里只放征集需求, 不放推断、不放估算。",
+    "ctaPrimary": "申请加入试点",
+    "ctaSecondary": "或者先聊聊看是否合适"
   },
   "pilot": {
     "title": "申请试点",

@@ -14,7 +14,7 @@
     "trust": "Trust",
     "research": "Research",
     "developers": "Developers",
-    "cases": "Cases",
+    "cases": "Pilots",
     "company": "Company",
     "contact": "Contact",
     "demoRequest": "Book a Demo",
@@ -26,7 +26,7 @@
     "hero": {
       "eyebrow": "AIOS · A Local AI Hub for Real Spaces",
       "title": "A space that understands you -- before you speak.",
-      "subtitle": "One local AI hub, in use across eldercare facilities and high-end residences -- yet what each side is paying for is two very different things.",
+      "subtitle": "",
       "footnote": "AIOS Care | care facilities & operators    ·    AIOS Home | households & residences",
       "ctaPrimary": "Book a Demo",
       "ctaSecondary": "See it inside both kinds of spaces",
@@ -87,7 +87,7 @@
       "homeBody": "A house that understands the people living in it.",
       "communityTitle": "Community",
       "communityBody": "A building, a street -- looking out for each other, without looking in.",
-      "cta": "See all deployed scenarios"
+      "cta": "See all use cases"
     },
     "intelligence": {
       "eyebrow": "AIOS Home · Understanding",
@@ -362,8 +362,31 @@
     "github": "GitHub"
   },
   "cases": {
-    "title": "Cases",
-    "subtitle": "Validated deployments in real-world scenarios. Every data point ships with time, scale and measurement method."
+    "title": "Pilot Program",
+    "subtitle": "We aren't publishing customer cases yet -- we are recruiting the first 3-5 pilot sites, and the real stories will come after that.",
+    "heroTitle": "We are not\npublishing cases yet.",
+    "heroBody": "AIOS has cleared engineering acceptance, but it has not yet run a full pilot inside a real site. Until it does, we would rather leave this page empty than fill it with a polished case page -- and instead use it to find the partners who want to run the first real one with us.",
+    "fitEyebrow": "Who fits",
+    "fitTitle": "What kind of site we are looking for",
+    "fitSubtitle": "Bigger isn't better -- the right shape is.",
+    "fit1": "Senior apartments, community-care centers, rehab support wards, or other high-responsibility private spaces",
+    "fit2": "A single floor or a single building, 20-200 beds or units, can run a 4-8 week pilot end to end",
+    "fit3": "One operations or care lead who can decide -- not a chain that has to escalate every step",
+    "fit4": "Permits the necessary network and device changes; OK with engineers on site",
+    "provideEyebrow": "What we bring",
+    "provideTitle": "What we put in",
+    "provide1": "Hardware and software during the pilot are subsidized or free, depending on the agreement",
+    "provide2": "Engineers on site to install, plus remote support that does not pull out before the pilot ends",
+    "provide3": "Acceptance KPIs and process defined together with you -- not handed down by us",
+    "provide4": "An honest written debrief at the end of the pilot, one copy each",
+    "notProvideEyebrow": "What we don't",
+    "notProvideTitle": "What we will not do",
+    "notProvide1": "Will not replace your care staff, and will not replace your existing ticketing or scheduling",
+    "notProvide2": "Will not upload any video or audio to the cloud; data stays on site by default",
+    "notProvide3": "Will not put your name or your data in any external material without you signing off on it first",
+    "promise": "Once the first pilots are done, this page will carry the real customer stories -- with data both sides have signed off on, the KPIs as agreed, and the parts that fell short. Until then, this page only carries what we are looking for. No projections. No estimates.",
+    "ctaPrimary": "Apply to join the pilot",
+    "ctaSecondary": "Or talk first to see if it fits"
   },
   "pilot": {
     "title": "Apply for Pilot",

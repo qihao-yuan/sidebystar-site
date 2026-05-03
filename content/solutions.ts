@@ -57,12 +57,7 @@ export const solutions: Solution[] = [
       { zh: '云端方案断网失能,告警不可达', en: 'Cloud solutions fail offline, alerts never arrive' },
       { zh: '家属对视频隐私敏感,接受度低', en: 'Families sensitive to video privacy, low adoption' },
     ],
-    kpis: [
-      { label: { zh: '跌倒检出率', en: 'Fall Detection Rate' }, value: '>= 95%' },
-      { label: { zh: '告警响应时间', en: 'Alert Response' }, value: '<= 60s' },
-      { label: { zh: '误报率', en: 'False Alarm Rate' }, value: '<= 3%' },
-      { label: { zh: '数据本地化', en: 'Data Localization' }, value: '100%' },
-    ],
+    kpis: [],
     architecture: [
       { zh: '不靠摄像头对着脸 —— 用毫米波、红外、声学判断', en: 'No camera on the face -- senses through mmWave, IR and sound' },
       { zh: '所有告警在本地完成, 断网也不会掉链子', en: 'All alerts run locally and hold even when the network drops' },
@@ -99,12 +94,7 @@ export const solutions: Solution[] = [
       { zh: '家属远程查看需求强,但隐私边界模糊', en: 'Strong family remote-view demand, fuzzy privacy boundary' },
       { zh: '等保 2.0 合规要求,难以独立承担', en: 'MLPS 2.0 compliance burden hard to bear alone' },
     ],
-    kpis: [
-      { label: { zh: '覆盖户数', en: 'Units Covered' }, value: '20-200' },
-      { label: { zh: '多站点 RBAC', en: 'Multi-site RBAC' }, value: 'Level 3' },
-      { label: { zh: '审计导出', en: 'Audit Export' }, value: 'MLPS 2.0' },
-      { label: { zh: '家属响应', en: 'Family Response' }, value: '<= 5min' },
-    ],
+    kpis: [],
     architecture: [
       { zh: '一台社区网关 + 每户一小套, 两级协同', en: 'One community gateway and small per-unit kits, two tiers in concert' },
       { zh: '一位家属看自家、一位管理员管全楼, 各看各的', en: 'Family sees their own door, managers see the whole building -- each their own view' },
@@ -141,12 +131,7 @@ export const solutions: Solution[] = [
       { zh: '生理体征异常无法及时上报', en: 'Vital sign anomalies cannot report in time' },
       { zh: 'HIS/CIS 数据不出院,云方案无法落地', en: 'HIS/CIS data stays in hospital, cloud cannot work' },
     ],
-    kpis: [
-      { label: { zh: '依从率提升', en: 'Adherence Lift' }, value: '>= 30%' },
-      { label: { zh: '异常上报时延', en: 'Anomaly Report Lag' }, value: '<= 2min' },
-      { label: { zh: 'HIPAA-like 审计', en: 'HIPAA-like Audit' }, value: 'JSONL' },
-      { label: { zh: 'SLA', en: 'SLA' }, value: '7x24' },
-    ],
+    kpis: [],
     architecture: [
       { zh: '全栈私有化部署, 患者数据不出院', en: 'Fully on-prem -- patient data never leaves the hospital' },
       { zh: '与医院既有信息系统打通, 不推倒重来', en: 'Works with the hospital information systems you already have' },
@@ -183,12 +168,7 @@ export const solutions: Solution[] = [
       { zh: '云服务随时下线,投资失效', en: 'Cloud services may shut down, investment void' },
       { zh: '预设规则不够个性化', en: 'Preset rules lack personalization' },
     ],
-    kpis: [
-      { label: { zh: '接入设备', en: 'Devices Onboarded' }, value: '200+' },
-      { label: { zh: '自适应建模', en: 'Adaptive Modeling' }, value: '30d' },
-      { label: { zh: '离线可用', en: 'Offline Capable' }, value: '100%' },
-      { label: { zh: '语音延迟', en: 'Voice Latency' }, value: '<= 500ms' },
-    ],
+    kpis: [],
     architecture: [
       { zh: '主流生态和协议都能说, 家里现有的设备不用换', en: 'Speaks the mainstream ecosystems and protocols -- no rip-and-replace' },
       { zh: '一层一层学习你的习惯, 从当下感受到长期节奏', en: 'Layer by layer, learns your habits -- from the present to your long rhythm' },
@@ -225,12 +205,7 @@ export const solutions: Solution[] = [
       { zh: '客人画像无法跨房间沉淀', en: 'Guest profile cannot persist cross-room' },
       { zh: '设备方案杂,运维负担重', en: 'Device stacks fragmented, heavy ops burden' },
     ],
-    kpis: [
-      { label: { zh: '单房部署', en: 'Per-room Deploy' }, value: '4h' },
-      { label: { zh: '能耗节省', en: 'Energy Saved' }, value: '15-25%' },
-      { label: { zh: '客人满意度', en: 'Guest Satisfaction' }, value: '+12%' },
-      { label: { zh: '运维成本', en: 'Ops Cost' }, value: '-30%' },
-    ],
+    kpis: [],
     architecture: [
       { zh: '一房一中枢, 不破坏现有装修', en: 'One hub per room, no damage to existing interior' },
       { zh: '客人的偏好能随他一起换房, 不用重新设置', en: 'A guest\'s preferences follow them between rooms -- no reconfiguration' },

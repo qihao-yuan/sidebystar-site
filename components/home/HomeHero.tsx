@@ -42,7 +42,9 @@ export function HomeHero() {
           <TextReveal stagger={80}>{t('title')}</TextReveal>
         </h1>
 
-        <p className="max-w-2xl text-body-lg text-ink-200">{t('subtitle')}</p>
+        {t('subtitle') ? (
+          <p className="max-w-2xl text-body-lg text-ink-200">{t('subtitle')}</p>
+        ) : null}
         <p className="max-w-2xl text-caption text-ink-400">{t('footnote')}</p>
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3">

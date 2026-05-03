@@ -176,7 +176,8 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
               </div>
               <div className="rounded-2xl border border-white/10 bg-surface-void/60 p-6 font-mono text-caption text-ink-200">
                 <div className="flex justify-between border-b border-white/5 pb-2 text-ink-500">
-                  <span>{isZh ? '记录' : 'entry'}</span><span>{isZh ? '可查的痕迹' : 'trace'}</span>
+                  <span>{isZh ? '记录 · 示例 SAMPLE' : 'entry · SAMPLE'}</span>
+                  <span>{isZh ? '可查的痕迹' : 'trace'}</span>
                 </div>
                 {[
                   { zh: '昨夜 03:12', en: 'last night 03:12' },
