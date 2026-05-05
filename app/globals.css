@@ -4,6 +4,14 @@
 
 :root {
   color-scheme: dark;
+  --font-sans: 'Inter Variable', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei UI', 'Microsoft YaHei', 'Source Han Sans SC',
+    'Noto Sans CJK SC', system-ui, sans-serif;
+  --font-display: 'Inter Variable', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei UI', 'Microsoft YaHei', 'Source Han Sans SC',
+    'Noto Sans CJK SC', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular,
+    Menlo, Consolas, monospace;
 }
 
 html,

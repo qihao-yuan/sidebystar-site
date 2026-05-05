@@ -1,25 +1,7 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Noto_Sans_SC, JetBrains_Mono } from 'next/font/google';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
 import './globals.css';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-});
-
-const notoSC = Noto_Sans_SC({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-display',
-  display: 'swap',
-});
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-});
 
 export const viewport: Viewport = {
   themeColor: '#05060A',
@@ -38,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={`${inter.variable} ${notoSC.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="zh-CN" suppressHydrationWarning>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

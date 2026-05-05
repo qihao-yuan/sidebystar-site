@@ -46,3 +46,11 @@ npm start          # 监听 127.0.0.1:3000
 ```
 
 建议用 **NSSM** 或 **Windows Service Wrapper (WinSW)** 把 `npm start` 包成 Windows 服务, 重启后自启.
+
+## 关于字体 (国内构建相关)
+
+构建机若在国内、且无法访问 `fonts.gstatic.com`, 千万不要用 `next/font/google` -- 它会在 `next build` 阶段去 Google 拉 woff2, 国内会 `ETIMEDOUT`.
+
+本仓库已切到 **`@fontsource-variable/inter`** 与 **`@fontsource-variable/jetbrains-mono`** (从 npm 拉, 国内镜像可达), 中文部分回落到系统 PingFang / Microsoft YaHei, 不再有任何外网字体依赖.
+
+如果以后想换回 Noto SC, 用 `@fontsource-variable/noto-sans-sc`, **不要**走 `next/font/google`.
