@@ -39,10 +39,10 @@ public/
 | --- | --- | --- | --- | --- |
 | Hero 背景 | `home/hero.webp` 或 `home/hero.mp4` | 21/9 | 3840 x 1644 | **预留** — 当前由 `HomeHero.tsx` 的 `<GradientMesh variant="hero" />` + 动画节点占用。替换方式见下文"Hero 接入图/视频" |
 | Era 配图 | `home/era.webp` | 4/3 | 1600 x 1200 | 已占位 — `components/home/HomeEra.tsx` 左侧 |
-| Spectrum · Bedside | `home/spectrum-bedside.webp` | 4/3 | 1600 x 1200 | 已占位 |
-| Spectrum · Desk | `home/spectrum-desk.webp` | 4/3 | 1600 x 1200 | 已占位 |
-| Spectrum · Home | `home/spectrum-home.webp` | 4/3 | 1600 x 1200 | 已占位 |
-| Spectrum · Community | `home/spectrum-community.webp` | 4/3 | 1600 x 1200 | 已占位 |
+| Spectrum · Bedside | `home/bedside.webp` | 4/3 | 1600 x 1200 | 已占位 |
+| Spectrum · Desk | `home/desk.webp` | 4/3 | 1600 x 1200 | 已占位 |
+| Spectrum · Home | `home/home.webp` | 4/3 | 1600 x 1200 | 已占位 |
+| Spectrum · Community | `home/community.webp` | 4/3 | 1600 x 1200 | 已占位 |
 | Intelligence preview | `home/intelligence.webp` | 4/3 | 1600 x 1200 | 已占位 — `HomeIntelligence.tsx` 右侧 |
 | Platform arch | `home/platform-arch.webp` 或 `.svg` | 16/9 | 2560 x 1440 | **预留** — 当前平台段未嵌大图;架构示意在 `/platform` 页的 `ArchTraversal` 组件 |
 | CTA bg | `home/cta-bg.webp` | 21/9 | 3840 x 1644 | **预留** — 当前由 `GradientMesh variant="cta"` 占用 |
@@ -50,7 +50,19 @@ public/
 
 ### 批处理图导入 (slide-01 … 14)
 
-将待转 PNG 放到 `public/home/slide-01.png` … `slide-14.png`,在项目根执行 `py scripts/webp_home_batch.py`：居中裁切为 **4:3 · 1600×1200** WebP,并控制在约 **≤380 KB/张**（优先满足 README 体积指引）。**导出命名顺序**: 第 1 张 → `era.webp`; 第 2–5 张 → `spectrum-bedside` / `desk` / `home` / `community`; 第 6 张 → `intelligence.webp`; 第 7–14 张 → `slide-07.webp` … `slide-14.webp`。落版后删除中间 PNG,**仅保留 `.webp`**。
+将待转 PNG 放到 `public/home/slide-01.png` … `slide-14.png`,在项目根执行 `py scripts/webp_home_batch.py`：居中裁切为 **4:3 · 1600×1200** WebP,并控制在约 **≤380 KB/张**（优先满足 README 体积指引）。**导出命名顺序**:
+
+| 源 PNG | 目标 WebP |
+| --- | --- |
+| `slide-01.png` | `home/era.webp` |
+| `slide-02.png` | `home/bedside.webp` |
+| `slide-03.png` | `home/desk.webp` |
+| `slide-04.png` | `home/home.webp` |
+| `slide-05.png` | `home/community.webp` |
+| `slide-06.png` | `home/intelligence.webp` |
+| `slide-07.png` … `slide-14.png` | `home/slide-07.webp` … `home/slide-14.webp` |
+
+落版后删除中间 PNG,**仅保留 `.webp`**。
 
 ### Hero 接入图/视频
 

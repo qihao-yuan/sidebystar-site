@@ -41,10 +41,10 @@ def save_webp_under_budget(im: Image.Image, dest: Path, max_bytes: int = 380_000
 
 MAPPED = [
   ("slide-01.png", "era.webp"),
-  ("slide-02.png", "spectrum-bedside.webp"),
-  ("slide-03.png", "spectrum-desk.webp"),
-  ("slide-04.png", "spectrum-home.webp"),
-  ("slide-05.png", "spectrum-community.webp"),
+  ("slide-02.png", "bedside.webp"),
+  ("slide-03.png", "desk.webp"),
+  ("slide-04.png", "home.webp"),
+  ("slide-05.png", "community.webp"),
   ("slide-06.png", "intelligence.webp"),
 ]
 

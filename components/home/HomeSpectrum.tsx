@@ -11,10 +11,10 @@ export function HomeSpectrum() {
   const t = useTranslations('home.spectrum');
 
   const cards = [
-    { key: 'bedside', n: '01', src: '/home/spectrum-bedside.webp' },
-    { key: 'desk', n: '02', src: '/home/spectrum-desk.webp' },
-    { key: 'home', n: '03', src: '/home/spectrum-home.webp' },
-    { key: 'community', n: '04', src: '/home/spectrum-community.webp' },
+    { key: 'bedside', n: '01', src: '/home/bedside.webp' },
+    { key: 'desk', n: '02', src: '/home/desk.webp' },
+    { key: 'home', n: '03', src: '/home/home.webp' },
+    { key: 'community', n: '04', src: '/home/community.webp' },
   ] as const;
 
   return (
