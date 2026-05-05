@@ -1,6 +1,6 @@
 'use client';
 
-import { Eye, Brain, Sparkles, Share2 } from 'lucide-react';
+import { Eye, Brain, Sparkles, Scale, Share2 } from 'lucide-react';
 import { ScrollPinSection } from '@/components/motion/ScrollPinSection';
 import { cn } from '@/lib/cn';
 import { useLocale } from 'next-intl';
@@ -44,8 +44,19 @@ export function ArchTraversal() {
         : ['High-risk actions need approval', 'Shadow runs before live', 'Traces cannot be quietly rewritten'],
     },
     {
-      icon: Share2,
+      icon: Scale,
       eyebrow: 'Stage 04',
+      title: isZh ? '决策 Decision' : 'Decision',
+      body: isZh
+        ? '推理列出所有可能, 决策才落到一个动作 —— 本地的"耀衡"按证据强度、风险大小、你家的规矩给每个候选打分, 然后把"为什么是它"一起留下来。'
+        : 'Reasoning lists what could happen; a decision lands on what does. The local YaoHeng engine scores each candidate by evidence, risk, and the rules of your house -- and keeps the why next to the choice.',
+      bullets: isZh
+        ? ['每个动作都带置信度与风险等级', '拿不准的事情停一拍, 等你点头', '"选了什么、为什么选" 都能回看']
+        : ['Every action ships with confidence and risk', 'When unsure, it pauses and asks', 'Both the choice and the reason are replayable'],
+    },
+    {
+      icon: Share2,
+      eyebrow: 'Stage 05',
       title: isZh ? '联邦 Federation' : 'Federation',
       body: isZh
         ? '一家机构积累下来的经验, 可以分享给另一家, 却不泄露具体的个人信息。每一个家、每一座社区, 共同生长。'
@@ -61,7 +72,7 @@ export function ArchTraversal() {
       <div className="container-page pb-8 pt-20">
         <span className="eyebrow">Architecture Traversal</span>
         <h2 className="mt-4 text-display-xl text-balance text-white">
-          Sense &middot; Remember &middot; Reason &middot; Federate.
+          Sense &middot; Remember &middot; Reason &middot; Decide &middot; Federate.
         </h2>
       </div>
 
