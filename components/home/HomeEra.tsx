@@ -23,9 +23,9 @@ export function HomeEra() {
         <div className="mt-16 grid gap-10 lg:grid-cols-[5fr_7fr] lg:items-center">
           <Reveal>
             <MediaPlaceholder
+              src="/home/era.webp"
               alt="Cloud to edge illustration"
               ratio="4/3"
-              label="HOME/ERA · 4:3 · 1600x1200"
             />
           </Reveal>
 

@@ -11,10 +11,10 @@ export function HomeSpectrum() {
   const t = useTranslations('home.spectrum');
 
   const cards = [
-    { key: 'bedside', n: '01', label: 'HOME/SPECTRUM/BEDSIDE · 4:3 · 1600x1200' },
-    { key: 'desk', n: '02', label: 'HOME/SPECTRUM/DESK · 4:3 · 1600x1200' },
-    { key: 'home', n: '03', label: 'HOME/SPECTRUM/HOME · 4:3 · 1600x1200' },
-    { key: 'community', n: '04', label: 'HOME/SPECTRUM/COMMUNITY · 4:3 · 1600x1200' },
+    { key: 'bedside', n: '01', src: '/home/spectrum-bedside.webp' },
+    { key: 'desk', n: '02', src: '/home/spectrum-desk.webp' },
+    { key: 'home', n: '03', src: '/home/spectrum-home.webp' },
+    { key: 'community', n: '04', src: '/home/spectrum-community.webp' },
   ] as const;
 
   return (
@@ -27,10 +27,10 @@ export function HomeSpectrum() {
             <Reveal key={c.key} delay={i * 70}>
               <div className="group flex h-full flex-col gap-5">
                 <MediaPlaceholder
+                  src={c.src}
                   alt={t(`${c.key}Title`)}
                   ratio="4/3"
                   rounded="xl"
-                  label={c.label}
                   className="transition-transform duration-700 ease-apple-out group-hover:-translate-y-1"
                 />
                 <div className="flex items-baseline gap-3">

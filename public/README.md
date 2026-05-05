@@ -46,6 +46,11 @@ public/
 | Intelligence preview | `home/intelligence.webp` | 4/3 | 1600 x 1200 | 已占位 — `HomeIntelligence.tsx` 右侧 |
 | Platform arch | `home/platform-arch.webp` 或 `.svg` | 16/9 | 2560 x 1440 | **预留** — 当前平台段未嵌大图;架构示意在 `/platform` 页的 `ArchTraversal` 组件 |
 | CTA bg | `home/cta-bg.webp` | 21/9 | 3840 x 1644 | **预留** — 当前由 `GradientMesh variant="cta"` 占用 |
+| 批处理备用 07–14 | `home/slide-07.webp` … `home/slide-14.webp` | 4/3 | 1600 x 1200 | **预留** — 可接 Hero 轮播或其它段落;由脚本自 PNG 批量生成 |
+
+### 批处理图导入 (slide-01 … 14)
+
+将待转 PNG 放到 `public/home/slide-01.png` … `slide-14.png`,在项目根执行 `py scripts/webp_home_batch.py`：居中裁切为 **4:3 · 1600×1200** WebP,并控制在约 **≤380 KB/张**（优先满足 README 体积指引）。**导出命名顺序**: 第 1 张 → `era.webp`; 第 2–5 张 → `spectrum-bedside` / `desk` / `home` / `community`; 第 6 张 → `intelligence.webp`; 第 7–14 张 → `slide-07.webp` … `slide-14.webp`。落版后删除中间 PNG,**仅保留 `.webp`**。
 
 ### Hero 接入图/视频
 

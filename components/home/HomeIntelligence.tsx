@@ -49,9 +49,9 @@ export function HomeIntelligence() {
 
           <Reveal delay={120}>
             <MediaPlaceholder
+              src="/home/intelligence.webp"
               alt="Intelligence preview"
               ratio="4/3"
-              label="HOME/INTELLIGENCE · 4:3 · 1600x1200"
             />
           </Reveal>
         </div>
