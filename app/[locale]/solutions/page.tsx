@@ -16,11 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
 
 const GROUPS: SolutionGroup[] = ['health', 'home', 'commercial', 'public'];
 
-const GROUP_IMAGE: Record<SolutionGroup, string> = {
-  health: 'SOLUTIONS/GROUP-HEALTH · 16:9 · 2560x1440',
-  home: 'SOLUTIONS/GROUP-HOME · 16:9 · 2560x1440',
-  commercial: 'SOLUTIONS/GROUP-COMMERCIAL · 16:9 · 2560x1440',
-  public: 'SOLUTIONS/GROUP-PUBLIC · 16:9 · 2560x1440',
+const GROUP_IMAGE_SRC: Record<SolutionGroup, string> = {
+  health: '/solutions/group-health.webp',
+  home: '/solutions/group-home.webp',
+  commercial: '/solutions/group-commercial.webp',
+  public: '/solutions/group-public.webp',
 };
 
 export default async function SolutionsIndex({ params }: { params: Promise<{ locale: string }> }) {
@@ -45,10 +45,10 @@ export default async function SolutionsIndex({ params }: { params: Promise<{ loc
                 <div className="grid gap-10 lg:grid-cols-[5fr_7fr] lg:items-center">
                   <Reveal>
                     <MediaPlaceholder
+                      src={GROUP_IMAGE_SRC[g]}
                       alt={groups(`${g}.title`)}
                       ratio="16/9"
                       rounded="xl"
-                      label={GROUP_IMAGE[g]}
                     />
                   </Reveal>
                   <div className="flex flex-col gap-4">

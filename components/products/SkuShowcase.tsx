@@ -6,10 +6,17 @@ import { skus } from '@/content/products';
 import { getFamilyMember } from '@/content/family';
 import { getSolution } from '@/content/solutions';
 import { Reveal } from '@/components/motion/Reveal';
+import Image from 'next/image';
 import { ArrowRight, Check, Box, Network, Server, Layers } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 const icons = { homeBox: Box, communityKit: Network, enterpriseStack: Server };
+
+const heroImage: Record<keyof typeof icons, string> = {
+  homeBox: '/product/home-box/hero@2x.webp',
+  communityKit: '/product/community-kit/hero@2x.webp',
+  enterpriseStack: '/product/enterprise-stack/hero@2x.webp',
+};
 
 export function SkuShowcase() {
   const t = useTranslations('products');
@@ -120,8 +127,19 @@ export function SkuShowcase() {
                     <div className="absolute inset-10 rounded-full border border-white/5" />
                     <div className="absolute inset-20 rounded-full border border-white/5" />
                     <div className="absolute inset-32 rounded-full border border-white/10" />
-                    <div className="relative flex h-48 w-48 items-center justify-center rounded-3xl border border-white/15 bg-surface-elevated shadow-glow-aurora">
-                      <Icon size={88} className="text-white/90" strokeWidth={1} />
+                    <div className="relative h-72 w-72 overflow-hidden rounded-3xl border border-white/15 bg-surface-elevated shadow-glow-aurora">
+                      <Image
+                        src={heroImage[sku.i18nKey]}
+                        alt={t(`${sku.i18nKey}.name`)}
+                        fill
+                        sizes="(min-width: 1024px) 360px, 60vw"
+                        className="object-cover"
+                        priority={idx === 0}
+                      />
+                      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+                      <div className="pointer-events-none absolute right-3 bottom-3 rounded-full border border-white/15 bg-surface-void/70 p-2 backdrop-blur">
+                        <Icon size={16} className="text-brand-halo" />
+                      </div>
                     </div>
                     <div className="absolute left-4 top-4 font-mono text-caption text-ink-500">
                       {String(idx + 1).padStart(2, '0')} / 03
