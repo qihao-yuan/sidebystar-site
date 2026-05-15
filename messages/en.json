@@ -339,8 +339,8 @@
         "body": "Let facilities prove to regulators that they are compliant, without ever handing over a single line of personal data."
       },
       "fedBundle": {
-        "title": "A network that shares experience",
-        "body": "What one facility learns can help another -- shared as signed experience, not as personal data."
+        "title": "Offline profile bundles",
+        "body": "Industry and site profiles ship as offline tarballs with manifests and checksums; imports preview first, then admins apply to the fact base and audit trail. Identities and sensitive detail stay at the source."
       }
     },
     "roadmap": {

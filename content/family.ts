@@ -56,14 +56,19 @@ export const family: FamilyMember[] = [
     tagZh: '空间的眼与耳',
     tagEn: 'The eyes and ears of the space',
     storyZh:
-      '空间的第一层智能, 是知道此刻正在发生什么。不是对着你看, 而是对着整间屋子。谁在哪, 谁还没回, 谁起身去卫生间, 空气在变凉, 窗外下雨了 —— 这些细节, 它比你更早察觉。所有感知在本地完成, 涉及隐私的部位, 连系统自己都不会看到。',
+      '空间的第一层智能, 是知道此刻正在发生什么。不是对着你看, 而是对着整间屋子。谁在哪, 谁还没回, 谁起身去卫生间, 空气在变凉, 窗外下雨了 —— 这些细节, 它比你更早察觉。感知与推理默认在本地完成; 是否采集视觉、是否长期留存, 由部署策略与审计配置决定。',
     storyEn:
-      'A space begins to be intelligent when it knows what is happening right now. Not watching you, but reading the whole room. Who is where, who has not returned, who just got out of bed, the air turning cooler, rain outside the window -- it notices before you do. All sensing stays on-device, and private spots are masked even from the system itself.',
+      'A space begins to be intelligent when it knows what is happening right now. Not watching you, but reading the whole room. Who is where, who has not returned, who just got out of bed, the air turning cooler, rain outside the window -- it notices before you do. Sensing and inference stay local by default; whether vision is on and what is retained follow deployment policy and audit settings.',
     exampleLabel: { zh: '感知器件', en: 'Devices' },
     examples: [
       { zh: '存在感知', en: 'Presence', descZh: '房间有没有人, 谁在哪, 夜里有没有下床 —— 不靠摄像头。', descEn: 'Whether the room is occupied, who is where, whether someone rose in the night -- without a camera.' },
       { zh: '环境感知', en: 'Environment', descZh: '温度、湿度、光线、噪声。它替你留意那些你没有留意的。', descEn: 'Temperature, humidity, light, noise. It notices the things you forgot to.' },
-      { zh: '视觉理解', en: 'Vision', descZh: '需要时看一眼, 不需要时一刻也不录。关键部位自动打码。', descEn: 'Looks when needed, never records otherwise. Sensitive areas auto-masked.' },
+      {
+        zh: '视觉理解',
+        en: 'Vision',
+        descZh: '在策略允许时启用视觉推理; 是否录像、留存多久与脱敏策略由现场配置与审计要求约束。',
+        descEn: 'Vision runs when policy permits; recording, retention, and de-identification follow on-site configuration and audit requirements.',
+      },
       { zh: '声学判断', en: 'Acoustics', descZh: '异响、呼救、玻璃碎裂 —— 不做录音, 只做判断。', descEn: 'Unusual sound, cry for help, glass breaking -- no recording, only recognition.' },
     ],
     bundledIn: ['home-box', 'community-kit', 'enterprise-stack'],

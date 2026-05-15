@@ -6,7 +6,7 @@ import { ArchTraversal } from '@/components/platform/ArchTraversal';
 import { HomeCTA } from '@/components/home/HomeCTA';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
-import { Database, Cpu, Network, Boxes, ShieldCheck, Radar, Sparkles, Moon, Scale } from 'lucide-react';
+import { Database, Cpu, Boxes, ShieldCheck, Radar, Sparkles, Moon, Scale } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'zh-CN' | 'en' }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -15,10 +15,42 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
 }
 
 const layers = [
-  { icon: Radar, zh: 'L1 · 当下的样子', en: 'L1 · The moment', desc: { zh: '谁在哪个房间, 现在亮着哪些灯, 此刻的温度与光线', en: 'Who is in which room, what is on, how the air and light feel right now' } },
-  { icon: Cpu, zh: 'L1 · 这一刻的节奏', en: 'L1 · The flow', desc: { zh: '空间在如何变化, 谁的作息在偏离日常', en: 'How the space is shifting, whose rhythm is drifting from usual' } },
-  { icon: Database, zh: 'L2 · 长期的习惯', en: 'L2 · The habits', desc: { zh: '晚上几点会关这盏灯, 周末更喜欢哪种光', en: 'When that lamp usually goes off, which lighting feels like weekend' } },
-  { icon: Boxes, zh: 'L3 · 你的意图', en: 'L3 · The intent', desc: { zh: '你想要什么, 为什么想要, 下一步大概会怎么做', en: 'What you want, why you want it, what likely comes next' } },
+  {
+    icon: Boxes,
+    zh: 'L0 · 静态事实',
+    en: 'L0 · Static facts',
+    desc: {
+      zh: '房间与设备拓扑、归属与命名等变化慢的信息, 是每次查询与控制的起点。',
+      en: 'Rooms, device topology, ownership, and labels -- slow to change, yet the anchor for every query and control path.',
+    },
+  },
+  {
+    icon: Radar,
+    zh: 'L1 · 动态状态',
+    en: 'L1 · Live state',
+    desc: {
+      zh: '谁在哪个房间、哪些灯亮着、此刻温湿度与光线 —— 随事件持续刷新的一帧。',
+      en: 'Who is where, what is on, temperature, humidity, and light -- refreshed moment by moment as events arrive.',
+    },
+  },
+  {
+    icon: Database,
+    zh: 'L2 · 习惯模式',
+    en: 'L2 · Habits',
+    desc: {
+      zh: '晚上几点会关这盏灯、周末更偏好哪种光 —— 从重复行为里学出来的节律。',
+      en: 'When that lamp usually goes off, which lighting feels like weekend -- rhythms learned from repeated behavior.',
+    },
+  },
+  {
+    icon: Cpu,
+    zh: 'L3 · 语义与意图',
+    en: 'L3 · Semantics & intent',
+    desc: {
+      zh: '自然语言里的目标、因果与长期偏好 —— 用向量与标签把「你是谁、你要什么」对齐到可检索的记忆。',
+      en: 'Goals and context in language -- vectors and tags that align who you are and what you mean with retrievable memory.',
+    },
+  },
 ];
 
 const engines = [
@@ -196,7 +228,7 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
                     </div>
                   );
                 })}
-                <div className="pt-2 text-brand-halo">{isZh ? '// 每一行都无法被悄悄改写' : '// every line is append-only'}</div>
+                <div className="pt-2 text-brand-halo">{isZh ? '// 结构化审计可追踪、可导出, 对接运维与合规' : '// structured audit trail, traceable and exportable'}</div>
               </div>
             </div>
           </div>

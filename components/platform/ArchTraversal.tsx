@@ -15,11 +15,11 @@ export function ArchTraversal() {
       eyebrow: 'Stage 01',
       title: isZh ? '感知 Sensing' : 'Sensing',
       body: isZh
-        ? '五种感官同时在线 —— 眼睛、耳朵、温度、光线、距离。像人一样整体感知空间, 而不是靠一只摄像头。隐私敏感的部位, 在进入系统之前就被遮住。'
-        : 'Five senses, in parallel -- eyes, ears, temperature, light, distance. It takes in the whole room, not a single camera feed. Private parts get masked before anything else sees them.',
+        ? '多条感知通道并行 —— 视觉、听觉、温湿度、光线与传感器事件。像人一样读整间屋子, 而不是押注单路视频。是否启用视觉、是否留存, 由本地策略与审计配置约束; 状态回答尽量走设备与传感器 grounding。'
+        : 'Multiple channels in parallel -- vision, sound, temperature, light, and sensor events. It reads the whole room, not a single video stream. Whether vision runs, and what is stored, follow on-site policy and audit settings; answers about state are grounded in devices and sensors.',
       bullets: isZh
-        ? ['兼容主流生态, 不强迫换品牌', '所有感知都在本地完成', '关键部位自动打马赛克']
-        : ['Works with mainstream ecosystems, no forced rip-and-replace', 'All sensing stays on-device', 'Sensitive areas auto-masked'],
+        ? ['兼容主流生态, 不强迫换品牌', '关键链路默认本地处理、可配置是否出网', '查询类回答对齐真实数据源, 关键数值不凭空生成']
+        : ['Works with mainstream ecosystems, no forced rip-and-replace', 'Critical paths stay local, with optional cloud toggles', 'Query answers are grounded in real sources, not invented figures'],
     },
     {
       icon: Brain,
@@ -40,8 +40,8 @@ export function ArchTraversal() {
         ? '一个本地运行的大脑, 在你家里思考。每一次它想做点什么, 都先预演再执行, 留下可查的痕迹, 家属与管理员随时能回放。'
         : 'A local brain, thinking inside your home. Every action gets rehearsed before it runs, and leaves behind a trace anyone with permission can replay.',
       bullets: isZh
-        ? ['风险动作先审批再执行', '先"演一遍"再真做', '留下的痕迹无法被悄悄改写']
-        : ['High-risk actions need approval', 'Shadow runs before live', 'Traces cannot be quietly rewritten'],
+        ? ['风险动作先审批再执行', '先"演一遍"再真做', '结构化留痕, 可按权限回放与导出']
+        : ['High-risk actions need approval', 'Shadow runs before live', 'Structured traces for replay and export under policy'],
     },
     {
       icon: Scale,
@@ -59,11 +59,11 @@ export function ArchTraversal() {
       eyebrow: 'Stage 05',
       title: isZh ? '联邦 Federation' : 'Federation',
       body: isZh
-        ? '一家机构积累下来的经验, 可以分享给另一家, 却不泄露具体的个人信息。每一个家、每一座社区, 共同生长。'
-        : 'Experience learned at one site can be shared with another -- without sharing the people behind it. Every home and every community grow together.',
+        ? '行业与站点画像可打成经签名校验的离线包, 在站点间导入导出; 不自动落库, 管理员预览后再显式写入事实库与审计。个人身份与敏感明细不随包外流。'
+        : 'Industry and site profiles move as offline, verifiable bundles between sites; imports preview first, then an admin explicitly applies them to the fact base and audit log. Identities and sensitive detail stay behind.',
       bullets: isZh
-        ? ['经验可共享, 隐私不共享', '多个站点可以统一管理', '家属也能看到自己该看的']
-        : ['Share experience, not identities', 'Unified management across sites', 'Families see what they are meant to see'],
+        ? ['离线 bundle + 校验, 适合气隙与合规拷贝', '多站点可对齐规则与画像, 不共享住户级明细', '权限与导出范围可按角色裁剪 (如家属视图)']
+        : ['Offline bundles and checksums for air-gapped or controlled copy', 'Align rules and profiles across sites without resident-level payloads', 'RBAC-style views -- families see what policy allows'],
     },
   ];
 
