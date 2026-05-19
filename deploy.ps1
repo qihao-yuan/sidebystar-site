@@ -21,6 +21,12 @@ Step "sync IIS / pm2 config to site root"
 # physical root, so each deploy mirrors them in.
 Copy-Item .\deploy\iis\web.config            .\web.config            -Force
 Copy-Item .\deploy\iis\ecosystem.config.cjs  .\ecosystem.config.cjs  -Force
+# IIS site physical path may differ from the repo root (e.g. C:\www\iis-sidebystar).
+$iisSiteRoot = $env:SIDE_BY_STAR_IIS_ROOT
+if ($iisSiteRoot -and (Test-Path -LiteralPath $iisSiteRoot)) {
+    Copy-Item .\deploy\iis\web.config (Join-Path $iisSiteRoot 'web.config') -Force
+    Write-Host "Synced web.config -> $iisSiteRoot" -ForegroundColor DarkGray
+}
 
 Step "npm ci"
 npm ci

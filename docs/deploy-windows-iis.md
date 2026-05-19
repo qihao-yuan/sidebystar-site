@@ -85,7 +85,7 @@ pm2 save
 
 ```powershell
 New-Item -ItemType Directory C:\www\iis-sidebystar -Force
-Copy-Item C:\www\sidebystar-site\iis\web.config C:\www\iis-sidebystar\web.config -Force
+Copy-Item C:\www\sidebystar-site\deploy\iis\web.config C:\www\iis-sidebystar\web.config -Force
 ```
 
 IIS 管理器 → Sites → Add Website:
@@ -237,6 +237,7 @@ Invoke-RestMethod -Method POST -Uri http://127.0.0.1/api/contact `
 | ---- | ---- | ---- |
 | 访问返回 502 / 504 | pm2 没跑 | `pm2 status`,若没 `sidebystar` 就重跑 `pm2 start ecosystem.config.cjs` |
 | 访问返回 IIS 默认 404 / HTTPAPI 404 | 站点没建 / 绑定没命中 | `Get-IISSite`,确保 `sidebystar` 站点 Started 且有 `*:80:` 绑定 |
+| `http://` 访问直接 **403**, 无法跳到 `https://` | 站点 `web.config` 含 `<access sslFlags="Ssl" />` 或缺少 HTTP→HTTPS 重写规则 | 用 `deploy/iis/web.config` 覆盖 IIS 物理路径下的 `web.config`, 确认含 `RedirectHttpToHttps` 规则; `curl.exe -sI http://www.sidebystar.com/` 应返回 `301` 与 `Location: https://...` |
 | URL Rewrite Module Error 500 | web.config 里的变量或锁定节点不合法 | 用仓库里最新的 `iis/web.config`,只做纯反代不写 `<serverVariables>` |
 | 访问返回旧 HTML | 老站目录没清理,IIS 静态优先 | 清空 `C:\inetpub\wwwroot` 或确认站点物理路径是 `C:\www\iis-sidebystar` |
 | 图片 404 | ARR 没启用 | `Get-WebConfigurationProperty -pspath 'MACHINE/WEBROOT/APPHOST' -filter "system.webServer/proxy" -name "enabled"` 必须 True |

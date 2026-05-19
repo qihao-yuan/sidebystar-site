@@ -24,11 +24,27 @@ curl.exe -I "https://www.sidebystar.com/_next/static/chunks/app/%5Blocale%5D/pag
 # 期望: HTTP/1.1 200 OK
 ```
 
-`web.config` 同时做了三件事:
+`web.config` 同时做了四件事:
 
 1. `allowDoubleEscaping="true"` -- 放行 `[locale]` chunk.
-2. URL Rewrite -> `http://127.0.0.1:3000` -- 反代到本地 `next start` 进程.
-3. 设置 `X-Forwarded-Host` / `X-Forwarded-Proto` / `X-Forwarded-For` -- 让 next-intl 在生成 hreflang / canonical 时拿到真实域名, 不再泄出 `127.0.0.1:3000`.
+2. **HTTP -> HTTPS 301** -- `{HTTPS}=OFF` 时跳到 `https://{HTTP_HOST}/...`. 不要在全站用 `<access sslFlags="Ssl" />`, 否则 80 端口会直接 **403** 而不是跳转.
+3. URL Rewrite -> `http://127.0.0.1:3000` -- 反代到本地 `next start` 进程.
+4. 设置 `X-Forwarded-Host` / `X-Forwarded-Proto` / `X-Forwarded-For` -- 让 next-intl 在生成 hreflang / canonical 时拿到真实域名, 不再泄出 `127.0.0.1:3000`.
+
+自检 HTTP 跳转:
+
+```powershell
+curl.exe -sI http://www.sidebystar.com/zh-CN
+# 期望: HTTP/1.1 301 Moved Permanently
+#       Location: https://www.sidebystar.com/zh-CN
+```
+
+若 IIS 站点物理路径不是仓库根 (例如 `C:\www\iis-sidebystar`), 部署前设置环境变量再跑 `deploy.ps1`:
+
+```powershell
+$env:SIDE_BY_STAR_IIS_ROOT = 'C:\www\iis-sidebystar'
+.\deploy.ps1
+```
 
 ## 服务器需要预装
 
