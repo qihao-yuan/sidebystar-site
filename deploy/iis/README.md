@@ -39,6 +39,8 @@ curl.exe -sI http://www.sidebystar.com/zh-CN
 #       Location: https://www.sidebystar.com/zh-CN
 ```
 
+若同步后出现 **500 URL Rewrite Module Error**, 多半是 `web.config` 里写了 `<serverVariables>` / `<allowedServerVariables>` 但服务器未在 `applicationHost.config` 里放行. 当前默认 `web.config` 已去掉这些节点; 需要 X-Forwarded 时再跑 `enable-forwarded-headers.ps1` 并按 README 加回变量.
+
 若 IIS 站点物理路径不是仓库根 (例如 `C:\www\iis-sidebystar`), 部署前设置环境变量再跑 `deploy.ps1`:
 
 ```powershell
