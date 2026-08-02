@@ -13,6 +13,7 @@
     "plugins": "插件",
     "trust": "信任合规",
     "research": "前瞻研究",
+    "insights": "洞察",
     "developers": "开发者",
     "cases": "试点",
     "company": "关于",
@@ -352,6 +353,25 @@
       "y2029": "跨品牌设备的新一代协同协议落地",
       "y2030": "推动本地 AI 与零知识审计进入行业标准"
     }
+  },
+  "insights": {
+    "eyebrow": "Insights",
+    "title": "洞察与动态",
+    "subtitle": "关于空间智能、端侧 AI、产品进展与真实实践的文章和报告。",
+    "articleEyebrow": "循星洞察",
+    "readArticle": "阅读文章",
+    "backToInsights": "返回洞察",
+    "published": "发布于",
+    "updated": "更新于",
+    "emptyTitle": "文章正在准备中",
+    "emptyBody": "首批文章发布后会在这里出现。",
+    "closedTitle": "内容暂未开放",
+    "closedBody": "洞察栏目将在正式内容服务上线后开放。",
+    "unavailableTitle": "内容暂时不可用",
+    "unavailableBody": "内容服务暂时无法连接，请稍后再试。官网其他页面不受影响。",
+    "paginationLabel": "文章分页",
+    "firstPage": "返回第一页",
+    "nextPage": "下一页"
   },
   "developers": {
     "title": "开发者与集成",

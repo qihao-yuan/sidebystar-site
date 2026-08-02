@@ -2,12 +2,32 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
+const insightRemotePatterns = [];
+if (process.env.AIOS_CDN_IMAGES_ENABLED === 'true') {
+  insightRemotePatterns.push({
+    protocol: 'https',
+    hostname: 'cdn.sidebystar.com',
+    pathname: '/**',
+  });
+}
+if (
+  process.env.NODE_ENV !== 'production' &&
+  process.env.AIOS_ALLOW_LOCAL_MINIO_IMAGES === 'true'
+) {
+  insightRemotePatterns.push({
+    protocol: 'http',
+    hostname: '127.0.0.1',
+    port: '9000',
+    pathname: '/**',
+  });
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp'],
-    remotePatterns: [],
+    remotePatterns: insightRemotePatterns,
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],

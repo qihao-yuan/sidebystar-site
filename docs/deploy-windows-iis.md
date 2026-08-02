@@ -129,6 +129,20 @@ cd C:\wacs
 
 ## 日常更新
 
+### 生产内容源门禁
+
+生产环境必须在 `.env.production.local` 中使用正式 AIOS API:
+
+```env
+AIOS_CONTENT_SOURCE=api
+AIOS_PUBLIC_API_BASE_URL=https://api.sidebystar.com
+ALLOW_MOCK_CONTENT_IN_PRODUCTION=false
+```
+
+当 `NODE_ENV=production` 且内容源仍为 `mock` 时,官网默认不展示任何 Mock
+文章.只有显式设置 `ALLOW_MOCK_CONTENT_IN_PRODUCTION=true` 才会解除门禁;该
+开关仅用于受控验收,不得作为生产常态配置.
+
 开发机 push 到仓库后,云端服务器上:
 
 **方式 A:GitHub Desktop + 一键脚本(推荐)**

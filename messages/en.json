@@ -13,6 +13,7 @@
     "plugins": "Plugins",
     "trust": "Trust",
     "research": "Research",
+    "insights": "Insights",
     "developers": "Developers",
     "cases": "Pilots",
     "company": "Company",
@@ -352,6 +353,25 @@
       "y2029": "A next-generation protocol for devices from different brands",
       "y2030": "Helping local AI and zero-knowledge audit move toward industry standards"
     }
+  },
+  "insights": {
+    "eyebrow": "Insights",
+    "title": "Insights & Updates",
+    "subtitle": "Articles and reports on ambient intelligence, edge AI, product progress and field practice.",
+    "articleEyebrow": "SidebyStar Insight",
+    "readArticle": "Read article",
+    "backToInsights": "Back to insights",
+    "published": "Published",
+    "updated": "Updated",
+    "emptyTitle": "Stories are on the way",
+    "emptyBody": "The first articles will appear here after publication.",
+    "closedTitle": "Content is not yet available",
+    "closedBody": "Insights will open when the production content service is ready.",
+    "unavailableTitle": "Content is temporarily unavailable",
+    "unavailableBody": "The content service cannot be reached right now. Please try again later. The rest of the website is unaffected.",
+    "paginationLabel": "Article pagination",
+    "firstPage": "Back to first page",
+    "nextPage": "Next page"
   },
   "developers": {
     "title": "Developers & integration",

@@ -58,6 +58,7 @@ export function SiteFooter() {
               <li><Link className="hover:text-white" href="/trust">{n('trust')}</Link></li>
               <li><Link className="hover:text-white" href="/cases">{n('cases')}</Link></li>
               <li><Link className="hover:text-white" href="/research">{n('research')}</Link></li>
+              <li><Link className="hover:text-white" href={'/insights' as any}>{n('insights')}</Link></li>
               <li><Link className="hover:text-white" href="/pilot">{pilotT('title')}</Link></li>
               <li><Link className="hover:text-white" href="/privacy">{privacyT('title')}</Link></li>
               <li><Link className="hover:text-white" href="/company/about">{n('company')}</Link></li>

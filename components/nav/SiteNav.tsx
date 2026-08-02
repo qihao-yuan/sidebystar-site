@@ -33,6 +33,7 @@ export function SiteNav() {
     { href: '/platform', label: t('platform'), group: 'sw' as const },
     { href: '/plugins', label: t('plugins'), group: 'sw' as const },
     { href: '/intelligence', label: t('intelligence'), group: 'sw' as const },
+    { href: '/insights', label: t('insights'), group: 'meta' as const },
     { href: '/developers', label: t('developers'), group: 'meta' as const },
     { href: '/company/about', label: t('company'), group: 'meta' as const },
   ] as const;

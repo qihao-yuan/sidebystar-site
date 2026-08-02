@@ -81,6 +81,68 @@ html.lenis body {
     height: 1px;
     width: 100%;
   }
+
+  .insight-prose {
+    @apply text-body-lg leading-8 text-ink-200;
+  }
+  .insight-prose > * + * {
+    @apply mt-6;
+  }
+  .insight-prose h2 {
+    @apply mt-14 text-display-md text-white;
+  }
+  .insight-prose h3 {
+    @apply mt-10 text-display-sm text-white;
+  }
+  .insight-prose h4 {
+    @apply mt-8 text-xl font-semibold text-white;
+  }
+  .insight-prose strong {
+    @apply font-semibold text-white;
+  }
+  .insight-prose a {
+    @apply text-brand-halo underline decoration-brand-halo/40 underline-offset-4 transition-colors hover:text-white;
+  }
+  .insight-prose ul {
+    @apply list-disc space-y-2 pl-6;
+  }
+  .insight-prose ol {
+    @apply list-decimal space-y-2 pl-6;
+  }
+  .insight-prose blockquote {
+    @apply border-l-2 border-brand-halo/60 bg-white/[0.02] px-6 py-4 text-white;
+  }
+  .insight-prose code {
+    @apply rounded bg-white/[0.06] px-1.5 py-0.5 font-mono text-[0.9em] text-brand-stardust;
+  }
+  .insight-prose pre {
+    @apply overflow-x-auto rounded-2xl border border-white/10 bg-black/30 p-5 text-sm;
+  }
+  .insight-prose pre code {
+    @apply bg-transparent p-0 text-ink-100;
+  }
+  .insight-prose figure {
+    @apply my-10;
+  }
+  .insight-prose img {
+    @apply h-auto max-w-full rounded-2xl border border-white/10;
+  }
+  .insight-prose figcaption {
+    @apply mt-3 text-center text-caption text-ink-400;
+  }
+  .insight-prose hr {
+    @apply my-12 border-white/10;
+  }
+  .insight-prose table {
+    @apply my-8 w-full border-collapse overflow-hidden text-left text-sm;
+  }
+  .insight-prose th,
+  .insight-prose td {
+    @apply border border-white/10 px-4 py-3;
+  }
+  .insight-prose th {
+    @apply bg-white/[0.05] font-semibold text-white;
+  }
 }
 
 @layer utilities {
