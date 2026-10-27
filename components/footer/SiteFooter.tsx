@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { Wordmark } from '@/components/brand/Wordmark';
 import { LangSwitch } from '@/components/nav/LangSwitch';
@@ -17,17 +18,9 @@ export function SiteFooter() {
           <div className="col-span-2 md:col-span-2">
             <Link href="/"><Wordmark size="lg" /></Link>
             <p className="mt-4 max-w-sm text-caption text-ink-300">{t('subscribeHint')}</p>
-            <form className="mt-3 flex max-w-sm items-center gap-2" aria-label="subscribe">
-              <input
-                type="email"
-                required
-                placeholder={t('subscribePlaceholder')}
-                className="h-10 flex-1 rounded-pill border border-white/10 bg-white/[0.03] px-4 text-sm text-white placeholder:text-ink-400 focus:border-brand-halo/50 focus:outline-none"
-              />
-              <button type="submit" className="btn-primary h-10 px-4 py-0 text-[13px]">
-                {t('subscribeBtn')}
-              </button>
-            </form>
+            <Link href="/contact" className="btn-link mt-3 inline-flex">
+              {n('contact')}
+            </Link>
             <div className="mt-6"><LangSwitch /></div>
           </div>
 
@@ -58,6 +51,7 @@ export function SiteFooter() {
               <li><Link className="hover:text-white" href="/trust">{n('trust')}</Link></li>
               <li><Link className="hover:text-white" href="/cases">{n('cases')}</Link></li>
               <li><Link className="hover:text-white" href="/research">{n('research')}</Link></li>
+              <li><Link className="hover:text-white" href={'/insights' as any}>{n('insights')}</Link></li>
               <li><Link className="hover:text-white" href="/pilot">{pilotT('title')}</Link></li>
               <li><Link className="hover:text-white" href="/privacy">{privacyT('title')}</Link></li>
               <li><Link className="hover:text-white" href="/company/about">{n('company')}</Link></li>
@@ -77,7 +71,10 @@ export function SiteFooter() {
             <p>
               <a className="hover:text-white" href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">{t('icp')}</a>
               <span className="mx-2 text-ink-600">|</span>
-              <a className="hover:text-white" href="https://beian.mps.gov.cn/#/query/webSearch?code=33010902004609" target="_blank" rel="noreferrer">{t('police')}</a>
+              <a className="inline-flex items-center gap-1.5 hover:text-white" href="https://beian.mps.gov.cn/#/query/webSearch?code=33010902004609" target="_blank" rel="noreferrer">
+                <Image src="/beian-police.png" width={16} height={16} alt="" />
+                {t('police')}
+              </a>
             </p>
           </div>
         </div>

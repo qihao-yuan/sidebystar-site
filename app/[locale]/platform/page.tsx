@@ -1,6 +1,5 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { GradientMesh } from '@/components/motion/GradientMesh';
-import { TextReveal } from '@/components/motion/TextReveal';
 import { Reveal } from '@/components/motion/Reveal';
 import { ArchTraversal } from '@/components/platform/ArchTraversal';
 import { HomeCTA } from '@/components/home/HomeCTA';
@@ -29,8 +28,8 @@ const layers = [
     zh: 'L1 · 动态状态',
     en: 'L1 · Live state',
     desc: {
-      zh: '谁在哪个房间、哪些灯亮着、此刻温湿度与光线 —— 随事件持续刷新的一帧。',
-      en: 'Who is where, what is on, temperature, humidity, and light -- refreshed moment by moment as events arrive.',
+      zh: '房间占用、设备状态、温湿度与照度等实时信息，随现场事件更新。',
+      en: 'Occupancy, device state, temperature, humidity and light, updated from site events.',
     },
   },
   {
@@ -38,8 +37,8 @@ const layers = [
     zh: 'L2 · 习惯模式',
     en: 'L2 · Habits',
     desc: {
-      zh: '晚上几点会关这盏灯、周末更偏好哪种光 —— 从重复行为里学出来的节律。',
-      en: 'When that lamp usually goes off, which lighting feels like weekend -- rhythms learned from repeated behavior.',
+      zh: '从重复事件中形成的时间规律与场景偏好，用于规则建议与异常判断。',
+      en: 'Time patterns and scene preferences derived from recurring events for rule suggestions and anomaly detection.',
     },
   },
   {
@@ -47,8 +46,8 @@ const layers = [
     zh: 'L3 · 语义与意图',
     en: 'L3 · Semantics & intent',
     desc: {
-      zh: '自然语言里的目标、因果与长期偏好 —— 用向量与标签把「你是谁、你要什么」对齐到可检索的记忆。',
-      en: 'Goals and context in language -- vectors and tags that align who you are and what you mean with retrievable memory.',
+      zh: '将自然语言目标、上下文与长期偏好转为可检索、可引用的结构化信息。',
+      en: 'Converts natural-language goals, context and long-term preferences into retrievable, referenceable information.',
     },
   },
 ];
@@ -60,8 +59,8 @@ const engines = [
     nameEn: 'StarWeave',
     titleZh: '感知融合',
     titleEn: 'Perception Fusion',
-    descZh: '处理视觉、语音、传感器和空间事件,把多模态信号融合成一份完整的空间感知。',
-    descEn: 'Processes vision, voice, sensors and spatial events, fusing multimodal signals into one coherent perception of the space.',
+    descZh: '接入语音、传感器与空间事件，完成信号对齐、状态识别和事件输出。',
+    descEn: 'Ingests voice, sensor and spatial events for signal alignment, state recognition and event output.',
   },
   {
     icon: Moon,
@@ -69,8 +68,8 @@ const engines = [
     nameEn: 'MoonGuide',
     titleZh: '四层记忆',
     titleEn: 'Four-Layer Memory',
-    descZh: '包含 L0 静态、L1 动态、L2 习惯、L3 语义四层,让系统从被动响应走向理解习惯、主动建议。',
-    descEn: 'A four-layer stack across L0 static, L1 live, L2 habit, L3 semantic, moving the system from reactive replies to understanding habits and proactive suggestions.',
+    descZh: '按静态事实、动态状态、习惯模式和语义信息分层管理现场上下文。',
+    descEn: 'Organizes site context across static facts, live state, habit patterns and semantic information.',
   },
   {
     icon: Scale,
@@ -83,6 +82,37 @@ const engines = [
   },
 ];
 
+const deploymentLayers = [
+  {
+    id: '01',
+    zh: '设备与传感器',
+    en: 'Devices & sensors',
+    bodyZh: '照明、环境、门锁、呼叫与现场传感器通过项目适配器接入。',
+    bodyEn: 'Lighting, climate, locks, calls and site sensors connect through project adapters.',
+  },
+  {
+    id: '02',
+    zh: 'AIOS 边缘节点',
+    en: 'AIOS edge node',
+    bodyZh: '保存现场状态，执行规则、设备控制和审计写入。',
+    bodyEn: 'Maintains site state and runs rules, device control and audit writes.',
+  },
+  {
+    id: '03',
+    zh: '管理与用户端',
+    en: 'Management & user apps',
+    bodyZh: '按站点、角色和空间范围提供配置、事件与状态视图。',
+    bodyEn: 'Provides configuration, event and status views by site, role and space.',
+  },
+  {
+    id: '04',
+    zh: '可选外部服务',
+    en: 'Optional external services',
+    bodyZh: '远程通知、模型服务与第三方接口按项目授权启用。',
+    bodyEn: 'Remote notifications, model services and third-party APIs are enabled per project.',
+  },
+];
+
 export default async function PlatformPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -91,20 +121,19 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pb-20 pt-32">
-        <GradientMesh variant="hero" />
-        <div className="container-page relative text-center">
+      <section className="pb-20 pt-32">
+        <div className="container-page">
           <Reveal><span className="eyebrow">AIOS Platform</span></Reveal>
-          <h1 className="mt-6 text-display-2xl text-balance text-white">
-            <TextReveal stagger={60}>
-              {isZh ? '平台\n就是操作系统' : 'The platform is an operating system.'}
-            </TextReveal>
-          </h1>
-          <Reveal delay={200}>
-            <p className="mx-auto mt-6 max-w-2xl text-body-lg text-ink-300">
+          <Reveal delay={60}>
+            <h1 className="mt-6 max-w-4xl text-display-xl text-balance text-white">
+              {isZh ? '本地智能系统平台' : 'A local intelligence system platform'}
+            </h1>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="mt-6 max-w-2xl text-body-lg text-ink-300">
               {isZh
-                ? '一个本地运行的智能内核。它能感知, 能记忆, 能思考, 每一步都留下可查的痕迹, 也能被第三方继续扩展。'
-                : 'A local intelligence kernel. It senses, remembers, reasons -- leaves an auditable trace at every step, and stays open for third parties to extend.'}
+                ? '统一接入现场设备与事件，在本地完成状态管理、规则判断、设备控制和审计记录。'
+                : 'Connects site devices and events, with local state management, rule evaluation, device control and audit records.'}
             </p>
           </Reveal>
         </div>
@@ -124,18 +153,58 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
         </div>
       </section>
 
-      {/* Three Engines · 星璇 / 望舒 / 曜衡 */}
-      <section className="py-section-lg">
+      <section className="py-section">
         <div className="container-page">
           <Reveal>
-            <span className="eyebrow">Three Engines</span>
+            <span className="eyebrow">Deployment Architecture</span>
             <h2 className="mt-4 text-display-lg text-white">
-              {isZh ? '星璇感知 · 望舒记忆 · 曜衡决策' : 'StarWeave senses · MoonGuide remembers · YaoHeng decides'}
+              {isZh ? '四层部署结构' : 'Four-layer deployment'}
             </h2>
             <p className="mt-4 max-w-2xl text-body text-ink-300">
               {isZh
-                ? 'AIOS 的核心不是单个模型,而是三台协作引擎 —— 星璇负责感知融合,望舒负责记忆体系,曜衡负责置信度决策,共同支撑空间的感知、记忆与判断。'
-                : 'The core of AIOS is not a single model. It is three cooperating engines — StarWeave for perception fusion, MoonGuide for the memory stack, YaoHeng for confidence-based decisions — together supporting how the space perceives, remembers, and judges.'}
+                ? '现场节点是运行中心，外部服务保持可选。设备范围和接口在项目确认阶段固定。'
+                : 'The on-site node is the runtime center; external services remain optional. Device and interface scope is fixed during project confirmation.'}
+            </p>
+          </Reveal>
+
+          <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
+            {deploymentLayers.map((layer, i) => (
+              <Reveal key={layer.id} delay={i * 50}>
+                <div className="grid gap-3 py-6 md:grid-cols-[4rem_1fr_2fr] md:items-baseline">
+                  <span className="font-mono text-caption text-ink-500">{layer.id}</span>
+                  <h3 className="text-body-lg text-white">{isZh ? layer.zh : layer.en}</h3>
+                  <p className="text-body text-ink-300">{isZh ? layer.bodyZh : layer.bodyEn}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-3">
+            {[
+              [isZh ? '运行位置' : 'Runtime', isZh ? '站点边缘节点' : 'On-site edge node'],
+              [isZh ? '断网策略' : 'Offline policy', isZh ? '已配置规则继续执行' : 'Configured rules continue'],
+              [isZh ? '记录输出' : 'Record output', 'JSONL / CSV / PDF'],
+            ].map(([label, value]) => (
+              <div key={label} className="bg-surface-void p-6">
+                <div className="text-caption uppercase tracking-wide text-ink-500">{label}</div>
+                <div className="mt-2 text-body text-white">{value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-section-lg">
+        <div className="container-page">
+          <Reveal>
+            <span className="eyebrow">Core Modules</span>
+            <h2 className="mt-4 text-display-lg text-white">
+              {isZh ? '输入、上下文与决策' : 'Input, context and decision'}
+            </h2>
+            <p className="mt-4 max-w-2xl text-body text-ink-300">
+              {isZh
+                ? '三个独立模块分别处理多源事件、现场上下文和执行条件，通过明确接口组成完整控制链路。'
+                : 'Three independent modules handle multi-source events, site context and execution conditions through defined interfaces.'}
             </p>
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -166,12 +235,12 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
           <Reveal>
             <span className="eyebrow">MoonGuide · Four-Layer Memory</span>
             <h2 className="mt-4 text-display-lg text-white">
-              {isZh ? '望舒 MoonGuide · 真正记得你的记忆' : 'MoonGuide · Memory that remembers you'}
+              {isZh ? '望舒 MoonGuide · 四层上下文' : 'MoonGuide · Four-layer context'}
             </h2>
             <p className="mt-4 max-w-2xl text-body text-ink-300">
               {isZh
-                ? '从眼前这一刻, 到经年累月的习惯, 一层一层积累。它不是把所有事情存下来, 而是把"你是谁、你想要什么"一点点理解清楚。'
-                : 'From the immediate moment to years of habit, one layer at a time. It is not storage. It is understanding, slowly, who you are and what you mean.'}
+                ? '按更新频率和数据性质分层保存现场信息，规则与决策只读取所需范围。'
+                : 'Site information is separated by update frequency and data type; rules and decisions read only the required scope.'}
             </p>
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -198,12 +267,12 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
                 <ShieldCheck size={32} className="text-brand-halo" />
                 <div className="mt-5 text-caption uppercase tracking-wide text-ink-500">AuditLedger</div>
                 <h2 className="mt-2 text-display-lg text-white">
-                  {isZh ? '留下可查的痕迹' : 'Every step, traceable'}
+                  {isZh ? '结构化审计记录' : 'Structured audit records'}
                 </h2>
                 <p className="mt-4 text-body-lg text-ink-200">
                   {isZh
-                    ? 'AI 的每一次思考、每一次执行、每一条规则变动, 都像账本一样留下一行。家属可以看到老人昨夜的情况, 管理员可以回放一周前的判断, 监管方可以导出所需的那部分 —— 不多, 不少。'
-                    : 'Every thought, every action, every rule change leaves a line, like a ledger. Family members see last night. Managers replay last week. Regulators export exactly what they are owed -- no more, no less.'}
+                    ? '规则变更、判断依据与执行结果写入审计记录，并按角色权限查询或导出。'
+                    : 'Rule changes, decision evidence and execution results are written to audit records for role-based review and export.'}
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-surface-void/60 p-6 font-mono text-caption text-ink-200">

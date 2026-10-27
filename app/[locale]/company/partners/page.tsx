@@ -1,6 +1,5 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Reveal } from '@/components/motion/Reveal';
-import team from '@/content/team.json';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 
@@ -26,13 +25,26 @@ const compatibility = [
   },
 ];
 
+const partnerTypes = [
+  {
+    name: { zh: '硬件与设备', en: 'Hardware & devices' },
+    desc: { zh: '计算模组、传感器、控制器与设备协议适配。', en: 'Compute modules, sensors, controllers and protocol adapters.' },
+  },
+  {
+    name: { zh: '方案与交付', en: 'Solutions & delivery' },
+    desc: { zh: '住宅、照护机构与医院项目集成。', en: 'Integration for residential, care and hospital projects.' },
+  },
+  {
+    name: { zh: '研究与开发', en: 'Research & development' },
+    desc: { zh: '端侧模型、数据治理与插件开发。', en: 'Edge models, data governance and plugin development.' },
+  },
+];
+
 export default async function PartnersPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('company.partners');
   const isZh = locale === 'zh-CN';
-  const partners = team.partners as Array<{ name: { zh: string; en: string }; desc: { zh: string; en: string } }>;
-
   return (
     <section className="pt-32 pb-section-lg">
       <div className="container-page">
@@ -40,51 +52,28 @@ export default async function PartnersPage({ params }: { params: Promise<{ local
         <h1 className="mt-4 text-display-xl text-white">{t('title')}</h1>
         <p className="mt-4 max-w-2xl text-body-lg text-ink-300">{t('subtitle')}</p>
 
-        {/* Real partners section - only renders when there are signed partners */}
-        {partners.length > 0 ? (
-          <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {partners.map((p, i) => (
-              <Reveal key={p.name.en} delay={i * 50}>
-                <div className="card-vision flex items-center justify-between">
-                  <div>
-                    <div className="text-body-lg text-white">{isZh ? p.name.zh : p.name.en}</div>
-                    <p className="mt-1 text-caption text-ink-300">{isZh ? p.desc.zh : p.desc.en}</p>
-                  </div>
-                  <div className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.04]" />
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        ) : (
-          <Reveal>
-            <div className="mt-16 rounded-3xl border border-white/10 bg-surface-nebula/40 p-10 md:p-16">
-              <div className="max-w-2xl">
-                <p className="text-display-sm text-white">
-                  {isZh
-                    ? '我们暂时不在网站上公开合作方。'
-                    : 'We are not publishing any partners on this site yet.'}
-                </p>
-                <p className="mt-5 text-body text-ink-300">
-                  {isZh
-                    ? '与硬件厂商、设备生态、机构客户、学术单位之间正在进行的合作, 在双方签字前不会以「合作伙伴」的形式出现在这里。等合作真正成形, 这一栏会逐条贴出, 含双方核对过的合作范围。'
-                    : 'Conversations with hardware vendors, device ecosystems, care operators and academic groups are ongoing -- but none will appear here as a "partner" before both sides sign. When a partnership is real, it will be listed here, with the scope agreed by both sides.'}
-                </p>
+        <div className="mt-16 divide-y divide-white/10 border-y border-white/10">
+          {partnerTypes.map((item, i) => (
+            <Reveal key={item.name.en} delay={i * 50}>
+              <div className="grid gap-3 py-7 md:grid-cols-[4rem_1fr_2fr] md:items-baseline">
+                <span className="font-mono text-caption text-ink-500">{String(i + 1).padStart(2, '0')}</span>
+                <h2 className="text-body-lg text-white">{isZh ? item.name.zh : item.name.en}</h2>
+                <p className="text-body text-ink-300">{isZh ? item.desc.zh : item.desc.en}</p>
               </div>
-            </div>
-          </Reveal>
-        )}
+            </Reveal>
+          ))}
+        </div>
 
-        {/* Compatibility (not partners) - public protocols / open ecosystems we run on */}
         <div className="mt-section">
           <Reveal>
             <span className="eyebrow">Compatibility</span>
             <h2 className="mt-4 text-display-md text-white">
-              {isZh ? '我们能跑在哪些公开生态上' : 'Public ecosystems we run on'}
+              {isZh ? '兼容生态' : 'Compatible ecosystems'}
             </h2>
             <p className="mt-3 max-w-2xl text-caption text-ink-400">
               {isZh
-                ? '以下为公开协议与开源生态, 列在这里只是说明 AIOS 的兼容性, 不构成合作或背书关系。'
-                : 'These are public protocols and open-source ecosystems. Listed here only to indicate AIOS compatibility -- not a partnership or endorsement.'}
+                ? '兼容性声明不代表合作或背书。'
+                : 'Compatibility does not imply partnership or endorsement.'}
             </p>
           </Reveal>
 

@@ -2,6 +2,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { GradientMesh } from '@/components/motion/GradientMesh';
 import { Reveal } from '@/components/motion/Reveal';
 import { ContactForm } from '@/components/forms/ContactForm';
+import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 import { Calendar, Zap, CheckCircle2 } from 'lucide-react';
@@ -19,20 +20,31 @@ export default async function PilotPage({ params }: { params: Promise<{ locale: 
   const isZh = locale === 'zh-CN';
 
   const phases = [
-    { w: '1 week', zh: '需求对齐 + 硬件预装', en: 'Scope alignment + hardware preload' },
-    { w: '1-2 weeks', zh: '单房间 / 单楼层现场部署', en: 'Single room / floor on-site deploy' },
-    { w: '2-4 weeks', zh: 'KPI 验证 + 数据看板', en: 'KPI validation + metrics dashboard' },
-    { w: '+', zh: '结论评审 + 扩展路线', en: 'Review + expansion roadmap' },
+    { w: '01', zh: '现场条件与试点范围确认', en: 'Confirm site conditions and pilot scope' },
+    { w: '02', zh: '设备预配置与现场安装', en: 'Preconfigure devices and install on site' },
+    { w: '03', zh: '规则运行、事件记录与验收', en: 'Run rules, record events and complete acceptance' },
+    { w: '04', zh: '结果评审与扩展范围确认', en: 'Review results and confirm expansion scope' },
   ];
 
   return (
     <>
       <section className="relative overflow-hidden pb-section pt-32">
         <GradientMesh variant="soft" />
-        <div className="container-page relative max-w-4xl">
-          <Reveal><span className="eyebrow">Pilot</span></Reveal>
-          <h1 className="mt-6 text-display-xl text-white">{t('title')}</h1>
-          <p className="mt-5 max-w-2xl text-body-lg text-ink-300">{t('subtitle')}</p>
+        <div className="container-page relative grid gap-12 lg:grid-cols-[5fr_7fr] lg:items-end">
+          <div>
+            <Reveal><span className="eyebrow">Pilot</span></Reveal>
+            <h1 className="mt-6 text-display-xl text-white">{t('title')}</h1>
+            <p className="mt-5 max-w-2xl text-body-lg text-ink-300">{t('subtitle')}</p>
+          </div>
+          <Reveal delay={100}>
+            <MediaPlaceholder
+              src="/solutions/care-delivery.jpg"
+              alt={isZh ? '照护场景试点现场' : 'Care solution pilot site'}
+              ratio="16/9"
+              rounded="xl"
+              priority
+            />
+          </Reveal>
         </div>
       </section>
 
@@ -40,7 +52,7 @@ export default async function PilotPage({ params }: { params: Promise<{ locale: 
         <div className="container-page grid gap-12 lg:grid-cols-2">
           <div>
             <Reveal><span className="eyebrow">Timeline</span></Reveal>
-            <h2 className="mt-4 text-display-lg text-white">{isZh ? '2 到 4 周跑完一轮' : 'Finish a round in 2 to 4 weeks'}</h2>
+            <h2 className="mt-4 text-display-lg text-white">{isZh ? '四个交付阶段' : 'Four delivery stages'}</h2>
             <ul className="mt-10 space-y-5">
               {phases.map((p, i) => (
                 <Reveal key={i} delay={i * 60}>

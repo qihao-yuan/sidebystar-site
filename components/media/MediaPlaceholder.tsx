@@ -26,6 +26,7 @@ type Props = {
   label?: string;
   rounded?: Rounded;
   className?: string;
+  imageClassName?: string;
   priority?: boolean;
   sizes?: string;
 };
@@ -37,6 +38,7 @@ export function MediaPlaceholder({
   label,
   rounded = '3xl',
   className,
+  imageClassName,
   priority,
   sizes = '(min-width: 1024px) 50vw, 100vw',
 }: Props) {
@@ -56,7 +58,7 @@ export function MediaPlaceholder({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className={cn('object-cover', imageClassName)}
         />
       </div>
     );

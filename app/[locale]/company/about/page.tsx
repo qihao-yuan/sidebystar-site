@@ -1,11 +1,10 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { GradientMesh } from '@/components/motion/GradientMesh';
-import { TextReveal } from '@/components/motion/TextReveal';
 import { Reveal } from '@/components/motion/Reveal';
+import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/routing';
-import { MapPin, Users, Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'zh-CN' | 'en' }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -19,58 +18,128 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations('company.about');
   const isZh = locale === 'zh-CN';
 
+  const facts = [
+    { labelZh: '所在地', labelEn: 'Based in', valueZh: '杭州 · 萧山', valueEn: 'Xiaoshan, Hangzhou' },
+    { labelZh: '产品线', labelEn: 'Product lines', valueZh: 'AIOS Care / AIOS Home', valueEn: 'AIOS Care / AIOS Home' },
+    { labelZh: '部署方式', labelEn: 'Deployment', valueZh: '本地设备与私有化部署', valueEn: 'Local devices and on-premises' },
+    { labelZh: '服务对象', labelEn: 'For', valueZh: '家庭、照护机构与集成伙伴', valueEn: 'Homes, care sites and integrators' },
+  ];
+
   const principles = [
-    { icon: MapPin, zh: '空间优先', en: 'Space First', body: { zh: '人不住在手机里,人住在空间里', en: 'People don\'t live in phones. They live in spaces.' } },
-    { icon: Users, zh: '本地优先', en: 'Local First', body: { zh: '数据是用户的,不是我们的', en: 'Data belongs to the user, not to us.' } },
-    { icon: Sparkles, zh: '前瞻即诚实', en: 'Vision Needs Evidence', body: { zh: '每一条愿景都链到技术证据', en: 'Every vision links to concrete technical evidence.' } },
+    {
+      zh: '以现场约束定义产品',
+      en: 'Designed around site constraints',
+      body: {
+        zh: '设备协议、网络条件、安装方式与运维流程在方案阶段一并确认。',
+        en: 'Device protocols, network conditions, installation and operations are confirmed during solution design.',
+      },
+    },
+    {
+      zh: '关键能力本地运行',
+      en: 'Critical functions run locally',
+      body: {
+        zh: '基础感知、规则判断与设备控制不以公网连接为前提。',
+        en: 'Core sensing, rule evaluation and device control do not depend on a public internet connection.',
+      },
+    },
+    {
+      zh: '交付过程可检查',
+      en: 'Delivery remains inspectable',
+      body: {
+        zh: '范围、权限、规则与验收项形成记录，便于复核与后续维护。',
+        en: 'Scope, permissions, rules and acceptance criteria are recorded for review and maintenance.',
+      },
+    },
   ];
 
   return (
     <>
-      <section className="relative overflow-hidden pb-section pt-32">
-        <GradientMesh variant="hero" />
-        <div className="container-page relative max-w-4xl">
-          <Reveal><span className="eyebrow">About</span></Reveal>
-          <h1 className="mt-6 text-display-2xl text-balance text-white">
-            <TextReveal stagger={60}>{t('title')}</TextReveal>
-          </h1>
-          <Reveal delay={180}>
-            <p className="mt-6 max-w-2xl text-body-lg text-ink-300">{t('subtitle')}</p>
+      <section className="pb-section pt-32">
+        <div className="container-page grid gap-12 lg:grid-cols-[5fr_7fr] lg:items-end">
+          <div>
+            <Reveal><span className="eyebrow">About SidebyStar</span></Reveal>
+            <Reveal delay={60}>
+              <h1 className="mt-6 text-display-xl text-balance text-white">{t('title')}</h1>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="mt-6 max-w-xl text-body-lg text-ink-300">{t('subtitle')}</p>
+            </Reveal>
+          </div>
+          <Reveal delay={100}>
+            <MediaPlaceholder
+              src="/company/about-workbench.jpg"
+              alt={isZh ? '循星产品研发工作台' : 'SidebyStar product engineering workbench'}
+              ratio="4/3"
+              rounded="xl"
+            />
           </Reveal>
         </div>
       </section>
 
       <section className="py-section">
-        <div className="container-page grid gap-5 md:grid-cols-3">
-          {principles.map((p, i) => (
-            <Reveal key={i} delay={i * 60}>
-              <div className="card-vision h-full">
-                <p.icon size={28} className="text-brand-halo" />
-                <h3 className="mt-5 text-display-sm text-white">{isZh ? p.zh : p.en}</h3>
-                <p className="mt-3 text-body text-ink-300">{isZh ? p.body.zh : p.body.en}</p>
+        <div className="container-page">
+          <div className="grid gap-10 lg:grid-cols-[5fr_7fr]">
+            <Reveal>
+              <div>
+                <span className="eyebrow">Company</span>
+                <h2 className="mt-4 text-display-lg text-white">
+                  {isZh ? '围绕现场交付的产品团队' : 'A product team built around field delivery'}
+                </h2>
               </div>
             </Reveal>
-          ))}
+            <Reveal delay={80}>
+              <p className="max-w-2xl text-body-lg text-ink-300">
+                {isZh
+                  ? '杭州循星科技有限公司研发 AIOS 本地智能系统及配套硬件，面向住宅与照护场景提供方案设计、设备接入、现场部署和运行维护。'
+                  : 'SidebyStar develops the AIOS local intelligence system and supporting hardware, covering solution design, device integration, on-site deployment and operations for residential and care environments.'}
+              </p>
+            </Reveal>
+          </div>
+          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            {facts.map((fact) => (
+              <div key={fact.labelEn} className="bg-surface-void p-6">
+                <div className="text-caption uppercase tracking-wide text-ink-500">{isZh ? fact.labelZh : fact.labelEn}</div>
+                <div className="mt-3 text-body text-white">{isZh ? fact.valueZh : fact.valueEn}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-section">
+        <div className="container-page grid gap-10 lg:grid-cols-[5fr_7fr]">
+          <Reveal>
+            <div>
+              <span className="eyebrow">Engineering Principles</span>
+              <h2 className="mt-4 text-display-lg text-white">{isZh ? '工程原则' : 'How we work'}</h2>
+            </div>
+          </Reveal>
+          <div className="divide-y divide-white/10 border-y border-white/10">
+            {principles.map((p, i) => (
+              <Reveal key={p.en} delay={i * 50}>
+                <div className="grid gap-3 py-7 sm:grid-cols-[2rem_1fr_1.5fr]">
+                  <span className="font-mono text-caption text-ink-500">0{i + 1}</span>
+                  <h3 className="text-body-lg text-white">{isZh ? p.zh : p.en}</h3>
+                  <p className="text-body text-ink-300">{isZh ? p.body.zh : p.body.en}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="py-section-lg">
-        <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <span className="eyebrow">Next</span>
-            <h2 className="mt-4 text-display-lg text-white">{isZh ? '团队 & 合作伙伴' : 'Team & Partners'}</h2>
-            <p className="mt-4 text-body-lg text-ink-300">
-              {isZh
-                ? '工程 · 研究 · 交付 · 运营, 在杭州与外部合作网络共同构建本地优先的空间智能基建。'
-                : 'Engineering, research, delivery and operations in Hangzhou, working with external partners to build local-first spatial intelligence infrastructure.'}
+        <div className="container-page flex flex-col gap-8 border-t border-white/10 pt-12 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span className="eyebrow">Company</span>
+            <h2 className="mt-4 text-display-md text-white">{isZh ? '合作伙伴' : 'Partnerships'}</h2>
+            <p className="mt-3 max-w-2xl text-body text-ink-300">
+              {isZh ? '查看合作方式与联系入口。' : 'View partnership models and contact channels.'}
             </p>
-          </Reveal>
+          </div>
           <div className="flex flex-wrap gap-3">
-            <Link href="/company/team" className="btn-primary">
-              Team <ArrowRight size={14} />
-            </Link>
-            <Link href="/company/partners" className="btn-ghost">
-              Partners
+            <Link href="/company/partners" className="btn-primary">
+              {isZh ? '查看合作伙伴' : 'View partners'} <ArrowRight size={14} />
             </Link>
           </div>
         </div>

@@ -1,18 +1,5 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import {
-  BrainCircuit,
-  Users,
-  Sparkles,
-  Radio,
-  Eye,
-  Shield,
-  WifiOff,
-  Home,
-  ArrowRight,
-} from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-import { GradientMesh } from '@/components/motion/GradientMesh';
-import { TextReveal } from '@/components/motion/TextReveal';
+import { ArrowRight } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
 import { MagneticButton } from '@/components/motion/MagneticButton';
 import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
@@ -29,15 +16,33 @@ type CapabilityKey =
   | 'offline'
   | 'household';
 
-const CAPABILITIES: Array<{ key: CapabilityKey; icon: LucideIcon; label: string }> = [
-  { key: 'memory', icon: BrainCircuit, label: 'INTELLIGENCE/MEMORY · 1:1 · 1200x1200' },
-  { key: 'personalization', icon: Users, label: 'INTELLIGENCE/PERSONALIZATION · 1:1 · 1200x1200' },
-  { key: 'learning', icon: Sparkles, label: 'INTELLIGENCE/LEARNING · 1:1 · 1200x1200' },
-  { key: 'orchestra', icon: Radio, label: 'INTELLIGENCE/ORCHESTRA · 1:1 · 1200x1200' },
-  { key: 'anticipatory', icon: Eye, label: 'INTELLIGENCE/ANTICIPATORY · 1:1 · 1200x1200' },
-  { key: 'privacy', icon: Shield, label: 'INTELLIGENCE/PRIVACY · 1:1 · 1200x1200' },
-  { key: 'offline', icon: WifiOff, label: 'INTELLIGENCE/OFFLINE · 1:1 · 1200x1200' },
-  { key: 'household', icon: Home, label: 'INTELLIGENCE/HOUSEHOLD · 1:1 · 1200x1200' },
+type GroupKey = 'routines' | 'awareness' | 'orchestration' | 'local';
+
+const GROUPS: Array<{
+  key: GroupKey;
+  image: string;
+  capabilities: [CapabilityKey, CapabilityKey];
+}> = [
+  {
+    key: 'routines',
+    image: '/intelligence/routines.jpg',
+    capabilities: ['memory', 'personalization'],
+  },
+  {
+    key: 'awareness',
+    image: '/intelligence/awareness.jpg',
+    capabilities: ['learning', 'anticipatory'],
+  },
+  {
+    key: 'orchestration',
+    image: '/intelligence/orchestration.jpg',
+    capabilities: ['orchestra', 'offline'],
+  },
+  {
+    key: 'local',
+    image: '/intelligence/local-v2.jpg',
+    capabilities: ['privacy', 'household'],
+  },
 ];
 
 export async function generateMetadata({
@@ -63,89 +68,98 @@ export default async function IntelligencePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const hero = await getTranslations('intelligence.hero');
+  const section = await getTranslations('intelligence.section');
+  const groups = await getTranslations('intelligence.groups');
   const cap = await getTranslations('intelligence.capabilities');
   const cta = await getTranslations('intelligence.cta');
 
   return (
     <>
-      <section className="relative overflow-hidden pb-20 pt-32">
-        <GradientMesh variant="hero" />
-        <div className="pointer-events-none absolute inset-0 grid-faint opacity-25" />
-        <div className="container-page relative">
-          <div className="grid gap-12 lg:grid-cols-[6fr_6fr] lg:items-center">
-            <div className="flex flex-col gap-6">
-              <Reveal>
-                <span className="eyebrow">{hero('eyebrow')}</span>
-              </Reveal>
-              <h1 className="text-display-2xl text-balance text-white">
-                <TextReveal stagger={70}>{hero('title')}</TextReveal>
+      <section className="border-b border-white/[0.07] pb-20 pt-32">
+        <div className="container-page">
+          <div className="grid gap-10 lg:grid-cols-[5fr_7fr] lg:items-end">
+            <div className="pb-2">
+              <span className="eyebrow">{hero('eyebrow')}</span>
+              <h1 className="mt-6 whitespace-pre-line text-display-xl text-balance text-white">
+                {hero('title')}
               </h1>
-              <Reveal delay={160}>
-                <p className="max-w-xl text-body-lg text-ink-200">{hero('subtitle')}</p>
-              </Reveal>
+              <p className="mt-6 max-w-lg text-body-lg text-ink-300">{hero('subtitle')}</p>
             </div>
-            <Reveal delay={120}>
+            <Reveal>
               <MediaPlaceholder
+                src="/intelligence/hero-v2.jpg"
                 alt={hero('title')}
                 ratio="4/3"
-                label={hero('imageLabel')}
                 priority
+                className="border-white/10"
+                imageClassName="object-right brightness-150 contrast-90"
               />
             </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="py-section-lg">
-        <div className="container-page">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {CAPABILITIES.map((c, i) => (
-              <Reveal key={c.key} delay={(i % 4) * 60}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] transition-all duration-500 ease-apple-out hover:border-brand-halo/30 hover:bg-white/[0.04]">
-                  <div className="relative">
-                    <MediaPlaceholder
-                      alt={cap(`${c.key}.title`)}
-                      ratio="1/1"
-                      rounded="none"
-                      label={c.label}
-                      className="border-0 border-b border-white/[0.06]"
-                    />
-                    <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-surface-void/70 backdrop-blur">
-                      <c.icon size={18} className="text-brand-halo" />
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-3 p-6">
-                    <h3 className="text-display-sm text-white">{cap(`${c.key}.title`)}</h3>
-                    <p className="text-body text-ink-300">{cap(`${c.key}.body`)}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+      <section className="py-20">
+        <div className="container-page max-w-4xl">
+          <span className="eyebrow">{section('eyebrow')}</span>
+          <div className="mt-5 grid gap-5 md:grid-cols-[5fr_7fr] md:items-start">
+            <h2 className="text-display-lg text-white">{section('title')}</h2>
+            <p className="text-body-lg text-ink-300">{section('body')}</p>
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-white/[0.07]">
+        <div className="container-page">
+          {GROUPS.map((group, index) => (
+            <section
+              key={group.key}
+              className="grid gap-10 border-b border-white/[0.07] py-16 lg:grid-cols-2 lg:items-center lg:py-24"
+            >
+              <Reveal className={index % 2 === 1 ? 'lg:order-2' : undefined}>
+                <MediaPlaceholder
+                  src={group.image}
+                  alt={groups(`${group.key}.title`)}
+                  ratio="1/1"
+                  rounded="xl"
+                  sizes="(min-width: 1024px) 46vw, 100vw"
+                />
+              </Reveal>
+              <div className={index % 2 === 1 ? 'lg:order-1' : undefined}>
+                <span className="font-mono text-caption text-ink-500">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h2 className="mt-4 max-w-xl text-display-lg text-white">
+                  {groups(`${group.key}.title`)}
+                </h2>
+                <div className="mt-9 grid gap-8 sm:grid-cols-2">
+                  {group.capabilities.map((key) => (
+                    <div key={key} className="border-t border-white/10 pt-5">
+                      <h3 className="text-lg font-medium text-white">{cap(`${key}.title`)}</h3>
+                      <p className="mt-3 text-body text-ink-300">{cap(`${key}.body`)}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          ))}
         </div>
       </section>
 
       <section className="py-section-lg">
         <div className="container-page">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula p-10 md:p-16">
-            <GradientMesh variant="cta" />
-            <div className="relative z-10 flex flex-col items-center gap-8 text-center">
-              <Reveal>
-                <span className="eyebrow">{cta('eyebrow')}</span>
-              </Reveal>
-              <h2 className="text-display-xl text-balance text-white">
-                <TextReveal stagger={60}>{cta('title')}</TextReveal>
-              </h2>
-              <Reveal delay={160}>
-                <div className="flex flex-wrap items-center justify-center gap-3">
-                  <MagneticButton href="/contact" variant="primary">
-                    {cta('primary')} <ArrowRight size={16} />
-                  </MagneticButton>
-                  <MagneticButton href="/pilot" variant="ghost">
-                    {cta('secondary')}
-                  </MagneticButton>
-                </div>
-              </Reveal>
+          <div className="grid gap-8 border-y border-white/10 py-12 md:grid-cols-[7fr_5fr] md:items-center">
+            <div>
+              <span className="eyebrow">{cta('eyebrow')}</span>
+              <h2 className="mt-4 max-w-3xl text-display-lg text-white">{cta('title')}</h2>
+            </div>
+            <div className="flex flex-wrap gap-3 md:justify-end">
+              <MagneticButton href="/contact" variant="primary">
+                {cta('primary')} <ArrowRight size={16} />
+              </MagneticButton>
+              <MagneticButton href="/pilot" variant="ghost">
+                {cta('secondary')}
+              </MagneticButton>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { TextReveal } from '@/components/motion/TextReveal';
 import { Reveal } from '@/components/motion/Reveal';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
-import { FileJson, Puzzle, Github, BookOpen, Cpu } from 'lucide-react';
+import { FileJson, Puzzle, Github, BookOpen } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'zh-CN' | 'en' }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -23,7 +23,6 @@ export default async function DevelopersPage({ params }: { params: Promise<{ loc
     { icon: BookOpen, title: t('docs'), desc: isZh ? '完整的技术文档与架构说明' : 'Complete tech docs and architecture', href: '/developers/docs' },
     { icon: FileJson, title: t('api'), desc: isZh ? '稳定的 v1 REST API,按域分区,带 OpenAPI 描述' : 'Stable v1 REST API, partitioned by domain, OpenAPI-described', href: '/developers/api' },
     { icon: Puzzle, title: t('plugins'), desc: isZh ? '插件清单与 PluginManifest 规范' : 'Plugin list and PluginManifest spec', href: '/developers/plugins' },
-    { icon: Cpu, title: isZh ? '硬件规格' : 'Hardware Specs', desc: isZh ? '三款整机完整硬件参数与对比' : 'Full hardware parameters and comparison across three SKUs', href: '/developers/hardware' },
     { icon: Github, title: t('github'), desc: isZh ? 'Apache 2.0 开源内核' : 'Apache 2.0 open-source kernel', href: 'https://github.com/sidebystar', external: true },
   ];
 

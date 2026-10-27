@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ProductHero } from '@/components/products/ProductHero';
 import { SkuShowcase } from '@/components/products/SkuShowcase';
+import { ProductEcosystem } from '@/components/products/ProductEcosystem';
 import { SkuCompare } from '@/components/products/SkuCompare';
 import { HomeCTA } from '@/components/home/HomeCTA';
 import { buildMetadata } from '@/lib/seo';
@@ -20,6 +21,7 @@ export default async function ProductsPage({ params }: { params: Promise<{ local
     <>
       <ProductHero />
       <SkuShowcase />
+      <ProductEcosystem locale={locale} />
       <SkuCompare />
       <HomeCTA />
     </>

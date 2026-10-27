@@ -1,16 +1,16 @@
 # SidebyStar 循星科技 企业站
 
-Ambient Intelligence OS 官网 · Apple Vision Pro 风格视觉 + 壮志叙事 · Next.js 14 App Router.
+AIOS 本地智能系统官网 · Next.js 14 App Router.
 
 ## 四维信息架构
 
 站点文案分两层, 主站讲产品与理念, `/developers/*` 讲技术。
 
 ```
-                主站 (产品叙事 / 理念)              开发者中心 (技术详情)
+                主站 (产品与方案)                   开发者中心 (软件接口)
                 -------------------------          ----------------------
-硬件半球  HW    /products   商业 SKU 三形态       /developers/hardware
-                /system     按角色的系统家族         (完整规格 / 芯片 / 协议 / 认证)
+硬件半球  HW    /products   商业 SKU 三形态
+                /system     按角色的系统家族
                 /solutions  场景套餐叙事
 
 软件半球  SW    /platform   智能内核的理念         /developers  (Docs / API / CLI)
@@ -23,13 +23,11 @@ Ambient Intelligence OS 官网 · Apple Vision Pro 风格视觉 + 壮志叙事 �
 四个层级的对应关系:
 
 - 商业 SKU 层  `Home Box · Community Kit · Enterprise Stack`
-- 系统家族层  `Gateway · Sense · Control · Connect · (Act 路线)`
+- 系统家族层  `Gateway · Sense · Control · Connect · Act`
 - 场景套餐层  `居家照护 · 社区照护 · 临床辅助 · 智能家居 · 智能房间`
-- 插件生态层  `官方 · 伙伴 · 路线图` x `家庭 / 健康 / 商用 / 兼容`
+- 插件生态层  `官方 · 项目适配` x `家庭 / 健康 / 商用 / 兼容`
 
-通用语气规则: 主站页不出现芯片型号、内存、协议名、模块数、API 数等技术细节;
-这些内容一律沉到 `/developers/*` 与 `/developers/hardware`, 通过 "查看完整规格"
-与 "查看 manifest" 跨链接引用。
+通用语气规则：主站不公开未冻结的芯片型号、内存、接口和认证信息；具体硬件配置以项目确认文件为准。`/developers/*` 仅提供软件接口与插件开发资料。
 
 ## 技术栈
 
@@ -66,12 +64,11 @@ app/
     plugins/[slug]/           # 插件故事详情
     intelligence/             # 智能观
     developers/               # 入口
-    developers/hardware/      # 硬件完整规格沉淀区
     developers/plugins/       # 插件开发者中心
     developers/plugins/[slug] # 插件 manifest 与安装细节
     trust/ cases/ research/   # 下沉到 footer 的信任与洞察
     pilot/ contact/ privacy/
-    company/{about,team,partners}/
+    company/{about,partners}/
     labs/
   sitemap.ts / robots.ts / opengraph-image.tsx / icon.tsx
 components/
@@ -85,7 +82,7 @@ content/
   family.ts                   # 按角色的系统家族数据
   solutions.ts                # 场景套餐 + bundle 字段
   plugins.ts                  # 插件数据 + 可选 manifest
-  cases.ts team.json
+  cases.ts
 messages/
   zh-CN.json en.json
 i18n/ hooks/ lib/
@@ -98,7 +95,7 @@ legacy/                       # 原静态站点归档 (旧 HTML / CSS / JS / pic
 ### 路由与国际化
 
 - `next-intl` 路由: `localePrefix: 'always'`, 所有新路径 (`/system`, `/plugins`,
-  `/plugins/[slug]`, `/developers/hardware`, `/developers/plugins/[slug]`)
+  `/plugins/[slug]`, `/developers/plugins/[slug]`)
   自动双语 (`/zh-CN/...` 与 `/en/...`), 无需额外 pathname mapping.
 - 站点地图 `app/sitemap.ts` 基于路由表自动生成两套 hreflang.
 

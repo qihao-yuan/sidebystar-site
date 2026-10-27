@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { solutions } from '@/content/solutions';
 import { cases } from '@/content/cases';
 import { plugins } from '@/content/plugins';
+import { getAllArticlesForSitemap } from '@/lib/aios-content';
 
 const siteUrl = process.env.SITE_URL ?? 'https://sidebystar.com';
 const locales = ['zh-CN', 'en'] as const;
@@ -16,21 +17,20 @@ const staticPaths = [
   '/intelligence',
   '/trust',
   '/research',
+  '/insights',
   '/developers',
   '/developers/docs',
   '/developers/api',
-  '/developers/hardware',
   '/developers/plugins',
   '/cases',
   '/pilot',
   '/contact',
   '/company/about',
-  '/company/team',
   '/company/partners',
   '/privacy',
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
@@ -57,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
     for (const p of plugins) {
+      if (p.stage === 'roadmap') continue;
       entries.push({
         url: `${siteUrl}/${locale}/plugins/${p.slug}`,
         changeFrequency: 'monthly',
@@ -69,6 +70,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
           priority: 0.5,
         });
       }
+    }
+
+    const articles = await getAllArticlesForSitemap(locale);
+    for (const article of articles) {
+      entries.push({
+        url: `${siteUrl}/${locale}/insights/${article.slug}`,
+        lastModified: new Date(article.updated_at),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      });
     }
   }
 

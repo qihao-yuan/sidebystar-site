@@ -1,13 +1,22 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { ArrowRight, Clock3 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { GradientMesh } from '@/components/motion/GradientMesh';
 import { TextReveal } from '@/components/motion/TextReveal';
 import { Reveal } from '@/components/motion/Reveal';
 import { MagneticButton } from '@/components/motion/MagneticButton';
 import { HomeCTA } from '@/components/home/HomeCTA';
+import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
 import { buildMetadata } from '@/lib/seo';
 import { family } from '@/content/family';
+
+const FAMILY_IMAGE: Record<string, string> = {
+  gateway: '/product/home-box/hero-v4.jpg',
+  sense: '/intelligence/awareness.jpg',
+  control: '/home/desk.webp',
+  connect: '/intelligence/orchestration.jpg',
+  act: '/solutions/home-delivery.jpg',
+};
 
 export async function generateMetadata({
   params,
@@ -40,15 +49,26 @@ export default async function SystemPage({
       <section className="relative overflow-hidden pb-20 pt-32">
         <GradientMesh variant="hero" />
         <div className="pointer-events-none absolute inset-0 grid-faint opacity-25" />
-        <div className="container-page relative max-w-4xl">
-          <Reveal>
-            <span className="eyebrow">{t('hero.eyebrow')}</span>
-          </Reveal>
-          <h1 className="mt-6 text-display-2xl text-balance text-white">
-            <TextReveal stagger={60}>{t('hero.title')}</TextReveal>
-          </h1>
-          <Reveal delay={200}>
-            <p className="mt-6 max-w-2xl text-body-lg text-ink-300">{t('hero.subtitle')}</p>
+        <div className="container-page relative grid gap-12 lg:grid-cols-[5fr_7fr] lg:items-end">
+          <div>
+            <Reveal>
+              <span className="eyebrow">{t('hero.eyebrow')}</span>
+            </Reveal>
+            <h1 className="mt-6 text-display-xl text-balance text-white">
+              <TextReveal stagger={60}>{t('hero.title')}</TextReveal>
+            </h1>
+            <Reveal delay={200}>
+              <p className="mt-6 max-w-2xl text-body-lg text-ink-300">{t('hero.subtitle')}</p>
+            </Reveal>
+          </div>
+          <Reveal delay={120}>
+            <MediaPlaceholder
+              src="/system/family-overview-v2.jpg"
+              alt={isZh ? 'AIOS 系统家族硬件构成' : 'AIOS system family hardware'}
+              ratio="16/9"
+              rounded="xl"
+              priority
+            />
           </Reveal>
         </div>
 
@@ -59,11 +79,6 @@ export default async function SystemPage({
               <f.icon size={22} className="text-brand-halo" />
               <div className="mt-3 text-display-sm text-white">{isZh ? f.nameZh : f.nameEn}</div>
               <div className="mt-1 text-caption text-ink-400">{isZh ? f.tagZh : f.tagEn}</div>
-              {f.roadmap ? (
-                <div className="mt-2 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-2 py-0.5 text-[10px] uppercase tracking-wide text-ink-400">
-                  <Clock3 size={10} /> {isZh ? '规划中' : 'Roadmap'}
-                </div>
-              ) : null}
             </div>
           ))}
         </div>
@@ -90,14 +105,9 @@ export default async function SystemPage({
                 </Reveal>
                 <h2 className="mt-6 text-display-xl text-white">{isZh ? f.nameZh : f.nameEn}</h2>
                 <p className="mt-3 text-display-sm text-ink-200">{isZh ? f.tagZh : f.tagEn}</p>
-                {f.roadmap && f.roadmapNote ? (
-                  <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-brand-halo/30 bg-brand-halo/5 px-3 py-1 text-caption text-brand-halo">
-                    <Clock3 size={14} /> {isZh ? f.roadmapNote.zh : f.roadmapNote.en}
-                  </div>
-                ) : null}
-                {!f.roadmap && f.bundledIn && f.bundledIn.length > 0 ? (
+                {f.bundledIn && f.bundledIn.length > 0 ? (
                   <p className="mt-6 text-caption text-ink-400">
-                    {isZh ? '随以下产品交付 · ' : 'Ships inside · '}
+                    {isZh ? '适用产品 · ' : 'Available with · '}
                     {f.bundledIn
                       .map((sku) =>
                         sku === 'home-box' ? 'Home Box' : sku === 'community-kit' ? 'Community Kit' : 'Enterprise Stack',
@@ -109,8 +119,16 @@ export default async function SystemPage({
 
               {/* Right: story + examples */}
               <div>
+                <Reveal delay={80}>
+                  <MediaPlaceholder
+                    src={FAMILY_IMAGE[f.role]}
+                    alt={isZh ? `${f.nameZh} 应用示意` : `${f.nameEn} application`}
+                    ratio="16/9"
+                    rounded="xl"
+                  />
+                </Reveal>
                 <Reveal delay={120}>
-                  <p className="text-body-lg text-ink-200">{isZh ? f.storyZh : f.storyEn}</p>
+                  <p className="mt-8 text-body-lg text-ink-200">{isZh ? f.storyZh : f.storyEn}</p>
                 </Reveal>
                 <div className="mt-10">
                   <div className="text-caption uppercase tracking-wide text-ink-500">

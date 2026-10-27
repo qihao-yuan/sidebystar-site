@@ -13,6 +13,7 @@
     "plugins": "Plugins",
     "trust": "Trust",
     "research": "Research",
+    "insights": "Insights",
     "developers": "Developers",
     "cases": "Pilots",
     "company": "Company",
@@ -24,18 +25,18 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "AIOS · A Local AI Hub for Real Spaces",
-      "title": "A space that understands you -- before you speak.",
-      "subtitle": "",
+      "eyebrow": "AIOS · An on-site system for real spaces",
+      "title": "Local intelligence systems\nfor residences and care facilities",
+      "subtitle": "Connect site devices and run rules, controls and audit records locally.",
       "footnote": "AIOS Care | care facilities & operators    ·    AIOS Home | households & residences",
       "ctaPrimary": "Book a Demo",
-      "ctaSecondary": "See it inside both kinds of spaces",
+      "ctaSecondary": "View product lines",
       "scrollHint": "Keep scrolling"
     },
     "era": {
-      "eyebrow": "The Shift",
-      "title": "Compute is coming back to you.",
-      "subtitle": "For a decade we handed everything to the cloud. The next decade brings the most personal part back under your own roof.",
+      "eyebrow": "Why local",
+      "title": "Essential decisions do not need a cloud round trip.",
+      "subtitle": "Sensing, decisions and control that can happen on site stay on site. Response is faster, essentials work offline, and the data boundary is easier to understand.",
       "col1From": "Cloud-centric",
       "col1To": "Edge-first",
       "col1Body": "Inference returns to a place you can see, a plug you can pull.",
@@ -48,37 +49,37 @@
     },
     "lines": {
       "eyebrow": "Two Lines, One Hub",
-      "title": "One local hub.\nTwo kinds of spaces.",
-      "subtitle": "Eldercare and homes both look like \"a space that understands you\" -- but they are not the same thing. One side wants to avoid incidents; the other wants to be remembered.",
+      "title": "Two product lines",
+      "subtitle": "Both use the AIOS platform, delivered for the distinct requirements of care facilities and residences.",
       "careEyebrow": "AIOS Care",
       "careTitle": "For facilities and care",
-      "careTagline": "Sold to fewer incidents -- and to being able to explain the ones that happen",
-      "careBody": "An elder gets out of bed at night. The system decides whether to call someone, routes it to the on-duty staff member's phone, and keeps the whole thread on record. This is the line we are actually pushing in the near term.",
-      "carePoint1": "Bed-leaving and falls -- the system tells what is serious, no alert flood",
-      "carePoint2": "Tickets routed to a person; who took it, how fast, all on record",
-      "carePoint3": "Family, staff, operator -- each sees what they should, no more",
+      "careTagline": "On-site sensing, tiered alerts and response records",
+      "careBody": "A local deployment solution for elderly care facilities, community care and assisted wards.",
+      "carePoint1": "Non-camera sensing and tiered alerts",
+      "carePoint2": "Care tickets and response records",
+      "carePoint3": "Tiered access for family, care and administration",
       "careCta": "See the night-care loop",
       "homeEyebrow": "AIOS Home",
       "homeTitle": "For households and high-end residences",
-      "homeTagline": "Don't ask you to adapt to it -- it grows into the shape of your home",
-      "homeBody": "Not another box that talks back, but a local AI that quietly learns this household -- who runs cold, who sleeps light, when the living room should dim. Data never leaves home.",
-      "homePoint1": "Remembers who likes what, who runs on what schedule -- you don't keep explaining",
-      "homePoint2": "Reads the home without putting cameras everywhere",
-      "homePoint3": "Suggests first, acts second; the consequential moves always ask you",
-      "homeCta": "See how it learns your home",
-      "footnote": "AIOS Care answers \"how can a care space be safer and more efficient?\";\nAIOS Home answers \"how can a home truly understand me?\""
+      "homeTagline": "Device integration, local rules and member permissions",
+      "homeBody": "A device orchestration and local control solution for individual homes and standardized rooms.",
+      "homePoint1": "Lighting, climate, curtain and security integration",
+      "homePoint2": "Rules by member, room and time",
+      "homePoint3": "Human approval retained for high-risk actions",
+      "homeCta": "View residential intelligence",
+      "footnote": "AIOS Care supports care-site operations and response;\nAIOS Home supports residential devices and household rules."
     },
     "nightCare": {
       "eyebrow": "AIOS Care · Night Loop",
-      "title": "AIOS Care on the floor.\nOne night shift. One bed leaving. One record.",
-      "subtitle": "This is what AIOS Care looks like on the floor of an eldercare or community-care site -- not a talking box, but an acceptable event stream. The same record, seen by the resident, the system, the staff, the family and the operator, each from their own angle.",
+      "title": "Nighttime bed-exit response loop",
+      "subtitle": "A complete event record from bed-exit detection and risk escalation through care response and information sharing.",
       "ctaPrimary": "See the elderly-care solution",
       "ctaSecondary": "Apply for a night-care pilot"
     },
     "spectrum": {
-      "eyebrow": "Everywhere You Are",
-      "title": "From a bedside lamp, to a city block.",
-      "subtitle": "One kernel, many scales. Wherever you are, intelligence centers on you.",
+      "eyebrow": "Start small",
+      "title": "Get the bedside, desk and living room right first.",
+      "subtitle": "The same local rules can grow from one room to a home or community, but each step begins with specific devices and a specific need.",
       "bedsideTitle": "Bedside",
       "bedsideBody": "The first light, that understands your night.",
       "deskTitle": "Desk",
@@ -90,48 +91,48 @@
       "cta": "See all use cases"
     },
     "intelligence": {
-      "eyebrow": "AIOS Home · Understanding",
-      "title": "Not reaction. Understanding.",
-      "subtitle": "AIOS Home is not about being able to talk -- it is about truly understanding this home. Not what it can answer, but that it already knows you.",
+      "eyebrow": "AIOS Home · Everyday rules",
+      "title": "Know who is present. Then run the right rule.",
+      "subtitle": "The system distinguishes household members, rooms and time before following an approved rule. One vague command does not decide for everyone.",
       "card1Title": "Sense",
-      "card1Body": "It sees you walk into the room, before you speak.",
+      "card1Body": "Read room conditions and device changes.",
       "card2Title": "Remember",
-      "card2Body": "It remembers how you turned off the lights last night.",
+      "card2Body": "Store personal preferences with explicit permission.",
       "card3Title": "Reason",
-      "card3Body": "It knows why, not just what.",
+      "card3Body": "Connect each trigger to its resulting action.",
       "card4Title": "Orchestrate",
-      "card4Body": "One intent, the whole room responds.",
+      "card4Body": "Route an approved rule to the right device.",
       "cta": "Meet the intelligence that is yours"
     },
     "vision": {
-      "eyebrow": "The Next Platform",
-      "title": "The next computing platform isn't in your pocket. It's in the room.",
-      "body": "Phones are personal AI. The space is the new platform we are building. It starts from sensing, finishes in your home, earns your trust, and stays open to extend. Every room grows an intelligence kernel of its own."
+      "eyebrow": "System boundary",
+      "title": "Keep sensing, decisions and control in the room.",
+      "body": "The system reads device state, runs local rules and keeps records on site. When a cloud service is required, it says so clearly instead of treating connectivity as a given."
     },
     "platform": {
       "eyebrow": "AIOS Platform",
-      "title": "Seven years of engineering, one foundation.",
-      "subtitle": "Runs locally. Earns your trust. Stays open to extend.",
-      "sensingTitle": "Whole-room sensing",
-      "sensingBody": "Five senses at once -- it reads the room like a person, not a single camera feed.",
-      "edgeTitle": "Local reasoning",
-      "edgeBody": "All thinking happens inside your home. No round trips to the cloud; even offline, the essentials stay on.",
-      "memoryTitle": "Memory that grows",
-      "memoryBody": "From the moment to the long-term, one layer at a time, it actually remembers you.",
-      "protocolsTitle": "Meets your devices",
-      "protocolsBody": "Works with mainstream ecosystems and protocols. No forced rebrand, no rip-and-replace.",
+      "title": "AIOS local intelligence system platform",
+      "subtitle": "From sensing to action, every step has a clear input, rule and result.",
+      "sensingTitle": "Multi-source event input",
+      "sensingBody": "Processes voice, environmental sensors, device state and spatial events through one event layer.",
+      "edgeTitle": "Local rule execution",
+      "edgeBody": "State evaluation and core controls run on-site without depending on the public internet.",
+      "memoryTitle": "Layered context",
+      "memoryBody": "Static facts, live state, recurring patterns and semantic information are managed separately.",
+      "protocolsTitle": "Device protocol adapters",
+      "protocolsBody": "Connects approved mainstream devices and protocols through adapters.",
       "privacyTitle": "Local-first",
       "privacyBody": "Data stays home by default; when the network drops, the essentials keep running.",
-      "exploreCta": "Explore Platform"
+      "exploreCta": "View platform architecture"
     },
     "trust": {
-      "eyebrow": "Trust, Verified",
-      "title": "Every step leaves a trace anyone can check.",
-      "body": "Every thought, every action, every rule change is written down and cannot be quietly rewritten. Families, managers, regulators each see their own view -- no more, no less."
+      "eyebrow": "Records and access",
+      "title": "Every rule and every action leaves a record.",
+      "body": "The local audit record shows when a rule changed, who approved it and whether the device completed the action. Families, managers and regulators only see what their role permits."
     },
     "cta": {
-      "eyebrow": "Start Building",
-      "title": "Bring the thinking space into the next decade.",
+      "eyebrow": "Next step",
+      "title": "Validate in a single space",
       "primary": "Book a Demo",
       "secondary": "Apply for Pilot",
       "tertiary": "Download 2026 Whitepaper"
@@ -139,48 +140,66 @@
   },
   "intelligence": {
     "hero": {
-      "eyebrow": "Intelligence",
-      "title": "Yours. Only yours.",
-      "subtitle": "Your habits, your rhythm, your home -- understood, never shared.",
-      "imageLabel": "INTELLIGENCE/HERO · 16:9 · 2560x1440"
+      "eyebrow": "AIOS Home · Local intelligence",
+      "title": "A local intelligence kernel for residences",
+      "subtitle": "Handles device integration, state management, rule suggestions and control on site. Locks, alerts and other high-risk actions retain human approval."
+    },
+    "section": {
+      "eyebrow": "Capabilities",
+      "title": "Four capability groups",
+      "body": "Functions are organized around household members, site state, device control and data boundaries. Every automation rule remains inspectable and editable."
+    },
+    "groups": {
+      "routines": {
+        "title": "Member and preference management"
+      },
+      "awareness": {
+        "title": "Pattern detection and rule approval"
+      },
+      "orchestration": {
+        "title": "Device orchestration and offline control"
+      },
+      "local": {
+        "title": "Local processing and access boundaries"
+      }
     },
     "capabilities": {
       "memory": {
-        "title": "Your Own Memory",
-        "body": "Preferences, habits, rhythms -- all modeled locally. This memory belongs to you alone. Never merged, never uploaded, never trained on."
+        "title": "Authorized preference records",
+        "body": "Common lighting, temperature and routine preferences are stored locally with permission, and can be reviewed, changed or deleted."
       },
       "personalization": {
-        "title": "Personalized Setup",
-        "body": "A separate profile per family member. Grandparents' routines, kids' schedules, your commute -- never crossing, never interrupting."
+        "title": "Member data isolation",
+        "body": "Preferences stay separate by household member. Shared spaces follow household rules instead of applying one person's habits to everyone."
       },
       "learning": {
-        "title": "Adaptive Learning",
-        "body": "30-day adaptive modeling. From the first light, the first cup of water -- it grows into you. No setup, no training."
+        "title": "Recurring pattern detection",
+        "body": "When the same action happens repeatedly, the system turns it into a suggestion. It becomes an automation only after approval."
       },
       "orchestra": {
-        "title": "Cross-Device Orchestra",
-        "body": "Brand-agnostic, protocol-agnostic. One phrase, one gesture, one intent -- the whole home answers like an orchestra, not a wall of switches."
+        "title": "Common device integration",
+        "body": "Lights, air conditioning, curtains and sensors keep doing their own jobs. AIOS routes approved rules to the right device."
       },
       "anticipatory": {
-        "title": "Anticipatory",
-        "body": "Alerts that arrive before the incident. Care that arrives before the call. A fall can be caught early. A need can be met early."
+        "title": "Rule approval mechanism",
+        "body": "Time, presence and recent changes can prompt a suggestion. Locks, alerts and other consequential actions ask for confirmation first."
       },
       "privacy": {
-        "title": "Privacy Shield",
-        "body": "Four-layer network lock plus default-zero egress allowlist. Faces, vitals, room video -- raw data never leaves your home."
+        "title": "Process raw data locally first",
+        "body": "Sensing data is processed locally by default. You can inspect what was recorded, which rule ran and whether data was allowed to leave."
       },
       "offline": {
-        "title": "Offline-Capable",
-        "body": "If the network drops, the lights still turn on, the doors still lock, the alarm still reaches help. Critical capabilities always run locally."
+        "title": "Offline core control",
+        "body": "Local lighting, device control and configured alert rules continue during an outage. Cloud-dependent services clearly show when unavailable."
       },
       "household": {
-        "title": "Household Intelligence",
-        "body": "One family, one memory. Shareable with loved ones, hideable from guests, passable to the next generation when elders are gone."
+        "title": "Shared and personal permissions",
+        "body": "The household manages common-area rules together. Bedrooms, routines and personal preferences remain individually controlled, and guests are not added to long-term memory."
       }
     },
     "cta": {
-      "eyebrow": "Start with us",
-      "title": "Bring this intelligence into your space.",
+      "eyebrow": "See it on site",
+      "title": "View the standard room demonstration",
       "primary": "Book a Demo",
       "secondary": "Apply for Pilot"
     }
@@ -188,16 +207,16 @@
   "system": {
     "hero": {
       "eyebrow": "AIOS Family",
-      "title": "A space is held up by many roles, together.",
-      "subtitle": "AIOS is not a single box. It is a system that divides labor -- a mind at the center, eyes and ears across the room, a few quiet ways to talk back, a polyglot layer of protocols, and finally the hands that carry out the action."
+      "title": "A complete on-site system, from sensing to action.",
+      "subtitle": "Gateway, sensing, interaction, connection and action each have a defined role in site state management and device control."
     },
     "closing": {
       "eyebrow": "The Whole Picture",
-      "title": "Why five roles, not one product.",
-      "body": "A truly intelligent space should not be carried by one device alone. It needs a mind that thinks, senses that read the whole room, a few considered ways to talk back, a network that embraces what is already installed, and hands that can actually act. Only when each plays its part does a space that understands you become solid.",
-      "bullet1": "The mind thinks on-site. No cloud, no far-away.",
-      "bullet2": "Sensing never stares at you. It reads the whole room.",
-      "bullet3": "Traces the system leaves can be checked by family and managers alike.",
+      "title": "Five roles. One complete workflow.",
+      "body": "The system keeps state input, rule evaluation, device integration, action and result records within one on-site workflow. Clear responsibilities make deployment, acceptance and maintenance easier.",
+      "bullet1": "Essential state and control paths run on site.",
+      "bullet2": "Collection scope, device access and action boundaries are configurable.",
+      "bullet3": "Rule changes, action results and exceptions remain recorded.",
       "ctaProducts": "See the three products",
       "ctaSolutions": "See scenario bundles"
     }
@@ -205,42 +224,42 @@
   "plugins": {
     "hero": {
       "eyebrow": "AIOS Plugins",
-      "title": "A space that understands you, stays open for others to extend.",
-      "subtitle": "Every plugin gives a room one more thing it can do. All run locally, all stay auditable, all belong only to your home."
+      "title": "Plugins and connectors",
+      "subtitle": "Connect devices, on-site systems and operational workflows. Each plugin states its runtime, permissions, supported products and boundaries."
     },
     "filterAll": "All",
     "byOfficial": "By SidebyStar",
-    "byPartner": "Partner",
+    "byPartner": "Project integration",
     "topicLabel": "By scenario",
     "stageLabel": "Stage",
     "cta": {
-      "eyebrow": "Build with AIOS",
-      "title": "Want to give your plugin to this space?",
-      "body": "We have full developer docs, a sample project, and a ship-to-store path ready for builders. From a story to an auditable manifest, we walk it with you.",
+      "eyebrow": "Plugin development",
+      "title": "Development and test requirements",
+      "body": "Review manifest fields, permission scopes, action interfaces, version rules and release checks.",
       "primary": "Head to developer center",
       "secondary": "See Plugin Manifest spec"
     }
   },
   "solutions": {
     "title": "Solutions",
-    "subtitle": "The same local AI hub, sitting in an eldercare site and sitting in a home, is not the same thing. One side wants fewer incidents; the other wants to be remembered. AIOS pursues both -- on two separate tracks.",
+    "subtitle": "Local intelligence solutions for care facilities and residences, covering device integration, rule configuration, on-site deployment and operations.",
     "comingSoon": "In Labs",
     "groups": {
       "health": {
         "title": "AIOS Care · Eldercare and Care Sites",
-        "body": "This is the line we are actually pushing right now. Home-based eldercare, community care, clinical assistance -- in these spaces, when something happens, someone is responsible. The system has to be able to explain what it did."
+        "body": "For elderly care facilities, community care and assisted wards, with non-camera sensing, local alerts, tiered access and event records."
       },
       "home": {
         "title": "AIOS Home · Households and Residences",
-        "body": "This line moves slower, and runs longer. It begins with high-end residences, designers and developer showcases, then extends to ordinary households. The pitch is not another smart speaker -- it is \"this home gradually remembers me\"."
+        "body": "For individual homes and standardized rooms, connecting lighting, climate, curtains and security with locally executed rules."
       },
       "commercial": {
-        "title": "Commercial Spaces (In Labs)",
-        "body": "Hotel, office, retail -- on the same AIOS kernel, validated in Labs. Engaged after the Care and Home delivery packages prove repeatable."
+        "title": "Commercial Spaces",
+        "body": "Hospitality, workplace and retail solutions remain in validation and are not part of the current standard delivery scope."
       },
       "public": {
-        "title": "Education & Public (In Labs)",
-        "body": "Campuses and cultural venues -- on the same AIOS kernel, in Labs validation. Outside the phase-one commercial commitment."
+        "title": "Education & Public Spaces",
+        "body": "Campus and cultural venue solutions remain in research and are not part of the current standard delivery scope."
       }
     },
     "items": {
@@ -258,53 +277,53 @@
   },
   "products": {
     "title": "Products",
-    "subtitle": "Three forms, one kernel -- from a single home, to a building, to a whole hospital.",
+    "subtitle": "Three deployment profiles for homes, community facilities and private hospital environments.",
     "homeBox": {
       "name": "Home Box",
-      "tag": "One box, for the home",
+      "tag": "Local hub for individual homes",
       "price": "USD 299 first buy + USD 30 / year",
-      "desc": "A local intelligence hub that lives in your home. All thinking happens on it, and all data stays with it.",
-      "bullet1": "Unboxed and running. Half a day to bring your devices together.",
-      "bullet2": "The lights, locks, and sensors you already own -- they can all join in.",
-      "bullet3": "Every decision stays on-device. Offline, the essentials keep running."
+      "desc": "A local hub for device integration, rule execution and state management in an individual home.",
+      "bullet1": "Connects approved lighting, locks and environmental devices",
+      "bullet2": "Configures automation by room, member, time and state",
+      "bullet3": "Core controls run locally and remain available offline"
     },
     "communityKit": {
       "name": "Community Kit",
-      "tag": "For a building, for a community",
+      "tag": "Community and multi-unit facilities",
       "price": "USD 4.5k kickoff + USD 8 / unit / month",
-      "desc": "Designed for senior apartments, community care centers, and properties of 20-200 units. Families see their own door, staff see the whole building -- each their own view.",
-      "bullet1": "One unit serves dozens to hundreds of homes. No far-away cloud.",
-      "bullet2": "Families, managers, operators -- each sees only their own view.",
-      "bullet3": "Ready for MLPS 2.0 audit and compliance flows."
+      "desc": "A tiered gateway system for senior apartments and community care facilities managing 20-200 units.",
+      "bullet1": "Tiered deployment across community gateways and in-unit nodes",
+      "bullet2": "Role-based access for families, care staff and administrators",
+      "bullet3": "Searchable and exportable event, rule and operation records"
     },
     "enterpriseStack": {
       "name": "Enterprise Stack",
-      "tag": "For hospitals and institutions",
+      "tag": "On-premises for hospitals and institutions",
       "price": "USD 30k kickoff + USD 12k / year",
-      "desc": "On-prem deployment for top hospitals, specialty clinics, and large care facilities. Data stays inside, working alongside your existing systems.",
-      "bullet1": "7x24 dedicated support, customized alongside the department",
-      "bullet2": "Full, exportable audit trace that plugs into your compliance flow",
-      "bullet3": "Plugs into the hospital systems you already run -- no rip-and-replace"
+      "desc": "An on-premises system for hospitals and large care facilities, integrated with existing systems per project.",
+      "bullet1": "Unified configuration for on-site nodes, permissions and network policy",
+      "bullet2": "Queryable and exportable records for compliance workflows",
+      "bullet3": "Project-defined interfaces to existing information systems"
     }
   },
   "trust": {
     "title": "Trust & Compliance",
-    "subtitle": "Local-First is not a slogan. It is a four-layer network lock, hash-chain audit, tiered RBAC and compliance mapping.",
+    "subtitle": "Inspectable controls from network boundaries and access permissions to operating records and project acceptance.",
     "localFirst": {
-      "title": "Defense in Depth, Engineered",
-      "body": "Applied as a standard enterprise pattern: application allowlist, egress audit, container isolation, host firewall — four layers of least-privilege networking, with critical paths remaining online when disconnected."
+      "title": "Network Boundaries",
+      "body": "Application access, outbound connections, service isolation and host protection are configured for each project. Essential on-site workflows do not require public internet access."
     },
     "auditChain": {
-      "title": "AuditLedger · Append-only Audit",
-      "body": "Every LLM inference, every execution, every rule change is appended to a local ledger and exportable as a compliance report."
+      "title": "AuditLedger · Operation Records",
+      "body": "Key decisions, device actions and rule changes are recorded on site for authorized review and project verification."
     },
     "rbac": {
       "title": "RBAC · Roles and Multi-site Isolation",
       "body": "Standard role model (admin / operator / observer / user) with multi-site and floor-level access scopes — each person sees only what their role covers."
     },
     "compliance": {
-      "title": "Aligned with MLPS / HIPAA / GDPR",
-      "body": "Selected control-point mapping against MLPS 2.0 L3, HIPAA-like, and GDPR-like; the full matrix ships with the procurement brief. Audit logs export as JSONL, CSV, or PDF."
+      "title": "Project-level Compliance Mapping",
+      "body": "Applicable regulation, industry requirements and customer policy determine control points, responsibilities and acceptance evidence for each project."
     }
   },
   "research": {
@@ -353,6 +372,25 @@
       "y2030": "Helping local AI and zero-knowledge audit move toward industry standards"
     }
   },
+  "insights": {
+    "eyebrow": "Insights",
+    "title": "Insights & Updates",
+    "subtitle": "Articles and reports on ambient intelligence, edge AI, product progress and field practice.",
+    "articleEyebrow": "SidebyStar Insight",
+    "readArticle": "Read article",
+    "backToInsights": "Back to insights",
+    "published": "Published",
+    "updated": "Updated",
+    "emptyTitle": "Stories are on the way",
+    "emptyBody": "The first articles will appear here after publication.",
+    "closedTitle": "Content is not yet available",
+    "closedBody": "Insights will open when the production content service is ready.",
+    "unavailableTitle": "Content is temporarily unavailable",
+    "unavailableBody": "The content service cannot be reached right now. Please try again later. The rest of the website is unaffected.",
+    "paginationLabel": "Article pagination",
+    "firstPage": "Back to first page",
+    "nextPage": "Next page"
+  },
   "developers": {
     "title": "Developers & integration",
     "subtitle": "Stable APIs, a plugin ecosystem, open source kernel -- for developers and systems integrators.",
@@ -362,31 +400,31 @@
     "github": "GitHub"
   },
   "cases": {
-    "title": "Pilot Program",
-    "subtitle": "We aren't publishing customer cases yet -- we are recruiting the first 3-5 pilot sites, and the real stories will come after that.",
-    "heroTitle": "We are not\npublishing cases yet.",
-    "heroBody": "AIOS has cleared engineering acceptance, but it has not yet run a full pilot inside a real site. Until it does, we would rather leave this page empty than fill it with a polished case page -- and instead use it to find the partners who want to run the first real one with us.",
-    "fitEyebrow": "Who fits",
-    "fitTitle": "What kind of site we are looking for",
-    "fitSubtitle": "Bigger isn't better -- the right shape is.",
-    "fit1": "Senior apartments, community-care centers, rehab support wards, or other high-responsibility private spaces",
-    "fit2": "A single floor or a single building, 20-200 beds or units, can run a 4-8 week pilot end to end",
-    "fit3": "One operations or care lead who can decide -- not a chain that has to escalate every step",
-    "fit4": "Permits the necessary network and device changes; OK with engineers on site",
-    "provideEyebrow": "What we bring",
-    "provideTitle": "What we put in",
-    "provide1": "Hardware and software during the pilot are subsidized or free, depending on the agreement",
-    "provide2": "Engineers on site to install, plus remote support that does not pull out before the pilot ends",
-    "provide3": "Acceptance KPIs and process defined together with you -- not handed down by us",
-    "provide4": "An honest written debrief at the end of the pilot, one copy each",
-    "notProvideEyebrow": "What we don't",
-    "notProvideTitle": "What we will not do",
-    "notProvide1": "Will not replace your care staff, and will not replace your existing ticketing or scheduling",
-    "notProvide2": "Will not upload any video or audio to the cloud; data stays on site by default",
-    "notProvide3": "Will not put your name or your data in any external material without you signing off on it first",
-    "promise": "Once the first pilots are done, this page will carry the real customer stories -- with data both sides have signed off on, the KPIs as agreed, and the parts that fell short. Until then, this page only carries what we are looking for. No projections. No estimates.",
-    "ctaPrimary": "Apply to join the pilot",
-    "ctaSecondary": "Or talk first to see if it fits"
+    "title": "Site Pilot",
+    "subtitle": "Validate the complete AIOS workflow in a real space with a defined scope, acceptance criteria and operating records.",
+    "heroTitle": "Start with one space.\nValidate the complete workflow.",
+    "heroBody": "A pilot covers device integration, rule configuration, event response and acceptance within one room or floor, providing a clear basis for expansion.",
+    "fitEyebrow": "Site requirements",
+    "fitTitle": "Sites suited to a pilot",
+    "fitSubtitle": "Clear scope and ownership produce results that can be reviewed.",
+    "fit1": "Senior apartments, community-care centers, rehabilitation support wards or residential demonstration spaces",
+    "fit2": "A single room or floor that can complete validation within two to four weeks",
+    "fit3": "Named business, site and acceptance owners",
+    "fit4": "The required network access, device inventory and installation conditions",
+    "provideEyebrow": "Delivery scope",
+    "provideTitle": "What SidebyStar delivers",
+    "provide1": "Site assessment, solution boundaries and device inventory",
+    "provide2": "Device configuration, on-site installation, rule integration and operating support",
+    "provide3": "Acceptance criteria and exception handling agreed with the project team",
+    "provide4": "Operating records, issue list and expansion recommendations after the pilot",
+    "notProvideEyebrow": "Project boundaries",
+    "notProvideTitle": "Boundaries retained by design",
+    "notProvide1": "Does not replace care staff or existing ticketing, scheduling and emergency procedures",
+    "notProvide2": "Data is processed on site under project policy; external synchronization requires explicit authorization",
+    "notProvide3": "Customer names, site material and operating data are not published without approval",
+    "promise": "Each pilot follows a mutually confirmed scope and acceptance criteria. Configuration, operating events, response results and conclusions are recorded to support the next deployment decision.",
+    "ctaPrimary": "Apply for a site pilot",
+    "ctaSecondary": "Contact a solution consultant"
   },
   "pilot": {
     "title": "Apply for Pilot",
@@ -425,10 +463,9 @@
   "company": {
     "about": {
       "title": "About SidebyStar",
-      "subtitle": "A team in Hangzhou that believes spatial intelligence will change the world."
+      "subtitle": "A Hangzhou-based product team building local intelligence systems and hardware."
     },
-    "team": { "title": "Team", "subtitle": "Engineering, research, delivery, operations." },
-    "partners": { "title": "Partners", "subtitle": "Facilities, vendors, research institutions." }
+    "partners": { "title": "Partnerships & ecosystem", "subtitle": "Interfaces for hardware, delivery and research partners." }
   },
   "privacy": {
     "title": "Privacy & Compliance",
@@ -451,7 +488,7 @@
     "copyright": "2026 SidebyStar. All rights reserved.",
     "icp": "Zhejiang ICP No. 2026020439",
     "police": "Zhejiang Public Security No. 33010902004609",
-    "subscribeHint": "Subscribe to Ambient Intelligence Report, 1 email per month",
+    "subscribeHint": "Product, solution and project enquiries",
     "subscribePlaceholder": "your@email.com",
     "subscribeBtn": "Subscribe"
   }

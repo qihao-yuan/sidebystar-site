@@ -1,6 +1,7 @@
 'use client';
 
 import { Eye, Brain, Sparkles, Scale, Share2 } from 'lucide-react';
+import Image from 'next/image';
 import { ScrollPinSection } from '@/components/motion/ScrollPinSection';
 import { cn } from '@/lib/cn';
 import { useLocale } from 'next-intl';
@@ -12,58 +13,63 @@ export function ArchTraversal() {
   const panels = [
     {
       icon: Eye,
+      image: '/platform/stage-input-v3.jpg',
       eyebrow: 'Stage 01',
-      title: isZh ? '感知 Sensing' : 'Sensing',
+      title: isZh ? '输入 Input' : 'Input',
       body: isZh
-        ? '多条感知通道并行 —— 视觉、听觉、温湿度、光线与传感器事件。像人一样读整间屋子, 而不是押注单路视频。是否启用视觉、是否留存, 由本地策略与审计配置约束; 状态回答尽量走设备与传感器 grounding。'
-        : 'Multiple channels in parallel -- vision, sound, temperature, light, and sensor events. It reads the whole room, not a single video stream. Whether vision runs, and what is stored, follow on-site policy and audit settings; answers about state are grounded in devices and sensors.',
+        ? '接入语音、环境传感器、设备状态与空间事件。采集范围、留存方式和出网策略由现场配置约束。'
+        : 'Ingests voice, environmental sensors, device state and spatial events. Collection, retention and network policies are configured on site.',
       bullets: isZh
-        ? ['兼容主流生态, 不强迫换品牌', '关键链路默认本地处理、可配置是否出网', '查询类回答对齐真实数据源, 关键数值不凭空生成']
-        : ['Works with mainstream ecosystems, no forced rip-and-replace', 'Critical paths stay local, with optional cloud toggles', 'Query answers are grounded in real sources, not invented figures'],
+        ? ['通过适配器接入设备与协议', '关键事件默认本地处理', '状态查询引用现场数据源']
+        : ['Adapter-based device and protocol integration', 'Critical events processed locally by default', 'State queries reference on-site data sources'],
     },
     {
       icon: Brain,
+      image: '/platform/stage-context-v3.jpg',
       eyebrow: 'Stage 02',
-      title: isZh ? '记忆 Memory' : 'Memory',
+      title: isZh ? '上下文 Context' : 'Context',
       body: isZh
-        ? '从当下的感受到长期的习惯, 系统一层一层真正记住你 —— 谁在哪个房间、这周谁作息变了、最近一个月你更爱哪种光。'
-        : 'From the moment to the long-term, it builds up real memory -- who is in which room, whose rhythm shifted this week, which lighting you have favored lately.',
+        ? '按静态事实、实时状态、重复模式与语义信息分层组织现场上下文。'
+        : 'Organizes site context across static facts, live state, recurring patterns and semantic information.',
       bullets: isZh
-        ? ['从当下到长期, 分层记住', '不只记"发生了什么", 还记"为什么"', '所有记忆只属于你家']
-        : ['Layered memory, from now to habits', 'Not only what happened, but why', 'Memory never leaves your home'],
+        ? ['不同数据采用独立更新周期', '按规则读取必要范围', '身份与站点数据隔离']
+        : ['Independent update cycles by data type', 'Rules read only the required scope', 'Identity and site data are isolated'],
     },
     {
       icon: Sparkles,
+      image: '/platform/stage-evaluation-v3.jpg',
       eyebrow: 'Stage 03',
-      title: isZh ? '推理 Reasoning' : 'Reasoning',
+      title: isZh ? '评估 Evaluation' : 'Evaluation',
       body: isZh
-        ? '一个本地运行的大脑, 在你家里思考。每一次它想做点什么, 都先预演再执行, 留下可查的痕迹, 家属与管理员随时能回放。'
-        : 'A local brain, thinking inside your home. Every action gets rehearsed before it runs, and leaves behind a trace anyone with permission can replay.',
+        ? '本地节点根据事件、上下文与规则生成候选动作。高风险动作进入确认流程。'
+        : 'The local node generates candidate actions from events, context and rules. High-risk actions enter an approval flow.',
       bullets: isZh
-        ? ['风险动作先审批再执行', '先"演一遍"再真做', '结构化留痕, 可按权限回放与导出']
-        : ['High-risk actions need approval', 'Shadow runs before live', 'Structured traces for replay and export under policy'],
+        ? ['规则变更需要授权', '支持模拟执行与结果检查', '输入与候选结果写入记录']
+        : ['Rule changes require authorization', 'Supports simulated execution and result checks', 'Inputs and candidate results are recorded'],
     },
     {
       icon: Scale,
+      image: '/platform/stage-execution-v3.jpg',
       eyebrow: 'Stage 04',
-      title: isZh ? '决策 Decision' : 'Decision',
+      title: isZh ? '执行 Execution' : 'Execution',
       body: isZh
-        ? '推理列出所有可能, 决策才落到一个动作 —— 本地的"耀衡"按证据强度、风险大小、你家的规矩给每个候选打分, 然后把"为什么是它"一起留下来。'
-        : 'Reasoning lists what could happen; a decision lands on what does. The local YaoHeng engine scores each candidate by evidence, risk, and the rules of your house -- and keeps the why next to the choice.',
+        ? '曜衡根据证据强度、风险等级与现场规则选择动作，并将执行结果返回状态系统。'
+        : 'YaoHeng selects an action using evidence strength, risk level and site rules, then returns the result to the state system.',
       bullets: isZh
-        ? ['每个动作都带置信度与风险等级', '拿不准的事情停一拍, 等你点头', '"选了什么、为什么选" 都能回看']
-        : ['Every action ships with confidence and risk', 'When unsure, it pauses and asks', 'Both the choice and the reason are replayable'],
+        ? ['动作包含置信度与风险等级', '低置信度时暂停并请求确认', '选择依据与执行结果可查询']
+        : ['Actions carry confidence and risk levels', 'Low-confidence actions pause for approval', 'Selection basis and results remain queryable'],
     },
     {
       icon: Share2,
+      image: '/platform/stage-distribution-v3.jpg',
       eyebrow: 'Stage 05',
-      title: isZh ? '联邦 Federation' : 'Federation',
+      title: isZh ? '分发 Distribution' : 'Distribution',
       body: isZh
-        ? '行业与站点画像可打成经签名校验的离线包, 在站点间导入导出; 不自动落库, 管理员预览后再显式写入事实库与审计。个人身份与敏感明细不随包外流。'
-        : 'Industry and site profiles move as offline, verifiable bundles between sites; imports preview first, then an admin explicitly applies them to the fact base and audit log. Identities and sensitive detail stay behind.',
+        ? '规则与站点配置可封装为带签名和校验信息的离线包，经管理员预览后导入。'
+        : 'Rules and site configurations can be packaged as signed, verifiable offline bundles and imported after administrator review.',
       bullets: isZh
-        ? ['离线 bundle + 校验, 适合气隙与合规拷贝', '多站点可对齐规则与画像, 不共享住户级明细', '权限与导出范围可按角色裁剪 (如家属视图)']
-        : ['Offline bundles and checksums for air-gapped or controlled copy', 'Align rules and profiles across sites without resident-level payloads', 'RBAC-style views -- families see what policy allows'],
+        ? ['适用于隔离网络和受控传输', '多站点复用规则，不包含住户明细', '导入与导出范围按角色授权']
+        : ['Suitable for isolated networks and controlled transfer', 'Reuses rules across sites without resident detail', 'Import and export scopes follow role permissions'],
     },
   ];
 
@@ -72,7 +78,7 @@ export function ArchTraversal() {
       <div className="container-page pb-8 pt-20">
         <span className="eyebrow">Architecture Traversal</span>
         <h2 className="mt-4 text-display-xl text-balance text-white">
-          Sense &middot; Remember &middot; Reason &middot; Decide &middot; Federate.
+          Input &middot; Context &middot; Evaluation &middot; Execution &middot; Distribution.
         </h2>
       </div>
 
@@ -82,25 +88,29 @@ export function ArchTraversal() {
             {/* visual column */}
             <div className="relative lg:col-span-3">
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula">
-                <div className="absolute inset-0 bg-mesh-hero opacity-50" />
-                <div className="absolute inset-0 grid-faint opacity-25" />
                 {panels.map((p, i) => {
-                  const Active = p.icon;
                   const active = i === index;
                   return (
                     <div
                       key={i}
                       className={cn(
-                        'absolute inset-0 flex items-center justify-center transition-all duration-700 ease-apple-out',
-                        active ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                        'absolute inset-0 transition-all duration-700 ease-apple-out',
+                        active ? 'z-10 opacity-100 scale-100' : 'z-0 opacity-0 scale-[1.03]'
                       )}
                     >
-                      <Active size={220} className="text-white/90" strokeWidth={0.8} />
+                      <Image
+                        src={p.image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 60vw, 100vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface-void/75 via-transparent to-transparent" />
                     </div>
                   );
                 })}
                 {/* stage indicators */}
-                <div className="absolute bottom-6 left-6 right-6 flex items-center gap-3">
+                <div className="absolute bottom-6 left-6 right-6 z-20 flex items-center gap-3">
                   {panels.map((p, i) => (
                     <div key={i} className="flex-1">
                       <div className={cn('h-0.5 w-full rounded-full transition-colors', i <= index ? 'bg-brand-halo' : 'bg-white/10')} />

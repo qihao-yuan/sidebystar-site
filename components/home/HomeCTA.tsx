@@ -30,9 +30,6 @@ export function HomeCTA() {
                 <MagneticButton href="/pilot" variant="ghost">
                   {t('secondary')}
                 </MagneticButton>
-                <a href="#" className="btn-link">
-                  {t('tertiary')} <ArrowRight size={14} />
-                </a>
               </div>
             </Reveal>
           </div>
