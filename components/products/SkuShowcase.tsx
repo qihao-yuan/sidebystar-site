@@ -7,16 +7,13 @@ import { getFamilyMember } from '@/content/family';
 import { getSolution } from '@/content/solutions';
 import { Reveal } from '@/components/motion/Reveal';
 import Image from 'next/image';
-import { ArrowRight, Check, Box, Network, Server, Layers } from 'lucide-react';
-import { cn } from '@/lib/cn';
+import { ArrowRight, Check, Layers } from 'lucide-react';
 
-const icons = { homeBox: Box, communityKit: Network, enterpriseStack: Server };
-
-const heroImage: Record<keyof typeof icons, string> = {
-  homeBox: '/product/home-box/hero@2x.webp',
-  communityKit: '/product/community-kit/hero@2x.webp',
-  enterpriseStack: '/product/enterprise-stack/hero@2x.webp',
-};
+const heroImage = {
+  homeBox: '/product/home-box/hero-v4.jpg',
+  communityKit: '/product/community-kit/hero-v4.jpg',
+  enterpriseStack: '/product/enterprise-stack/hero-v5.jpg',
+} as const;
 
 export function SkuShowcase() {
   const t = useTranslations('products');
@@ -28,7 +25,6 @@ export function SkuShowcase() {
     <section className="py-section">
       <div className="container-page space-y-8">
         {skus.map((sku, idx) => {
-          const Icon = icons[sku.i18nKey];
           const familyMembers = sku.family
             .map((r) => getFamilyMember(r))
             .filter((f): f is NonNullable<ReturnType<typeof getFamilyMember>> => Boolean(f));
@@ -37,18 +33,7 @@ export function SkuShowcase() {
             .filter((s): s is NonNullable<ReturnType<typeof getSolution>> => Boolean(s));
           return (
             <Reveal key={sku.slug} delay={idx * 80}>
-              <div className={cn('relative overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula p-10 md:p-16')}>
-                <div
-                  className={cn('pointer-events-none absolute inset-0 opacity-70 bg-gradient-to-br')}
-                  style={{
-                    background:
-                      idx === 0
-                        ? 'radial-gradient(ellipse 60% 70% at 70% 50%, rgba(125,211,252,0.22), transparent 70%)'
-                        : idx === 1
-                        ? 'radial-gradient(ellipse 60% 70% at 70% 50%, rgba(75,107,251,0.22), transparent 70%)'
-                        : 'radial-gradient(ellipse 60% 70% at 70% 50%, rgba(177,156,244,0.22), transparent 70%)',
-                  }}
-                />
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#111418] p-8 md:p-12 lg:p-14">
                 <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
                   <div>
                     <span className="eyebrow">{t(`${sku.i18nKey}.tag`)}</span>
@@ -70,7 +55,7 @@ export function SkuShowcase() {
                       <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
                         <div className="flex items-center gap-2 text-caption uppercase tracking-wide text-ink-500">
                           <Layers size={14} />
-                          {isZh ? '它包含了这几个角色' : 'The roles that ship inside'}
+                          {isZh ? '系统模块' : 'System modules'}
                         </div>
                         <div className="mt-3 flex flex-wrap gap-2">
                           {familyMembers.map((f) => (
@@ -91,7 +76,7 @@ export function SkuShowcase() {
                     {recommended.length > 0 ? (
                       <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
                         <div className="text-caption uppercase tracking-wide text-ink-500">
-                          {isZh ? '最常被用于' : 'Most often used in'}
+                          {isZh ? '适用场景' : 'Applications'}
                         </div>
                         <ul className="mt-3 space-y-2">
                           {recommended.map((s) => (
@@ -117,31 +102,22 @@ export function SkuShowcase() {
                       <a href="#compare" className="btn-ghost">
                         {isZh ? '对比三款' : 'Compare'}
                       </a>
-                      <Link href="/developers/hardware" className="btn-link">
-                        {isZh ? '查看完整规格' : 'See full spec sheet'} <ArrowRight size={12} />
-                      </Link>
                     </div>
                   </div>
 
-                  <div className="relative flex aspect-square items-center justify-center">
-                    <div className="absolute inset-10 rounded-full border border-white/5" />
-                    <div className="absolute inset-20 rounded-full border border-white/5" />
-                    <div className="absolute inset-32 rounded-full border border-white/10" />
-                    <div className="relative h-72 w-72 overflow-hidden rounded-3xl border border-white/15 bg-surface-elevated shadow-glow-aurora">
+                  <div className="relative">
+                    <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-[#d8d1c5]">
                       <Image
                         src={heroImage[sku.i18nKey]}
                         alt={t(`${sku.i18nKey}.name`)}
                         fill
-                        sizes="(min-width: 1024px) 360px, 60vw"
+                        sizes="(min-width: 1024px) 45vw, 100vw"
                         className="object-cover"
                         priority={idx === 0}
                       />
-                      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
-                      <div className="pointer-events-none absolute right-3 bottom-3 rounded-full border border-white/15 bg-surface-void/70 p-2 backdrop-blur">
-                        <Icon size={16} className="text-brand-halo" />
-                      </div>
+                      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10" />
                     </div>
-                    <div className="absolute left-4 top-4 font-mono text-caption text-ink-500">
+                    <div className="absolute left-4 top-4 border border-black/10 bg-[#f3efe8]/90 px-3 py-1 font-mono text-caption text-[#34312d] backdrop-blur">
                       {String(idx + 1).padStart(2, '0')} / 03
                     </div>
                   </div>

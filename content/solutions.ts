@@ -38,6 +38,14 @@ export type Solution = {
   architecture?: Array<{ zh: string; en: string }>;
   pilot?: { weeks: string; scale: { zh: string; en: string } };
   sku?: { zh: string; en: string };
+  workflow?: Array<{
+    stage: { zh: string; en: string };
+    condition: { zh: string; en: string };
+    action: { zh: string; en: string };
+    record: { zh: string; en: string };
+  }>;
+  safeguards?: Array<{ title: { zh: string; en: string }; body: { zh: string; en: string } }>;
+  acceptance?: Array<{ zh: string; en: string }>;
   bundle?: {
     headline: { zh: string; en: string };
     items: Array<{ zh: string; en: string }>;
@@ -59,27 +67,80 @@ export const solutions: Solution[] = [
     ],
     kpis: [],
     architecture: [
-      { zh: '不靠摄像头对着脸 —— 用毫米波、红外、声学判断', en: 'No camera on the face -- senses through mmWave, IR and sound' },
-      { zh: '所有告警在本地完成, 断网也不会掉链子', en: 'All alerts run locally and hold even when the network drops' },
-      { zh: '与护理工单系统打通, 告警直达值班护士', en: 'Wired into nursing ticket systems, alerts land on the on-duty nurse' },
+      { zh: '毫米波、红外与环境传感器完成非摄像头感知', en: 'Non-camera sensing through mmWave, infrared and environmental sensors' },
+      { zh: '现场网关执行事件判断与告警规则', en: 'On-site gateway evaluates events and alert rules' },
+      { zh: '支持对接护理工单与值班通知流程', en: 'Integrates with care tickets and on-duty notification workflows' },
     ],
     pilot: { weeks: '2-4', scale: { zh: '单楼层 10-30 床', en: 'Single floor, 10-30 beds' } },
     sku: { zh: 'Community Kit', en: 'Community Kit' },
+    workflow: [
+      {
+        stage: { zh: '离床识别', en: 'Bed-exit detection' },
+        condition: { zh: '床旁传感器与毫米波状态共同确认离床，排除短时翻身。', en: 'Bedside and mmWave states jointly confirm bed exit while filtering brief turning.' },
+        action: { zh: '本地节点启动观察计时，不向外部发送原始感知数据。', en: 'The local node starts an observation timer without sending raw sensing data off site.' },
+        record: { zh: '离床时间、房间、规则版本', en: 'Exit time, room and rule version' },
+      },
+      {
+        stage: { zh: '路径照明', en: 'Pathway lighting' },
+        condition: { zh: '夜间时段离床，且房间照度低于现场设定值。', en: 'A bed exit occurs during nighttime while room light is below the configured level.' },
+        action: { zh: '按预设亮度依次开启床侧与卫生间路径灯，保留实体开关。', en: 'Bedside and bathroom path lights rise to configured levels while physical controls remain available.' },
+        record: { zh: '联动设备、执行结果、响应耗时', en: 'Linked devices, execution result and latency' },
+      },
+      {
+        stage: { zh: '风险升级', en: 'Risk escalation' },
+        condition: { zh: '超过回床时限、检测到低位静止，或床旁呼叫被触发。', en: 'Return-to-bed timeout, low-position stillness or a bedside call is detected.' },
+        action: { zh: '按风险级别通知值班人员；高等级事件同步触发现场声光提示。', en: 'On-duty staff are notified by severity; high-level events also trigger on-site audible and visual alerts.' },
+        record: { zh: '判断依据、告警等级、通知对象', en: 'Decision evidence, severity and recipients' },
+      },
+      {
+        stage: { zh: '到场处置', en: 'On-site response' },
+        condition: { zh: '护理员接单、到场并确认住户状态。', en: 'A caregiver accepts the ticket, arrives and confirms resident status.' },
+        action: { zh: '处置结果由护理员确认；系统不自动给出医疗结论。', en: 'The caregiver confirms the outcome; the system does not make a medical determination.' },
+        record: { zh: '接单、到场、处置与关闭时间', en: 'Acceptance, arrival, response and closure times' },
+      },
+      {
+        stage: { zh: '交班复核', en: 'Shift review' },
+        condition: { zh: '事件关闭或进入次日交班。', en: 'The event is closed or enters the next shift handoff.' },
+        action: { zh: '机构端查看完整记录；家属端仅按授权接收摘要。', en: 'Facility staff review the full record; family receives only an authorized summary.' },
+        record: { zh: '事件摘要、查看记录、导出记录', en: 'Event summary, access log and export log' },
+      },
+    ],
+    safeguards: [
+      {
+        title: { zh: '默认无摄像头', en: 'Camera-free by default' },
+        body: { zh: '使用床旁、毫米波、红外与环境状态完成判断；如项目启用视觉能力，需单独确认采集与留存策略。', en: 'Uses bedside, mmWave, infrared and environmental states. Any visual capability requires a separate collection and retention policy.' },
+      },
+      {
+        title: { zh: '断网继续运行', en: 'Operates offline' },
+        body: { zh: '照明联动、现场告警和事件记录在本地执行；远程通知在网络恢复后补发或同步。', en: 'Lighting, local alerts and event records run on site; remote delivery resumes when connectivity returns.' },
+      },
+      {
+        title: { zh: '人工确认闭环', en: 'Human-confirmed closure' },
+        body: { zh: '系统负责识别、分级与派发，护理人员负责到场确认和关闭事件。', en: 'The system detects, classifies and dispatches; care staff confirm on site and close the event.' },
+      },
+    ],
+    acceptance: [
+      { zh: '离床、回床、超时与床旁呼叫事件可在现场复现并形成记录', en: 'Bed exit, return, timeout and bedside-call events can be reproduced and recorded on site' },
+      { zh: '路径照明、现场告警及工单派发按已确认规则执行', en: 'Path lighting, local alerts and ticket dispatch follow approved rules' },
+      { zh: '断网期间关键联动持续运行，恢复联网后记录完整同步', en: 'Critical actions continue offline and records synchronize after reconnection' },
+      { zh: '机构、护理员与家属账号只能访问各自授权范围', en: 'Facility, caregiver and family accounts access only their authorized scope' },
+      { zh: '试点期间对误报、漏报与响应时延逐项复盘并调整阈值', en: 'False alerts, missed events and response latency are reviewed during the pilot to tune thresholds' },
+    ],
     bundle: {
       headline: {
-        zh: '让一张床, 夜里可以被依靠。',
-        en: 'Make one bed, dependable through the night.',
+        zh: '单床位夜间安全监测方案',
+        en: 'Nighttime safety monitoring for individual beds',
       },
       items: [
-        { zh: '床畔中枢 —— 不在云端, 就在床头', en: 'A bedside hub -- not in the cloud, right by the bed' },
-        { zh: '夜间感知套件 —— 不用摄像头照着脸', en: 'Nighttime sensing -- no camera pointed at the face' },
-        { zh: '一键急救呼叫 —— 按钮在手边, 响应在本地', en: 'One-touch help call -- button by hand, response on-site' },
-        { zh: '家属端 APP —— 只看该看的那一份', en: 'Family app -- sees only what it should' },
-        { zh: '两周驻场 —— 我们陪你上线', en: 'Two weeks on-site -- we walk you live' },
+        { zh: '床畔本地中枢', en: 'Local bedside hub' },
+        { zh: '非摄像头夜间感知套件', en: 'Non-camera nighttime sensing kit' },
+        { zh: '床旁呼叫与现场告警', en: 'Bedside call and on-site alerting' },
+        { zh: '分角色状态查看', en: 'Role-based status access' },
+        { zh: '安装、规则配置与验收支持', en: 'Installation, rule configuration and acceptance support' },
       ],
       rhythm: {
-        zh: '起夜一次, 走廊灯先亮到 10%。跌倒、久卧、离床、超时坐起, 四种情况分头告警。白天回到普通房间, 设备几乎看不见。',
-        en: 'A trip up at night nudges the hallway light to 10%. Falls, prolonged bed rest, leaving bed, too-long sitting -- four kinds of alerts, each with its own path. By day the room looks ordinary.',
+        zh: '覆盖离床、久卧、跌倒风险与紧急呼叫等事件。告警级别、通知对象和照明联动按机构流程配置。',
+        en: 'Covers bed-exit, prolonged inactivity, fall risk and emergency calls. Alert level, recipients and lighting actions follow facility procedures.',
       },
     },
   },
@@ -96,27 +157,27 @@ export const solutions: Solution[] = [
     ],
     kpis: [],
     architecture: [
-      { zh: '一台社区网关 + 每户一小套, 两级协同', en: 'One community gateway and small per-unit kits, two tiers in concert' },
-      { zh: '一位家属看自家、一位管理员管全楼, 各看各的', en: 'Family sees their own door, managers see the whole building -- each their own view' },
-      { zh: '视频不出现场, 家属看到的只是状态而非画面', en: 'Video never leaves the site; families see status, not footage' },
+      { zh: '社区网关与户内节点分级部署', en: 'Tiered deployment across community gateways and in-unit nodes' },
+      { zh: '按家属、护理与管理角色划分访问范围', en: 'Access scopes separated across family, care and management roles' },
+      { zh: '原始感知数据保留在现场，远端仅提供授权状态', en: 'Raw sensing data stays on site; remote access exposes authorized status only' },
     ],
     pilot: { weeks: '4-6', scale: { zh: '50-100 户', en: '50-100 units' } },
     sku: { zh: 'Community Kit', en: 'Community Kit' },
     bundle: {
       headline: {
-        zh: '一楼到十楼, 用一套系统照看。',
-        en: 'From ground floor to the top, watched over by one system.',
+        zh: '面向多户照护机构的集中管理方案',
+        en: 'Centralized management for multi-unit care facilities',
       },
       items: [
-        { zh: '社区网关 —— 一台管几十到几百户, 本地运行', en: 'Community gateway -- one unit for dozens to hundreds of homes, run locally' },
-        { zh: '户内感知小套件 —— 无摄像头优先, 克制地关心', en: 'Small in-unit sensing kit -- no-camera first, a gentle kind of care' },
-        { zh: '管理员控制台 —— 工单、巡查、事件, 一屏到底', en: 'Manager console -- tickets, rounds and incidents, on one screen' },
-        { zh: '家属 APP —— 家人看自家, 机构管全楼', en: 'Family app -- families see home, staff see the building' },
-        { zh: '四到六周交付 —— 含培训与调优', en: 'Four to six weeks to live -- training and tuning included' },
+        { zh: '社区级本地网关', en: 'Community-level local gateway' },
+        { zh: '户内非摄像头感知节点', en: 'In-unit non-camera sensing nodes' },
+        { zh: '事件、巡查与工单管理台', en: 'Event, patrol and ticket console' },
+        { zh: '家属与机构分级访问端', en: 'Tiered access for families and facility staff' },
+        { zh: '部署、培训与规则调优', en: 'Deployment, training and rule tuning' },
       ],
       rhythm: {
-        zh: '白天是社区活动的一部分, 提醒老人按时吃药、喝水、晒太阳。夜里是安静的看护, 出事第一时间到人。',
-        en: 'By day it is part of community life -- reminding pills, water, a walk in the sun. By night it is quiet care; when something happens, the right person is reached first.',
+        zh: '统一管理住户状态、告警与巡查记录。户内数据与管理权限按组织和住户边界隔离。',
+        en: 'Manages resident status, alerts and patrol records in one system, with data and permissions isolated by organization and household.',
       },
     },
   },
@@ -133,27 +194,27 @@ export const solutions: Solution[] = [
     ],
     kpis: [],
     architecture: [
-      { zh: '全栈私有化部署, 患者数据不出院', en: 'Fully on-prem -- patient data never leaves the hospital' },
-      { zh: '与医院既有信息系统打通, 不推倒重来', en: 'Works with the hospital information systems you already have' },
-      { zh: '临床科室 SOP 定制化, 与现有流程对齐', en: 'Clinical SOPs customized with you -- aligned to current workflow' },
+      { zh: '院内私有化部署，患者数据留在院内网络', en: 'On-premises deployment with patient data retained inside the hospital network' },
+      { zh: '通过项目接口接入既有医院信息系统', en: 'Project-defined interfaces to existing hospital information systems' },
+      { zh: '规则与通知流程按科室 SOP 配置', en: 'Rules and notifications configured to department SOPs' },
     ],
     pilot: { weeks: '6-8', scale: { zh: '单病区 20-50 床', en: 'Single ward, 20-50 beds' } },
     sku: { zh: 'Enterprise Stack', en: 'Enterprise Stack' },
     bundle: {
       headline: {
-        zh: '把术后康复的节拍, 延续到病房之外。',
-        en: 'Carry the rhythm of recovery past the ward.',
+        zh: '病区康复与异常上报辅助方案',
+        en: 'Ward rehabilitation and anomaly reporting support',
       },
       items: [
-        { zh: '病区边缘节点 —— 私有化部署, 数据不出院', en: 'Ward edge node -- on-prem, data stays inside' },
-        { zh: '夜间生理关注 —— 睡眠、离床、呼吸异常, 持续在看', en: 'Overnight vitals watch -- sleep, bed-leaving, abnormal breath, under gentle watch' },
-        { zh: 'SOP 自动化 —— 按科室既有流程走, 不改规则', en: 'SOP automation -- follows existing clinical flow, no rule rewrite' },
-        { zh: '临床系统对接 —— 与 HIS / 电子病历打通', en: 'Clinical integration -- plugs into HIS / EMR' },
-        { zh: '六到八周定制 —— 科室与我们共同调试', en: 'Six to eight weeks of customization -- tuned with your team' },
+        { zh: '病区边缘计算节点', en: 'Ward edge computing node' },
+        { zh: '离床与环境异常监测', en: 'Bed-exit and environmental anomaly monitoring' },
+        { zh: '科室 SOP 规则配置', en: 'Department SOP rule configuration' },
+        { zh: 'HIS / 电子病历项目接口', en: 'Project interfaces for HIS / EMR' },
+        { zh: '现场联调与验收支持', en: 'On-site integration and acceptance support' },
       ],
       rhythm: {
-        zh: '入院时读入基线, 每一次异常都留下一条可回溯的记录。家属端只在必要时被打扰, 临床团队第一时间拿到事实。',
-        en: 'Baselines read in at admission; every anomaly leaves a traceable line. Families are only disturbed when it matters; clinicians get the facts first.',
+        zh: '根据科室流程采集必要状态，记录异常判断、通知与处置结果。系统仅提供辅助信息，不替代临床判断。',
+        en: 'Captures required status and records anomaly decisions, notifications and outcomes according to department workflow. It supports, but does not replace, clinical judgment.',
       },
     },
   },
@@ -170,27 +231,27 @@ export const solutions: Solution[] = [
     ],
     kpis: [],
     architecture: [
-      { zh: '主流生态和协议都能说, 家里现有的设备不用换', en: 'Speaks the mainstream ecosystems and protocols -- no rip-and-replace' },
-      { zh: '一层一层学习你的习惯, 从当下感受到长期节奏', en: 'Layer by layer, learns your habits -- from the present to your long rhythm' },
-      { zh: '语音交互在本地完成, 说话不离家', en: 'Voice stays on-device -- your words never leave home' },
+      { zh: '通过适配器接入项目确认范围内的设备与协议', en: 'Connects approved devices and protocols through adapters' },
+      { zh: '基于房间状态、时间与权限执行自动化规则', en: 'Executes automations from room state, time and permissions' },
+      { zh: '支持本地语音与离线基础控制', en: 'Supports local voice and offline core controls' },
     ],
     pilot: { weeks: '1-2', scale: { zh: '单户全屋', en: 'Single household whole-home' } },
     sku: { zh: 'Home Box', en: 'Home Box' },
     bundle: {
       headline: {
-        zh: '你家的灯, 最后一次被教。',
-        en: 'The last time your lights ever need teaching.',
+        zh: '单户住宅设备编排与本地控制',
+        en: 'Device orchestration and local control for individual homes',
       },
       items: [
-        { zh: 'Home Box —— 一只盒子, 接管所有自动化', en: 'Home Box -- one box, takes over all automations' },
-        { zh: '夜间路径照明 —— 走过哪里, 哪里自己亮起', en: 'Nighttime pathway lighting -- where you walk is where it wakes' },
-        { zh: '情景面板 / 旋钮 —— 不开口时, 也有入口', en: 'Scene panel and dial -- a way in, even when you do not speak' },
-        { zh: '跨品牌兼容 —— 你家原来的, 不必换', en: 'Cross-brand -- what you already have stays' },
-        { zh: '一到两周自适应 —— 越用越懂你', en: 'One to two weeks of self-adaptation -- knows you more each day' },
+        { zh: 'Home Box 本地中枢', en: 'Home Box local hub' },
+        { zh: '照明、环境与窗帘联动', en: 'Lighting, climate and curtain coordination' },
+        { zh: '情景面板与本地语音入口', en: 'Scene panels and local voice access' },
+        { zh: '项目范围内的跨品牌设备接入', en: 'Cross-brand device integration within project scope' },
+        { zh: '安装、规则配置与用户交付', en: 'Installation, rule configuration and handover' },
       ],
       rhythm: {
-        zh: '第一周学习你的作息, 第二周开始前置安排。一个月后, 它已经知道你下班回家想要什么。',
-        en: 'Week one, it learns your rhythm. Week two, it begins preparing ahead. A month in, it already knows what you want when you walk home.',
+        zh: '按房间、成员、时间与设备状态配置规则。高风险动作需要明确确认，常用场景保留实体控制入口。',
+        en: 'Rules are configured by room, member, time and device state. High-risk actions require confirmation, with physical controls retained for common scenes.',
       },
     },
   },
@@ -207,27 +268,27 @@ export const solutions: Solution[] = [
     ],
     kpis: [],
     architecture: [
-      { zh: '一房一中枢, 不破坏现有装修', en: 'One hub per room, no damage to existing interior' },
-      { zh: '客人的偏好能随他一起换房, 不用重新设置', en: 'A guest\'s preferences follow them between rooms -- no reconfiguration' },
-      { zh: '一句话能把房间调到想要的状态', en: 'One sentence sets the room the way you like' },
+      { zh: '按房间部署本地节点，适配既有装修与设备条件', en: 'Per-room local nodes adapted to existing interiors and devices' },
+      { zh: '房间配置与用户偏好分离管理', en: 'Room configuration and user preferences are managed separately' },
+      { zh: '支持面板、语音与管理端多入口控制', en: 'Supports panel, voice and management-console controls' },
     ],
     pilot: { weeks: '2-3', scale: { zh: '10-30 间房', en: '10-30 rooms' } },
     sku: { zh: 'Community Kit', en: 'Community Kit' },
     bundle: {
       headline: {
-        zh: '从按按钮的房间, 升级为懂客人的房间。',
-        en: 'From rooms that take buttons, to rooms that know the guest.',
+        zh: '标准房间智能化改造方案',
+        en: 'Standardized intelligent room retrofit',
       },
       items: [
-        { zh: '一房一中枢 —— 标准化安装, 不破坏装修', en: 'One hub per room -- standardized install, no interior damage' },
-        { zh: '场景预设与语音 —— 客人一句话, 房间听得懂', en: 'Preset scenes and voice -- one sentence, understood' },
-        { zh: '画像随客人走 —— 换房不用重新设置', en: 'Guest profile travels -- re-room without reset' },
-        { zh: '客房管理台 —— 前台、工程、客房一屏', en: 'Housekeeping console -- front desk, engineering, guest rooms in one view' },
-        { zh: '两到三周试点 —— 先做 10-30 间', en: 'Two to three weeks of pilot -- start with 10-30 rooms' },
+        { zh: '单房间本地控制节点', en: 'Per-room local control node' },
+        { zh: '照明、环境与窗帘场景', en: 'Lighting, climate and curtain scenes' },
+        { zh: '房间配置与偏好管理', en: 'Room configuration and preference management' },
+        { zh: '前台、工程与客房管理端', en: 'Console for front desk, engineering and room operations' },
+        { zh: '批量配置、培训与验收', en: 'Bulk configuration, training and acceptance' },
       ],
       rhythm: {
-        zh: '入住前, 房间已为这位客人准备好光线与温度。退房后, 个人设定随画像离开, 房间回到安静的默认。',
-        en: 'Before check-in, light and temperature are already set for this guest. After check-out, personal settings leave with the profile; the room returns to a quiet default.',
+        zh: '入住、在住与退房状态对应不同规则集。个人偏好与房间默认配置分开保存，并按权限清除。',
+        en: 'Check-in, occupied and checkout states use separate rule sets. Personal preferences and room defaults are stored separately and cleared by policy.',
       },
     },
   },

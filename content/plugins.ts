@@ -47,30 +47,38 @@ export type Plugin = {
   manifest?: PluginManifest;
 };
 
+export type PluginProfile = {
+  products: string[];
+  deployment: { zh: string; en: string };
+  prerequisites: { zh: string; en: string };
+  boundary: { zh: string; en: string };
+  operations: Array<{ zh: string; en: string }>;
+};
+
 export const plugins: Plugin[] = [
   {
     slug: 'dawn-light',
     icon: Sunrise,
-    nameZh: '晨光',
+    nameZh: '夜间照明',
     nameEn: 'Dawn Light',
     vendorZh: '循星官方',
     vendorEn: 'By SidebyStar',
     kind: 'official',
     stage: 'beta',
     topic: 'home',
-    taglineZh: '夜里给你一束柔光, 清晨陪你慢慢醒来。',
-    taglineEn: 'A light that knows how to walk you through the night.',
+    taglineZh: '夜间路径照明与日光渐亮规则。',
+    taglineEn: 'Night pathway lighting and daylight ramp rules.',
     storyZh:
-      '夜里起身时, 它让走廊先亮到 10% 柔光。清晨, 它顺着日光的节奏慢慢把房间唤起 —— 不需要你设闹钟, 也不需要你设场景。用得久了, 它知道谁晚上会渴、谁习惯在哪一侧下床。',
+      '根据在场状态、环境照度与时间执行路径照明。日光渐亮按照本地位置、天气和已确认的起床时间运行。',
     storyEn:
-      'Step out at night and the hallway eases to 10% warm light. Come morning, it wakes the room to the rhythm of daylight -- no alarm, no preset scene. Over time it learns who gets up for water, who steps out on which side of the bed.',
+      'Runs pathway lighting from presence, ambient light and time. Daylight ramps use local location, weather and an approved wake schedule.',
     highlights: [
-      { zh: '夜间路径照明, 不用摸黑走', en: 'Gentle pathway light at night, no fumbling' },
-      { zh: '日光渐亮唤醒, 比闹钟温柔', en: 'Daylight-ramped wake, kinder than an alarm' },
-      { zh: '越用越懂, 不用手动设置', en: 'Learns with use -- no scene to configure' },
+      { zh: '按路径分段控制照明', en: 'Segmented lighting by path' },
+      { zh: '按日光与时间调整亮度和色温', en: 'Brightness and color temperature by daylight and time' },
+      { zh: '规则阈值可查看和修改', en: 'Inspectable and editable rule thresholds' },
     ],
-    outcomeZh: '夜里不必摸墙, 清晨不必闹钟。',
-    outcomeEn: 'No more fumbling along the wall at night; by morning the room already knows which kind of day is yours.',
+    outcomeZh: '输出路径照明动作、日光渐亮计划与执行记录。',
+    outcomeEn: 'Outputs pathway lighting actions, daylight ramp schedules and execution records.',
     manifest: {
       permissions: ['sense:presence:read', 'sense:light:read', 'actuate:light:write', 'memory:habit:read'],
       capabilities: [
@@ -88,26 +96,26 @@ export const plugins: Plugin[] = [
   {
     slug: 'fall-watch',
     icon: HeartPulse,
-    nameZh: '夜守',
+    nameZh: '夜间照护',
     nameEn: 'Fall Watch',
     vendorZh: '循星官方',
     vendorEn: 'By SidebyStar',
     kind: 'official',
     stage: 'beta',
     topic: 'health',
-    taglineZh: '让告警, 走在呼唤之前。',
-    taglineEn: 'A fall seen before it finishes. Care that arrives before the call.',
+    taglineZh: '离床、久卧与跌倒风险分级告警。',
+    taglineEn: 'Tiered alerts for bed-exit, inactivity and fall risk.',
     storyZh:
-      '它用毫米波读取呼吸、姿态与轨迹, 再用声学感知判断动静。不靠摄像头对着老人, 却能分清"夜里起身、离床、超时坐起、跌倒"这四种情况。告警分级送达家属与值班护士, 断网也不影响。',
+      '整合毫米波与环境传感器事件，识别离床、久卧、超时坐起和跌倒风险。告警按严重度派发至值班岗位，并在本地记录处置状态。',
     storyEn:
-      'It reads breath, posture, and motion with mmWave, and listens for the shape of movement. No camera trained on a person, yet it can tell apart a night walk, a bed leave, a lingering sit, and a fall. Alerts land at different levels for family and duty nurse -- even offline.',
+      'Combines mmWave and environmental sensor events to detect bed-exit, inactivity, prolonged sitting and fall risk. Alerts route to on-duty roles by severity, with local response records.',
     highlights: [
-      { zh: '不靠摄像头对着脸, 隐私优先', en: 'No camera on the face, privacy first' },
-      { zh: '四种情况分级告警, 少扰少漏', en: 'Four kinds of alerts, finely tiered' },
-      { zh: '断网也能告警, 本地完成', en: 'Alerts hold offline, finished locally' },
+      { zh: '非摄像头感知输入', en: 'Non-camera sensing input' },
+      { zh: '四类事件分级与派发', en: 'Four event classes with tiered dispatch' },
+      { zh: '本地告警与处置记录', en: 'Local alerting and response records' },
     ],
-    outcomeZh: '夜里那张床, 能让人放心睡。',
-    outcomeEn: 'The bed at night truly becomes something to count on.',
+    outcomeZh: '输出事件等级、通知对象、响应状态与审计记录。',
+    outcomeEn: 'Outputs event severity, recipients, response status and audit records.',
     manifest: {
       permissions: ['sense:mmwave:read', 'sense:acoustic:read', 'alert:emit', 'profile:resident:read'],
       capabilities: [
@@ -125,26 +133,26 @@ export const plugins: Plugin[] = [
   {
     slug: 'energy-keeper',
     icon: Zap,
-    nameZh: '节流',
+    nameZh: '能耗控制',
     nameEn: 'Energy Keeper',
     vendorZh: '循星官方',
     vendorEn: 'By SidebyStar',
     kind: 'official',
     stage: 'beta',
     topic: 'home',
-    taglineZh: '看清每一度电去了哪, 顺便帮你省下来。',
-    taglineEn: 'Every kilowatt-hour, accounted for -- and quietly saved.',
+    taglineZh: '暖通、照明与热水设备联合能耗策略。',
+    taglineEn: 'Coordinated energy policy for HVAC, lighting and hot water.',
     storyZh:
-      '它从空调、地暖、热水器、照明的节拍里找节能空间, 在你感觉不到的时候调一调 —— 让舒适保持原样, 账单低一些。每一次调整, 都留下可查的记录, 让你知道是哪一次让电费少了几十块。',
+      '汇总空调、地暖、热水器与照明的能耗和状态，在舒适区间及授权范围内调整运行计划。每次调整均记录条件和结果。',
     storyEn:
-      'It finds the small slacks in your HVAC, underfloor heating, water heater, and lighting, and nudges them while you do not notice -- keeping the comfort, trimming the bill. Every change is logged, so you can see which nudge saved which dollars.',
+      'Combines energy and state data from HVAC, floor heating, water heaters and lighting, adjusting schedules within approved comfort ranges. Every change records its conditions and result.',
     highlights: [
-      { zh: '舒适不变, 账单下降', en: 'Comfort unchanged, bill down' },
-      { zh: '所有节能调整都可回放', en: 'Every saving nudge is replayable' },
-      { zh: '开着它不扰人, 关着它也不失控', en: 'On: quiet. Off: safe.' },
+      { zh: '多设备能耗统一汇总', en: 'Unified multi-device energy data' },
+      { zh: '舒适区间与策略阈值可配置', en: 'Configurable comfort ranges and policy thresholds' },
+      { zh: '调整记录与月度报告', en: 'Adjustment records and monthly reports' },
     ],
-    outcomeZh: '一个月后, 第一次在账单上看见它。',
-    outcomeEn: 'In a month, you see it for the first time -- on the bill.',
+    outcomeZh: '输出设备调整动作、能耗对比与月度报告。',
+    outcomeEn: 'Outputs device adjustments, energy comparisons and monthly reports.',
     manifest: {
       permissions: ['sense:energy:read', 'sense:temperature:read', 'actuate:hvac:write', 'actuate:light:write', 'ledger:write'],
       capabilities: [
@@ -162,26 +170,26 @@ export const plugins: Plugin[] = [
   {
     slug: 'matter-bridge',
     icon: Cable,
-    nameZh: '通译',
+    nameZh: '设备桥接',
     nameEn: 'Matter Bridge',
-    vendorZh: '合作伙伴',
-    vendorEn: 'Partner',
+    vendorZh: '项目适配',
+    vendorEn: 'Project integration',
     kind: 'partner',
     stage: 'beta',
     topic: 'infra',
-    taglineZh: '让家里原有的设备, 说同一种语言。',
-    taglineEn: 'Lets the devices you already own speak the same language in AIOS.',
+    taglineZh: 'Matter、Thread、Wi-Fi 与 Zigbee 设备适配。',
+    taglineEn: 'Device adapters for Matter, Thread, Wi-Fi and Zigbee.',
     storyZh:
-      '它把你家里原有的设备 —— 不管是新买的、旧的、从邻居那继承来的 —— 接进 AIOS 的同一张协议网。你不用换牌子, 不用重新布线, 也不用担心哪一天某个云下线了。',
+      '将项目确认范围内的设备映射为 AIOS 统一实体，并同步在线状态、能力和控制指令。具体兼容范围以设备清单验证结果为准。',
     storyEn:
-      'It brings the devices you already own -- new, old, or inherited from a neighbor -- into the same fabric inside AIOS. No brand swap, no rewiring, no worry about a cloud going dark one day.',
+      'Maps approved project devices into unified AIOS entities and synchronizes availability, capabilities and commands. Compatibility follows the verified device list.',
     highlights: [
-      { zh: '主流协议都能说', en: 'Speaks the mainstream protocols' },
-      { zh: '不用换你家原有的灯与门锁', en: 'No need to replace existing lights and locks' },
-      { zh: '云下线, 设备依然能用', en: 'Devices keep working when a cloud goes dark' },
+      { zh: '多协议设备发现与登记', en: 'Multi-protocol discovery and enrollment' },
+      { zh: '统一实体与能力映射', en: 'Unified entity and capability mapping' },
+      { zh: '本地状态同步与指令下发', en: 'Local state sync and command dispatch' },
     ],
-    outcomeZh: '杂乱的品牌, 终于在同一张表上对齐。',
-    outcomeEn: 'That mess of brands in your home finally reads as one list.',
+    outcomeZh: '输出统一设备清单、状态与可用动作。',
+    outcomeEn: 'Outputs a unified device inventory, state and available actions.',
     manifest: {
       permissions: ['connect:matter:read', 'connect:matter:write', 'facts:devices:write'],
       capabilities: [
@@ -198,26 +206,26 @@ export const plugins: Plugin[] = [
   {
     slug: 'homeassistant-sync',
     icon: Workflow,
-    nameZh: 'Home Assistant 同行',
+    nameZh: 'Home Assistant 连接器',
     nameEn: 'Home Assistant Sync',
-    vendorZh: 'Home Assistant 社区',
-    vendorEn: 'Home Assistant Community',
+    vendorZh: '兼容连接器',
+    vendorEn: 'Compatibility connector',
     kind: 'partner',
     stage: 'beta',
     topic: 'infra',
-    taglineZh: '让你写过的每一条规则, 继续生效。',
-    taglineEn: 'Every automation you wrote in HA comes along.',
+    taglineZh: 'Home Assistant 实体与自动化同步。',
+    taglineEn: 'Home Assistant entity and automation synchronization.',
     storyZh:
-      '如果你之前用 Home Assistant 管着全屋, 这个插件会把你的自动化、实体、仪表板都映射进 AIOS 的事实库, 让两边并行运行, 甚至互相学习。换系统, 不等于从零开始。',
+      '读取 Home Assistant 的实体、区域和自动化配置，映射至 AIOS 事实库。迁移期间可保持两套系统并行，写入范围由管理员确认。',
     storyEn:
-      'If Home Assistant has been managing your home, this plugin maps your automations, entities, and dashboards into the AIOS fact base -- so both sides can run side by side, even learn from each other. Switching systems does not have to mean starting over.',
+      'Reads Home Assistant entities, areas and automations into the AIOS fact base. Both systems can run in parallel during migration, with write scope approved by an administrator.',
     highlights: [
-      { zh: 'HA 的自动化可以继续用', en: 'Keep running your HA automations' },
-      { zh: '实体、仪表板、区域自动同步', en: 'Entities, dashboards, areas auto-synced' },
-      { zh: '两边并行, 不用一刀切', en: 'Run both sides in parallel, no hard cut' },
+      { zh: '实体与区域映射', en: 'Entity and area mapping' },
+      { zh: '自动化配置读取与转换', en: 'Automation read and conversion' },
+      { zh: '迁移期间并行运行', en: 'Parallel operation during migration' },
     ],
-    outcomeZh: '你在 Home Assistant 上的每个周末, 都还在生效。',
-    outcomeEn: 'Every weekend you spent on Home Assistant, still pays.',
+    outcomeZh: '输出映射后的实体、区域和自动化清单。',
+    outcomeEn: 'Outputs mapped entity, area and automation inventories.',
     manifest: {
       permissions: ['ha:entities:read', 'ha:automations:read', 'facts:entities:write'],
       capabilities: [
@@ -232,26 +240,26 @@ export const plugins: Plugin[] = [
   {
     slug: 'concierge-script',
     icon: Hotel,
-    nameZh: '客房管家',
+    nameZh: '客房运营',
     nameEn: 'Concierge Script',
-    vendorZh: '合作伙伴',
-    vendorEn: 'Partner',
+    vendorZh: '项目适配',
+    vendorEn: 'Project integration',
     kind: 'partner',
     stage: 'beta',
     topic: 'commercial',
-    taglineZh: '客人还在路上, 房间已经准备好。',
-    taglineEn: 'The room is ready for the guest before check-in.',
+    taglineZh: '入住、在住与退房房间规则。',
+    taglineEn: 'Room rules for check-in, occupied and checkout states.',
     storyZh:
-      '把客人的温度偏好、光线偏好、喜好的欢迎场景, 做成一份可随身画像。预订信息一到, 房间就开始轻轻调温、调光。退房后, 个人设定随画像离开, 下一位客人进来, 房间又回到安静的默认。',
+      '根据预订状态加载房间默认配置和已授权偏好，控制温度、照明与窗帘。退房后按策略清除个人设置并恢复房间基线。',
     storyEn:
-      'Put a guest\'s preferred temperature, lighting, and welcome scene into a small travelling profile. When the booking arrives, the room quietly warms and dims in preparation. After check-out, the personal settings leave with the profile; the room returns to quiet default.',
+      'Loads room defaults and authorized preferences from reservation state to control climate, lighting and curtains. Checkout policy clears personal settings and restores the room baseline.',
     highlights: [
-      { zh: '入住前房间已经温热', en: 'Room warms before arrival' },
-      { zh: '画像随客人走, 换房不重设', en: 'Profile travels with the guest, re-room without reset' },
-      { zh: '退房后房间回到默认, 不留私人痕迹', en: 'After check-out, the room returns to default -- no private trace' },
+      { zh: '预订状态触发房间准备', en: 'Room preparation from reservation state' },
+      { zh: '偏好与房间基线分开保存', en: 'Separate preference and room baselines' },
+      { zh: '退房后按策略清除个人设置', en: 'Policy-based personal setting removal at checkout' },
     ],
-    outcomeZh: '客人第一次推开门, 就像回家。',
-    outcomeEn: 'The guest pushes open the door, and it already feels like coming home.',
+    outcomeZh: '输出房间准备、在住调整与退房重置记录。',
+    outcomeEn: 'Outputs room preparation, occupied adjustments and checkout reset records.',
     manifest: {
       permissions: ['profile:guest:read', 'profile:guest:write', 'actuate:light:write', 'actuate:hvac:write'],
       capabilities: [
@@ -267,26 +275,26 @@ export const plugins: Plugin[] = [
   {
     slug: 'clinical-adapter',
     icon: Stethoscope,
-    nameZh: '临床对接',
+    nameZh: '临床连接器',
     nameEn: 'Clinical Adapter',
-    vendorZh: '合作伙伴',
-    vendorEn: 'Partner',
+    vendorZh: '项目适配',
+    vendorEn: 'Project integration',
     kind: 'partner',
     stage: 'beta',
     topic: 'health',
-    taglineZh: '让医院既有的系统, 接入可审计闭环。',
-    taglineEn: 'Brings the hospital\'s existing systems into the auditable loop of AIOS.',
+    taglineZh: '医院信息系统与护理工单接口。',
+    taglineEn: 'Interfaces for hospital information systems and care tickets.',
     storyZh:
-      '在医院不出院的前提下, 把科室级的 SOP、病区的巡查工单、既有的信息系统对接进 AIOS。护士站和科主任看到的是自己熟悉的工作面, 而 AIOS 只在后台安静地做它那份事。',
+      '在院内网络对接科室 SOP、病区巡查工单与既有信息系统。字段映射、写入权限和失败处理按项目接口文档确认。',
     storyEn:
-      'Without letting data leave the hospital, this adapter wires in department SOPs, ward rounds tickets, and the information systems you already run. Nurses and department heads keep the workspace they know; AIOS does its part quietly in the background.',
+      'Connects department SOPs, ward-round tickets and existing information systems inside the hospital network. Field mapping, write permissions and failure handling follow the project interface document.',
     highlights: [
-      { zh: '数据不出院, 闭环可审计', en: 'Data stays on-site, the loop stays auditable' },
-      { zh: '对接既有流程, 不推倒重来', en: 'Integrates existing flows, no rip-and-replace' },
-      { zh: '护士站面不变, 工作节奏不变', en: 'Nursing view unchanged, working rhythm unchanged' },
+      { zh: '院内网络部署', en: 'Hospital-network deployment' },
+      { zh: 'HIS、电子病历与工单字段映射', en: 'HIS, EMR and ticket field mapping' },
+      { zh: '接口调用与失败记录', en: 'API call and failure records' },
     ],
-    outcomeZh: '新系统上线, 科室感觉不到换了一套。',
-    outcomeEn: 'Going live feels, to the department, like nothing was replaced.',
+    outcomeZh: '输出结构化工单、接口状态与审计记录。',
+    outcomeEn: 'Outputs structured tickets, interface status and audit records.',
     manifest: {
       permissions: ['clinical:sop:read', 'clinical:tickets:write', 'facts:resident:write', 'ledger:write'],
       capabilities: [
@@ -302,32 +310,195 @@ export const plugins: Plugin[] = [
   {
     slug: 'auditable-voice',
     icon: Mic2,
-    nameZh: '留声',
+    nameZh: '语音审计',
     nameEn: 'Auditable Voice',
     vendorZh: '循星官方',
     vendorEn: 'By SidebyStar',
     kind: 'official',
     stage: 'roadmap',
     topic: 'home',
-    taglineZh: '屋里说过的每一句话, 都留下可查的痕迹。',
-    taglineEn: 'Every conversation -- replayable by you, viewable by family, exportable for regulators.',
+    taglineZh: '语音指令审计与授权查询。',
+    taglineEn: 'Voice-command auditing and authorized review.',
     storyZh:
-      '语音进入一个房间以后, 不该就此消失。这枚插件让每一句交互都写入本地账本, 本人可以回放, 家属可以查阅, 监管方可以导出合规报表。全程不离家, 也不被悄悄抹掉。',
+      '规划为语音指令生成结构化审计条目，记录触发者、目标设备、执行结果和权限上下文。原始音频是否保留由现场策略决定。',
     storyEn:
-      'Voice entering a room should not just vanish. This plugin writes every interaction into the local ledger -- you can replay, your family can review, the regulator can export a compliance report. None of it ever leaves home, and none of it can be quietly erased.',
+      'Planned to create structured audit entries for voice commands, including actor, target device, execution result and permission context. Raw audio retention follows site policy.',
     highlights: [
-      { zh: '不离家, 不上云', en: 'Never leaves home, never goes to the cloud' },
-      { zh: '本人可回放, 家属可查阅', en: 'Replay for you, review for family' },
-      { zh: '监管视角可导出合规报表', en: 'Compliance exports for regulators' },
+      { zh: '语音指令结构化记录', en: 'Structured voice-command records' },
+      { zh: '按角色查询与导出', en: 'Role-based query and export' },
+      { zh: '原始音频留存策略可配置', en: 'Configurable raw-audio retention policy' },
     ],
-    outcomeZh: '你说过的话, 自己听得见, 别人改不掉。',
-    outcomeEn: 'Every word spoken in the house, you can hear yourself again.',
+    outcomeZh: '规划输出指令、权限、设备结果与审计条目。',
+    outcomeEn: 'Planned output includes command, permission, device result and audit entry.',
   },
 ];
 
 export function getPlugin(slug: string) {
   return plugins.find((p) => p.slug === slug);
 }
+
+export const pluginProfiles: Record<string, PluginProfile> = {
+  'dawn-light': {
+    products: ['Home Box', 'Community Kit'],
+    deployment: {
+      zh: '安装在现场节点，规则按房间保存；照明控制不依赖公网。',
+      en: 'Installed on the on-site node with room-scoped rules; lighting control does not require the public internet.',
+    },
+    prerequisites: {
+      zh: '已接入的照明回路、存在或离床传感器、可读取的环境照度。',
+      en: 'Integrated lighting circuits, presence or bed-exit sensing, and readable ambient light.',
+    },
+    boundary: {
+      zh: '只在管理员确认的亮度、色温和时段范围内执行，不修改消防与应急照明回路。',
+      en: 'Runs only within approved brightness, color-temperature and time ranges; fire and emergency lighting are excluded.',
+    },
+    operations: [
+      { zh: '按房间配置路径与灯组', en: 'Configure paths and light groups by room' },
+      { zh: '现场验证触发、渐亮与手动接管', en: 'Validate triggers, ramps and manual override on site' },
+      { zh: '从执行记录复核误触发并调整阈值', en: 'Review execution records and tune false triggers' },
+    ],
+  },
+  'fall-watch': {
+    products: ['Community Kit', 'Enterprise Stack'],
+    deployment: {
+      zh: '部署在机构内网的房间节点与楼层网关，事件在现场完成识别和分级。',
+      en: 'Runs on room nodes and floor gateways inside the facility network; events are classified on site.',
+    },
+    prerequisites: {
+      zh: '毫米波或床旁传感器、值班岗位、已确认的事件等级与通知流程。',
+      en: 'mmWave or bedside sensors, an on-duty role, and an approved severity and notification workflow.',
+    },
+    boundary: {
+      zh: '提供风险事件与处置流程，不作跌倒医学诊断，也不替代护理人员到场确认。',
+      en: 'Provides risk events and response workflow; it does not make a medical diagnosis or replace on-site confirmation.',
+    },
+    operations: [
+      { zh: '按房间校准离床、静止与回床阈值', en: 'Calibrate exit, stillness and return thresholds by room' },
+      { zh: '配置值班人员、升级时限和现场告警', en: 'Configure duty roles, escalation timers and local alerts' },
+      { zh: '按班次复核误报、响应和关闭记录', en: 'Review false alerts, response and closure records by shift' },
+    ],
+  },
+  'energy-keeper': {
+    products: ['Home Box', 'Community Kit', 'Enterprise Stack'],
+    deployment: {
+      zh: '在现场节点汇总设备状态与分项能耗，按已批准策略调整运行计划。',
+      en: 'Aggregates device state and sub-metering on site, then adjusts schedules under approved policies.',
+    },
+    prerequisites: {
+      zh: '可读取的分项计量、暖通与照明设备，以及明确的舒适区间。',
+      en: 'Readable sub-metering, integrated HVAC and lighting, and defined comfort ranges.',
+    },
+    boundary: {
+      zh: '不越过设备安全上下限，不控制未纳入项目清单的负载。',
+      en: 'Never exceeds device safety limits or controls loads outside the approved inventory.',
+    },
+    operations: [
+      { zh: '建立设备与计量点映射', en: 'Map devices to metering points' },
+      { zh: '确认舒适区间与可调时段', en: 'Approve comfort ranges and adjustable periods' },
+      { zh: '按月复核基线、调整记录与节能结果', en: 'Review baselines, changes and results monthly' },
+    ],
+  },
+  'matter-bridge': {
+    products: ['Home Box', 'Community Kit'],
+    deployment: {
+      zh: '作为现场协议适配器运行，将已验证设备映射到 AIOS 统一实体。',
+      en: 'Runs as an on-site protocol adapter and maps verified devices into AIOS entities.',
+    },
+    prerequisites: {
+      zh: '受支持的协调器、设备配网权限与项目设备清单。',
+      en: 'A supported coordinator, commissioning access and an approved device inventory.',
+    },
+    boundary: {
+      zh: '兼容性以设备型号和固件实测为准；未验证设备默认只读或不接入。',
+      en: 'Compatibility is verified by model and firmware; unverified devices remain read-only or disconnected.',
+    },
+    operations: [
+      { zh: '发现设备并核对型号与固件', en: 'Discover devices and verify model and firmware' },
+      { zh: '映射实体、能力和控制范围', en: 'Map entities, capabilities and control scope' },
+      { zh: '监测离线、重连与指令失败', en: 'Monitor offline, reconnect and command failures' },
+    ],
+  },
+  'homeassistant-sync': {
+    products: ['Home Box', 'Community Kit'],
+    deployment: {
+      zh: '通过局域网连接既有 Home Assistant，分阶段同步实体、区域和自动化。',
+      en: 'Connects to an existing Home Assistant instance over the LAN and migrates entities, areas and automations in stages.',
+    },
+    prerequisites: {
+      zh: 'Home Assistant 长期访问令牌、实体清单与管理员确认的写入范围。',
+      en: 'A Home Assistant long-lived token, entity inventory and administrator-approved write scope.',
+    },
+    boundary: {
+      zh: '默认先只读映射；启用双向写入前必须完成冲突规则和回滚验证。',
+      en: 'Starts read-only; bidirectional writes require conflict and rollback validation.',
+    },
+    operations: [
+      { zh: '导入实体与区域并生成差异清单', en: 'Import entities and areas and produce a diff' },
+      { zh: '选择需要转换的自动化', en: 'Select automations for conversion' },
+      { zh: '并行运行后按批次切换写入权', en: 'Run in parallel before transferring write authority in batches' },
+    ],
+  },
+  'concierge-script': {
+    products: ['Community Kit', 'Enterprise Stack'],
+    deployment: {
+      zh: '按房间运行入住、在住和退房规则，可与 PMS 或现场工单系统对接。',
+      en: 'Runs per-room check-in, occupied and checkout rules with optional PMS or ticket integration.',
+    },
+    prerequisites: {
+      zh: '房态来源、客房设备清单、默认房间基线和个人数据清除策略。',
+      en: 'Room-status source, room device inventory, default baseline and personal-data deletion policy.',
+    },
+    boundary: {
+      zh: '只读取项目确认的住客偏好字段，退房后按策略清除，不建立跨住客画像。',
+      en: 'Reads only approved preference fields, clears them at checkout and does not build cross-guest profiles.',
+    },
+    operations: [
+      { zh: '核对 PMS 房态与房间编号', en: 'Map PMS status to room identifiers' },
+      { zh: '验证入住准备、手动调整和退房重置', en: 'Validate preparation, manual adjustment and checkout reset' },
+      { zh: '记录每次配置加载与清除结果', en: 'Record each configuration load and deletion result' },
+    ],
+  },
+  'clinical-adapter': {
+    products: ['Enterprise Stack'],
+    deployment: {
+      zh: '部署在院内网络，通过项目接口连接 HIS、电子病历或护理工单系统。',
+      en: 'Deployed inside the hospital network with project-defined interfaces to HIS, EMR or nursing tickets.',
+    },
+    prerequisites: {
+      zh: '接口文档、测试环境、字段字典、服务账号和院方审批的写入范围。',
+      en: 'Interface documentation, test environment, field dictionary, service account and approved write scope.',
+    },
+    boundary: {
+      zh: '不绕过院方权限与审批流程，不把临床数据发送到公网服务。',
+      en: 'Does not bypass hospital access controls or send clinical data to public internet services.',
+    },
+    operations: [
+      { zh: '在测试环境完成字段与状态码映射', en: 'Map fields and status codes in the test environment' },
+      { zh: '验证重试、幂等与失败告警', en: 'Validate retries, idempotency and failure alerts' },
+      { zh: '上线后保留接口调用与变更审计', en: 'Retain API-call and change audits after go-live' },
+    ],
+  },
+  'auditable-voice': {
+    products: ['Home Box', 'Community Kit', 'Enterprise Stack'],
+    deployment: {
+      zh: '规划在现场节点生成语音指令结构化记录。',
+      en: 'Planned to create structured voice-command records on the on-site node.',
+    },
+    prerequisites: {
+      zh: '尚未开放安装；需先完成音频留存、身份确认和查询权限设计。',
+      en: 'Not installable yet; audio retention, identity confirmation and review access must be finalized first.',
+    },
+    boundary: {
+      zh: '默认不长期保存原始音频；具体策略将在发布前明确。',
+      en: 'Raw audio is not retained by default; the final policy will be published before release.',
+    },
+    operations: [
+      { zh: '定义指令、身份与设备结果字段', en: 'Define command, identity and device-result fields' },
+      { zh: '验证敏感指令的二次确认', en: 'Validate secondary confirmation for sensitive commands' },
+      { zh: '完成按角色查询与导出测试', en: 'Test role-based query and export' },
+    ],
+  },
+};
 
 export const pluginTopics: Array<{ id: PluginTopic | 'all'; zh: string; en: string }> = [
   { id: 'all', zh: '全部', en: 'All' },
@@ -339,6 +510,6 @@ export const pluginTopics: Array<{ id: PluginTopic | 'all'; zh: string; en: stri
 
 export const pluginStageLabel: Record<PluginStage, { zh: string; en: string }> = {
   ga: { zh: '已上架', en: 'Available' },
-  beta: { zh: '公测中', en: 'In beta' },
+  beta: { zh: '测试版', en: 'Beta' },
   roadmap: { zh: '规划中', en: 'Roadmap' },
 };

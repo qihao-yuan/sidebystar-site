@@ -5,6 +5,7 @@ import { solutions, getSolution, SolutionSlug } from '@/content/solutions';
 import { Reveal } from '@/components/motion/Reveal';
 import { GradientMesh } from '@/components/motion/GradientMesh';
 import { MagneticButton } from '@/components/motion/MagneticButton';
+import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
 import { ArrowRight, Package } from 'lucide-react';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -52,7 +53,9 @@ export default async function SolutionDetail({
   const pilot = sol.pilot!;
   const sku = sol.sku!;
   const bundle = sol.bundle!;
+  const hasWorkflow = Boolean(sol.workflow?.length);
   const Icon = sol.icon;
+  const heroImage = sol.group === 'health' ? '/solutions/care-delivery.jpg' : '/solutions/home-delivery.jpg';
 
   return (
     <article>
@@ -63,15 +66,26 @@ export default async function SolutionDetail({
           <Link href="/solutions" className="btn-link mb-8">
             <ArrowRight size={14} className="rotate-180" /> {isZh ? '返回场景' : 'Back'}
           </Link>
-          <div className="flex flex-col gap-6">
-            <span className="eyebrow">{isZh ? '场景套装' : 'Scenario Bundle'}</span>
-            <div className="flex items-center gap-5">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
-                <Icon size={32} className="text-brand-halo" />
+          <div className="grid gap-10 lg:grid-cols-[5fr_7fr] lg:items-end">
+            <div className="flex flex-col gap-6">
+              <span className="eyebrow">{isZh ? '标准方案' : 'Standard Solution'}</span>
+              <div className="flex items-center gap-5">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
+                  <Icon size={32} className="text-brand-halo" />
+                </div>
+                <h1 className="text-display-xl text-white">{items(`${sol.titleKey}.title`)}</h1>
               </div>
-              <h1 className="text-display-xl text-white">{items(`${sol.titleKey}.title`)}</h1>
+              <p className="max-w-3xl text-body-lg text-ink-300">{items(`${sol.titleKey}.brief`)}</p>
             </div>
-            <p className="max-w-3xl text-body-lg text-ink-300">{items(`${sol.titleKey}.brief`)}</p>
+            <Reveal>
+              <MediaPlaceholder
+                src={heroImage}
+                alt={items(`${sol.titleKey}.title`)}
+                ratio="16/9"
+                rounded="xl"
+                priority
+              />
+            </Reveal>
           </div>
         </div>
       </section>
@@ -82,7 +96,7 @@ export default async function SolutionDetail({
           <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:items-start">
             <div>
               <Reveal>
-                <span className="eyebrow">01 · {isZh ? '这一套怎么落地' : 'How this bundle lands'}</span>
+                <span className="eyebrow">01 · {isZh ? '方案范围' : 'Solution scope'}</span>
               </Reveal>
               <h2 className="mt-5 text-display-lg text-white">{pick(bundle.headline)}</h2>
               {bundle.rhythm ? (
@@ -91,7 +105,7 @@ export default async function SolutionDetail({
               {problems && problems.length > 0 ? (
                 <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
                   <div className="text-caption uppercase tracking-wide text-ink-500">
-                    {isZh ? '它在替你处理这些问题' : 'Problems it quietly handles'}
+                    {isZh ? '适用问题' : 'Applicable problems'}
                   </div>
                   <ul className="mt-4 space-y-2 text-body text-ink-200">
                     {problems.map((p, i) => (
@@ -103,13 +117,28 @@ export default async function SolutionDetail({
                   </ul>
                 </div>
               ) : null}
+              {sol.architecture && sol.architecture.length > 0 ? (
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <div className="text-caption uppercase tracking-wide text-ink-500">
+                    {isZh ? '部署结构' : 'Deployment structure'}
+                  </div>
+                  <ol className="mt-4 space-y-3">
+                    {sol.architecture.map((item, i) => (
+                      <li key={i} className="grid grid-cols-[2rem_1fr] gap-3 text-body text-ink-200">
+                        <span className="font-mono text-caption text-ink-500">{String(i + 1).padStart(2, '0')}</span>
+                        <span>{pick(item)}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ) : null}
             </div>
 
             <div>
               <Reveal delay={120}>
                 <div className="flex items-center gap-2 text-caption uppercase tracking-wide text-ink-500">
                   <Package size={14} />
-                  {isZh ? '这一套里有什么' : 'What is inside this bundle'}
+                  {isZh ? '交付组成' : 'Delivery components'}
                 </div>
               </Reveal>
               <div className="mt-4 grid gap-3">
@@ -129,16 +158,81 @@ export default async function SolutionDetail({
         </div>
       </section>
 
-      {/* Section 02 · Meta (buyer + outcomes + pilot) */}
+      {sol.workflow && sol.workflow.length > 0 ? (
+        <section className="border-y border-white/5 bg-white/[0.015] py-section-lg">
+          <div className="container-page">
+            <Reveal>
+              <span className="eyebrow">02 · {isZh ? '夜间照护闭环' : 'Nighttime care loop'}</span>
+              <h2 className="mt-4 max-w-3xl text-display-lg text-white">
+                {isZh ? '从离床识别到交班复核' : 'From bed-exit detection to shift review'}
+              </h2>
+              <p className="mt-4 max-w-3xl text-body text-ink-300">
+                {isZh
+                  ? '每一步都包含触发条件、执行动作和留存记录。系统完成识别与派发，最终处置由护理人员确认。'
+                  : 'Each step defines its trigger, action and retained record. The system detects and dispatches; care staff confirm the final outcome.'}
+              </p>
+            </Reveal>
+
+            <ol className="mt-12 overflow-hidden rounded-2xl border border-white/10">
+              {sol.workflow.map((step, i) => (
+                <li
+                  key={i}
+                  className="grid gap-4 border-b border-white/10 bg-surface-void/40 p-6 last:border-b-0 md:grid-cols-[3rem_1fr_1.35fr_1fr]"
+                >
+                  <span className="font-mono text-caption text-brand-halo">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="text-body-lg text-white">{pick(step.stage)}</h3>
+                    <p className="mt-2 text-caption text-ink-400">{pick(step.condition)}</p>
+                  </div>
+                  <div>
+                    <div className="text-caption uppercase tracking-wide text-ink-500">{isZh ? '系统动作' : 'System action'}</div>
+                    <p className="mt-2 text-body text-ink-200">{pick(step.action)}</p>
+                  </div>
+                  <div>
+                    <div className="text-caption uppercase tracking-wide text-ink-500">{isZh ? '留存记录' : 'Record'}</div>
+                    <p className="mt-2 text-body text-ink-200">{pick(step.record)}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div className="mt-12 grid gap-5 lg:grid-cols-[3fr_2fr]">
+              <div className="grid gap-4 md:grid-cols-3">
+                {sol.safeguards?.map((item) => (
+                  <div key={item.title.en} className="card-vision">
+                    <h3 className="text-body-lg text-white">{pick(item.title)}</h3>
+                    <p className="mt-3 text-caption text-ink-300">{pick(item.body)}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                <div className="text-caption uppercase tracking-wide text-ink-500">
+                  {isZh ? '试点验收项' : 'Pilot acceptance'}
+                </div>
+                <ul className="mt-4 space-y-3">
+                  {sol.acceptance?.map((item, i) => (
+                    <li key={i} className="flex gap-3 text-caption text-ink-200">
+                      <span className="font-mono text-brand-halo">{String(i + 1).padStart(2, '0')}</span>
+                      <span>{pick(item)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* Deployment meta */}
       <section className="py-section">
         <div className="container-page">
           <Reveal>
-            <span className="eyebrow">02 · {isZh ? '落地的前提与预期' : 'Who, what, how long'}</span>
+            <span className="eyebrow">{hasWorkflow ? '03' : '02'} · {isZh ? '部署信息' : 'Deployment information'}</span>
           </Reveal>
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             <div className="card-vision">
               <div className="text-caption uppercase tracking-wide text-ink-500">
-                {isZh ? '适合的买家' : 'For'}
+                {isZh ? '适用对象' : 'For'}
               </div>
               <p className="mt-4 text-body-lg text-white">{pick(buyer)}</p>
             </div>
@@ -174,7 +268,7 @@ export default async function SolutionDetail({
               </div>
               <p className="mt-3 text-body text-ink-300">{pick(pilot.scale)}</p>
               <p className="mt-4 text-caption text-ink-500">
-                {isZh ? '整机来自 ' : 'Ships on '}
+                {isZh ? '对应产品 ' : 'Product '}
                 <span className="text-ink-200">{pick(sku)}</span>
               </p>
             </div>
@@ -182,16 +276,16 @@ export default async function SolutionDetail({
         </div>
       </section>
 
-      {/* Section 03 · CTA */}
+      {/* CTA */}
       <section className="py-section-lg">
         <div className="container-page">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula p-10 md:p-16">
             <GradientMesh variant="cta" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
-                <span className="eyebrow">03 · {isZh ? '让我们陪你落地' : 'Let us walk you in'}</span>
+                <span className="eyebrow">{hasWorkflow ? '04' : '03'} · {isZh ? '项目评估' : 'Project assessment'}</span>
                 <h3 className="mt-3 text-display-lg text-white">
-                  {isZh ? '从一个楼层　一间病房　或一个家开始' : 'Start from one floor, one ward, or one home.'}
+                  {isZh ? '确认现场条件与首期部署范围' : 'Confirm site conditions and initial deployment scope.'}
                 </h3>
               </div>
               <div className="flex flex-wrap gap-3">

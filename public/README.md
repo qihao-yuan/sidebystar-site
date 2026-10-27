@@ -11,7 +11,7 @@ public/
   home/            # 主页各段落配图 / 视频
   intelligence/    # 能力展示页 (/intelligence)
   solutions/       # 解决方案分组 + 每个场景封面
-  product/         # SKU 机身图 / 视频 (详见 product/README.md)
+  product/         # SKU 机身图与配套设备素材
   brand/           # 品牌资产
 ```
 
@@ -124,6 +124,6 @@ public/
 
 ## 产品 SKU (`product/`)
 
-详见 `public/product/README.md`。
+产品素材与页面映射由 `components/products/` 维护。
 
 ---

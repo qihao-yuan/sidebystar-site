@@ -49,7 +49,7 @@ html.lenis body {
   }
 
   .eyebrow {
-    @apply text-overline uppercase text-brand-stardust/70;
+    @apply text-overline uppercase text-ink-400;
   }
 
   .chip {
@@ -61,15 +61,15 @@ html.lenis body {
   }
   .card-vision:hover {
     @apply border-white/20 bg-white/[0.04];
-    box-shadow: 0 0 40px rgba(125, 211, 252, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-pill bg-white px-6 py-3 text-sm font-medium text-surface-void transition-all duration-300 ease-apple-out hover:scale-[1.02] hover:shadow-glow-edge active:scale-[0.99];
+    @apply inline-flex items-center justify-center gap-2 rounded-pill bg-white px-6 py-3 text-sm font-medium text-surface-void transition-colors duration-200 hover:bg-ink-200;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-pill border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-medium text-ink-100 backdrop-blur-sm transition-all duration-300 ease-apple-out hover:border-white/30 hover:bg-white/[0.08];
+    @apply inline-flex items-center justify-center gap-2 rounded-pill border border-white/15 bg-transparent px-6 py-3 text-sm font-medium text-ink-100 transition-colors duration-200 hover:border-white/30 hover:bg-white/[0.05];
   }
 
   .btn-link {
@@ -153,8 +153,8 @@ html.lenis body {
   }
 
   .grid-faint {
-    background-image: linear-gradient(to right, rgba(177, 156, 244, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(177, 156, 244, 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
@@ -164,10 +164,9 @@ html.lenis body {
 
   .hero-mesh {
     background:
-      radial-gradient(ellipse 90% 70% at 50% 0%, rgba(75, 107, 251, 0.35), transparent 60%),
-      radial-gradient(ellipse 70% 60% at 80% 30%, rgba(177, 156, 244, 0.22), transparent 60%),
-      radial-gradient(ellipse 80% 70% at 20% 85%, rgba(125, 211, 252, 0.18), transparent 70%),
-      linear-gradient(180deg, #05060A 0%, #0B0F1E 100%);
+      radial-gradient(ellipse 75% 65% at 75% 20%, rgba(72, 82, 101, 0.22), transparent 65%),
+      radial-gradient(ellipse 60% 55% at 20% 80%, rgba(111, 91, 72, 0.09), transparent 72%),
+      linear-gradient(180deg, #05060A 0%, #080A0F 100%);
   }
 
   .aurora-border {
@@ -179,7 +178,7 @@ html.lenis body {
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(75, 107, 251, 0.6), rgba(177, 156, 244, 0.3), rgba(125, 211, 252, 0.5));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.05));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;

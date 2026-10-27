@@ -5,6 +5,7 @@ import { Link } from '@/i18n/routing';
 import { ArrowRight, Shield, HomeIcon, Check } from 'lucide-react';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Reveal } from '@/components/motion/Reveal';
+import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
 
 export function HomeProductLines() {
   const t = useTranslations('home.lines');
@@ -16,14 +17,21 @@ export function HomeProductLines() {
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">
           <Reveal>
-            <div className="group flex h-full flex-col rounded-3xl border border-white/10 bg-surface-nebula/40 p-8 transition-colors hover:border-brand-halo/40 md:p-10">
+            <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula/40 transition-colors hover:border-brand-halo/40">
+              <MediaPlaceholder
+                src="/solutions/care-delivery.jpg"
+                alt={t('careTitle')}
+                ratio="16/9"
+                rounded="none"
+                className="border-0 border-b border-white/10"
+              />
+              <div className="flex flex-1 flex-col p-8 md:p-10">
               <div className="flex items-center gap-3">
                 <Shield size={20} className="text-brand-halo" />
                 <span className="eyebrow">{t('careEyebrow')}</span>
               </div>
               <h3 className="mt-5 text-display-sm text-white">{t('careTitle')}</h3>
-              <p className="mt-2 text-body text-ink-200">{t('careTagline')}</p>
-              <p className="mt-5 text-body text-ink-300">{t('careBody')}</p>
+              <p className="mt-4 text-body text-ink-300">{t('careBody')}</p>
 
               <ul className="mt-6 space-y-3">
                 {[t('carePoint1'), t('carePoint2'), t('carePoint3')].map((p, i) => (
@@ -39,18 +47,26 @@ export function HomeProductLines() {
                   {t('careCta')} <ArrowRight size={16} />
                 </Link>
               </div>
+              </div>
             </div>
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="group flex h-full flex-col rounded-3xl border border-white/10 bg-surface-nebula/40 p-8 transition-colors hover:border-brand-halo/40 md:p-10">
+            <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula/40 transition-colors hover:border-brand-halo/40">
+              <MediaPlaceholder
+                src="/solutions/home-delivery.jpg"
+                alt={t('homeTitle')}
+                ratio="16/9"
+                rounded="none"
+                className="border-0 border-b border-white/10"
+              />
+              <div className="flex flex-1 flex-col p-8 md:p-10">
               <div className="flex items-center gap-3">
                 <HomeIcon size={20} className="text-brand-halo" />
                 <span className="eyebrow">{t('homeEyebrow')}</span>
               </div>
               <h3 className="mt-5 text-display-sm text-white">{t('homeTitle')}</h3>
-              <p className="mt-2 text-body text-ink-200">{t('homeTagline')}</p>
-              <p className="mt-5 text-body text-ink-300">{t('homeBody')}</p>
+              <p className="mt-4 text-body text-ink-300">{t('homeBody')}</p>
 
               <ul className="mt-6 space-y-3">
                 {[t('homePoint1'), t('homePoint2'), t('homePoint3')].map((p, i) => (
@@ -66,15 +82,11 @@ export function HomeProductLines() {
                   {t('homeCta')} <ArrowRight size={16} />
                 </Link>
               </div>
+              </div>
             </div>
           </Reveal>
         </div>
 
-        <Reveal delay={240}>
-          <p className="mt-12 whitespace-pre-line text-center text-caption text-ink-400">
-            {t('footnote')}
-          </p>
-        </Reveal>
       </div>
     </section>
   );

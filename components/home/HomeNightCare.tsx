@@ -39,56 +39,26 @@ const STEPS: Step[] = [
   {
     t: '02:13',
     role: 'system',
-    zh: '判定为低风险观察, 走廊灯升到 10% 柔光',
-    en: 'Marked low-risk watch; hallway light raised to 10% warm',
-  },
-  {
-    t: '02:23',
-    role: 'system',
-    zh: '10 分钟未归床, 卫生间未检测到活动',
-    en: '10 min without return; no activity from bathroom sensor',
+    zh: '启动路径照明，进入离床观察',
+    en: 'Pathway lighting starts; bed-exit monitoring begins',
   },
   {
     t: '02:24',
     role: 'system',
-    zh: '毫米波检测到床边低位静止, 升级为中高风险',
-    en: 'mmWave detects low-posture stillness near bed; escalates to medium-high',
-  },
-  {
-    t: '02:25',
-    role: 'staff',
-    zh: '自动派单给夜班护理员, 5 分钟未接单则升级主管',
-    en: 'Auto-dispatched to on-duty staff; escalates to supervisor after 5 min',
+    zh: '检测到低位静止，事件升级并派发夜班工单',
+    en: 'Low-position stillness detected; event escalated and dispatched',
   },
   {
     t: '02:31',
     role: 'staff',
-    zh: '现场处理完毕, 标记"协助起身, 已恢复"',
-    en: 'Handled on-site; marked "assisted up, recovered"',
-  },
-  {
-    t: '02:32',
-    role: 'system',
-    zh: '事件摘要写入本地审计账本, 不可篡改',
-    en: 'Incident summary written to the local audit ledger, append-only',
-  },
-  {
-    t: '06:00',
-    role: 'staff',
-    zh: '交接班自动带出: 昨夜 02:24 中高风险事件已闭环',
-    en: 'Shift handoff auto-includes: last night 02:24 medium-high incident, closed',
+    zh: '护理员完成现场处理并关闭工单',
+    en: 'On-duty staff resolves the event and closes the ticket',
   },
   {
     t: '07:30',
     role: 'family',
-    zh: '家属端摘要可见: 父亲昨夜离床一次, 已由值班照护员协助, 状态正常',
-    en: 'Family summary visible: father left bed once last night, assisted by on-duty staff, status normal',
-  },
-  {
-    t: '08:00',
-    role: 'family',
-    zh: '管理看板: 夜班响应中位数 6 分 12 秒, 误报 0',
-    en: 'Ops dashboard: median night response 6:12, false alarms 0',
+    zh: '事件摘要按权限同步至交接班与家属端',
+    en: 'The event summary is shared with shift handoff and family views by permission',
   },
 ];
 
@@ -105,8 +75,8 @@ export function HomeNightCare() {
         <div className="mt-16 overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula/40">
           <div className="border-b border-white/5 px-6 py-4 text-caption text-ink-400 md:px-10">
             {isZh
-              ? '一份真实夜班的事件流(示例)。同一份记录, 同时被老人、护理员、家属和管理者按各自的视角看到。'
-              : 'A sample event stream from one real night shift. The same record reaches the resident, staff, family and operations team -- each from their own view.'}
+              ? '夜间离床处置流程示例'
+              : 'Example nighttime bed-exit workflow'}
           </div>
 
           <ol className="divide-y divide-white/5">
@@ -133,11 +103,6 @@ export function HomeNightCare() {
             })}
           </ol>
 
-          <div className="border-t border-white/5 px-6 py-5 text-caption text-ink-400 md:px-10">
-            {isZh
-              ? '这一段不是 AI 控制设备的展示, 而是 AI 把传感器告警升级为空间事件, 并把响应、记录、交接、沟通做成一份可验收的闭环。'
-              : 'This is not a demo of AI controlling devices. It is AI lifting raw sensor alerts into spatial events, and turning response, record, handoff and communication into one acceptable loop.'}
-          </div>
         </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">

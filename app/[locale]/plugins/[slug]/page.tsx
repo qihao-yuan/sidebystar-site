@@ -1,17 +1,27 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { ArrowLeft, ArrowRight, Users } from 'lucide-react';
-import { GradientMesh } from '@/components/motion/GradientMesh';
-import { TextReveal } from '@/components/motion/TextReveal';
 import { Reveal } from '@/components/motion/Reveal';
 import { MagneticButton } from '@/components/motion/MagneticButton';
 import { buildMetadata } from '@/lib/seo';
-import { plugins, getPlugin, pluginStageLabel } from '@/content/plugins';
+import { plugins, getPlugin, pluginProfiles } from '@/content/plugins';
+
+const pluginHeroImages: Record<string, string> = {
+  'dawn-light': '/plugins/dawn-light-hero.jpg',
+  'fall-watch': '/plugins/fall-watch-hero.jpg',
+  'energy-keeper': '/plugins/energy-keeper-hero.jpg',
+  'matter-bridge': '/plugins/matter-bridge-hero.jpg',
+  'homeassistant-sync': '/plugins/homeassistant-sync-hero.jpg',
+  'concierge-script': '/plugins/concierge-script-hero.jpg',
+  'clinical-adapter': '/plugins/clinical-adapter-hero.jpg',
+  'auditable-voice': '/plugins/auditable-voice-hero.jpg',
+};
 
 export function generateStaticParams() {
-  return plugins.flatMap((p) => [
+  return plugins.filter((p) => p.stage !== 'roadmap').flatMap((p) => [
     { locale: 'zh-CN', slug: p.slug },
     { locale: 'en', slug: p.slug },
   ]);
@@ -24,7 +34,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   const p = getPlugin(slug);
-  if (!p) return {};
+  if (!p || p.stage === 'roadmap') return {};
   return buildMetadata({
     locale,
     path: `/plugins/${slug}`,
@@ -40,31 +50,40 @@ export default async function PluginStory({
 }) {
   const { locale, slug } = await params;
   const p = getPlugin(slug);
-  if (!p) notFound();
+  if (!p || p.stage === 'roadmap') notFound();
   setRequestLocale(locale);
   const isZh = locale === 'zh-CN';
   const t = await getTranslations('plugins');
-  const stageLabel = pluginStageLabel[p.stage];
-  const stageColor =
-    p.stage === 'ga'
-      ? 'border-brand-halo/30 bg-brand-halo/10 text-brand-halo'
-      : p.stage === 'beta'
-      ? 'border-state-warn/30 bg-state-warn/10 text-state-warn'
-      : 'border-white/10 bg-white/5 text-ink-400';
+  const profile = pluginProfiles[p.slug];
 
-  const related = plugins.filter((x) => x.slug !== p.slug && x.topic === p.topic).slice(0, 3);
+  const related = plugins
+    .filter((x) => x.slug !== p.slug && x.topic === p.topic && x.stage !== 'roadmap')
+    .slice(0, 3);
 
   return (
     <article>
-      {/* Hero */}
-      <section className="relative overflow-hidden pb-section pt-32">
-        <GradientMesh variant="soft" />
-        <div className="container-page relative">
+      <section className="relative flex min-h-[72vh] items-center overflow-hidden border-b border-white/[0.07]">
+        <div className="pointer-events-none absolute inset-0 lg:left-auto lg:w-[58%]">
+          <Image
+            src={pluginHeroImages[p.slug] ?? '/intelligence/hero-v2.jpg'}
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            className="object-cover opacity-55 lg:opacity-70"
+          />
+          <div className="absolute inset-0 bg-surface-void/55 lg:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-surface-void via-surface-void/55 to-surface-void/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface-void/80 via-transparent to-surface-void/25" />
+        </div>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(75,107,251,0.08),transparent_45%)]" />
+
+        <div className="container-page relative z-10 py-32">
           <Link href="/plugins" className="btn-link mb-8">
             <ArrowLeft size={14} /> {isZh ? '返回插件' : 'Back to plugins'}
           </Link>
-          <div className="flex flex-col gap-6">
-            <span className="eyebrow">{isZh ? '插件故事' : 'Plugin story'}</span>
+          <div className="flex max-w-3xl flex-col gap-6">
+            <span className="eyebrow">{isZh ? '插件详情' : 'Plugin details'}</span>
             <div className="flex flex-wrap items-center gap-5">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
                 <p.icon size={32} className="text-brand-halo" />
@@ -76,9 +95,6 @@ export default async function PluginStory({
                     <Users size={12} />
                     {p.kind === 'official' ? t('byOfficial') : t('byPartner')} · {isZh ? p.vendorZh : p.vendorEn}
                   </span>
-                  <span className={`whitespace-nowrap rounded-full border px-2 py-0.5 uppercase tracking-wide ${stageColor}`}>
-                    {isZh ? stageLabel.zh : stageLabel.en}
-                  </span>
                 </div>
               </div>
             </div>
@@ -87,25 +103,24 @@ export default async function PluginStory({
         </div>
       </section>
 
-      {/* Story */}
       <section className="py-section">
         <div className="container-page">
           <div className="grid gap-12 lg:grid-cols-[6fr_6fr] lg:items-start">
             <div>
               <Reveal>
-                <span className="eyebrow">01 · {isZh ? '它为空间做了什么' : 'What it does for the space'}</span>
+                <span className="eyebrow">01 · {isZh ? '功能范围' : 'Function scope'}</span>
               </Reveal>
               <p className="mt-6 text-body-lg text-ink-200">{isZh ? p.storyZh : p.storyEn}</p>
               <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
                 <div className="text-caption uppercase tracking-wide text-ink-500">
-                  {isZh ? '它真正带来的改变' : 'The real change'}
+                  {isZh ? '输出结果' : 'Output'}
                 </div>
                 <p className="mt-3 text-body-lg text-white">{isZh ? p.outcomeZh : p.outcomeEn}</p>
               </div>
             </div>
             <div>
               <Reveal delay={120}>
-                <span className="eyebrow">02 · {isZh ? '三件小事' : 'Three small things'}</span>
+                <span className="eyebrow">02 · {isZh ? '主要能力' : 'Key capabilities'}</span>
               </Reveal>
               <div className="mt-6 grid gap-3">
                 {p.highlights.map((h, i) => (
@@ -123,6 +138,111 @@ export default async function PluginStory({
           </div>
         </div>
       </section>
+
+      {profile ? (
+        <section className="border-y border-white/5 bg-white/[0.015] py-section">
+          <div className="container-page">
+            <Reveal>
+              <span className="eyebrow">03 · {isZh ? '部署与边界' : 'Deployment and boundaries'}</span>
+              <h2 className="mt-4 text-display-lg text-white">
+                {isZh ? '上线前需要确认的条件' : 'Conditions to confirm before deployment'}
+              </h2>
+            </Reveal>
+
+            <div className="mt-10 grid gap-8 lg:grid-cols-[7fr_5fr]">
+              <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
+                {[
+                  [isZh ? '运行位置' : 'Runtime', isZh ? profile.deployment.zh : profile.deployment.en],
+                  [isZh ? '接入前提' : 'Prerequisites', isZh ? profile.prerequisites.zh : profile.prerequisites.en],
+                  [isZh ? '能力边界' : 'Boundary', isZh ? profile.boundary.zh : profile.boundary.en],
+                ].map(([label, value]) => (
+                  <div key={label} className="grid gap-2 bg-surface-void p-6 md:grid-cols-[8rem_1fr]">
+                    <div className="text-caption uppercase tracking-wide text-ink-500">{label}</div>
+                    <p className="text-body text-ink-200">{value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                <div className="text-caption uppercase tracking-wide text-ink-500">
+                  {isZh ? '实施步骤' : 'Implementation'}
+                </div>
+                <ol className="mt-5 space-y-5">
+                  {profile.operations.map((item, i) => (
+                    <li key={i} className="grid grid-cols-[2rem_1fr] gap-3">
+                      <span className="font-mono text-caption text-brand-halo">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="text-body text-ink-200">{isZh ? item.zh : item.en}</span>
+                    </li>
+                  ))}
+                </ol>
+                <div className="mt-6 border-t border-white/10 pt-5">
+                  <div className="text-caption uppercase tracking-wide text-ink-500">
+                    {isZh ? '适用产品' : 'Supported products'}
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {profile.products.map((product) => (
+                      <span key={product} className="rounded-full border border-white/10 px-3 py-1 text-caption text-ink-200">
+                        {product}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {p.manifest ? (
+        <section className="py-section">
+          <div className="container-page">
+            <Reveal>
+              <span className="eyebrow">04 · {isZh ? '权限与接口' : 'Permissions and interfaces'}</span>
+              <h2 className="mt-4 text-display-lg text-white">
+                {isZh ? '安装时明确申请的权限' : 'Permissions declared at installation'}
+              </h2>
+              <p className="mt-4 max-w-3xl text-body text-ink-300">
+                {isZh
+                  ? '插件只能访问清单中声明的资源。权限变化需要重新审核，动作调用写入现场记录。'
+                  : 'The plugin can access only declared resources. Permission changes require review, and actions are recorded on site.'}
+              </p>
+            </Reveal>
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-[5fr_7fr]">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                <div className="text-caption uppercase tracking-wide text-ink-500">
+                  {isZh ? '权限范围' : 'Permission scope'}
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {p.manifest.permissions.map((permission) => (
+                    <code key={permission} className="rounded border border-white/10 bg-black/20 px-2.5 py-1.5 text-caption text-ink-200">
+                      {permission}
+                    </code>
+                  ))}
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/10">
+                <div className="grid grid-cols-[7rem_1fr] border-b border-white/10 bg-white/[0.03] px-5 py-3 text-caption uppercase tracking-wide text-ink-500">
+                  <span>{isZh ? '类型' : 'Type'}</span>
+                  <span>{isZh ? '接口说明' : 'Interface'}</span>
+                </div>
+                {p.manifest.capabilities.map((capability) => (
+                  <div key={`cap-${capability.kind}`} className="grid grid-cols-[7rem_1fr] border-b border-white/10 px-5 py-4 last:border-b-0">
+                    <code className="text-caption text-brand-halo">{capability.kind}</code>
+                    <span className="text-body text-ink-200">{isZh ? capability.descZh : capability.descEn}</span>
+                  </div>
+                ))}
+                {p.manifest.actions.map((action) => (
+                  <div key={action.id} className="grid grid-cols-[7rem_1fr] border-b border-white/10 px-5 py-4 last:border-b-0">
+                    <code className="text-caption text-brand-halo">{action.id}</code>
+                    <span className="text-body text-ink-200">{isZh ? action.descZh : action.descEn}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* Related + dev link */}
       <section className="py-section-lg">
@@ -149,15 +269,15 @@ export default async function PluginStory({
 
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula p-8">
               <div className="text-caption uppercase tracking-wide text-ink-500">
-                {isZh ? '面向开发者' : 'For developers'}
+                {isZh ? '开发资料' : 'Developer resources'}
               </div>
               <h3 className="mt-3 text-display-sm text-white">
-                {isZh ? 'Manifest　与安装命令' : 'Looking for the manifest and install?'}
+                {isZh ? 'Manifest 与安装说明' : 'Manifest and installation'}
               </h3>
               <p className="mt-3 text-body text-ink-300">
                 {isZh
-                  ? '权限、能力、动作、安装命令都在开发者中心。'
-                  : 'Permissions, capabilities, actions, install commands -- all in the developer center.'}
+                  ? '查看权限范围、能力声明、动作接口和安装命令。'
+                  : 'Review permission scope, capability declarations, actions and installation commands.'}
               </p>
               <div className="mt-6">
                 {p.manifest ? (

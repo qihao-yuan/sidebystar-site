@@ -21,13 +21,11 @@ const staticPaths = [
   '/developers',
   '/developers/docs',
   '/developers/api',
-  '/developers/hardware',
   '/developers/plugins',
   '/cases',
   '/pilot',
   '/contact',
   '/company/about',
-  '/company/team',
   '/company/partners',
   '/privacy',
 ];
@@ -59,6 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
     for (const p of plugins) {
+      if (p.stage === 'roadmap') continue;
       entries.push({
         url: `${siteUrl}/${locale}/plugins/${p.slug}`,
         changeFrequency: 'monthly',
