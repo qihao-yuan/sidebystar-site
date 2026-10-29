@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
 import { pluginVisuals, visuals } from '@/content/product-visuals';
+import { getPackageName } from '@/content/product-names';
 import { Link } from '@/i18n/routing';
 import { ArrowLeft, ArrowRight, Users } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
@@ -180,7 +181,7 @@ export default async function PluginStory({
                   <div className="mt-3 flex flex-wrap gap-2">
                     {profile.products.map((product) => (
                       <span key={product} className="rounded-full border border-white/10 px-3 py-1 text-caption text-ink-200">
-                        {product}
+                        {getPackageName(product,locale)}
                       </span>
                     ))}
                   </div>

@@ -7,6 +7,7 @@ import { Reveal } from '@/components/motion/Reveal';
 import { MagneticButton } from '@/components/motion/MagneticButton';
 import { HomeCTA } from '@/components/home/HomeCTA';
 import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { getPackageName } from '@/content/product-names';
 import { buildMetadata } from '@/lib/seo';
 import { family, type FamilyRole } from '@/content/family';
 import { visuals, type VisualAsset } from '@/content/product-visuals';
@@ -60,13 +61,16 @@ export default async function SystemPage({
             </h1>
             <Reveal delay={200}>
               <p className="mt-6 max-w-2xl text-body-lg text-ink-300">{t('hero.subtitle')}</p>
+              <MagneticButton href="/products#series" variant="ghost" className="mt-6">
+                {isZh ? '查看七大产品系列' : 'Explore the seven product series'} <ArrowRight size={16} />
+              </MagneticButton>
             </Reveal>
           </div>
           <Reveal delay={120}>
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#171b20] p-6 md:p-8">
               <div className="pointer-events-none absolute inset-0 grid-faint opacity-25" />
               <div className="relative text-caption uppercase tracking-[0.16em] text-ink-500">
-                {isZh ? '系统构成' : 'System composition'}
+                {isZh ? '五种协作角色' : 'Five functional roles'}
               </div>
               <div className="relative mt-6 grid gap-3 sm:grid-cols-5 lg:grid-cols-1 xl:grid-cols-5">
                 {family.map((item) => (
@@ -112,7 +116,7 @@ export default async function SystemPage({
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
                       <f.icon size={22} className="text-brand-halo" />
                     </div>
-                    <span className="eyebrow">{`${isZh ? '组成' : 'Component'} 0${f.order}`}</span>
+                    <span className="eyebrow">{`${isZh ? '功能' : 'Function'} 0${f.order}`}</span>
                   </div>
                 </Reveal>
                 <h2 className="mt-6 text-display-xl text-white">{isZh ? f.nameZh : f.nameEn}</h2>
@@ -122,7 +126,7 @@ export default async function SystemPage({
                     {isZh ? '可评估配置 · ' : 'Configuration options · '}
                     {f.bundledIn
                       .map((sku) =>
-                        sku === 'home-box' ? 'Home Box' : sku === 'community-kit' ? 'Community Kit' : 'Enterprise Stack',
+                        getPackageName(sku, locale),
                       )
                       .join(' / ')}
                   </p>

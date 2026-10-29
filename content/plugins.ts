@@ -9,6 +9,7 @@ import {
   Mic2,
   type LucideIcon,
 } from 'lucide-react';
+import type { SkuSlug } from './products';
 
 export type PluginKind = 'official' | 'partner';
 // stage 含义: 'ga' = 已发布可用, 任何普通用户可装可跑;
@@ -48,7 +49,7 @@ export type Plugin = {
 };
 
 export type PluginProfile = {
-  products: string[];
+  products: SkuSlug[];
   deployment: { zh: string; en: string };
   prerequisites: { zh: string; en: string };
   boundary: { zh: string; en: string };
@@ -339,7 +340,7 @@ export function getPlugin(slug: string) {
 
 export const pluginProfiles: Record<string, PluginProfile> = {
   'dawn-light': {
-    products: ['Home Box', 'Community Kit'],
+    products: ['home-box', 'community-kit'],
     deployment: {
       zh: '安装在现场节点，规则按房间保存；照明控制不依赖公网。',
       en: 'Installed on the on-site node with room-scoped rules; lighting control does not require the public internet.',
@@ -359,7 +360,7 @@ export const pluginProfiles: Record<string, PluginProfile> = {
     ],
   },
   'fall-watch': {
-    products: ['Community Kit', 'Enterprise Stack'],
+    products: ['community-kit', 'enterprise-stack'],
     deployment: {
       zh: '部署在机构内网的房间节点与楼层网关，事件在现场完成识别和分级。',
       en: 'Runs on room nodes and floor gateways inside the facility network; events are classified on site.',
@@ -379,7 +380,7 @@ export const pluginProfiles: Record<string, PluginProfile> = {
     ],
   },
   'energy-keeper': {
-    products: ['Home Box', 'Community Kit', 'Enterprise Stack'],
+    products: ['home-box', 'community-kit', 'enterprise-stack'],
     deployment: {
       zh: '在现场节点汇总设备状态与分项能耗，按已批准策略调整运行计划。',
       en: 'Aggregates device state and sub-metering on site, then adjusts schedules under approved policies.',
@@ -399,7 +400,7 @@ export const pluginProfiles: Record<string, PluginProfile> = {
     ],
   },
   'matter-bridge': {
-    products: ['Home Box', 'Community Kit'],
+    products: ['home-box', 'community-kit'],
     deployment: {
       zh: '作为现场协议适配器运行，将已验证设备映射到 AIOS 统一实体。',
       en: 'Runs as an on-site protocol adapter and maps verified devices into AIOS entities.',
@@ -419,7 +420,7 @@ export const pluginProfiles: Record<string, PluginProfile> = {
     ],
   },
   'homeassistant-sync': {
-    products: ['Home Box', 'Community Kit'],
+    products: ['home-box', 'community-kit'],
     deployment: {
       zh: '通过局域网连接既有 Home Assistant，分阶段同步实体、区域和自动化。',
       en: 'Connects to an existing Home Assistant instance over the LAN and migrates entities, areas and automations in stages.',
@@ -439,7 +440,7 @@ export const pluginProfiles: Record<string, PluginProfile> = {
     ],
   },
   'concierge-script': {
-    products: ['Community Kit', 'Enterprise Stack'],
+    products: ['community-kit', 'enterprise-stack'],
     deployment: {
       zh: '按房间运行入住、在住和退房规则，可与 PMS 或现场工单系统对接。',
       en: 'Runs per-room check-in, occupied and checkout rules with optional PMS or ticket integration.',
@@ -459,7 +460,7 @@ export const pluginProfiles: Record<string, PluginProfile> = {
     ],
   },
   'clinical-adapter': {
-    products: ['Enterprise Stack'],
+    products: ['enterprise-stack'],
     deployment: {
       zh: '部署在院内网络，通过项目接口连接 HIS、电子病历或护理工单系统。',
       en: 'Deployed inside the hospital network with project-defined interfaces to HIS, EMR or nursing tickets.',
@@ -479,7 +480,7 @@ export const pluginProfiles: Record<string, PluginProfile> = {
     ],
   },
   'auditable-voice': {
-    products: ['Home Box', 'Community Kit', 'Enterprise Stack'],
+    products: ['home-box', 'community-kit', 'enterprise-stack'],
     deployment: {
       zh: '规划在现场节点生成语音指令结构化记录。',
       en: 'Planned to create structured voice-command records on the on-site node.',

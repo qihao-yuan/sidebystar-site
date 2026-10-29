@@ -3,6 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { skus } from '@/content/products';
 import { Reveal } from '@/components/motion/Reveal';
+import { getPackageName } from '@/content/product-names';
 
 export function SkuCompare() {
   const t = useTranslations('products');
@@ -57,8 +58,8 @@ export function SkuCompare() {
           </h2>
           <p className="mt-3 max-w-2xl text-body text-ink-300">
             {isZh
-              ? '三种名称用于组织方案，计算主机与配套设备按任务、现场和验证结果确定。'
-              : 'These names organize solution packages. Compute and equipment follow the task, site and validation results.'}
+              ? '三种居护配置按使用范围组织产品与服务，具体系列、配套设备和安装范围按任务、现场与验证结果确定。'
+              : 'These Home & Care configurations organize products and services by scope. The series, equipment and installation follow the task, site and validation results.'}
           </p>
         </Reveal>
 
@@ -69,7 +70,7 @@ export function SkuCompare() {
                 <th className="px-6 py-4 font-medium"></th>
                 {skus.map((s) => (
                   <th key={s.slug} className="px-6 py-4 font-medium text-white">
-                    {t(`${s.i18nKey}.name`)}
+                    {getPackageName(s.slug, locale)}
                     <div className="mt-1 text-caption normal-case tracking-normal text-ink-400">{t(`${s.i18nKey}.tag`)}</div>
                   </th>
                 ))}

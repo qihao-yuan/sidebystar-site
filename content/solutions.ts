@@ -1,3 +1,4 @@
+import { getPackageName, getSeriesName } from './product-names';
 import {
   HeartPulse,
   Building2,
@@ -100,8 +101,8 @@ export const solutions: Solution[] = [
       }
     },
     "sku": {
-      "zh": "AIOS Care 项目配置",
-      "en": "AIOS Care project configuration"
+      "zh": getSeriesName('care','zh-CN') + ' · 项目配置',
+      "en": getSeriesName('care','en') + ' · Project configuration'
     },
     "bundle": {
       "headline": {
@@ -110,12 +111,12 @@ export const solutions: Solution[] = [
       },
       "items": [
         {
-          "zh": "助手软件与照护事项记录",
-          "en": "Assistant software and care task records"
+          "zh": "循星 AIOS与照护事项记录",
+          "en": "SidebyStar AIOS and care task records"
         },
         {
-          "zh": "家庭主机及毫米波节点设计方向",
-          "en": "Household host and mmWave node design"
+          "zh": "循星·中枢及循星·穹感设计方向",
+          "en": "SidebyStar Hub and mmWave node design"
         },
         {
           "zh": "原厂床旁操作与测量设备选配",
@@ -127,8 +128,8 @@ export const solutions: Solution[] = [
         }
       ],
       "rhythm": {
-        "zh": "目前可查看助手软件操作；感知、通知和设备联动按样机与现场测试确认，不替代人工照护。",
-        "en": "The assistant software is shown in use. Sensing, notifications and device actions require prototype and site testing; care remains a human responsibility."
+        "zh": "目前可查看循星 AIOS操作；感知、通知和设备联动按样机与现场测试确认，不替代人工照护。",
+        "en": "SidebyStar AIOS is shown in use. Sensing, notifications and device actions require prototype and site testing; care remains a human responsibility."
       }
     }
   },
@@ -178,8 +179,8 @@ export const solutions: Solution[] = [
       }
     },
     "sku": {
-      "zh": "AIOS Care 项目配置",
-      "en": "AIOS Care project configuration"
+      "zh": getSeriesName('care','zh-CN') + ' · 项目配置',
+      "en": getSeriesName('care','en') + ' · Project configuration'
     },
     "bundle": {
       "headline": {
@@ -192,8 +193,8 @@ export const solutions: Solution[] = [
           "en": "Scope assessment and site survey"
         },
         {
-          "zh": "助手、事项记录与主机配置",
-          "en": "Assistant, task records and host configuration"
+          "zh": "循星 AIOS、事项记录与循星·中枢配置",
+          "en": "SidebyStar AIOS, task records and SidebyStar Hub configuration"
         },
         {
           "zh": "按户选择的感知与交互设备",
@@ -256,8 +257,8 @@ export const solutions: Solution[] = [
       }
     },
     "sku": {
-      "zh": "AIOS Care 项目配置",
-      "en": "AIOS Care project configuration"
+      "zh": getSeriesName('care','zh-CN') + ' · 项目配置',
+      "en": getSeriesName('care','en') + ' · Project configuration'
     },
     "bundle": {
       "headline": {
@@ -270,8 +271,8 @@ export const solutions: Solution[] = [
           "en": "Workflow and interface assessment"
         },
         {
-          "zh": "助手事项管理与项目部署配置",
-          "en": "Assistant task management and project deployment"
+          "zh": "循星 AIOS事项管理与项目部署配置",
+          "en": "SidebyStar AIOS task management and project deployment"
         },
         {
           "zh": "原厂测量设备选配",
@@ -334,13 +335,13 @@ export const solutions: Solution[] = [
       }
     },
     "sku": {
-      "zh": "Home Box 家庭配置",
-      "en": "Home Box household configuration"
+      "zh": getPackageName('home-box','zh-CN'),
+      "en": getPackageName('home-box','en')
     },
     "bundle": {
       "headline": {
-        "zh": "助手软件、家庭主机与按需选择的房间终端",
-        "en": "Assistant software, household host and selected room devices"
+        "zh": "循星 AIOS与所需产品系列、原厂配套及安装服务",
+        "en": "SidebyStar AIOS, selected product series, manufacturer options and installation services"
       },
       "items": [
         {
@@ -348,12 +349,12 @@ export const solutions: Solution[] = [
           "en": "Remember and retrieve, prepare and follow through, adjust suggestions"
         },
         {
-          "zh": "家庭计算主机与显示入口配置",
-          "en": "Household compute and display configuration"
+          "zh": getSeriesName('hub','zh-CN') + '与' + getSeriesName('display','zh-CN') + '适配方向',
+          "en": getSeriesName('hub','en') + ' and ' + getSeriesName('display','en') + ' integration direction'
         },
         {
-          "zh": "水浸、声学与毫米波节点设计方向",
-          "en": "Water-contact, acoustic and mmWave node designs"
+          "zh": getSeriesName('discreet','zh-CN') + '水浸、声学产品与' + getSeriesName('ceiling','zh-CN') + '毫米波产品方向',
+          "en": "SidebyStar Sense water-contact and acoustic products, and SidebyStar Ceiling Sense mmWave products"
         },
         {
           "zh": "原厂门口、窗帘与床旁设备选配及适配服务",
@@ -412,8 +413,8 @@ export const solutions: Solution[] = [
       }
     },
     "sku": {
-      "zh": "Home Box 家庭配置",
-      "en": "Home Box household configuration"
+      "zh": getPackageName('home-box','zh-CN'),
+      "en": getPackageName('home-box','en')
     },
     "bundle": {
       "headline": {
@@ -422,12 +423,12 @@ export const solutions: Solution[] = [
       },
       "items": [
         {
-          "zh": "助手软件与房间事项配置",
-          "en": "Assistant software and room task setup"
+          "zh": "循星 AIOS与房间事项配置",
+          "en": "SidebyStar AIOS and room task setup"
         },
         {
-          "zh": "主机、HDMI 显示与操作方式评估",
-          "en": "Host, HDMI display and control assessment"
+          "zh": "循星·中枢、HDMI 显示与操作方式评估",
+          "en": "SidebyStar Hub, HDMI display and control assessment"
         },
         {
           "zh": "窗帘、门口及床旁原厂设备选配",

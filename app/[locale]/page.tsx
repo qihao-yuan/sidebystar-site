@@ -7,6 +7,7 @@ import { HomePlatform } from '@/components/home/HomePlatform';
 import { HomeCTA } from '@/components/home/HomeCTA';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
+import { systemName } from '@/content/product-names';
 
 export async function generateMetadata({
   params,
@@ -19,12 +20,12 @@ export async function generateMetadata({
     path: '/',
     title:
       locale === 'zh-CN'
-        ? '循星科技 AIOS · 个人生活助手与家庭设备协同系统'
-        : 'SidebyStar AIOS · Personal Life Assistant and Connected Living',
+        ? `${systemName(locale)} · 个人生活助手与产品家族`
+        : `${systemName(locale)} · Personal life assistant and product family`,
     description:
       locale === 'zh-CN'
-        ? '了解AIOS助手软件、本地计算主机、房间终端和原厂设备选配，查看实际软件操作、生活情境影片与产品手册。'
-        : 'Explore AIOS assistant software, local compute, room devices and original-manufacturer options through software recordings, concept stories and the product handbook.',
+        ? `了解${systemName(locale)}与七大产品系列，查看实际操作、原厂选配、生活情境影片与产品手册。`
+        : `Explore ${systemName(locale)} and its seven product series through actual operation recordings, manufacturer options, concept stories and the product handbook.`,
   });
 }
 

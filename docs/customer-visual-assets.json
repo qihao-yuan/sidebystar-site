@@ -7,7 +7,8 @@
     "selection": "Choose the matching visual id for the device or use. Add or revise the registry entry instead of adding a page-specific image URL.",
     "identity": "Keep self-developed designs, original-manufacturer options, software screenshots and lifestyle scenes distinct.",
     "panels": "OEM bedside, entrance and curtain panels share one source image. Preserve each complete portrait panel inside the page frame; do not zoom or vertically crop the device.",
-    "retirement": "Old device imagery remains in repository history or unused public files. It is not an active product source."
+    "retirement": "Old device imagery remains in repository history or unused public files. It is not an active product source.",
+    "naming": "Use the formal family and model labels from product-names.ts. Product names belong in the page caption; enclosure artwork retains only its recessed graphic emblem."
   },
   "appearance": {
     "palette": "Cold white, pale silver and a restrained ice-blue status point",
@@ -16,12 +17,36 @@
     "interfaces": "Show interfaces required by the device. Do not add USB, Ethernet or HDMI to a wireless sensing enclosure for decoration."
   },
   "product_assets": [
-    {"id": "family", "url": "/customer/V20/images/family_studio.png", "sha256": "c94ba07ceb000faa31ecbd17ed34f3b2b7f4c1cc4353b728739928b89d4167cb"},
-    {"id": "host", "url": "/customer/V20/images/host_desk.png", "sha256": "c80c7a70abdef54024b4087c7f6568be32112b7e03b72b207999f56850bd477c"},
-    {"id": "water", "url": "/customer/V20/images/kitchen_water.png", "sha256": "2e6c5798f6363f69987b2a845bef4ec1a1c91dcd31b413256566927ac7648b26"},
-    {"id": "presence", "url": "/customer/V20/images/bathroom_presence.png", "sha256": "6bbdf375c6697931a5307eeb50a62f73bdc3f4c7d4308a2a70db42600ad3cf6e"},
-    {"id": "acoustic", "url": "/customer/V22/images/acoustic_studio.png", "sha256": "911065fe8a75446002c727502dbad1c584c5d3c2589705b3d90eda8c1ec3927c"},
-    {"id": "options", "url": "/customer/V20/images/extension_scenes.png", "sha256": "7c821fd1dc99090dd893a8591c1042a9cca9418645fa355a9de850ae11814569"}
+    {
+      "id": "family",
+      "url": "/customer/V20/images/family_studio.png",
+      "sha256": "c94ba07ceb000faa31ecbd17ed34f3b2b7f4c1cc4353b728739928b89d4167cb"
+    },
+    {
+      "id": "host",
+      "url": "/customer/V20/images/host_desk.png",
+      "sha256": "c80c7a70abdef54024b4087c7f6568be32112b7e03b72b207999f56850bd477c"
+    },
+    {
+      "id": "water",
+      "url": "/customer/V20/images/kitchen_water.png",
+      "sha256": "2e6c5798f6363f69987b2a845bef4ec1a1c91dcd31b413256566927ac7648b26"
+    },
+    {
+      "id": "presence",
+      "url": "/customer/V20/images/bathroom_presence.png",
+      "sha256": "6bbdf375c6697931a5307eeb50a62f73bdc3f4c7d4308a2a70db42600ad3cf6e"
+    },
+    {
+      "id": "acoustic",
+      "url": "/customer/V22/images/acoustic_studio.png",
+      "sha256": "911065fe8a75446002c727502dbad1c584c5d3c2589705b3d90eda8c1ec3927c"
+    },
+    {
+      "id": "options",
+      "url": "/customer/V20/images/extension_scenes.png",
+      "sha256": "7c821fd1dc99090dd893a8591c1042a9cca9418645fa355a9de850ae11814569"
+    }
   ],
   "provenance": {
     "company_asset_root": "R:/XX_AIOS/docs/hardware/modeling/expansion/V22_product_visual_unification",
@@ -36,5 +61,7 @@
     "manufactured_sample_claimed": false,
     "hardware_integration_proven_by_images": false,
     "server_deployment": "Performed by the website owner after GitHub upload"
-  }
+  },
+  "naming_registry": "content/product-naming.json",
+  "naming_helpers": "content/product-names.ts"
 }

@@ -5,6 +5,7 @@ import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Reveal } from '@/components/motion/Reveal';
 import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
 import { visuals } from '@/content/product-visuals';
+import { getSeriesName } from '@/content/product-names';
 import { ArrowUpRight } from 'lucide-react';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -36,7 +37,7 @@ export default async function SolutionsIndex({ params }: { params: Promise<{ loc
 
         <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-3">
           {[
-            [locale === 'zh-CN' ? '当前产品线' : 'Product lines', 'AIOS Care / AIOS Home'],
+            [locale === 'zh-CN' ? '空间配置' : 'Space configurations', `${getSeriesName('care', locale)} · ${locale === 'zh-CN' ? '家庭与照护' : 'Home and care'}`],
             [locale === 'zh-CN' ? '部署方式' : 'Deployment', locale === 'zh-CN' ? '现场部署 · 本地运行' : 'On-site · Local runtime'],
             [locale === 'zh-CN' ? '交付起点' : 'Starting scope', locale === 'zh-CN' ? '单户 · 单楼层 · 单病区' : 'Home · Floor · Ward'],
           ].map(([label, value]) => (

@@ -1,5 +1,6 @@
 // Shared visual source for every product-bearing page. Reuse these approved forms;
 // room scenes and original-manufacturer options retain their own identities.
+import { productLabel } from '@/content/product-names';
 export type VisualAsset = {
   id: string;
   src: string;
@@ -25,11 +26,11 @@ export const visuals: Record<
   'memory' | 'task' | 'choice' | 'routines' | 'awareness' | 'orchestration' | 'community',
   VisualAsset
 > = {
-  family: { id: 'family', src: customerImages.family, kind: 'product-design', fit: 'contain', alt: { zh: '家庭计算主机与三种不同用途的无线节点设计效果', en: 'Design visualization of the household host and three distinct wireless sensing devices' } },
-  host: { id: 'host', src: customerImages.host, kind: 'product-design', alt: { zh: '冷白浅银家庭计算主机的桌面设计效果', en: 'Desktop design visualization of the cold-white and pale-silver household host' } },
-  water: { id: 'water', src: customerImages.kitchen, kind: 'product-design', alt: { zh: '橱柜低位电池水浸节点的安装设计效果', en: 'Installation design of the battery-powered water-contact node at the base of a cabinet' } },
-  presence: { id: 'presence', src: customerImages.bathroom, kind: 'product-design', alt: { zh: '相邻干区吸顶薄圆盘毫米波节点的安装设计效果', en: 'Installation design of the flat ceiling mmWave node in an adjacent dry area' } },
-  acoustic: { id: 'acoustic', src: customerImages.acoustic, kind: 'product-design', fit: 'contain', alt: { zh: '冷白窄条声学节点设计效果，短端为拾音微孔', en: 'Design visualization of the cold-white acoustic bar with small microphone openings at its short end' } },
+  family: { id: 'family', src: customerImages.family, kind: 'product-design', fit: 'contain', alt: { zh: '循星·中枢、隐感与穹感产品家族设计效果', en: 'Design visualization of the SidebyStar Hub, Sense and Ceiling Sense product families' } },
+  host: { id: 'host', src: customerImages.host, kind: 'product-design', alt: { zh: `${productLabel('SBS-C01').zh}桌面设计效果`, en: `Desktop design visualization of ${productLabel('SBS-C01').en}` } },
+  water: { id: 'water', src: customerImages.kitchen, kind: 'product-design', alt: { zh: `${productLabel('SBS-S04').zh}橱柜低位安装设计效果`, en: `Cabinet-base installation design of ${productLabel('SBS-S04').en}` } },
+  presence: { id: 'presence', src: customerImages.bathroom, kind: 'product-design', alt: { zh: `${productLabel('SBS-S09').zh}相邻干区吸顶安装设计效果`, en: `Ceiling installation design of ${productLabel('SBS-S09').en} in an adjacent dry area` } },
+  acoustic: { id: 'acoustic', src: customerImages.acoustic, kind: 'product-design', fit: 'contain', alt: { zh: `${productLabel('SBS-S05').zh}设计效果，短端为拾音微孔`, en: `Design visualization of ${productLabel('SBS-S05').en} with microphone openings at the short end` } },
   options: { id: 'options', src: customerImages.extensions, kind: 'oem-installation', fit: 'contain', alt: { zh: '原厂床旁测量、门口设备和窗帘系统的选配安装示意', en: 'Installation illustration of original-manufacturer bedside, entrance and curtain options' } },
   // The three panels come from one approved OEM illustration, without a self-developed logo.
   bedside: { id: 'bedside', src: customerImages.extensions, kind: 'oem-installation', panel: 0, alt: { zh: '原厂床旁血压测量设备选配安装示意，非循星自研医疗器械', en: 'Installation illustration of an original-manufacturer bedside blood-pressure option, not a SidebyStar medical device' } },

@@ -4,6 +4,7 @@ import { Reveal } from '@/components/motion/Reveal';
 import { MagneticButton } from '@/components/motion/MagneticButton';
 import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
 import { visuals } from '@/content/product-visuals';
+import { getSeriesName } from '@/content/product-names';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 
@@ -90,7 +91,7 @@ export default async function IntelligencePage({
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10">
                 <UnifiedVisualImage visual={visuals.host} locale={locale} sizes="(min-width: 1024px) 50vw, 100vw" priority />
               </div>
-              <p className="mt-3 text-caption text-ink-400">{locale === 'zh-CN' ? '家庭主机设计效果' : 'Household host design visualization'}</p>
+              <p className="mt-3 text-caption text-ink-400">{getSeriesName('hub',locale)} · {locale === 'zh-CN' ? '设计效果' : 'Design visualization'}</p>
             </Reveal>
           </div>
         </div>
@@ -117,7 +118,7 @@ export default async function IntelligencePage({
                 <div className="relative aspect-square overflow-hidden rounded-xl border border-white/10">
                   <UnifiedVisualImage visual={group.visual} locale={locale} sizes="(min-width: 1024px) 46vw, 100vw" />
                 </div>
-                {group.key === 'local' ? <p className="mt-3 text-caption text-ink-400">{locale === 'zh-CN' ? '家庭主机设计效果' : 'Household host design visualization'}</p> : null}
+                {group.key === 'local' ? <p className="mt-3 text-caption text-ink-400">{getSeriesName('hub',locale)} · {locale === 'zh-CN' ? '设计效果' : 'Design visualization'}</p> : null}
               </Reveal>
               <div className={index % 2 === 1 ? 'lg:order-1' : undefined}>
                 <span className="font-mono text-caption text-ink-500">

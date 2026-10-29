@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Reveal } from '@/components/motion/Reveal';
 import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { getSeriesName, systemName } from '@/content/product-names';
 import { visuals } from '@/content/product-visuals';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -21,7 +22,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   const facts = [
     { labelZh: '所在地', labelEn: 'Based in', valueZh: '杭州 · 萧山', valueEn: 'Xiaoshan, Hangzhou' },
-    { labelZh: '产品线', labelEn: 'Product lines', valueZh: 'AIOS Care / AIOS Home', valueEn: 'AIOS Care / AIOS Home' },
+    { labelZh: '产品体系', labelEn: 'Product system', valueZh: systemName('zh-CN') + ' · 七大产品系列', valueEn: systemName('en') + ' · Seven product series' },
     { labelZh: '部署方式', labelEn: 'Deployment', valueZh: '本地设备与私有化部署', valueEn: 'Local devices and on-premises' },
     { labelZh: '服务对象', labelEn: 'For', valueZh: '家庭、照护机构与集成伙伴', valueEn: 'Homes, care sites and integrators' },
   ];
@@ -70,7 +71,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/[0.08]">
               <UnifiedVisualImage visual={visuals.host} locale={locale} sizes="(min-width: 1024px) 58vw, 100vw" />
             </div>
-            <p className="mt-3 text-caption text-ink-500">{isZh ? '家庭主机设计效果图' : 'Home host design visual'}</p>
+            <p className="mt-3 text-caption text-ink-500">{getSeriesName('hub',locale)} · {isZh ? '设计效果图' : 'Design visualization'}</p>
           </Reveal>
         </div>
       </section>

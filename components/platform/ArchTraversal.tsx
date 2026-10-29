@@ -3,6 +3,7 @@
 import { Eye, Brain, Sparkles, Scale, Share2 } from 'lucide-react';
 import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
 import { platformVisuals } from '@/content/product-visuals';
+import { getSeriesName } from '@/content/product-names';
 import { ScrollPinSection } from '@/components/motion/ScrollPinSection';
 import { cn } from '@/lib/cn';
 import { useLocale } from 'next-intl';
@@ -15,7 +16,7 @@ export function ArchTraversal() {
     {
       icon: Eye,
       visual: platformVisuals[0],
-      caption: isZh ? '毫米波节点设计效果' : 'mmWave node design visualization',
+      caption: getSeriesName('ceiling',locale) + (isZh ? ' · 设计效果' : ' · Design visualization'),
       eyebrow: 'Stage 01',
       title: isZh ? '输入 Input' : 'Input',
       body: isZh
@@ -67,7 +68,7 @@ export function ArchTraversal() {
     {
       icon: Share2,
       visual: platformVisuals[4],
-      caption: isZh ? '家庭主机设计效果' : 'Household host design visualization',
+      caption: getSeriesName('hub',locale) + (isZh ? ' · 设计效果' : ' · Design visualization'),
       eyebrow: 'Stage 05',
       title: isZh ? '分发 Distribution' : 'Distribution',
       body: isZh

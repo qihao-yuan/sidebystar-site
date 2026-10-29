@@ -28,8 +28,8 @@
     "hero": {
       "eyebrow": "AIOS · People and spaces",
       "title": "A personal life assistant",
-      "subtitle": "Assistant software, a household host and room devices. Save what you share, prepare practical checklists and follow up on tasks and reminders, with equipment configured for the actual use.",
-      "footnote": "AIOS Home | Individuals and households · AIOS Care | Care environments",
+      "subtitle": "SidebyStar AIOS and its seven product series help keep records, prepare checklists and follow tasks and reminders. Products and installation are configured for the actual use.",
+      "footnote": "SidebyStar AIOS | Individuals and households · SidebyStar Home & Care | Care configurations",
       "ctaPrimary": "See the software in use",
       "ctaSecondary": "Explore product configurations",
       "scrollHint": "See the product system"
@@ -49,29 +49,29 @@
       "col3Body": "An intelligence grown for you, your family, your space -- no one else."
     },
     "lines": {
-      "eyebrow": "Two Lines, One Hub",
+      "eyebrow": "Configuration directions",
       "title": "Configurations for homes and care environments",
-      "subtitle": "A shared assistant and integration foundation, configured around people, existing equipment and site conditions.",
-      "careEyebrow": "AIOS Care",
-      "careTitle": "AIOS Care · Care environments",
+      "subtitle": "Shares the AIOS and integration foundation, with scope defined around users, existing equipment and site conditions.",
+      "careEyebrow": "SidebyStar Home & Care",
+      "careTitle": "SidebyStar Home & Care · Care environments",
       "careTagline": "On-site sensing, tiered alerts and response records",
       "careBody": "Evaluate devices and workflows for nighttime activity, assistance calls and response records.",
       "carePoint1": "Original-manufacturer call, measurement and safety devices",
       "carePoint2": "On-site validation of presence, stillness and suspected events",
       "carePoint3": "Review notification, acceptance and response by role",
       "careCta": "Explore care integration",
-      "homeEyebrow": "AIOS Home",
-      "homeTitle": "AIOS Home · Individuals and households",
+      "homeEyebrow": "SidebyStar AIOS",
+      "homeTitle": "SidebyStar AIOS · Individuals and households",
       "homeTagline": "Device integration, local rules and member permissions",
       "homeBody": "Start with personal records, household tasks and room equipment, then define the right configuration.",
       "homePoint1": "Notes, preparation checklists and due suggestions in the software",
       "homePoint2": "Kitchen, bathroom, entrance and curtain options",
       "homePoint3": "Retain useful existing equipment and verify each control scope",
       "homeCta": "Explore household applications",
-      "footnote": "AIOS Care supports care-site operations and response;\nAIOS Home supports residential devices and household rules."
+      "footnote": "SidebyStar Home & Care provides care-oriented product configurations;\nSidebyStar AIOS supports personal and household tasks."
     },
     "nightCare": {
-      "eyebrow": "AIOS Care · Night Loop",
+      "eyebrow": "SidebyStar Home & Care · Nighttime care",
       "title": "Nighttime bed-exit response loop",
       "subtitle": "A complete event record from bed-exit detection and risk escalation through care response and information sharing.",
       "ctaPrimary": "See the elderly-care solution",
@@ -92,7 +92,7 @@
       "cta": "See all use cases"
     },
     "intelligence": {
-      "eyebrow": "AIOS Home · Everyday rules",
+      "eyebrow": "SidebyStar AIOS · Everyday rules",
       "title": "Know who is present. Then run the right rule.",
       "subtitle": "The system distinguishes household members, rooms and time before following an approved rule. One vague command does not decide for everyone.",
       "card1Title": "Sense",
@@ -112,7 +112,7 @@
     },
     "platform": {
       "eyebrow": "AIOS Platform",
-      "title": "A foundation for software, compute and device integration",
+      "title": "SidebyStar AIOS runtime and product integration",
       "subtitle": "Review current software operations and device integration separately, expanding around specific tasks.",
       "sensingTitle": "Multi-source event input",
       "sensingBody": "Evaluate environmental, presence, acoustic and device events for each use.",
@@ -141,9 +141,9 @@
   },
   "intelligence": {
     "hero": {
-      "eyebrow": "AIOS Home · Assistant and device capabilities",
+      "eyebrow": "SidebyStar AIOS · Everyday capabilities",
       "title": "Daily tasks and room coordination",
-      "subtitle": "Current software shows records, tasks and suggestions in use. Sensing, habit learning and device coordination are capability designs requiring device and site validation."
+      "subtitle": "SidebyStar AIOS shows records, tasks and suggestions in actual use. Sensing, habit learning and device coordination require product and site validation."
     },
     "section": {
       "eyebrow": "Capabilities",
@@ -207,14 +207,14 @@
   },
   "system": {
     "hero": {
-      "eyebrow": "AIOS Family",
-      "title": "Compute, sensing, interaction and equipment options",
-      "subtitle": "Different roles call for different products and installations. Original device designs, current software and manufacturer options are identified separately."
+      "eyebrow": "SidebyStar AIOS · Functional architecture",
+      "title": "How the system works together",
+      "subtitle": "Gateway, sensing, control, connection and action describe five functional roles. The seven product series form task-specific configurations, with integration scope defined separately."
     },
     "closing": {
       "eyebrow": "The Whole Picture",
       "title": "Configure the system\naround the task",
-      "body": "Start with the task and existing equipment, then define software, compute, devices and installation services.",
+      "body": "Start with the task and existing equipment, then define the product series, SidebyStar AIOS functions and installation services.",
       "bullet1": "Review software operations through recordings or an arranged demonstration.",
       "bullet2": "Validate device models, installation and each action scope separately.",
       "bullet3": "Professional manufacturer devices retain their identity and intended use.",
@@ -247,11 +247,11 @@
     "comingSoon": "In Labs",
     "groups": {
       "health": {
-        "title": "AIOS Care · Eldercare and Care Sites",
+        "title": "SidebyStar Home & Care · Senior living and care",
         "body": "For elderly care facilities, community care and assisted wards, with non-camera sensing, local alerts, tiered access and event records."
       },
       "home": {
-        "title": "AIOS Home · Households and Residences",
+        "title": "SidebyStar AIOS · Homes and residences",
         "body": "For individual homes and standardized rooms, connecting lighting, climate, curtains and security with locally executed rules."
       },
       "commercial": {
@@ -278,7 +278,7 @@
       },
       "smartHome": {
         "title": "Household assistant",
-        "brief": "Find belongings, follow daily tasks and configure room devices step by step."
+        "brief": "Find belongings, follow daily tasks and configure the product series needed for your home."
       },
       "smartRoom": {
         "title": "One room and a TV workspace",
@@ -307,32 +307,32 @@
     }
   },
   "products": {
-    "title": "Assistant software, compute hosts and room devices",
-    "subtitle": "From current software recordings to original device designs and manufacturer options, define the configuration and installation around a specific use.",
+    "title": "SidebyStar AIOS and its product family",
+    "subtitle": "From records, preparation and reminders to sensing, controls, displays and device integration, the seven series combine around specific uses. Product stages and manufacturer options are identified separately.",
     "homeBox": {
-      "name": "Home Box",
+      "name": "Home & Care · Household",
       "tag": "Individuals and households",
       "price": "Quoted for the software, devices and installation",
-      "desc": "A configuration for personal records, household tasks and device integration in one home. Home Box is a solution package rather than a single host model.",
-      "bullet1": "Assistant software with an appropriate local compute configuration",
+      "desc": "Combines SidebyStar AIOS, selected series and installation services for records, household tasks and device integration in one home. A configuration is not a single product model.",
+      "bullet1": "SidebyStar AIOS with a SidebyStar Hub configuration",
       "bullet2": "Water-contact, state-sensing and interaction options as needed",
       "bullet3": "Review existing equipment, installation and maintenance separately"
     },
     "communityKit": {
-      "name": "Community Kit",
+      "name": "Home & Care · Multi-room",
       "tag": "Care and multi-room configurations",
       "price": "Quoted for the site, equipment and service scope",
-      "desc": "Evaluate compute, integration and staff response for care rooms or multi-room workflows.",
-      "bullet1": "Define nodes and integration around rooms and existing equipment",
+      "desc": "Evaluate the series, integration and staff response needed for Home & Care configurations across care rooms or multiple rooms.",
+      "bullet1": "Select series and integration around the rooms and existing equipment",
       "bullet2": "Validate notification channels, recipients and response records",
       "bullet3": "Establish coverage, recovery and maintenance through a pilot"
     },
     "enterpriseStack": {
-      "name": "Enterprise Stack",
+      "name": "Home & Care · Facility",
       "tag": "Institutional project configuration",
       "price": "Quoted for compute load, interfaces and project services",
       "desc": "Evaluate compute, networking and interfaces against the institution’s tasks, using appropriate original-manufacturer servers and professional devices.",
-      "bullet1": "Define compute, storage, networking and software scope separately",
+      "bullet1": "Define the series, compute, storage, network and AIOS functions separately",
       "bullet2": "Integrate authorized interfaces with existing business systems",
       "bullet3": "Document procurement, installation, acceptance and support"
     }

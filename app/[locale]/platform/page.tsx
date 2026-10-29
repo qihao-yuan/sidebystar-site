@@ -5,6 +5,7 @@ import { ArchTraversal } from '@/components/platform/ArchTraversal';
 import { HomeCTA } from '@/components/home/HomeCTA';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
+import { getSeriesName, systemName } from '@/content/product-names';
 import { Database, Cpu, Boxes, ShieldCheck, Radar, Sparkles, Moon, Scale } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'zh-CN' | 'en' }> }): Promise<Metadata> {
@@ -132,8 +133,8 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
           <Reveal delay={120}>
             <p className="mt-6 max-w-2xl text-body-lg text-ink-300">
               {isZh
-                ? '为助手软件、状态记录和经验证的设备接入提供部署结构。以下为平台能力设计，具体接口与现场联动按项目验证。'
-                : 'A deployment structure for assistant software, state records and verified device integration. The following describes platform design; interfaces and site actions require project validation.'}
+                ? `围绕${systemName(locale)}、${getSeriesName('hub',locale)}与${getSeriesName('bridge',locale)}，组织状态记录和设备接入。以下为平台能力设计，具体接口与现场联动按项目验证。`
+                : `A deployment structure for ${systemName(locale)}, ${getSeriesName('hub',locale)} and ${getSeriesName('bridge',locale)}, with state records and device integration. Interfaces and site actions require project validation.`}
             </p>
           </Reveal>
         </div>

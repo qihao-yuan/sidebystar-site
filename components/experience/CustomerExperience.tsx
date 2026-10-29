@@ -10,7 +10,7 @@ export function CustomerExperience({ locale }: { locale: string }) {
     <>
       <section id="software" className="py-section">
         <div className="container-page">
-          <span className="eyebrow">{isZh ? '01 · 实际软件操作' : '01 · Software in use'}</span>
+          <span className="eyebrow">{isZh ? '01 · AIOS 操作实录' : '01 · AIOS in use'}</span>
           <h2 className="mt-4 text-display-lg text-white">{isZh ? '记录、任务与提醒的实际操作' : 'See records, tasks and reminders in use'}</h2>
           <p className="mt-5 max-w-3xl text-body text-ink-300">{isZh ? '从明确交代的一条记录，到核对清单、保存任务和处理到期建议。以下截图和录像使用现有软件与示例资料。' : 'Follow an explicitly saved note through a checklist, a stored task and a due suggestion. These screenshots and recordings use the current software with example records.'}</p>
           <div className="mt-10 grid gap-5 lg:grid-cols-3">

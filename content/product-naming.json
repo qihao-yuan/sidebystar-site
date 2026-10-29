@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "revision": "V23",
+  "system": {
+    "name": {
+      "zh": "循星 AIOS",
+      "en": "SidebyStar AIOS"
+    },
+    "description": {
+      "zh": "面向个人生活、家庭与照护空间的本地智能系统。",
+      "en": "A local intelligence system for personal life, homes and care environments."
+    }
+  },
+  "series": [
+    {
+      "id": "hub",
+      "name": {
+        "zh": "循星·中枢",
+        "en": "SidebyStar Hub"
+      },
+      "previous_zh": "循星·枢",
+      "role": {
+        "zh": "主机与中控配置",
+        "en": "Hosts and central-control configurations"
+      },
+      "status": "existing_planning_not_commercially_released",
+      "sku_ids": [
+        "SBS-C01",
+        "SBS-C02",
+        "SBS-C03"
+      ]
+    },
+    {
+      "id": "discreet",
+      "name": {
+        "zh": "循星·隐感",
+        "en": "SidebyStar Sense"
+      },
+      "previous_zh": "循星·隐",
+      "role": {
+        "zh": "感知产品与原厂状态输入配套",
+        "en": "Sensing products and original-manufacturer state-input options"
+      },
+      "status": "existing_planning_not_commercially_released",
+      "sku_ids": [
+        "SBS-S02",
+        "SBS-S03",
+        "SBS-S04",
+        "SBS-S05",
+        "SBS-V01",
+        "SBS-S11"
+      ]
+    },
+    {
+      "id": "ceiling",
+      "name": {
+        "zh": "循星·穹感",
+        "en": "SidebyStar Ceiling Sense"
+      },
+      "previous_zh": "循星·环",
+      "role": {
+        "zh": "天花与环境感知",
+        "en": "Ceiling and environmental sensing"
+      },
+      "status": "existing_planning_not_commercially_released",
+      "sku_ids": [
+        "SBS-S01",
+        "SBS-S09"
+      ]
+    },
+    {
+      "id": "control",
+      "name": {
+        "zh": "循星·序控",
+        "en": "SidebyStar Control"
+      },
+      "previous_zh": "循星·序",
+      "role": {
+        "zh": "场景面板、实体操作与原厂控制配套",
+        "en": "Scene panels, physical interaction and original-manufacturer control options"
+      },
+      "status": "existing_planning_not_commercially_released",
+      "sku_ids": [
+        "SBS-U01",
+        "SBS-U02",
+        "SBS-A01",
+        "SBS-A02",
+        "SBS-U03"
+      ]
+    },
+    {
+      "id": "display",
+      "name": {
+        "zh": "循星·界屏",
+        "en": "SidebyStar Display"
+      },
+      "previous_zh": "循星·界",
+      "role": {
+        "zh": "屏幕终端",
+        "en": "Screen-based terminals"
+      },
+      "status": "series_defined_no_sku",
+      "sku_ids": []
+    },
+    {
+      "id": "bridge",
+      "name": {
+        "zh": "循星·联桥",
+        "en": "SidebyStar Bridge"
+      },
+      "previous_zh": "循星·联",
+      "role": {
+        "zh": "协议桥接与现场接入",
+        "en": "Protocol bridging and local device access"
+      },
+      "status": "existing_planning_not_commercially_released",
+      "sku_ids": [
+        "SBS-N01"
+      ]
+    },
+    {
+      "id": "care",
+      "name": {
+        "zh": "循星·居护",
+        "en": "SidebyStar Home & Care"
+      },
+      "previous_zh": "循星·栖",
+      "role": {
+        "zh": "家庭、照护、空间配置与原厂配套",
+        "en": "Household, care and room configurations with original-manufacturer options"
+      },
+      "status": "existing_planning_not_commercially_released",
+      "sku_ids": [
+        "SBS-S06",
+        "SBS-S07",
+        "SBS-S08",
+        "SBS-H01",
+        "SBS-H02",
+        "SBS-A03",
+        "SBS-A04",
+        "SBS-A05",
+        "SBS-S10",
+        "SBS-A06",
+        "KIT-K01",
+        "KIT-B01",
+        "KIT-R01",
+        "KIT-E01",
+        "KIT-C01"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "SBS-C01",
+      "series_id": "hub",
+      "display_name": {
+        "zh": "循星·中枢 C01",
+        "en": "SidebyStar Hub C01"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-C02",
+      "series_id": "hub",
+      "display_name": {
+        "zh": "循星·中枢 C02",
+        "en": "SidebyStar Hub C02"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-C03",
+      "series_id": "hub",
+      "display_name": {
+        "zh": "中枢配套｜项目服务器（ODM选配）",
+        "en": "Hub option · Project server (ODM)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-S01",
+      "series_id": "ceiling",
+      "display_name": {
+        "zh": "循星·穹感 环境与存在",
+        "en": "SidebyStar Ceiling Sense · Environment & Presence"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-S02",
+      "series_id": "discreet",
+      "display_name": {
+        "zh": "隐感配套｜床座状态设备（原厂选配）",
+        "en": "Sense option · Bed and seat state device (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-S03",
+      "series_id": "discreet",
+      "display_name": {
+        "zh": "隐感配套｜门窗状态设备（原厂选配）",
+        "en": "Sense option · Door and window state device (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-U01",
+      "series_id": "control",
+      "display_name": {
+        "zh": "循星·序控 场景面板",
+        "en": "SidebyStar Control · Scene Panel"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-U02",
+      "series_id": "control",
+      "display_name": {
+        "zh": "序控配套｜专业呼叫系统接入（原厂选配）",
+        "en": "Control option · Professional call-system integration (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-N01",
+      "series_id": "bridge",
+      "display_name": {
+        "zh": "循星·联桥 N01",
+        "en": "SidebyStar Bridge N01"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-A01",
+      "series_id": "control",
+      "display_name": {
+        "zh": "序控配套｜回路执行设备（原厂选配）",
+        "en": "Control option · Circuit actuator (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-A02",
+      "series_id": "control",
+      "display_name": {
+        "zh": "序控配套｜照明调光设备（原厂选配）",
+        "en": "Control option · Lighting dimmer (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-S04",
+      "series_id": "discreet",
+      "display_name": {
+        "zh": "循星·隐感 水浸",
+        "en": "SidebyStar Sense · Water Contact"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-S05",
+      "series_id": "discreet",
+      "display_name": {
+        "zh": "循星·隐感 声学",
+        "en": "SidebyStar Sense · Acoustics"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-S06",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜火情报警接入（原厂选配）",
+        "en": "Home & Care option · Fire-alarm integration (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-S07",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜可燃气体报警设备（原厂选配）",
+        "en": "Home & Care option · Combustible-gas alarm (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-S08",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜一氧化碳报警设备（原厂选配）",
+        "en": "Home & Care option · Carbon-monoxide alarm (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-S09",
+      "series_id": "ceiling",
+      "display_name": {
+        "zh": "循星·穹感 毫米波状态",
+        "en": "SidebyStar Ceiling Sense · mmWave State"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-U03",
+      "series_id": "control",
+      "display_name": {
+        "zh": "循星·序控 呼叫键",
+        "en": "SidebyStar Control · Call Button"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-H01",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜血压测量设备（原厂选配）",
+        "en": "Home & Care option · Blood-pressure device (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-H02",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜血氧测量设备（原厂选配）",
+        "en": "Home & Care option · Blood-oxygen device (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-V01",
+      "series_id": "discreet",
+      "display_name": {
+        "zh": "隐感配套｜门口视频设备（原厂选配）",
+        "en": "Sense option · Entrance video device (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-A03",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜窗帘电机（原厂选配）",
+        "en": "Home & Care option · Curtain motor (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-A04",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜窗帘轨道与安装组件（原厂选配）",
+        "en": "Home & Care option · Curtain track and fittings (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-A05",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜水阀执行设备（原厂选配）",
+        "en": "Home & Care option · Water-valve actuator (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-S11",
+      "series_id": "discreet",
+      "display_name": {
+        "zh": "循星·隐感 火焰线索",
+        "en": "SidebyStar Sense · Flame Cues"
+      },
+      "identity": "self"
+    },
+    {
+      "id": "SBS-S10",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜烟雾报警设备（原厂选配）",
+        "en": "Home & Care option · Smoke alarm (original manufacturer)"
+      },
+      "identity": "partner"
+    },
+    {
+      "id": "SBS-A06",
+      "series_id": "care",
+      "display_name": {
+        "zh": "居护配套｜门锁门禁设备（原厂选配）",
+        "en": "Home & Care option · Lock and access-control device (original manufacturer)"
+      },
+      "identity": "partner"
+    }
+  ],
+  "kits": [
+    {
+      "id": "KIT-K01",
+      "series_id": "care",
+      "display_name": {
+        "zh": "循星·居护 厨房用水与风险提醒套装",
+        "en": "SidebyStar Home & Care · Kitchen Water and Risk Reminders"
+      },
+      "identity": "configuration"
+    },
+    {
+      "id": "KIT-B01",
+      "series_id": "care",
+      "display_name": {
+        "zh": "循星·居护 卫浴状态套装",
+        "en": "SidebyStar Home & Care · Bathroom State"
+      },
+      "identity": "configuration"
+    },
+    {
+      "id": "KIT-R01",
+      "series_id": "care",
+      "display_name": {
+        "zh": "循星·居护 床旁照护套装",
+        "en": "SidebyStar Home & Care · Bedside Care"
+      },
+      "identity": "configuration"
+    },
+    {
+      "id": "KIT-E01",
+      "series_id": "care",
+      "display_name": {
+        "zh": "循星·居护 入户联络套装",
+        "en": "SidebyStar Home & Care · Entrance Communication"
+      },
+      "identity": "configuration"
+    },
+    {
+      "id": "KIT-C01",
+      "series_id": "care",
+      "display_name": {
+        "zh": "循星·居护 窗帘场景套装",
+        "en": "SidebyStar Home & Care · Curtain Scenes"
+      },
+      "identity": "configuration"
+    }
+  ],
+  "packages": {
+    "home-box": {
+      "zh": "居护·家庭配置",
+      "en": "Home & Care · Household"
+    },
+    "community-kit": {
+      "zh": "居护·多房间配置",
+      "en": "Home & Care · Multi-room"
+    },
+    "enterprise-stack": {
+      "zh": "居护·机构配置",
+      "en": "Home & Care · Facility"
+    }
+  },
+  "source_catalog": {
+    "path": "assets/product-library/catalogs/product-family_V20.json",
+    "sha256": "b36254f91d417e4689a1018a459f9d6bdb99ca9b9d87b2da7c37a732e0dcfd3a"
+  },
+  "naming_scope": {
+    "zh": "仅统一名称与系列归属；保留既有编号。原厂配套归类不改变制造商身份、工程阶段、验证状态或供应状态。",
+    "en": "Unifies names and portfolio classification only. Existing identifiers remain unchanged. Classifying manufacturer options does not change the manufacturer, engineering stage, validation or supply status."
+  }
+}
