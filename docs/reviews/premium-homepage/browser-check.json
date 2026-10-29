@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-30",
+  "origin": "http://localhost:3102",
+  "production_build": true,
+  "physical_iPhone_test": false,
+  "public_server_deployed": false,
+  "checks": {
+    "english_mobile": {
+      "handbook": true,
+      "heading": "SidebyStar AIOS",
+      "no_horizontal_overflow": true,
+      "width": 390
+    },
+    "desktop": {
+      "clip": {
+        "height": 900,
+        "width": 1427,
+        "x": 0,
+        "y": 0
+      },
+      "header_height": 56.66666793823242,
+      "hero_height": 962.2291870117188,
+      "no_horizontal_overflow": true,
+      "width": 1440
+    },
+    "scroll_motion": {
+      "reduced_motion": false,
+      "scroll_y": 886,
+      "transform": "matrix(1.03684, 0, 0, 1.03684, 0, 58.9439)"
+    },
+    "example_interactions": [
+      {
+        "name": "390px Chinese layout does not overflow",
+        "passed": true
+      },
+      {
+        "name": "mobile menu closes",
+        "passed": true
+      },
+      {
+        "name": "saved-note recall example responds",
+        "passed": true
+      },
+      {
+        "name": "checklist requires explicit creation",
+        "passed": true
+      },
+      {
+        "name": "created checklist is operable",
+        "passed": true
+      },
+      {
+        "name": "reminder can be deferred",
+        "passed": true
+      },
+      {
+        "name": "task reminder can be stopped",
+        "passed": true
+      },
+      {
+        "name": "sample-data label remains visible",
+        "passed": true
+      }
+    ],
+    "films": {
+      "canonical_urls": [
+        "/customer/V23/assets/video/romance.mp4",
+        "/customer/V23/assets/video/anniversary.mp4",
+        "/customer/V23/assets/video/rain.mp4"
+      ],
+      "all_three_opened_and_loaded": true,
+      "muted": true,
+      "playsinline_attribute_present": true,
+      "Escape_and_close_button_verified": true
+    }
+  },
+  "motion_accessibility": {
+    "reduced_motion_implemented_and_source_reviewed": true,
+    "OS_preference_toggle_performed": false
+  },
+  "build": {
+    "command": "npm run build",
+    "exit_code": 0,
+    "generated_pages": 87,
+    "lint_and_types_passed": true,
+    "effective_dist_directory": ".next",
+    "cache_collision_resolved_by_stopping_owned_dev_servers_and_rebuilding": true
+  },
+  "base_commit": "3fd32ac2df1135be9f30403234df2fdca8b7052e",
+  "source_sha256": {
+    "components/home/PremiumHome.tsx": "be7c978de918811206e70b28876e99654a06530fdd6dc8994f4cb907ccdbe893",
+    "components/home/PremiumHome.module.css": "c1595c16549a121f4504f3e30f2920b745d8eb0ac9c99639856cfc7b1b99fa2c",
+    "app/[locale]/page.tsx": "2fbade8eb34504cc4218b9c70f25e826ec5f0b48fbf25a8df3dc4b4033ed4ff5",
+    "app/globals.css": "b3586c044c401e7492f834cc33097d01ea7b0c9ff5899d2ec806c07bcd0b7e22",
+    "components/nav/SiteNav.tsx": "9e255df160405ba9c3a040214c4ffcb5727ad46c164eaeca0b19ac2555c9e1f6",
+    "content/product-visuals.ts": "70cf99860621b42a7a9d8b8b069300fcc829edb9d6d28aa47c157f95452ca5b8",
+    "public/home/premium/asset-manifest.json": "41cbb5925d062c2ec800894bd46334ca900ef83d86cb4a8098f8764315ccc005"
+  },
+  "scope": {
+    "user_approved_product_names_preserved": true,
+    "customer_handbook_and_real_software_recordings_preserved": true,
+    "canonical_shared_product_images": true,
+    "duplicate_media_added": false,
+    "remote_deployment_performed": false
+  },
+  "retained_screenshots": [
+    {
+      "path": "docs/reviews/premium-homepage/home-preview.jpg",
+      "sha256": "1fb22d4f1682239f09e7cb2b403038f92ac6ec6a6ce8754dd93928f1738ead88",
+      "kind": "default browser viewport; not a physical iPhone"
+    }
+  ],
+  "capture_limit": "Temporary viewport captures were discarded because Windows DPI scaling clipped those screenshots; layout measurements remain recorded. The retained default-viewport capture was visually reviewed."
+}

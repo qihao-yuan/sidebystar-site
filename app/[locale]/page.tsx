@@ -1,13 +1,9 @@
 import { setRequestLocale } from 'next-intl/server';
-import { HomeHero } from '@/components/home/HomeHero';
-import { HomeAssistantExperience } from '@/components/home/HomeAssistantExperience';
-import { HomeProductLines } from '@/components/home/HomeProductLines';
-import { HomeNightCare } from '@/components/home/HomeNightCare';
-import { HomePlatform } from '@/components/home/HomePlatform';
-import { HomeCTA } from '@/components/home/HomeCTA';
+import { PremiumHome } from '@/components/home/PremiumHome';
 import { buildMetadata } from '@/lib/seo';
-import type { Metadata } from 'next';
-import { systemName } from '@/content/product-names';
+import type { Metadata, Viewport } from 'next';
+
+export const viewport: Viewport = { themeColor: '#f4f5f7' };
 
 export async function generateMetadata({
   params,
@@ -20,12 +16,12 @@ export async function generateMetadata({
     path: '/',
     title:
       locale === 'zh-CN'
-        ? `${systemName(locale)} · 个人生活助手与产品家族`
-        : `${systemName(locale)} · Personal life assistant and product family`,
+        ? '循星 AIOS · 个人生活与家庭智能系统'
+        : 'SidebyStar AIOS · Personal Life and Home Intelligence',
     description:
       locale === 'zh-CN'
-        ? `了解${systemName(locale)}与七大产品系列，查看实际操作、原厂选配、生活情境影片与产品手册。`
-        : `Explore ${systemName(locale)} and its seven product series through actual operation recordings, manufacturer options, concept stories and the product handbook.`,
+        ? '保存交代、安排日常、连接家中设备。探索循星 AIOS 的日常交互、产品体系与生活场景。'
+        : 'Keep your notes, organize everyday tasks and connect home devices. Explore SidebyStar AIOS products, interactive examples and life at home.',
   });
 }
 
@@ -34,13 +30,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
 
   return (
-    <>
-      <HomeHero />
-      <HomeAssistantExperience locale={locale} />
-      <HomeProductLines />
-      <HomeNightCare />
-      <HomePlatform />
-      <HomeCTA />
-    </>
+    <PremiumHome />
   );
 }

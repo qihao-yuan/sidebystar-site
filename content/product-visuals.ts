@@ -12,13 +12,16 @@ export type VisualAsset = {
 };
 
 export const customerBase = '/customer/V20';
+// One approved, compressed product source for homepage, products and solutions.
+// Keep customerBase for the original software recordings and historical routes.
+const productImageBase = '/customer/V23/assets/images';
 export const customerImages = {
-  family: `${customerBase}/images/family_studio.png`,
-  host: `${customerBase}/images/host_desk.png`,
-  kitchen: `${customerBase}/images/kitchen_water.png`,
-  bathroom: `${customerBase}/images/bathroom_presence.png`,
-  extensions: `${customerBase}/images/extension_scenes.png`,
-  acoustic: '/customer/V22/images/acoustic_studio.png',
+  family: `${productImageBase}/family_studio.jpg`,
+  host: `${productImageBase}/host_desk.jpg`,
+  kitchen: `${productImageBase}/kitchen_water.jpg`,
+  bathroom: `${productImageBase}/bathroom_presence.jpg`,
+  extensions: `${productImageBase}/extension_scenes.jpg`,
+  acoustic: `${productImageBase}/acoustic_studio.jpg`,
 };
 
 export const visuals: Record<

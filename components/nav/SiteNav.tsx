@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/routing';
+import { Link, usePathname } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { Wordmark } from '@/components/brand/Wordmark';
@@ -10,6 +11,9 @@ import { LangSwitch } from './LangSwitch';
 
 export function SiteNav() {
   const t = useTranslations('nav');
+  const pathname = usePathname();
+  const locale = useLocale();
+  const home = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -43,8 +47,9 @@ export function SiteNav() {
     <header
       className={cn(
         'fixed left-0 right-0 top-0 z-50 transition-all duration-500 ease-apple-out',
-        scrolled ? 'backdrop-blur-xl bg-surface-void/70 border-b border-white/5' : 'bg-transparent'
+        home ? 'home-site-nav' : scrolled ? 'backdrop-blur-xl bg-surface-void/70 border-b border-white/5' : 'bg-transparent'
       )}
+      data-menu-open={mobileOpen}
     >
       <div className="container-page flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center text-white">
@@ -80,7 +85,9 @@ export function SiteNav() {
 
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label={locale === 'zh-CN' ? mobileOpen ? '关闭导航菜单' : '打开导航菜单' : mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+          aria-controls="site-mobile-menu"
           onClick={() => setMobileOpen((v) => !v)}
           className="flex h-10 w-10 items-center justify-center rounded-pill border border-white/10 text-ink-100 lg:hidden"
         >
@@ -99,7 +106,7 @@ export function SiteNav() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-white/5 bg-surface-void/95 backdrop-blur-xl lg:hidden">
+        <div id="site-mobile-menu" className="border-t border-white/5 bg-surface-void/95 backdrop-blur-xl lg:hidden">
           <div className="container-page flex flex-col gap-1 py-4">
             {items.map((item, i) => {
               const prev = items[i - 1];

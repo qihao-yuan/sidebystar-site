@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "origin": "http://localhost:3102",
+  "checks": [
+    {
+      "path": "/zh-CN",
+      "status": 200,
+      "bytes": 68781
+    },
+    {
+      "path": "/en",
+      "status": 200,
+      "bytes": 71569
+    },
+    {
+      "path": "/zh-CN/products",
+      "status": 200,
+      "bytes": 99396
+    },
+    {
+      "path": "/zh-CN/experience",
+      "status": 200,
+      "bytes": 77316
+    },
+    {
+      "path": "/customer/V23/index.html",
+      "status": 200,
+      "bytes": 42299
+    },
+    {
+      "path": "/customer/V23/assets/images/family_studio.jpg",
+      "status": 206,
+      "content_range": "bytes 0-1023/139841",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/images/host_desk.jpg",
+      "status": 206,
+      "content_range": "bytes 0-1023/208360",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/images/acoustic_studio.jpg",
+      "status": 206,
+      "content_range": "bytes 0-1023/126097",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/images/kitchen_water.jpg",
+      "status": 206,
+      "content_range": "bytes 0-1023/199839",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/images/bathroom_presence.jpg",
+      "status": 206,
+      "content_range": "bytes 0-1023/195144",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/images/romance_poster.jpg",
+      "status": 206,
+      "content_range": "bytes 0-1023/359024",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/images/rain_poster.jpg",
+      "status": 206,
+      "content_range": "bytes 0-1023/140829",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/images/anniversary_poster.jpg",
+      "status": 206,
+      "content_range": "bytes 0-1023/190154",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/video/romance.mp4",
+      "status": 206,
+      "content_range": "bytes 0-1023/2157775",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/video/rain.mp4",
+      "status": 206,
+      "content_range": "bytes 0-1023/1695748",
+      "bytes": 1024
+    },
+    {
+      "path": "/customer/V23/assets/video/anniversary.mp4",
+      "status": 206,
+      "content_range": "bytes 0-1023/1978629",
+      "bytes": 1024
+    }
+  ],
+  "physical_iPhone_test": false,
+  "public_server_deployed": false,
+  "shared_asset_sha_verified": 11
+}

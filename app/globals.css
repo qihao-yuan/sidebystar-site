@@ -209,3 +209,28 @@ html.lenis body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* The product-led homepage uses a quiet silver navigation surface. Internal
+   pages keep their existing dark navigation; no global brand recoloring. */
+.home-site-nav{background:rgba(246,248,250,.86);color:#26323c;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid #1d31410b}
+html:has(.home-site-nav){position:relative}
+.home-site-nav .container-page{height:56px;max-width:1380px}
+.home-site-nav a,.home-site-nav button{color:#3c4853}
+.home-site-nav a:hover,.home-site-nav button:hover{color:#087fa9;background-color:#dfe8ee55}
+.home-site-nav nav a{font-size:12px;padding-left:10px;padding-right:10px}
+.home-site-nav .btn-primary{background:#087fa9;color:#fff}
+.home-site-nav .btn-primary:hover{background:#076f94;color:#fff}
+.home-site-nav button{border-color:#cbd5dd}
+.home-site-nav button span{color:inherit}
+.home-site-nav>div[aria-hidden]{display:none}
+.home-site-nav #site-mobile-menu{background:rgba(248,250,252,.98);border-color:#dce3e9;max-height:calc(100dvh - 56px);overflow-y:auto}
+.home-site-nav #site-mobile-menu .container-page{height:auto;display:flex}
+.home-site-nav #site-mobile-menu span{color:#788792}
+.home-site-nav #site-mobile-menu a{font-size:16px;color:#303d48}
+.home-site-nav #site-mobile-menu .btn-primary{color:#fff;font-size:13px}
+.home-site-nav~footer{background:#f4f7f9;border-color:#dfe5e9;color:#566570}
+.home-site-nav~footer :is(a,p,h4,button){color:#566570}
+.home-site-nav~footer a:hover{color:#087fa9}
+.home-site-nav~footer button span{color:inherit}
+.home-site-nav~footer .divider-soft{background:#dfe5e9}
+@media(max-width:1023px){.home-site-nav .container-page{height:52px}.home-site-nav #site-mobile-menu{max-height:calc(100dvh - 52px)}}

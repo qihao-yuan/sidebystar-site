@@ -1,0 +1,507 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-29T17:05:03.045421+00:00",
+  "scope": "Homepage references approved V23 shared assets. No duplicated media, redesign, crop or transcode.",
+  "source_revision": "V23-mobile-web",
+  "source_manifest": {
+    "relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/manifest.json",
+    "sha256": "9eb843486826d98f83df374ced3de9571976512b2b752dada0290264721d7fa5"
+  },
+  "naming_source": {
+    "relative_path": "docs/hardware/modeling/expansion/V23_product_naming/product-naming.json",
+    "sha256": "120331f4aef9191f4a8505765bf7cf46398d8aefb7626fd4cc0cf0e9d5dc8601",
+    "system": {
+      "zh": "循星 AIOS",
+      "en": "SidebyStar AIOS"
+    },
+    "series": [
+      {
+        "id": "hub",
+        "name": {
+          "zh": "循星·中枢",
+          "en": "SidebyStar Hub"
+        }
+      },
+      {
+        "id": "discreet",
+        "name": {
+          "zh": "循星·隐感",
+          "en": "SidebyStar Sense"
+        }
+      },
+      {
+        "id": "ceiling",
+        "name": {
+          "zh": "循星·穹感",
+          "en": "SidebyStar Ceiling Sense"
+        }
+      },
+      {
+        "id": "control",
+        "name": {
+          "zh": "循星·序控",
+          "en": "SidebyStar Control"
+        }
+      },
+      {
+        "id": "display",
+        "name": {
+          "zh": "循星·界屏",
+          "en": "SidebyStar Display"
+        }
+      },
+      {
+        "id": "bridge",
+        "name": {
+          "zh": "循星·联桥",
+          "en": "SidebyStar Bridge"
+        }
+      },
+      {
+        "id": "care",
+        "name": {
+          "zh": "循星·居护",
+          "en": "SidebyStar Home & Care"
+        }
+      }
+    ]
+  },
+  "image_count": 8,
+  "video_count": 3,
+  "total_media_bytes": 7391440,
+  "video_bytes": 5832152,
+  "assets": [
+    {
+      "id": "product-family",
+      "kind": "product-design",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/images/family_studio.jpg",
+      "source_sha256": "3293f113f4527115f0f5d8bdea851f7723d164dc1624b670b37e5b60026e2b3f",
+      "source_bytes": 139841,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/images/family_studio.jpg",
+      "url": "/customer/V23/assets/images/family_studio.jpg",
+      "website_bytes": 139841,
+      "website_sha256": "3293f113f4527115f0f5d8bdea851f7723d164dc1624b670b37e5b60026e2b3f",
+      "bytes_identical": true,
+      "mime": "image/jpeg",
+      "width": 1536,
+      "height": 1024,
+      "product_ids": [
+        "SBS-C01",
+        "SBS-S04",
+        "SBS-S05",
+        "SBS-S09"
+      ],
+      "product_names": [
+        {
+          "zh": "循星·中枢 C01",
+          "en": "SidebyStar Hub C01"
+        },
+        {
+          "zh": "循星·隐感 水浸",
+          "en": "SidebyStar Sense · Water Contact"
+        },
+        {
+          "zh": "循星·隐感 声学",
+          "en": "SidebyStar Sense · Acoustics"
+        },
+        {
+          "zh": "循星·穹感 毫米波状态",
+          "en": "SidebyStar Ceiling Sense · mmWave State"
+        }
+      ],
+      "intended_use": "首页产品家族主视觉；完整展示四款既定外观。",
+      "fit_guidance": "contain; 3:2; avoid cropping the four devices",
+      "representation": "设计效果图；非设备实拍或真实部署照片。",
+      "product_company_text_logo_visible": false,
+      "product_emblem": "同色内凹图形，无公司文字。",
+      "burned_in_text_preserved": false,
+      "reviewed_pixels": true,
+      "image_transformed": false,
+      "shared_existing_asset": true,
+      "homepage_alias": "product-family"
+    },
+    {
+      "id": "hub-c01-desk",
+      "kind": "product-design",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/images/host_desk.jpg",
+      "source_sha256": "67bdddafd40ed2f6d1980aec226786a92697022824b995783f0536ed56bf0f81",
+      "source_bytes": 208360,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/images/host_desk.jpg",
+      "url": "/customer/V23/assets/images/host_desk.jpg",
+      "website_bytes": 208360,
+      "website_sha256": "67bdddafd40ed2f6d1980aec226786a92697022824b995783f0536ed56bf0f81",
+      "bytes_identical": true,
+      "mime": "image/jpeg",
+      "width": 1536,
+      "height": 1024,
+      "product_ids": [
+        "SBS-C01"
+      ],
+      "product_names": [
+        {
+          "zh": "循星·中枢 C01",
+          "en": "SidebyStar Hub C01"
+        }
+      ],
+      "intended_use": "中枢 C01 大图或功能段落的产品环境图。",
+      "fit_guidance": "3:2; centered product; preserve the host enclosure",
+      "representation": "设计效果图；非设备实拍或真实部署照片。",
+      "product_company_text_logo_visible": false,
+      "product_emblem": "同色内凹图形，无公司文字。",
+      "burned_in_text_preserved": false,
+      "reviewed_pixels": true,
+      "image_transformed": false,
+      "shared_existing_asset": true,
+      "homepage_alias": "hub-c01-desk"
+    },
+    {
+      "id": "sense-acoustics",
+      "kind": "product-design",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/images/acoustic_studio.jpg",
+      "source_sha256": "522930d9930de769ebcae997da5a276e73fa43bfd4b6528b06b8d898bb42066c",
+      "source_bytes": 126097,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/images/acoustic_studio.jpg",
+      "url": "/customer/V23/assets/images/acoustic_studio.jpg",
+      "website_bytes": 126097,
+      "website_sha256": "522930d9930de769ebcae997da5a276e73fa43bfd4b6528b06b8d898bb42066c",
+      "bytes_identical": true,
+      "mime": "image/jpeg",
+      "width": 1536,
+      "height": 1024,
+      "product_ids": [
+        "SBS-S05"
+      ],
+      "product_names": [
+        {
+          "zh": "循星·隐感 声学",
+          "en": "SidebyStar Sense · Acoustics"
+        }
+      ],
+      "intended_use": "隐感声学独立产品卡或近景。",
+      "fit_guidance": "contain; 3:2; preserve the acoustic aperture end",
+      "representation": "设计效果图；非设备实拍或真实部署照片。",
+      "product_company_text_logo_visible": false,
+      "product_emblem": "同色内凹图形，无公司文字。",
+      "burned_in_text_preserved": false,
+      "reviewed_pixels": true,
+      "image_transformed": false,
+      "shared_existing_asset": true,
+      "homepage_alias": "sense-acoustics"
+    },
+    {
+      "id": "sense-water-kitchen",
+      "kind": "product-design",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/images/kitchen_water.jpg",
+      "source_sha256": "100e65a255debd6e7094039104d34d4673fbb1d663fb29c6a21b38c6245a2182",
+      "source_bytes": 199839,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/images/kitchen_water.jpg",
+      "url": "/customer/V23/assets/images/kitchen_water.jpg",
+      "website_bytes": 199839,
+      "website_sha256": "100e65a255debd6e7094039104d34d4673fbb1d663fb29c6a21b38c6245a2182",
+      "bytes_identical": true,
+      "mime": "image/jpeg",
+      "width": 1536,
+      "height": 1024,
+      "product_ids": [
+        "SBS-S04"
+      ],
+      "product_names": [
+        {
+          "zh": "循星·隐感 水浸",
+          "en": "SidebyStar Sense · Water Contact"
+        }
+      ],
+      "intended_use": "厨房低位水浸用途示意；不是阀门自动关水证明。",
+      "fit_guidance": "3:2; keep the water-contact node and plumbing context",
+      "representation": "设计效果图；非设备实拍或真实部署照片。",
+      "product_company_text_logo_visible": false,
+      "product_emblem": "同色内凹图形，无公司文字。",
+      "burned_in_text_preserved": false,
+      "reviewed_pixels": true,
+      "image_transformed": false,
+      "shared_existing_asset": true,
+      "homepage_alias": "sense-water-kitchen"
+    },
+    {
+      "id": "ceiling-sense-bathroom",
+      "kind": "product-design",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/images/bathroom_presence.jpg",
+      "source_sha256": "8d2bf0d096a1991e2b238cd93d49b77abaff3782adf589d3e44e7e391c656f64",
+      "source_bytes": 195144,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/images/bathroom_presence.jpg",
+      "url": "/customer/V23/assets/images/bathroom_presence.jpg",
+      "website_bytes": 195144,
+      "website_sha256": "8d2bf0d096a1991e2b238cd93d49b77abaff3782adf589d3e44e7e391c656f64",
+      "bytes_identical": true,
+      "mime": "image/jpeg",
+      "width": 1536,
+      "height": 1024,
+      "product_ids": [
+        "SBS-S09"
+      ],
+      "product_names": [
+        {
+          "zh": "循星·穹感 毫米波状态",
+          "en": "SidebyStar Ceiling Sense · mmWave State"
+        }
+      ],
+      "intended_use": "卫浴吸顶毫米波安装位置示意；不是现场检测结果。",
+      "fit_guidance": "3:2; preserve ceiling device at upper-left",
+      "representation": "设计效果图；非设备实拍或真实部署照片。",
+      "product_company_text_logo_visible": false,
+      "product_emblem": "同色内凹图形，无公司文字。",
+      "burned_in_text_preserved": false,
+      "reviewed_pixels": true,
+      "image_transformed": false,
+      "shared_existing_asset": true,
+      "homepage_alias": "ceiling-sense-bathroom"
+    },
+    {
+      "id": "scene-sunset-poster",
+      "kind": "lifestyle-scene",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/images/romance_poster.jpg",
+      "source_sha256": "52f489011afe598984b02f879056e1d183ce2ca2d15e432f63438f9d3622efcb",
+      "source_bytes": 359024,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/images/romance_poster.jpg",
+      "url": "/customer/V23/assets/images/romance_poster.jpg",
+      "website_bytes": 359024,
+      "website_sha256": "52f489011afe598984b02f879056e1d183ce2ca2d15e432f63438f9d3622efcb",
+      "bytes_identical": true,
+      "mime": "image/jpeg",
+      "width": 1920,
+      "height": 1080,
+      "product_ids": [],
+      "product_names": [],
+      "intended_use": "晚霞情境片入口海报。",
+      "fit_guidance": "16:9; contain on small cards to preserve existing corner labels",
+      "representation": "情境演绎海报；非客户案例或已实现功能的证据。",
+      "product_company_text_logo_visible": null,
+      "product_emblem": null,
+      "burned_in_text_preserved": true,
+      "reviewed_pixels": true,
+      "image_transformed": false,
+      "shared_existing_asset": true,
+      "homepage_alias": "scene-sunset-poster"
+    },
+    {
+      "id": "scene-rain-poster",
+      "kind": "lifestyle-scene",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/images/rain_poster.jpg",
+      "source_sha256": "b6c614f26fecc9b39c1a600b837c20c013e432ce53a11b344437c05754b1d710",
+      "source_bytes": 140829,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/images/rain_poster.jpg",
+      "url": "/customer/V23/assets/images/rain_poster.jpg",
+      "website_bytes": 140829,
+      "website_sha256": "b6c614f26fecc9b39c1a600b837c20c013e432ce53a11b344437c05754b1d710",
+      "bytes_identical": true,
+      "mime": "image/jpeg",
+      "width": 1280,
+      "height": 720,
+      "product_ids": [],
+      "product_names": [],
+      "intended_use": "听雨情境片入口海报。",
+      "fit_guidance": "16:9; preserve the boy, closed glass and existing subtitle",
+      "representation": "情境演绎海报；非客户案例或已实现功能的证据。",
+      "product_company_text_logo_visible": null,
+      "product_emblem": null,
+      "burned_in_text_preserved": true,
+      "reviewed_pixels": true,
+      "image_transformed": false,
+      "shared_existing_asset": true,
+      "homepage_alias": "scene-rain-poster"
+    },
+    {
+      "id": "scene-anniversary-poster",
+      "kind": "lifestyle-scene",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/images/anniversary_poster.jpg",
+      "source_sha256": "ca85be9bb9645d3ca33baf203624b29a87e1e24837cf9fa5a9e3797b60e1b095",
+      "source_bytes": 190154,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/images/anniversary_poster.jpg",
+      "url": "/customer/V23/assets/images/anniversary_poster.jpg",
+      "website_bytes": 190154,
+      "website_sha256": "ca85be9bb9645d3ca33baf203624b29a87e1e24837cf9fa5a9e3797b60e1b095",
+      "bytes_identical": true,
+      "mime": "image/jpeg",
+      "width": 1920,
+      "height": 1080,
+      "product_ids": [],
+      "product_names": [],
+      "intended_use": "纪念日情境片入口海报。",
+      "fit_guidance": "16:9; retain central flowers and family context",
+      "representation": "情境演绎海报；非客户案例或已实现功能的证据。",
+      "product_company_text_logo_visible": null,
+      "product_emblem": null,
+      "burned_in_text_preserved": true,
+      "reviewed_pixels": true,
+      "image_transformed": false,
+      "shared_existing_asset": true,
+      "homepage_alias": "scene-anniversary-poster"
+    },
+    {
+      "id": "scene-sunset-silent",
+      "kind": "lifestyle-scene",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/video/romance.mp4",
+      "source_sha256": "59137f1d069598f868a83176460999797962289c6bc14bd69c3b2c2e0b1f7c36",
+      "source_bytes": 2157775,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/video/romance.mp4",
+      "url": "/customer/V23/assets/video/romance.mp4",
+      "website_bytes": 2157775,
+      "website_sha256": "59137f1d069598f868a83176460999797962289c6bc14bd69c3b2c2e0b1f7c36",
+      "bytes_identical": true,
+      "mime": "video/mp4",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_streams": 0,
+      "duration_seconds": 21.041667,
+      "poster_url": "/customer/V23/assets/images/romance_poster.jpg",
+      "representation": "静音情境演绎；非客户实拍、真实安装记录或设备能力验收。",
+      "burned_in_text_preserved": true,
+      "video_transcoded": false,
+      "verification": "Current ffprobe stream inspection and source/destination SHA; not a fresh browser playback test.",
+      "shared_existing_asset": true,
+      "homepage_alias": "scene-sunset-silent"
+    },
+    {
+      "id": "scene-rain-silent",
+      "kind": "lifestyle-scene",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/video/rain.mp4",
+      "source_sha256": "2853e586ca2e77b66f4a409fdf39134207f986ecd61be35d1edd6d1abcaab50f",
+      "source_bytes": 1695748,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/video/rain.mp4",
+      "url": "/customer/V23/assets/video/rain.mp4",
+      "website_bytes": 1695748,
+      "website_sha256": "2853e586ca2e77b66f4a409fdf39134207f986ecd61be35d1edd6d1abcaab50f",
+      "bytes_identical": true,
+      "mime": "video/mp4",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_streams": 0,
+      "duration_seconds": 18.0,
+      "poster_url": "/customer/V23/assets/images/rain_poster.jpg",
+      "representation": "静音情境演绎；非客户实拍、真实安装记录或设备能力验收。",
+      "burned_in_text_preserved": true,
+      "video_transcoded": false,
+      "verification": "Current ffprobe stream inspection and source/destination SHA; not a fresh browser playback test.",
+      "shared_existing_asset": true,
+      "homepage_alias": "scene-rain-silent"
+    },
+    {
+      "id": "scene-anniversary-silent",
+      "kind": "lifestyle-scene",
+      "source_repo": "XX_AIOS",
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/video/anniversary.mp4",
+      "source_sha256": "8453b0530d9003840d1e641751db16e332be11b1cb4a79124dbb0ae8844858b0",
+      "source_bytes": 1978629,
+      "upstream_manifest_payload_verified": true,
+      "website_relative_path": "public/customer/V23/assets/video/anniversary.mp4",
+      "url": "/customer/V23/assets/video/anniversary.mp4",
+      "website_bytes": 1978629,
+      "website_sha256": "8453b0530d9003840d1e641751db16e332be11b1cb4a79124dbb0ae8844858b0",
+      "bytes_identical": true,
+      "mime": "video/mp4",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "audio_streams": 0,
+      "duration_seconds": 21.0,
+      "poster_url": "/customer/V23/assets/images/anniversary_poster.jpg",
+      "representation": "静音情境演绎；非客户实拍、真实安装记录或设备能力验收。",
+      "burned_in_text_preserved": true,
+      "video_transcoded": false,
+      "verification": "Current ffprobe stream inspection and source/destination SHA; not a fresh browser playback test.",
+      "shared_existing_asset": true,
+      "homepage_alias": "scene-anniversary-silent"
+    }
+  ],
+  "existing_five_silent_videos": [
+    {
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/video/anniversary.mp4",
+      "bytes": 1978629,
+      "sha256": "8453b0530d9003840d1e641751db16e332be11b1cb4a79124dbb0ae8844858b0",
+      "audio_streams": 0,
+      "duration_seconds": 21.0,
+      "selected_for_home": true
+    },
+    {
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/video/glasses.mp4",
+      "bytes": 2207194,
+      "sha256": "09e33f2e12d675e863524cbe56878be7da277691daac1bf6f08bafd2c6d8d9db",
+      "audio_streams": 0,
+      "duration_seconds": 21.0,
+      "selected_for_home": false
+    },
+    {
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/video/rain.mp4",
+      "bytes": 1695748,
+      "sha256": "2853e586ca2e77b66f4a409fdf39134207f986ecd61be35d1edd6d1abcaab50f",
+      "audio_streams": 0,
+      "duration_seconds": 18.0,
+      "selected_for_home": true
+    },
+    {
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/video/romance.mp4",
+      "bytes": 2157775,
+      "sha256": "59137f1d069598f868a83176460999797962289c6bc14bd69c3b2c2e0b1f7c36",
+      "audio_streams": 0,
+      "duration_seconds": 21.041667,
+      "selected_for_home": true
+    },
+    {
+      "source_relative_path": "docs/hardware/modeling/deliveries/V23_mobile_handbook_web/assets/video/software_demo.mp4",
+      "bytes": 889782,
+      "sha256": "de8289191b7c1d1f5f883423455dfc9e804ea352ee14191eb6261f301f3f0d4f",
+      "audio_streams": 0,
+      "duration_seconds": 79.708333,
+      "selected_for_home": false
+    }
+  ],
+  "homepage_recommendations": [
+    "首屏优先完整产品家族图，不把人物片当产品硬件实拍。",
+    "产品五图不带公司文字logo；保留同色内凹图形，勿再叠品牌文字在设备表面。",
+    "晚霞／听雨／纪念日作为三条情境入口，保留情境演绎身份；无需把它们写成实际部署能力。",
+    "视频本次ffprobe确认无音轨；网页仍用muted、playsInline并按prefers-reduced-motion控制自动动效。",
+    "首屏只优先载入一张主图，其他图懒加载；视频不要同时全量预载。",
+    "产品图均为1536x1024，优先保持3:2或contain；手机不要把产品裁成局部导致形态缺失。"
+  ],
+  "physical_media_copied_for_release": false,
+  "shared_assets_verified": 11,
+  "deduplicated_bytes": 7391440,
+  "asset_curation_stage_not_performed": [
+    "No homepage React/CSS/navigation edit",
+    "No website build, server, Git or deployment operation",
+    "No new browser playback, iPhone device or deployment validation",
+    "No whole-manual copy"
+  ],
+  "not_performed": [
+    "No product redesign or image generation",
+    "No media transcode",
+    "No physical iPhone test",
+    "No production-server deployment"
+  ],
+  "media_byte_measurement": "Referenced shared canonical files, not additional copies"
+}
