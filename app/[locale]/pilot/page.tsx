@@ -2,7 +2,8 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { GradientMesh } from '@/components/motion/GradientMesh';
 import { Reveal } from '@/components/motion/Reveal';
 import { ContactForm } from '@/components/forms/ContactForm';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { visuals } from '@/content/product-visuals';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 import { Calendar, Zap, CheckCircle2 } from 'lucide-react';
@@ -37,13 +38,10 @@ export default async function PilotPage({ params }: { params: Promise<{ locale: 
             <p className="mt-5 max-w-2xl text-body-lg text-ink-300">{t('subtitle')}</p>
           </div>
           <Reveal delay={100}>
-            <MediaPlaceholder
-              src="/solutions/care-delivery.jpg"
-              alt={isZh ? '照护场景试点现场' : 'Care solution pilot site'}
-              ratio="16/9"
-              rounded="xl"
-              priority
-            />
+            <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/[0.08]">
+              <UnifiedVisualImage visual={visuals.presence} locale={locale} sizes="(min-width: 1024px) 58vw, 100vw" priority />
+            </div>
+            <p className="mt-3 text-caption text-ink-500">{isZh ? '毫米波节点安装设计效果图' : 'mmWave node installation design visual'}</p>
           </Reveal>
         </div>
       </section>

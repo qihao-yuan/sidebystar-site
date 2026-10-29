@@ -1,20 +1,22 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { ArrowRight } from 'lucide-react';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Reveal } from '@/components/motion/Reveal';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { visuals } from '@/content/product-visuals';
 
 export function HomeSpectrum() {
+  const locale = useLocale();
   const t = useTranslations('home.spectrum');
 
   const cards = [
-    { key: 'bedside', n: '01', src: '/home/bedside.webp' },
-    { key: 'desk', n: '02', src: '/home/desk.webp' },
-    { key: 'home', n: '03', src: '/home/home.webp' },
-    { key: 'community', n: '04', src: '/home/community.webp' },
+    { key: 'bedside', n: '01', visual: visuals.bedside },
+    { key: 'desk', n: '02', visual: visuals.host },
+    { key: 'home', n: '03', visual: visuals.family },
+    { key: 'community', n: '04', visual: visuals.community },
   ] as const;
 
   return (
@@ -26,13 +28,9 @@ export function HomeSpectrum() {
           {cards.map((c, i) => (
             <Reveal key={c.key} delay={i * 70}>
               <div className="group flex h-full flex-col gap-5">
-                <MediaPlaceholder
-                  src={c.src}
-                  alt={t(`${c.key}Title`)}
-                  ratio="4/3"
-                  rounded="xl"
-                  className="transition-transform duration-700 ease-apple-out group-hover:-translate-y-1"
-                />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/[0.08] transition-transform duration-700 ease-apple-out group-hover:-translate-y-1">
+                  <UnifiedVisualImage visual={c.visual} locale={locale} sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" />
+                </div>
                 <div className="flex items-baseline gap-3">
                   <span className="font-mono text-caption text-ink-500">{c.n}</span>
                   <h3 className="text-display-sm text-white">{t(`${c.key}Title`)}</h3>

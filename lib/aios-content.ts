@@ -1,6 +1,7 @@
 import 'server-only';
 
 import { unstable_cache } from 'next/cache';
+import { visuals } from '@/content/product-visuals';
 import type { Locale } from '@/i18n/routing';
 import {
   ARTICLE_ID_PATTERN,
@@ -57,7 +58,7 @@ const mockArticles: AiosArticle[] = [
     summary: '从感知、推理到联动，了解 OPC AIOS 如何在真实空间中提供端侧优先、可审计的智能能力。',
     body_html:
       '<p>OPC AIOS V1.0 是循星面向真实空间打造的本地智能底座。它把多模态感知、事件理解和设备联动放在空间现场完成，让关键能力不依赖持续联网。</p><h2>为什么从本地开始</h2><p>家庭与照护空间中的数据高度敏感。端侧优先可以缩短响应链路，也让数据边界更容易被理解和审计。</p><blockquote>真正可靠的空间智能，应当在断网时仍能完成最重要的工作。</blockquote><h2>V1.0 的三个重点</h2><ul><li><strong>统一事件模型：</strong>让不同设备以一致方式描述空间里发生的事。</li><li><strong>本地推理：</strong>关键判断在现场完成，云端只承担明确授权的能力。</li><li><strong>可追溯执行：</strong>每次自动化都有来源、规则和结果记录。</li></ul><h2>下一步</h2><p>我们将继续完善插件接口、离线模型包和行业部署工具，并逐步公开更多实践报告。</p>',
-    cover_url: '/home/intelligence.webp',
+    cover_url: visuals.family.src,
     published_at: '2026-08-02T10:00:00Z',
     updated_at: '2026-08-02T10:00:00Z',
   },
@@ -69,7 +70,7 @@ const mockArticles: AiosArticle[] = [
     summary: 'How OPC AIOS brings perception, reasoning and action together with an edge-first, auditable architecture.',
     body_html:
       '<p>OPC AIOS V1.0 is SidebyStar’s local intelligence foundation for real spaces. It brings multimodal perception, event understanding and device orchestration on site, keeping essential capabilities available without a permanent cloud connection.</p><h2>Why local comes first</h2><p>Data from homes and care environments is deeply personal. Edge-first processing shortens the response path and makes data boundaries easier to understand and audit.</p><blockquote>Dependable ambient intelligence should still perform its most important work when the network is unavailable.</blockquote><h2>Three priorities in V1.0</h2><ul><li><strong>A unified event model:</strong> devices describe what happens in a space consistently.</li><li><strong>Local inference:</strong> essential decisions happen on site, with cloud services used only when explicitly authorized.</li><li><strong>Traceable execution:</strong> every automation records its source, rule and result.</li></ul><h2>What comes next</h2><p>We will continue improving plugin interfaces, offline model bundles and industry deployment tools, while publishing more field reports.</p>',
-    cover_url: '/home/intelligence.webp',
+    cover_url: visuals.family.src,
     published_at: '2026-08-02T10:00:00Z',
     updated_at: '2026-08-02T10:00:00Z',
   },
@@ -81,7 +82,7 @@ const mockArticles: AiosArticle[] = [
     summary: '当告警、联动与审计回到现场，照护系统可以更快响应，也更容易建立清晰的数据边界。',
     body_html:
       '<p>照护空间需要的不只是更多传感器，而是一条更短、更可靠的响应链路。端侧智能让事件识别与必要联动在现场闭环。</p><h2>从告警到行动</h2><p>系统先在本地聚合环境与设备信号，再按照经过审批的规则执行通知、照明或设备联动。</p><h3>设计原则</h3><ol><li>关键能力不依赖公网。</li><li>原始数据默认留在现场。</li><li>每次自动执行都可复核。</li></ol><p>这不是把云完全移除，而是让云和本地各自承担适合的职责。</p>',
-    cover_url: '/home/bedside.webp',
+    cover_url: visuals.presence.src,
     published_at: '2026-07-26T09:00:00Z',
     updated_at: '2026-07-28T08:30:00Z',
   },
@@ -93,7 +94,7 @@ const mockArticles: AiosArticle[] = [
     summary: 'Moving alerts, actions and audit trails on site enables faster response and clearer data boundaries.',
     body_html:
       '<p>Care environments need more than additional sensors. They need a shorter, more dependable response path. Edge intelligence closes the loop between event detection and essential action on site.</p><h2>From alert to action</h2><p>The system first combines environmental and device signals locally, then follows approved rules for notifications, lighting or device orchestration.</p><h3>Design principles</h3><ol><li>Essential capabilities do not depend on the public internet.</li><li>Raw data stays on site by default.</li><li>Every automated action can be reviewed.</li></ol><p>This does not remove the cloud. It gives the cloud and the edge responsibilities that fit each one.</p>',
-    cover_url: '/home/bedside.webp',
+    cover_url: visuals.presence.src,
     published_at: '2026-07-26T09:00:00Z',
     updated_at: '2026-07-28T08:30:00Z',
   },

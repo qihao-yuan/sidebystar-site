@@ -1,13 +1,15 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Eye, Brain, GitBranch, Radio, ArrowRight } from 'lucide-react';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Reveal } from '@/components/motion/Reveal';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { visuals } from '@/content/product-visuals';
 
 export function HomeIntelligence() {
+  const locale = useLocale();
   const t = useTranslations('home.intelligence');
 
   const cards = [
@@ -48,11 +50,9 @@ export function HomeIntelligence() {
           </div>
 
           <Reveal delay={120}>
-            <MediaPlaceholder
-              src="/home/intelligence.webp"
-              alt="Intelligence preview"
-              ratio="4/3"
-            />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.08]">
+              <UnifiedVisualImage visual={visuals.host} locale={locale} sizes="(min-width: 1024px) 50vw, 100vw" />
+            </div>
           </Reveal>
         </div>
       </div>

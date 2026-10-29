@@ -2,14 +2,15 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import { ArrowRight, ArrowDown } from 'lucide-react';
-import Image from 'next/image';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
 import { MagneticButton } from '@/components/motion/MagneticButton';
-import { customerImages } from '@/content/customer-experience';
+import { visuals } from '@/content/product-visuals';
 
 // Product imagery stays visible on phones; the CTA leads to a recording, not a live assistant.
 export function HomeHero() {
   const t = useTranslations('home.hero');
-  const isZh = useLocale() === 'zh-CN';
+  const locale = useLocale();
+  const isZh = locale === 'zh-CN';
   return (
     <section className="relative overflow-hidden border-b border-white/[0.07] pb-16 pt-28 md:pb-24 lg:pt-36">
       <div className="container-page grid gap-8 lg:grid-cols-[6fr_7fr] lg:items-center lg:gap-12">
@@ -26,7 +27,7 @@ export function HomeHero() {
         </div>
         <div className="order-1 lg:order-2">
           <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-white/10 bg-[#eaf0f4]">
-            <Image src={customerImages.family} alt={isZh?'家庭计算主机和三种不同用途的无线节点设计效果':'Design visualization of a household host and three distinct wireless sensing devices'} fill priority sizes="(min-width:1024px) 55vw, 100vw" className="object-contain"/>
+            <UnifiedVisualImage visual={visuals.family} locale={locale} priority sizes="(min-width:1024px) 55vw, 100vw"/>
           </div>
           <p className="mt-3 text-caption text-ink-400">{isZh?'产品设计效果；无线数据与供电方式按设备分别设计。':'Product design visualizations. Wireless data and power are specified separately for each device.'}</p>
         </div>

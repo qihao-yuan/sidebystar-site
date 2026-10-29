@@ -6,17 +6,17 @@ import { TextReveal } from '@/components/motion/TextReveal';
 import { Reveal } from '@/components/motion/Reveal';
 import { MagneticButton } from '@/components/motion/MagneticButton';
 import { HomeCTA } from '@/components/home/HomeCTA';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
 import { buildMetadata } from '@/lib/seo';
-import { family } from '@/content/family';
-import { customerImages, customerBase } from '@/content/customer-experience';
+import { family, type FamilyRole } from '@/content/family';
+import { visuals, type VisualAsset } from '@/content/product-visuals';
 
-const FAMILY_IMAGE: Record<string, string> = {
-  gateway: customerImages.host,
-  sense: customerImages.kitchen,
-  control: `${customerBase}/software/task.png`,
-  connect: customerImages.family,
-  act: customerImages.extensions,
+const FAMILY_VISUALS: Record<FamilyRole, VisualAsset> = {
+  gateway: visuals.host,
+  sense: visuals.water,
+  control: visuals.task,
+  connect: visuals.family,
+  act: visuals.options,
 };
 
 export async function generateMetadata({
@@ -132,13 +132,9 @@ export default async function SystemPage({
               {/* Right: story + examples */}
               <div>
                 <Reveal delay={80}>
-                  <MediaPlaceholder
-                    src={FAMILY_IMAGE[f.role]}
-                    alt={isZh ? `${f.nameZh} 应用示意` : `${f.nameEn} application`}
-                    ratio="16/9"
-                    rounded="xl"
-                    imageClassName={f.role === 'control' || f.role === 'act' ? 'object-contain bg-[#f4f6f8]' : undefined}
-                  />
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/[0.08]">
+                    <UnifiedVisualImage visual={FAMILY_VISUALS[f.role]} locale={locale} sizes="(min-width: 1024px) 58vw, 100vw" />
+                  </div>
                   <p className="mt-3 text-caption text-ink-400">{isZh ? (f.role === 'control' ? '助手界面实录 · 示例数据' : f.role === 'act' ? '原厂配套安装示意 · 非制造商实拍' : '产品设计效果图 · 待样机与现场验证') : (f.role === 'control' ? 'Actual assistant interface · example data' : f.role === 'act' ? 'OEM installation illustration · not a manufacturer photograph' : 'Product design visualization · prototype and site validation pending')}</p>
                 </Reveal>
                 <Reveal delay={120}>

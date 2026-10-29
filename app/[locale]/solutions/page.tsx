@@ -3,7 +3,8 @@ import { Link } from '@/i18n/routing';
 import { solutionsByGroup } from '@/content/solutions';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Reveal } from '@/components/motion/Reveal';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { visuals } from '@/content/product-visuals';
 import { ArrowUpRight } from 'lucide-react';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -16,10 +17,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
 
 const DELIVERY_GROUPS = ['health', 'home'] as const;
 
-const GROUP_IMAGE_SRC: Record<'health' | 'home', string> = {
-  health: '/solutions/care-delivery.jpg',
-  home: '/solutions/home-delivery.jpg',
-};
+const GROUP_VISUALS = {
+  health: visuals.presence,
+  home: visuals.water,
+} as const;
 
 export default async function SolutionsIndex({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -54,12 +55,9 @@ export default async function SolutionsIndex({ params }: { params: Promise<{ loc
               <div key={g}>
                 <div className="grid gap-10 lg:grid-cols-[7fr_5fr] lg:items-end">
                   <Reveal>
-                    <MediaPlaceholder
-                      src={GROUP_IMAGE_SRC[g]}
-                      alt={groups(`${g}.title`)}
-                      ratio="16/9"
-                      rounded="xl"
-                    />
+                    <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/[0.08]">
+                      <UnifiedVisualImage visual={GROUP_VISUALS[g]} locale={locale} sizes="(min-width: 1024px) 58vw, 100vw" />
+                    </div>
                   </Reveal>
                   <div className="flex flex-col gap-4 lg:pb-2">
                     <Reveal>

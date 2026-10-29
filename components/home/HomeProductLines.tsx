@@ -1,13 +1,15 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { ArrowRight, Shield, HomeIcon, Check } from 'lucide-react';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Reveal } from '@/components/motion/Reveal';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { visuals } from '@/content/product-visuals';
 
 export function HomeProductLines() {
+  const locale = useLocale();
   const t = useTranslations('home.lines');
 
   return (
@@ -18,13 +20,9 @@ export function HomeProductLines() {
         <div className="mt-16 grid gap-6 md:grid-cols-2">
           <Reveal>
             <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula/40 transition-colors hover:border-brand-halo/40">
-              <MediaPlaceholder
-                src="/customer/V20/images/bathroom_presence.png"
-                alt={t('careTitle')}
-                ratio="16/9"
-                rounded="none"
-                className="border-0 border-b border-white/10"
-              />
+              <div className="relative aspect-video overflow-hidden border-b border-white/10">
+                <UnifiedVisualImage visual={visuals.presence} locale={locale} sizes="(min-width: 1024px) 50vw, 100vw" />
+              </div>
               <div className="flex flex-1 flex-col p-8 md:p-10">
               <div className="flex items-center gap-3">
                 <Shield size={20} className="text-brand-halo" />
@@ -53,13 +51,9 @@ export function HomeProductLines() {
 
           <Reveal delay={120}>
             <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula/40 transition-colors hover:border-brand-halo/40">
-              <MediaPlaceholder
-                src="/customer/V20/images/kitchen_water.png"
-                alt={t('homeTitle')}
-                ratio="16/9"
-                rounded="none"
-                className="border-0 border-b border-white/10"
-              />
+              <div className="relative aspect-video overflow-hidden border-b border-white/10">
+                <UnifiedVisualImage visual={visuals.water} locale={locale} sizes="(min-width: 1024px) 50vw, 100vw" />
+              </div>
               <div className="flex flex-1 flex-col p-8 md:p-10">
               <div className="flex items-center gap-3">
                 <HomeIcon size={20} className="text-brand-halo" />

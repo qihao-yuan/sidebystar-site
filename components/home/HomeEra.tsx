@@ -1,12 +1,14 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Reveal } from '@/components/motion/Reveal';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { visuals } from '@/content/product-visuals';
 
 export function HomeEra() {
+  const locale = useLocale();
   const t = useTranslations('home.era');
 
   const cols = [
@@ -22,11 +24,9 @@ export function HomeEra() {
 
         <div className="mt-16 grid gap-10 lg:grid-cols-[5fr_7fr] lg:items-center">
           <Reveal>
-            <MediaPlaceholder
-              src="/home/era.webp"
-              alt="Cloud to edge illustration"
-              ratio="4/3"
-            />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.08]">
+              <UnifiedVisualImage visual={visuals.host} locale={locale} sizes="(min-width: 1024px) 42vw, 100vw" />
+            </div>
           </Reveal>
 
           <div className="grid gap-px overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] md:grid-cols-3">

@@ -2,7 +2,8 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ArrowRight } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
 import { MagneticButton } from '@/components/motion/MagneticButton';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { visuals } from '@/content/product-visuals';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 
@@ -20,27 +21,27 @@ type GroupKey = 'routines' | 'awareness' | 'orchestration' | 'local';
 
 const GROUPS: Array<{
   key: GroupKey;
-  image: string;
+  visual: (typeof visuals)[keyof typeof visuals];
   capabilities: [CapabilityKey, CapabilityKey];
 }> = [
   {
     key: 'routines',
-    image: '/intelligence/routines.jpg',
+    visual: visuals.routines,
     capabilities: ['memory', 'personalization'],
   },
   {
     key: 'awareness',
-    image: '/intelligence/awareness.jpg',
+    visual: visuals.awareness,
     capabilities: ['learning', 'anticipatory'],
   },
   {
     key: 'orchestration',
-    image: '/intelligence/orchestration.jpg',
+    visual: visuals.orchestration,
     capabilities: ['orchestra', 'offline'],
   },
   {
     key: 'local',
-    image: '/intelligence/local-v2.jpg',
+    visual: visuals.host,
     capabilities: ['privacy', 'household'],
   },
 ];
@@ -86,14 +87,10 @@ export default async function IntelligencePage({
               <p className="mt-6 max-w-lg text-body-lg text-ink-300">{hero('subtitle')}</p>
             </div>
             <Reveal>
-              <MediaPlaceholder
-                src="/intelligence/hero-v2.jpg"
-                alt={hero('title')}
-                ratio="4/3"
-                priority
-                className="border-white/10"
-                imageClassName="object-right brightness-150 contrast-90"
-              />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10">
+                <UnifiedVisualImage visual={visuals.host} locale={locale} sizes="(min-width: 1024px) 50vw, 100vw" priority />
+              </div>
+              <p className="mt-3 text-caption text-ink-400">{locale === 'zh-CN' ? '家庭主机设计效果' : 'Household host design visualization'}</p>
             </Reveal>
           </div>
         </div>
@@ -117,13 +114,10 @@ export default async function IntelligencePage({
               className="grid gap-10 border-b border-white/[0.07] py-16 lg:grid-cols-2 lg:items-center lg:py-24"
             >
               <Reveal className={index % 2 === 1 ? 'lg:order-2' : undefined}>
-                <MediaPlaceholder
-                  src={group.image}
-                  alt={groups(`${group.key}.title`)}
-                  ratio="1/1"
-                  rounded="xl"
-                  sizes="(min-width: 1024px) 46vw, 100vw"
-                />
+                <div className="relative aspect-square overflow-hidden rounded-xl border border-white/10">
+                  <UnifiedVisualImage visual={group.visual} locale={locale} sizes="(min-width: 1024px) 46vw, 100vw" />
+                </div>
+                {group.key === 'local' ? <p className="mt-3 text-caption text-ink-400">{locale === 'zh-CN' ? '家庭主机设计效果' : 'Household host design visualization'}</p> : null}
               </Reveal>
               <div className={index % 2 === 1 ? 'lg:order-1' : undefined}>
                 <span className="font-mono text-caption text-ink-500">

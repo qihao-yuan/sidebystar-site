@@ -1,7 +1,8 @@
 'use client';
 
 import { Eye, Brain, Sparkles, Scale, Share2 } from 'lucide-react';
-import Image from 'next/image';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { platformVisuals } from '@/content/product-visuals';
 import { ScrollPinSection } from '@/components/motion/ScrollPinSection';
 import { cn } from '@/lib/cn';
 import { useLocale } from 'next-intl';
@@ -13,7 +14,8 @@ export function ArchTraversal() {
   const panels = [
     {
       icon: Eye,
-      image: '/platform/stage-input-v3.jpg',
+      visual: platformVisuals[0],
+      caption: isZh ? '毫米波节点设计效果' : 'mmWave node design visualization',
       eyebrow: 'Stage 01',
       title: isZh ? '输入 Input' : 'Input',
       body: isZh
@@ -25,7 +27,8 @@ export function ArchTraversal() {
     },
     {
       icon: Brain,
-      image: '/platform/stage-context-v3.jpg',
+      visual: platformVisuals[1],
+      caption: isZh ? '实际软件界面 · 示例数据' : 'Current software interface · Example data',
       eyebrow: 'Stage 02',
       title: isZh ? '上下文 Context' : 'Context',
       body: isZh
@@ -37,7 +40,8 @@ export function ArchTraversal() {
     },
     {
       icon: Sparkles,
-      image: '/platform/stage-evaluation-v3.jpg',
+      visual: platformVisuals[2],
+      caption: isZh ? '实际软件界面 · 示例数据' : 'Current software interface · Example data',
       eyebrow: 'Stage 03',
       title: isZh ? '评估 Evaluation' : 'Evaluation',
       body: isZh
@@ -49,7 +53,8 @@ export function ArchTraversal() {
     },
     {
       icon: Scale,
-      image: '/platform/stage-execution-v3.jpg',
+      visual: platformVisuals[3],
+      caption: isZh ? '原厂窗帘安装示意' : 'OEM curtain installation illustration',
       eyebrow: 'Stage 04',
       title: isZh ? '执行 Execution' : 'Execution',
       body: isZh
@@ -61,7 +66,8 @@ export function ArchTraversal() {
     },
     {
       icon: Share2,
-      image: '/platform/stage-distribution-v3.jpg',
+      visual: platformVisuals[4],
+      caption: isZh ? '家庭主机设计效果' : 'Household host design visualization',
       eyebrow: 'Stage 05',
       title: isZh ? '分发 Distribution' : 'Distribution',
       body: isZh
@@ -95,22 +101,20 @@ export function ArchTraversal() {
                       key={i}
                       className={cn(
                         'absolute inset-0 transition-all duration-700 ease-apple-out',
-                        active ? 'z-10 opacity-100 scale-100' : 'z-0 opacity-0 scale-[1.03]'
+                        active ? 'z-10 opacity-100' : 'z-0 opacity-0'
                       )}
                     >
-                      <Image
-                        src={p.image}
-                        alt=""
-                        fill
+                      <UnifiedVisualImage
+                        visual={p.visual}
+                        locale={locale}
                         sizes="(min-width: 1024px) 60vw, 100vw"
-                        className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-surface-void/75 via-transparent to-transparent" />
+                      {p.visual.kind !== 'software-demo' && <div className="absolute inset-0 bg-gradient-to-t from-surface-void/75 via-transparent to-transparent" />}
                     </div>
                   );
                 })}
                 {/* stage indicators */}
-                <div className="absolute bottom-6 left-6 right-6 z-20 flex items-center gap-3">
+                <div className="absolute bottom-6 left-6 right-6 z-20 flex items-center gap-3 rounded-lg bg-surface-void/85 p-3">
                   {panels.map((p, i) => (
                     <div key={i} className="flex-1">
                       <div className={cn('h-0.5 w-full rounded-full transition-colors', i <= index ? 'bg-brand-halo' : 'bg-white/10')} />
@@ -121,6 +125,7 @@ export function ArchTraversal() {
                   ))}
                 </div>
               </div>
+              <p className="mt-3 text-caption text-ink-400">{panels[index].caption}</p>
             </div>
 
             {/* text column */}

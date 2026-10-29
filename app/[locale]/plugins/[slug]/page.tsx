@@ -1,24 +1,14 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { pluginVisuals, visuals } from '@/content/product-visuals';
 import { Link } from '@/i18n/routing';
 import { ArrowLeft, ArrowRight, Users } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
 import { MagneticButton } from '@/components/motion/MagneticButton';
 import { buildMetadata } from '@/lib/seo';
 import { plugins, getPlugin, pluginProfiles } from '@/content/plugins';
-
-const pluginHeroImages: Record<string, string> = {
-  'dawn-light': '/plugins/dawn-light-hero.jpg',
-  'fall-watch': '/plugins/fall-watch-hero.jpg',
-  'energy-keeper': '/plugins/energy-keeper-hero.jpg',
-  'matter-bridge': '/plugins/matter-bridge-hero.jpg',
-  'homeassistant-sync': '/plugins/homeassistant-sync-hero.jpg',
-  'concierge-script': '/plugins/concierge-script-hero.jpg',
-  'clinical-adapter': '/plugins/clinical-adapter-hero.jpg',
-  'auditable-voice': '/plugins/auditable-voice-hero.jpg',
-};
 
 export function generateStaticParams() {
   return plugins.filter((p) => p.stage !== 'roadmap').flatMap((p) => [
@@ -55,6 +45,14 @@ export default async function PluginStory({
   const isZh = locale === 'zh-CN';
   const t = await getTranslations('plugins');
   const profile = pluginProfiles[p.slug];
+  const heroVisual = pluginVisuals[p.slug as keyof typeof pluginVisuals] ?? visuals.host;
+  const visualCaption = p.slug === 'clinical-adapter'
+    ? (isZh ? '原厂床旁设备选配示意' : 'OEM bedside device illustration')
+    : p.slug === 'concierge-script'
+      ? (isZh ? '实际软件界面 · 示例数据' : 'Current software interface · Example data')
+      : p.slug === 'dawn-light'
+        ? (isZh ? '灯光与窗帘应用场景示意' : 'Lighting and curtain scenario illustration')
+        : (isZh ? '产品设计效果 · 按项目确认适配' : 'Product design visualization · Integration assessed per project');
 
   const related = plugins
     .filter((x) => x.slug !== p.slug && x.topic === p.topic && x.stage !== 'roadmap')
@@ -64,13 +62,12 @@ export default async function PluginStory({
     <article>
       <section className="relative flex min-h-[72vh] items-center overflow-hidden border-b border-white/[0.07]">
         <div className="pointer-events-none absolute inset-0 lg:left-auto lg:w-[58%]">
-          <Image
-            src={pluginHeroImages[p.slug] ?? '/intelligence/hero-v2.jpg'}
-            alt=""
-            fill
+          <UnifiedVisualImage
+            visual={heroVisual}
+            locale={locale}
             priority
             sizes="(min-width: 1024px) 58vw, 100vw"
-            className="object-cover opacity-55 lg:opacity-70"
+            className="opacity-55 lg:opacity-70"
           />
           <div className="absolute inset-0 bg-surface-void/55 lg:hidden" />
           <div className="absolute inset-0 bg-gradient-to-r from-surface-void via-surface-void/55 to-surface-void/10" />
@@ -99,6 +96,7 @@ export default async function PluginStory({
               </div>
             </div>
             <p className="max-w-3xl text-display-sm text-white">{isZh ? p.taglineZh : p.taglineEn}</p>
+            <p className="text-caption text-ink-400">{visualCaption}</p>
           </div>
         </div>
       </section>

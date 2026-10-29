@@ -2,14 +2,24 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/routing';
 import { getSolution, SolutionSlug } from '@/content/solutions';
-import { customerImages, roomApplications } from '@/content/customer-experience';
+import { roomApplications } from '@/content/customer-experience';
+import { visuals, type VisualAsset } from '@/content/product-visuals';
 import { Reveal } from '@/components/motion/Reveal';
 import { GradientMesh } from '@/components/motion/GradientMesh';
 import { MagneticButton } from '@/components/motion/MagneticButton';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
 import { ArrowRight, Package } from 'lucide-react';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
+
+const ROOM_VISUALS: Record<string, VisualAsset> = {
+  kitchen: visuals.water,
+  bathroom: visuals.presence,
+  tv: visuals.host,
+  bedside: visuals.bedside,
+  entrance: visuals.entrance,
+  curtains: visuals.curtains,
+};
 
 export function generateStaticParams() {
   const slugs: SolutionSlug[] = ['elderly-care', 'community-care', 'clinical-assist', 'smart-home', 'smart-room'];
@@ -56,7 +66,7 @@ export default async function SolutionDetail({
   const bundle = sol.bundle!;
   const hasWorkflow = Boolean(sol.workflow?.length);
   const Icon = sol.icon;
-  const heroImage = sol.group === 'health' ? customerImages.bathroom : slug === 'smart-room' ? customerImages.host : customerImages.family;
+  const heroVisual = slug === 'clinical-assist' ? visuals.bedside : sol.group === 'health' ? visuals.presence : slug === 'smart-room' ? visuals.host : visuals.family;
 
   return (
     <article>
@@ -79,14 +89,10 @@ export default async function SolutionDetail({
               <p className="max-w-3xl text-body-lg text-ink-300">{items(`${sol.titleKey}.brief`)}</p>
             </div>
             <Reveal>
-              <MediaPlaceholder
-                src={heroImage}
-                alt={items(`${sol.titleKey}.title`)}
-                ratio="16/9"
-                rounded="xl"
-                priority
-              />
-              <p className="mt-3 text-caption text-ink-400">{isZh ? '设计效果图 · 实物及现场适配待验证' : 'Design visualization · physical and site validation pending'}</p>
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/[0.08]">
+                <UnifiedVisualImage visual={heroVisual} locale={locale} sizes="(min-width: 1024px) 58vw, 100vw" priority />
+              </div>
+              <p className="mt-3 text-caption text-ink-400">{slug === 'clinical-assist' ? (isZh ? '原厂床旁设备选配示意 · 按型号确认接入' : 'OEM bedside option illustration · integration depends on model') : (isZh ? '设计效果图 · 实物及现场适配待验证' : 'Design visualization · physical and site validation pending')}</p>
             </Reveal>
           </div>
         </div>
@@ -100,10 +106,11 @@ export default async function SolutionDetail({
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {roomApplications.filter((x) => slug !== 'elderly-care' || ['bathroom', 'bedside'].includes(x.id)).map((item) => (
                 <div key={item.id} className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
-                  <MediaPlaceholder src={item.id === 'kitchen' ? customerImages.kitchen : item.id === 'bathroom' ? customerImages.bathroom : item.id === 'tv' ? customerImages.host : customerImages.extensions}
-                    alt={pick(item.title)} ratio="16/9" rounded="none" imageClassName={['bedside', 'entrance', 'curtains'].includes(item.id) ? 'object-contain bg-[#f4f6f8]' : undefined} />
+                  <div className="relative aspect-[16/9] overflow-hidden border border-white/[0.08]">
+                    <UnifiedVisualImage visual={ROOM_VISUALS[item.id]} locale={locale} sizes="(min-width: 768px) 50vw, 100vw" />
+                  </div>
                   <div className="p-6"><h3 className="text-display-sm text-white">{pick(item.title)}</h3><p className="mt-3 text-body text-ink-300">{pick(item.body)}</p>
-                    <p className="mt-4 text-caption text-ink-500">{isZh ? (['bedside', 'entrance', 'curtains'].includes(item.id) ? '原厂选配安装示意 · 按型号确认适配' : '产品设计方向 · 待实物验证') : (['bedside', 'entrance', 'curtains'].includes(item.id) ? 'OEM installation illustration · integration verified by model' : 'Product design direction · physical validation pending')}</p>
+                    <p className="mt-4 text-caption text-ink-500">{isZh ? (['bedside', 'entrance', 'curtains'].includes(item.id) ? '原厂选配安装示意 · 按型号确认适配' : '产品设计方向 · 待实物验证') : (['bedside', 'entrance', 'curtains'].includes(item.id) ? 'OEM installation illustration · model-specific integration assessment' : 'Product design direction · physical validation pending')}</p>
                   </div>
                 </div>
               ))}

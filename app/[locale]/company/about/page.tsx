@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Reveal } from '@/components/motion/Reveal';
-import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
+import { UnifiedVisualImage } from '@/components/media/UnifiedVisualImage';
+import { visuals } from '@/content/product-visuals';
 import { buildMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/routing';
@@ -66,12 +67,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </Reveal>
           </div>
           <Reveal delay={100}>
-            <MediaPlaceholder
-              src="/company/about-workbench.jpg"
-              alt={isZh ? '循星产品研发工作台' : 'SidebyStar product engineering workbench'}
-              ratio="4/3"
-              rounded="xl"
-            />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/[0.08]">
+              <UnifiedVisualImage visual={visuals.host} locale={locale} sizes="(min-width: 1024px) 58vw, 100vw" />
+            </div>
+            <p className="mt-3 text-caption text-ink-500">{isZh ? '家庭主机设计效果图' : 'Home host design visual'}</p>
           </Reveal>
         </div>
       </section>
