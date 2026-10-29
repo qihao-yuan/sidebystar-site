@@ -19,7 +19,7 @@ export function HomeProductLines() {
           <Reveal>
             <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula/40 transition-colors hover:border-brand-halo/40">
               <MediaPlaceholder
-                src="/solutions/care-delivery.jpg"
+                src="/customer/V20/images/bathroom_presence.png"
                 alt={t('careTitle')}
                 ratio="16/9"
                 rounded="none"
@@ -54,7 +54,7 @@ export function HomeProductLines() {
           <Reveal delay={120}>
             <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-surface-nebula/40 transition-colors hover:border-brand-halo/40">
               <MediaPlaceholder
-                src="/solutions/home-delivery.jpg"
+                src="/customer/V20/images/kitchen_water.png"
                 alt={t('homeTitle')}
                 ratio="16/9"
                 rounded="none"
@@ -78,7 +78,7 @@ export function HomeProductLines() {
               </ul>
 
               <div className="mt-auto pt-8">
-                <Link href="/intelligence" className="btn-ghost">
+                <Link href="/solutions/smart-home" className="btn-ghost">
                   {t('homeCta')} <ArrowRight size={16} />
                 </Link>
               </div>

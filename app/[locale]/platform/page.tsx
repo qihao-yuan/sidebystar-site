@@ -132,8 +132,8 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
           <Reveal delay={120}>
             <p className="mt-6 max-w-2xl text-body-lg text-ink-300">
               {isZh
-                ? '统一接入现场设备与事件，在本地完成状态管理、规则判断、设备控制和审计记录。'
-                : 'Connects site devices and events, with local state management, rule evaluation, device control and audit records.'}
+                ? '为助手软件、状态记录和经验证的设备接入提供部署结构。以下为平台能力设计，具体接口与现场联动按项目验证。'
+                : 'A deployment structure for assistant software, state records and verified device integration. The following describes platform design; interfaces and site actions require project validation.'}
             </p>
           </Reveal>
         </div>
@@ -141,9 +141,9 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
         {/* principles */}
         <div className="container-page mt-16 grid grid-cols-1 gap-6 border-y border-white/5 py-8 md:grid-cols-3">
           {[
-            { zh: '本地推理', en: 'On-device inference', subZh: '默认配置不外发', subEn: 'No outbound by default' },
-            { zh: '断网可用', en: 'Offline-capable', subZh: '关键能力不依赖云', subEn: 'Critical paths free of cloud' },
-            { zh: '可审计', en: 'Auditable', subZh: '每一次判断都留痕', subEn: 'Every decision, traced' },
+            { zh: '本地部署方向', en: 'Local deployment', subZh: '模型与外部服务按配置确认', subEn: 'Models and external services scoped per configuration' },
+            { zh: '设备逐项适配', en: 'Verified integration', subZh: '按型号与现场条件验证', subEn: 'Validate each model and site condition' },
+            { zh: '记录可核对', en: 'Reviewable records', subZh: '当前事项与选择可查看', subEn: 'Review current tasks and choices' },
           ].map((it) => (
             <div key={it.en} className="text-center">
               <div className="font-display text-display-sm text-white">{isZh ? it.zh : it.en}</div>

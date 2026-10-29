@@ -21,17 +21,18 @@
     "demoRequest": "Book a Demo",
     "locale": "EN",
     "groupHardware": "Hardware",
-    "groupSoftware": "Software"
+    "groupSoftware": "Software",
+    "experience": "Experience"
   },
   "home": {
     "hero": {
-      "eyebrow": "AIOS · An on-site system for real spaces",
-      "title": "Local intelligence systems\nfor residences and care facilities",
-      "subtitle": "Connect site devices and run rules, controls and audit records locally.",
-      "footnote": "AIOS Care | care facilities & operators    ·    AIOS Home | households & residences",
-      "ctaPrimary": "Book a Demo",
-      "ctaSecondary": "View product lines",
-      "scrollHint": "Keep scrolling"
+      "eyebrow": "AIOS · People and spaces",
+      "title": "A personal life assistant",
+      "subtitle": "Assistant software, a household host and room devices. Save what you share, prepare practical checklists and follow up on tasks and reminders, with equipment configured for the actual use.",
+      "footnote": "AIOS Home | Individuals and households · AIOS Care | Care environments",
+      "ctaPrimary": "See the software in use",
+      "ctaSecondary": "Explore product configurations",
+      "scrollHint": "See the product system"
     },
     "era": {
       "eyebrow": "Why local",
@@ -49,24 +50,24 @@
     },
     "lines": {
       "eyebrow": "Two Lines, One Hub",
-      "title": "Two product lines",
-      "subtitle": "Both use the AIOS platform, delivered for the distinct requirements of care facilities and residences.",
+      "title": "Configurations for homes and care environments",
+      "subtitle": "A shared assistant and integration foundation, configured around people, existing equipment and site conditions.",
       "careEyebrow": "AIOS Care",
-      "careTitle": "For facilities and care",
+      "careTitle": "AIOS Care · Care environments",
       "careTagline": "On-site sensing, tiered alerts and response records",
-      "careBody": "A local deployment solution for elderly care facilities, community care and assisted wards.",
-      "carePoint1": "Non-camera sensing and tiered alerts",
-      "carePoint2": "Care tickets and response records",
-      "carePoint3": "Tiered access for family, care and administration",
-      "careCta": "See the night-care loop",
+      "careBody": "Evaluate devices and workflows for nighttime activity, assistance calls and response records.",
+      "carePoint1": "Original-manufacturer call, measurement and safety devices",
+      "carePoint2": "On-site validation of presence, stillness and suspected events",
+      "carePoint3": "Review notification, acceptance and response by role",
+      "careCta": "Explore care integration",
       "homeEyebrow": "AIOS Home",
-      "homeTitle": "For households and high-end residences",
+      "homeTitle": "AIOS Home · Individuals and households",
       "homeTagline": "Device integration, local rules and member permissions",
-      "homeBody": "A device orchestration and local control solution for individual homes and standardized rooms.",
-      "homePoint1": "Lighting, climate, curtain and security integration",
-      "homePoint2": "Rules by member, room and time",
-      "homePoint3": "Human approval retained for high-risk actions",
-      "homeCta": "View residential intelligence",
+      "homeBody": "Start with personal records, household tasks and room equipment, then define the right configuration.",
+      "homePoint1": "Notes, preparation checklists and due suggestions in the software",
+      "homePoint2": "Kitchen, bathroom, entrance and curtain options",
+      "homePoint3": "Retain useful existing equipment and verify each control scope",
+      "homeCta": "Explore household applications",
       "footnote": "AIOS Care supports care-site operations and response;\nAIOS Home supports residential devices and household rules."
     },
     "nightCare": {
@@ -111,18 +112,18 @@
     },
     "platform": {
       "eyebrow": "AIOS Platform",
-      "title": "AIOS local intelligence system platform",
-      "subtitle": "From sensing to action, every step has a clear input, rule and result.",
+      "title": "A foundation for software, compute and device integration",
+      "subtitle": "Review current software operations and device integration separately, expanding around specific tasks.",
       "sensingTitle": "Multi-source event input",
-      "sensingBody": "Processes voice, environmental sensors, device state and spatial events through one event layer.",
+      "sensingBody": "Evaluate environmental, presence, acoustic and device events for each use.",
       "edgeTitle": "Local rule execution",
-      "edgeBody": "State evaluation and core controls run on-site without depending on the public internet.",
-      "memoryTitle": "Layered context",
-      "memoryBody": "Static facts, live state, recurring patterns and semantic information are managed separately.",
+      "edgeBody": "Validate local services, offline behavior and device actions for the target deployment.",
+      "memoryTitle": "Personal records",
+      "memoryBody": "Save explicitly shared notes and review task and reminder records.",
       "protocolsTitle": "Device protocol adapters",
-      "protocolsBody": "Connects approved mainstream devices and protocols through adapters.",
+      "protocolsBody": "Confirm models, interface permissions and existing systems before integration.",
       "privacyTitle": "Local-first",
-      "privacyBody": "Data stays home by default; when the network drops, the essentials keep running.",
+      "privacyBody": "Define collection, retention and use; local and cloud paths follow the actual configuration.",
       "exploreCta": "View platform architecture"
     },
     "trust": {
@@ -140,14 +141,14 @@
   },
   "intelligence": {
     "hero": {
-      "eyebrow": "AIOS Home · Local intelligence",
-      "title": "A local intelligence kernel for residences",
-      "subtitle": "Handles device integration, state management, rule suggestions and control on site. Locks, alerts and other high-risk actions retain human approval."
+      "eyebrow": "AIOS Home · Assistant and device capabilities",
+      "title": "Daily tasks and room coordination",
+      "subtitle": "Current software shows records, tasks and suggestions in use. Sensing, habit learning and device coordination are capability designs requiring device and site validation."
     },
     "section": {
       "eyebrow": "Capabilities",
-      "title": "Four capability groups",
-      "body": "Functions are organized around household members, site state, device control and data boundaries. Every automation rule remains inspectable and editable."
+      "title": "Software and integration directions",
+      "body": "Start with explicitly shared notes and tasks, then validate preferences, sensing, permissions and device coordination one step at a time."
     },
     "groups": {
       "routines": {
@@ -165,16 +166,16 @@
     },
     "capabilities": {
       "memory": {
-        "title": "Authorized preference records",
-        "body": "Common lighting, temperature and routine preferences are stored locally with permission, and can be reviewed, changed or deleted."
+        "title": "Explicitly shared records",
+        "body": "Save a location or appointment you explicitly share, then retrieve, edit or delete the current record."
       },
       "personalization": {
-        "title": "Member data isolation",
-        "body": "Preferences stay separate by household member. Shared spaces follow household rules instead of applying one person's habits to everyone."
+        "title": "Members and preference design",
+        "body": "Scope preferences and actions by member and shared space. Identity and isolation require deployment-specific validation."
       },
       "learning": {
-        "title": "Recurring pattern detection",
-        "body": "When the same action happens repeatedly, the system turns it into a suggestion. It becomes an automation only after approval."
+        "title": "Repeated-pattern research",
+        "body": "Explore turning recurring events into reviewable suggestions. The current demo handles due suggestions from stored tasks; it does not establish automatic habit learning."
       },
       "orchestra": {
         "title": "Common device integration",
@@ -193,8 +194,8 @@
         "body": "Local lighting, device control and configured alert rules continue during an outage. Cloud-dependent services clearly show when unavailable."
       },
       "household": {
-        "title": "Shared and personal permissions",
-        "body": "The household manages common-area rules together. Bedrooms, routines and personal preferences remain individually controlled, and guests are not added to long-term memory."
+        "title": "Shared and personal permission design",
+        "body": "Define authorization for common spaces and personal information. Visitor records, identity switching and access isolation require verification."
       }
     },
     "cta": {
@@ -207,18 +208,18 @@
   "system": {
     "hero": {
       "eyebrow": "AIOS Family",
-      "title": "A complete on-site system, from sensing to action.",
-      "subtitle": "Gateway, sensing, interaction, connection and action each have a defined role in site state management and device control."
+      "title": "Compute, sensing, interaction and equipment options",
+      "subtitle": "Different roles call for different products and installations. Original device designs, current software and manufacturer options are identified separately."
     },
     "closing": {
       "eyebrow": "The Whole Picture",
-      "title": "Five roles. One complete workflow.",
-      "body": "The system keeps state input, rule evaluation, device integration, action and result records within one on-site workflow. Clear responsibilities make deployment, acceptance and maintenance easier.",
-      "bullet1": "Essential state and control paths run on site.",
-      "bullet2": "Collection scope, device access and action boundaries are configurable.",
-      "bullet3": "Rule changes, action results and exceptions remain recorded.",
-      "ctaProducts": "See the three products",
-      "ctaSolutions": "See scenario bundles"
+      "title": "Configure the system\naround the task",
+      "body": "Start with the task and existing equipment, then define software, compute, devices and installation services.",
+      "bullet1": "Review software operations through recordings or an arranged demonstration.",
+      "bullet2": "Validate device models, installation and each action scope separately.",
+      "bullet3": "Professional manufacturer devices retain their identity and intended use.",
+      "ctaProducts": "Explore product configurations",
+      "ctaSolutions": "Explore applications"
     }
   },
   "plugins": {
@@ -263,47 +264,77 @@
       }
     },
     "items": {
-      "elderlyCare": { "title": "Elderly Care", "brief": "Falls, prolonged lying, bed-leaving, night patrol" },
-      "communityCare": { "title": "Community Care", "brief": "Facility management, family remote view" },
-      "clinicalAssist": { "title": "Clinical Assist", "brief": "Post-op rehab, medication, anomaly reporting" },
-      "smartHome": { "title": "Smart Home", "brief": "Cross-brand orchestration, adaptive modeling" },
-      "smartRoom": { "title": "Smart Room", "brief": "Hotel, wellness, assisted living rooms" },
-      "hospitality": { "title": "Hospitality", "brief": "Rooms that move from buttons to understanding guests" },
-      "workspace": { "title": "Workspace", "brief": "Meeting rooms that know the next step" },
-      "retail": { "title": "Retail Space", "brief": "Shelves that see, spaces that read the flow" },
-      "campus": { "title": "Campus", "brief": "Ambient intelligence for classrooms and dorms" },
-      "cultural": { "title": "Cultural Space", "brief": "Exhibits that understand the visitor" }
+      "elderlyCare": {
+        "title": "Everyday care support",
+        "brief": "A configuration proposal for bathroom state reminders and bedside devices."
+      },
+      "communityCare": {
+        "title": "Community care configuration",
+        "brief": "Begin with household tasks, staff responsibilities and site conditions."
+      },
+      "clinicalAssist": {
+        "title": "Care tasks and measurement access",
+        "brief": "Assess OEM measurement devices and workflow interfaces per project."
+      },
+      "smartHome": {
+        "title": "Household assistant",
+        "brief": "Find belongings, follow daily tasks and configure room devices step by step."
+      },
+      "smartRoom": {
+        "title": "One room and a TV workspace",
+        "brief": "Start with one room, an existing TV and suitable controls."
+      },
+      "hospitality": {
+        "title": "Hospitality",
+        "brief": "Rooms that move from buttons to understanding guests"
+      },
+      "workspace": {
+        "title": "Workspace",
+        "brief": "Meeting rooms that know the next step"
+      },
+      "retail": {
+        "title": "Retail Space",
+        "brief": "Shelves that see, spaces that read the flow"
+      },
+      "campus": {
+        "title": "Campus",
+        "brief": "Ambient intelligence for classrooms and dorms"
+      },
+      "cultural": {
+        "title": "Cultural Space",
+        "brief": "Exhibits that understand the visitor"
+      }
     }
   },
   "products": {
-    "title": "Products",
-    "subtitle": "Three deployment profiles for homes, community facilities and private hospital environments.",
+    "title": "Assistant software, compute hosts and room devices",
+    "subtitle": "From current software recordings to original device designs and manufacturer options, define the configuration and installation around a specific use.",
     "homeBox": {
       "name": "Home Box",
-      "tag": "Local hub for individual homes",
-      "price": "USD 299 first buy + USD 30 / year",
-      "desc": "A local hub for device integration, rule execution and state management in an individual home.",
-      "bullet1": "Connects approved lighting, locks and environmental devices",
-      "bullet2": "Configures automation by room, member, time and state",
-      "bullet3": "Core controls run locally and remain available offline"
+      "tag": "Individuals and households",
+      "price": "Quoted for the software, devices and installation",
+      "desc": "A configuration for personal records, household tasks and device integration in one home. Home Box is a solution package rather than a single host model.",
+      "bullet1": "Assistant software with an appropriate local compute configuration",
+      "bullet2": "Water-contact, state-sensing and interaction options as needed",
+      "bullet3": "Review existing equipment, installation and maintenance separately"
     },
     "communityKit": {
       "name": "Community Kit",
-      "tag": "Community and multi-unit facilities",
-      "price": "USD 4.5k kickoff + USD 8 / unit / month",
-      "desc": "A tiered gateway system for senior apartments and community care facilities managing 20-200 units.",
-      "bullet1": "Tiered deployment across community gateways and in-unit nodes",
-      "bullet2": "Role-based access for families, care staff and administrators",
-      "bullet3": "Searchable and exportable event, rule and operation records"
+      "tag": "Care and multi-room configurations",
+      "price": "Quoted for the site, equipment and service scope",
+      "desc": "Evaluate compute, integration and staff response for care rooms or multi-room workflows.",
+      "bullet1": "Define nodes and integration around rooms and existing equipment",
+      "bullet2": "Validate notification channels, recipients and response records",
+      "bullet3": "Establish coverage, recovery and maintenance through a pilot"
     },
     "enterpriseStack": {
       "name": "Enterprise Stack",
-      "tag": "On-premises for hospitals and institutions",
-      "price": "USD 30k kickoff + USD 12k / year",
-      "desc": "An on-premises system for hospitals and large care facilities, integrated with existing systems per project.",
-      "bullet1": "Unified configuration for on-site nodes, permissions and network policy",
-      "bullet2": "Queryable and exportable records for compliance workflows",
-      "bullet3": "Project-defined interfaces to existing information systems"
+      "tag": "Institutional project configuration",
+      "price": "Quoted for compute load, interfaces and project services",
+      "desc": "Evaluate compute, networking and interfaces against the institution’s tasks, using appropriate original-manufacturer servers and professional devices.",
+      "bullet1": "Define compute, storage, networking and software scope separately",
+      "bullet2": "Integrate authorized interfaces with existing business systems",
+      "bullet3": "Document procurement, installation, acceptance and support"
     }
   },
   "trust": {
@@ -465,7 +496,10 @@
       "title": "About SidebyStar",
       "subtitle": "A Hangzhou-based product team building local intelligence systems and hardware."
     },
-    "partners": { "title": "Partnerships & ecosystem", "subtitle": "Interfaces for hardware, delivery and research partners." }
+    "partners": {
+      "title": "Partnerships & ecosystem",
+      "subtitle": "Interfaces for hardware, delivery and research partners."
+    }
   },
   "privacy": {
     "title": "Privacy & Compliance",

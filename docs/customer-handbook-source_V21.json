@@ -1,0 +1,215 @@
+{
+  "revision": "V21-mobile-web",
+  "derived_from_revision": "V20",
+  "source_html": "docs/hardware/modeling/deliveries/V20_customer_manual/循星AIOS产品手册.html",
+  "source_html_sha256": "f419f3d3fcffac9a04f7b3a811eab5402eb157afb245edaec7ba3ac50a300d44",
+  "source_content_sha256": "9af499fa4bda30fec56c156e3c30b9c8281835c00cd3e5bbfe6cc363962fe2c7",
+  "chapters": 16,
+  "image_files": 18,
+  "video_files": 5,
+  "media_original_payload_bytes_preserved": true,
+  "media": [
+    {
+      "source_payload_id": "image:family_studio",
+      "path": "assets/images/family_studio.jpg",
+      "mime": "image/jpeg",
+      "bytes": 139841,
+      "sha256": "3293f113f4527115f0f5d8bdea851f7723d164dc1624b670b37e5b60026e2b3f",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:host_desk",
+      "path": "assets/images/host_desk.jpg",
+      "mime": "image/jpeg",
+      "bytes": 208360,
+      "sha256": "67bdddafd40ed2f6d1980aec226786a92697022824b995783f0536ed56bf0f81",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:kitchen_water",
+      "path": "assets/images/kitchen_water.jpg",
+      "mime": "image/jpeg",
+      "bytes": 199839,
+      "sha256": "100e65a255debd6e7094039104d34d4673fbb1d663fb29c6a21b38c6245a2182",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:bathroom_presence",
+      "path": "assets/images/bathroom_presence.jpg",
+      "mime": "image/jpeg",
+      "bytes": 195144,
+      "sha256": "8d2bf0d096a1991e2b238cd93d49b77abaff3782adf589d3e44e7e391c656f64",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:memory",
+      "path": "assets/images/memory.jpg",
+      "mime": "image/jpeg",
+      "bytes": 106040,
+      "sha256": "2d1b81efa698515ff37531acbea99d6309fb88f7df4dabccb194b00173d2d8ff",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:recall",
+      "path": "assets/images/recall.jpg",
+      "mime": "image/jpeg",
+      "bytes": 39517,
+      "sha256": "3fd192942fdb3cf6038a38b89615a7fb93e40103a2d50ef245cc8d447bb058b9",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:plan",
+      "path": "assets/images/plan.jpg",
+      "mime": "image/jpeg",
+      "bytes": 199007,
+      "sha256": "814957263b719ab48b0ade26e622e7c76c8a94bcfc1c7e9bbfda4acedfe26cce",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:task",
+      "path": "assets/images/task.jpg",
+      "mime": "image/jpeg",
+      "bytes": 172562,
+      "sha256": "a02265f118bf9fa44d0aeffd318c6bca4dfc03691ef8e124f73f7c34f084eb5f",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:reminder",
+      "path": "assets/images/reminder.jpg",
+      "mime": "image/jpeg",
+      "bytes": 110260,
+      "sha256": "cba8886c8e2d9b65d1998f5e481fd689bfcabb57d7c7721d98b2897bd9ef45b7",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:choice",
+      "path": "assets/images/choice.jpg",
+      "mime": "image/jpeg",
+      "bytes": 89450,
+      "sha256": "58bee5a4baa174d0a20814105d8a18af1ff512ec6fc4dab3762fc5b8f1e61138",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:events",
+      "path": "assets/images/events.jpg",
+      "mime": "image/jpeg",
+      "bytes": 154406,
+      "sha256": "0d59647b96e668344eda7707779ed4163de1524a27076fffc3f0368cf88b91c8",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:rain_poster",
+      "path": "assets/images/rain_poster.jpg",
+      "mime": "image/jpeg",
+      "bytes": 140829,
+      "sha256": "b6c614f26fecc9b39c1a600b837c20c013e432ce53a11b344437c05754b1d710",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:romance_poster",
+      "path": "assets/images/romance_poster.jpg",
+      "mime": "image/jpeg",
+      "bytes": 359024,
+      "sha256": "52f489011afe598984b02f879056e1d183ce2ca2d15e432f63438f9d3622efcb",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:anniversary_poster",
+      "path": "assets/images/anniversary_poster.jpg",
+      "mime": "image/jpeg",
+      "bytes": 190154,
+      "sha256": "ca85be9bb9645d3ca33baf203624b29a87e1e24837cf9fa5a9e3797b60e1b095",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:glasses_poster",
+      "path": "assets/images/glasses_poster.jpg",
+      "mime": "image/jpeg",
+      "bytes": 208714,
+      "sha256": "d1437d0c91517857d2282f2a4a08e90a8b0ac145646fce65d0aebe5cdfd328ae",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:software_demo_poster",
+      "path": "assets/images/software_demo_poster.jpg",
+      "mime": "image/jpeg",
+      "bytes": 142856,
+      "sha256": "479112121307073a46edc676970797b86b7bacc5c80af8ec1b299976b24edb73",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:extension_scenes",
+      "path": "assets/images/extension_scenes.jpg",
+      "mime": "image/jpeg",
+      "bytes": 323474,
+      "sha256": "01bb239684c40ec6abef8163a3f6b9253505fd5d5f058c0a6c05f93ac35be9ce",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "image:emblem",
+      "path": "assets/images/emblem.svg",
+      "mime": "image/svg+xml",
+      "bytes": 4531,
+      "sha256": "756c9067fb33e8b8398eff76ee879ce684f7c738f66ee817cbb1e028d567df42",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "video:rain",
+      "path": "assets/video/rain.mp4",
+      "mime": "video/mp4",
+      "bytes": 1695748,
+      "sha256": "2853e586ca2e77b66f4a409fdf39134207f986ecd61be35d1edd6d1abcaab50f",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "video:romance",
+      "path": "assets/video/romance.mp4",
+      "mime": "video/mp4",
+      "bytes": 2157775,
+      "sha256": "59137f1d069598f868a83176460999797962289c6bc14bd69c3b2c2e0b1f7c36",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "video:anniversary",
+      "path": "assets/video/anniversary.mp4",
+      "mime": "video/mp4",
+      "bytes": 1978629,
+      "sha256": "8453b0530d9003840d1e641751db16e332be11b1cb4a79124dbb0ae8844858b0",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "video:glasses",
+      "path": "assets/video/glasses.mp4",
+      "mime": "video/mp4",
+      "bytes": 2207194,
+      "sha256": "09e33f2e12d675e863524cbe56878be7da277691daac1bf6f08bafd2c6d8d9db",
+      "original_payload_bytes_preserved": true
+    },
+    {
+      "source_payload_id": "video:software_demo",
+      "path": "assets/video/software_demo.mp4",
+      "mime": "video/mp4",
+      "bytes": 889782,
+      "sha256": "de8289191b7c1d1f5f883423455dfc9e804ea352ee14191eb6261f301f3f0d4f",
+      "original_payload_bytes_preserved": true
+    }
+  ],
+  "index": {
+    "path": "index.html",
+    "sha256": "bbe24d044bff9eb61bde40dad5ffb2231ea607ef7ab9d71dfe8a0f65c64d5bab",
+    "bytes": 39691
+  },
+  "media_total_bytes": 11913136,
+  "package_files_including_manifest": 25,
+  "package_total_bytes_including_manifest": 11960626,
+  "requires_web_hosting": true,
+  "self_contained_offline_HTML": false,
+  "videos_autoplay": false,
+  "video_preload": "none",
+  "video_playsinline": true,
+  "physical_iPhone_test_performed": false,
+  "physical_Android_test_performed": false,
+  "public_HTTPS_deployment_performed_by_exporter": false,
+  "expected_HTTPS_site_url": "https://sidebystar.com/customer/V21/index.html",
+  "V20_source_files_modified": false
+}

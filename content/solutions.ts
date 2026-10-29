@@ -55,242 +55,394 @@ export type Solution = {
 
 export const solutions: Solution[] = [
   {
-    slug: 'elderly-care',
-    icon: HeartPulse,
-    titleKey: 'elderlyCare',
-    group: 'health',
-    buyer: { zh: '养老机构、护理院、康养中心运营方与信息化负责人', en: 'Elderly care facilities, nursing homes, wellness center operators and IT leads' },
-    problems: [
-      { zh: '夜间巡检漏检风险高,人力覆盖有限', en: 'High risk of missed nighttime patrol, limited staffing' },
-      { zh: '云端方案断网失能,告警不可达', en: 'Cloud solutions fail offline, alerts never arrive' },
-      { zh: '家属对视频隐私敏感,接受度低', en: 'Families sensitive to video privacy, low adoption' },
-    ],
-    kpis: [],
-    architecture: [
-      { zh: '毫米波、红外与环境传感器完成非摄像头感知', en: 'Non-camera sensing through mmWave, infrared and environmental sensors' },
-      { zh: '现场网关执行事件判断与告警规则', en: 'On-site gateway evaluates events and alert rules' },
-      { zh: '支持对接护理工单与值班通知流程', en: 'Integrates with care tickets and on-duty notification workflows' },
-    ],
-    pilot: { weeks: '2-4', scale: { zh: '单楼层 10-30 床', en: 'Single floor, 10-30 beds' } },
-    sku: { zh: 'Community Kit', en: 'Community Kit' },
-    workflow: [
-      {
-        stage: { zh: '离床识别', en: 'Bed-exit detection' },
-        condition: { zh: '床旁传感器与毫米波状态共同确认离床，排除短时翻身。', en: 'Bedside and mmWave states jointly confirm bed exit while filtering brief turning.' },
-        action: { zh: '本地节点启动观察计时，不向外部发送原始感知数据。', en: 'The local node starts an observation timer without sending raw sensing data off site.' },
-        record: { zh: '离床时间、房间、规则版本', en: 'Exit time, room and rule version' },
-      },
-      {
-        stage: { zh: '路径照明', en: 'Pathway lighting' },
-        condition: { zh: '夜间时段离床，且房间照度低于现场设定值。', en: 'A bed exit occurs during nighttime while room light is below the configured level.' },
-        action: { zh: '按预设亮度依次开启床侧与卫生间路径灯，保留实体开关。', en: 'Bedside and bathroom path lights rise to configured levels while physical controls remain available.' },
-        record: { zh: '联动设备、执行结果、响应耗时', en: 'Linked devices, execution result and latency' },
-      },
-      {
-        stage: { zh: '风险升级', en: 'Risk escalation' },
-        condition: { zh: '超过回床时限、检测到低位静止，或床旁呼叫被触发。', en: 'Return-to-bed timeout, low-position stillness or a bedside call is detected.' },
-        action: { zh: '按风险级别通知值班人员；高等级事件同步触发现场声光提示。', en: 'On-duty staff are notified by severity; high-level events also trigger on-site audible and visual alerts.' },
-        record: { zh: '判断依据、告警等级、通知对象', en: 'Decision evidence, severity and recipients' },
-      },
-      {
-        stage: { zh: '到场处置', en: 'On-site response' },
-        condition: { zh: '护理员接单、到场并确认住户状态。', en: 'A caregiver accepts the ticket, arrives and confirms resident status.' },
-        action: { zh: '处置结果由护理员确认；系统不自动给出医疗结论。', en: 'The caregiver confirms the outcome; the system does not make a medical determination.' },
-        record: { zh: '接单、到场、处置与关闭时间', en: 'Acceptance, arrival, response and closure times' },
-      },
-      {
-        stage: { zh: '交班复核', en: 'Shift review' },
-        condition: { zh: '事件关闭或进入次日交班。', en: 'The event is closed or enters the next shift handoff.' },
-        action: { zh: '机构端查看完整记录；家属端仅按授权接收摘要。', en: 'Facility staff review the full record; family receives only an authorized summary.' },
-        record: { zh: '事件摘要、查看记录、导出记录', en: 'Event summary, access log and export log' },
-      },
-    ],
-    safeguards: [
-      {
-        title: { zh: '默认无摄像头', en: 'Camera-free by default' },
-        body: { zh: '使用床旁、毫米波、红外与环境状态完成判断；如项目启用视觉能力，需单独确认采集与留存策略。', en: 'Uses bedside, mmWave, infrared and environmental states. Any visual capability requires a separate collection and retention policy.' },
-      },
-      {
-        title: { zh: '断网继续运行', en: 'Operates offline' },
-        body: { zh: '照明联动、现场告警和事件记录在本地执行；远程通知在网络恢复后补发或同步。', en: 'Lighting, local alerts and event records run on site; remote delivery resumes when connectivity returns.' },
-      },
-      {
-        title: { zh: '人工确认闭环', en: 'Human-confirmed closure' },
-        body: { zh: '系统负责识别、分级与派发，护理人员负责到场确认和关闭事件。', en: 'The system detects, classifies and dispatches; care staff confirm on site and close the event.' },
-      },
-    ],
-    acceptance: [
-      { zh: '离床、回床、超时与床旁呼叫事件可在现场复现并形成记录', en: 'Bed exit, return, timeout and bedside-call events can be reproduced and recorded on site' },
-      { zh: '路径照明、现场告警及工单派发按已确认规则执行', en: 'Path lighting, local alerts and ticket dispatch follow approved rules' },
-      { zh: '断网期间关键联动持续运行，恢复联网后记录完整同步', en: 'Critical actions continue offline and records synchronize after reconnection' },
-      { zh: '机构、护理员与家属账号只能访问各自授权范围', en: 'Facility, caregiver and family accounts access only their authorized scope' },
-      { zh: '试点期间对误报、漏报与响应时延逐项复盘并调整阈值', en: 'False alerts, missed events and response latency are reviewed during the pilot to tune thresholds' },
-    ],
-    bundle: {
-      headline: {
-        zh: '单床位夜间安全监测方案',
-        en: 'Nighttime safety monitoring for individual beds',
-      },
-      items: [
-        { zh: '床畔本地中枢', en: 'Local bedside hub' },
-        { zh: '非摄像头夜间感知套件', en: 'Non-camera nighttime sensing kit' },
-        { zh: '床旁呼叫与现场告警', en: 'Bedside call and on-site alerting' },
-        { zh: '分角色状态查看', en: 'Role-based status access' },
-        { zh: '安装、规则配置与验收支持', en: 'Installation, rule configuration and acceptance support' },
-      ],
-      rhythm: {
-        zh: '覆盖离床、久卧、跌倒风险与紧急呼叫等事件。告警级别、通知对象和照明联动按机构流程配置。',
-        en: 'Covers bed-exit, prolonged inactivity, fall risk and emergency calls. Alert level, recipients and lighting actions follow facility procedures.',
-      },
+    "slug": "elderly-care",
+    "icon": HeartPulse,
+    "titleKey": "elderlyCare",
+    "group": "health",
+    "buyer": {
+      "zh": "居家照护家庭、长者公寓与护理机构",
+      "en": "Families arranging care, senior apartments and care facilities"
     },
+    "problems": [
+      {
+        "zh": "独处时的状态变化不容易被及时发现",
+        "en": "Changes while someone is alone can go unnoticed"
+      },
+      {
+        "zh": "频繁查看摄像头打扰日常生活",
+        "en": "Frequent camera checks can intrude on daily life"
+      },
+      {
+        "zh": "提醒后由谁确认、怎样记录，缺少约定",
+        "en": "Who checks an alert and how the outcome is recorded are often unclear"
+      }
+    ],
+    "kpis": [],
+    "architecture": [
+      {
+        "zh": "卫生间及相邻干区评估毫米波存在、静止与疑似跌倒状态",
+        "en": "Evaluate mmWave presence, stillness and suspected falls in bathroom-adjacent areas"
+      },
+      {
+        "zh": "提醒、人工确认和处理记录按照护流程配置并现场验证",
+        "en": "Configure notifications, human confirmation and response records, then validate on site"
+      },
+      {
+        "zh": "血压与血氧等测量采用原厂产品，接入按型号确认",
+        "en": "Use original-manufacturer measurement devices, verifying data access by model"
+      }
+    ],
+    "pilot": {
+      "weeks": "project",
+      "scale": {
+        "zh": "现场条件与首期范围确认后制定",
+        "en": "Defined after site conditions and initial scope are agreed"
+      }
+    },
+    "sku": {
+      "zh": "AIOS Care 项目配置",
+      "en": "AIOS Care project configuration"
+    },
+    "bundle": {
+      "headline": {
+        "zh": "卫生间状态提醒与床旁日常支持",
+        "en": "Bathroom state reminders and bedside support"
+      },
+      "items": [
+        {
+          "zh": "助手软件与照护事项记录",
+          "en": "Assistant software and care task records"
+        },
+        {
+          "zh": "家庭主机及毫米波节点设计方向",
+          "en": "Household host and mmWave node design"
+        },
+        {
+          "zh": "原厂床旁操作与测量设备选配",
+          "en": "Optional OEM bedside controls and measurement devices"
+        },
+        {
+          "zh": "安装勘察、设备适配与现场验证",
+          "en": "Site survey, device integration and validation"
+        }
+      ],
+      "rhythm": {
+        "zh": "目前可查看助手软件操作；感知、通知和设备联动按样机与现场测试确认，不替代人工照护。",
+        "en": "The assistant software is shown in use. Sensing, notifications and device actions require prototype and site testing; care remains a human responsibility."
+      }
+    }
   },
   {
-    slug: 'community-care',
-    icon: Building2,
-    titleKey: 'communityCare',
-    group: 'health',
-    buyer: { zh: '社区养老服务中心、长者公寓、地方民政系统合作方', en: 'Community care centers, senior apartments, local civil affairs partners' },
-    problems: [
-      { zh: '20-200 户集中管理,多后台切换成本高', en: '20-200 units managed, high cost switching backends' },
-      { zh: '家属远程查看需求强,但隐私边界模糊', en: 'Strong family remote-view demand, fuzzy privacy boundary' },
-      { zh: '等保 2.0 合规要求,难以独立承担', en: 'MLPS 2.0 compliance burden hard to bear alone' },
-    ],
-    kpis: [],
-    architecture: [
-      { zh: '社区网关与户内节点分级部署', en: 'Tiered deployment across community gateways and in-unit nodes' },
-      { zh: '按家属、护理与管理角色划分访问范围', en: 'Access scopes separated across family, care and management roles' },
-      { zh: '原始感知数据保留在现场，远端仅提供授权状态', en: 'Raw sensing data stays on site; remote access exposes authorized status only' },
-    ],
-    pilot: { weeks: '4-6', scale: { zh: '50-100 户', en: '50-100 units' } },
-    sku: { zh: 'Community Kit', en: 'Community Kit' },
-    bundle: {
-      headline: {
-        zh: '面向多户照护机构的集中管理方案',
-        en: 'Centralized management for multi-unit care facilities',
-      },
-      items: [
-        { zh: '社区级本地网关', en: 'Community-level local gateway' },
-        { zh: '户内非摄像头感知节点', en: 'In-unit non-camera sensing nodes' },
-        { zh: '事件、巡查与工单管理台', en: 'Event, patrol and ticket console' },
-        { zh: '家属与机构分级访问端', en: 'Tiered access for families and facility staff' },
-        { zh: '部署、培训与规则调优', en: 'Deployment, training and rule tuning' },
-      ],
-      rhythm: {
-        zh: '统一管理住户状态、告警与巡查记录。户内数据与管理权限按组织和住户边界隔离。',
-        en: 'Manages resident status, alerts and patrol records in one system, with data and permissions isolated by organization and household.',
-      },
+    "slug": "community-care",
+    "icon": Building2,
+    "titleKey": "communityCare",
+    "group": "health",
+    "buyer": {
+      "zh": "社区照护服务方与长者公寓运营者",
+      "en": "Community care services and senior-apartment operators"
     },
+    "problems": [
+      {
+        "zh": "多住户的照护事项分散在不同渠道",
+        "en": "Care tasks across households are scattered"
+      },
+      {
+        "zh": "家属和服务人员需要不同的信息范围",
+        "en": "Families and service staff need different information"
+      },
+      {
+        "zh": "设备条件与响应流程因住户而异",
+        "en": "Device conditions and response routines vary by household"
+      }
+    ],
+    "kpis": [],
+    "architecture": [
+      {
+        "zh": "先确认首期房间、网络和人员责任",
+        "en": "Agree initial rooms, network and staff responsibilities"
+      },
+      {
+        "zh": "账号、授权与通知渠道按项目验证",
+        "en": "Validate accounts, permissions and notification channels per project"
+      },
+      {
+        "zh": "先在小范围确认记录与响应流程，再评估扩展",
+        "en": "Validate records and response in a limited scope before expansion"
+      }
+    ],
+    "pilot": {
+      "weeks": "project",
+      "scale": {
+        "zh": "现场条件与首期范围确认后制定",
+        "en": "Defined after site conditions and initial scope are agreed"
+      }
+    },
+    "sku": {
+      "zh": "AIOS Care 项目配置",
+      "en": "AIOS Care project configuration"
+    },
+    "bundle": {
+      "headline": {
+        "zh": "从清楚的照护事项与响应流程开始",
+        "en": "Start with clear care tasks and response routines"
+      },
+      "items": [
+        {
+          "zh": "项目范围评估与现场勘察",
+          "en": "Scope assessment and site survey"
+        },
+        {
+          "zh": "助手、事项记录与主机配置",
+          "en": "Assistant, task records and host configuration"
+        },
+        {
+          "zh": "按户选择的感知与交互设备",
+          "en": "Sensing and interaction devices selected per household"
+        },
+        {
+          "zh": "账号权限、通知与业务接口适配",
+          "en": "Permissions, notifications and workflow integration"
+        }
+      ],
+      "rhythm": {
+        "zh": "这是多住户项目配置方案；部署规格、访问范围与服务流程需逐项验证。",
+        "en": "This is a multi-household configuration proposal; deployment, access and service routines require verification."
+      }
+    }
   },
   {
-    slug: 'clinical-assist',
-    icon: Stethoscope,
-    titleKey: 'clinicalAssist',
-    group: 'health',
-    buyer: { zh: '三甲医院信息科、专科医院 IT、康复医学科', en: 'Top hospital informatics, specialty hospital IT, rehab departments' },
-    problems: [
-      { zh: '患者依从性低,术后康复指导难以延续', en: 'Low patient adherence, rehab guidance hard to sustain' },
-      { zh: '生理体征异常无法及时上报', en: 'Vital sign anomalies cannot report in time' },
-      { zh: 'HIS/CIS 数据不出院,云方案无法落地', en: 'HIS/CIS data stays in hospital, cloud cannot work' },
-    ],
-    kpis: [],
-    architecture: [
-      { zh: '院内私有化部署，患者数据留在院内网络', en: 'On-premises deployment with patient data retained inside the hospital network' },
-      { zh: '通过项目接口接入既有医院信息系统', en: 'Project-defined interfaces to existing hospital information systems' },
-      { zh: '规则与通知流程按科室 SOP 配置', en: 'Rules and notifications configured to department SOPs' },
-    ],
-    pilot: { weeks: '6-8', scale: { zh: '单病区 20-50 床', en: 'Single ward, 20-50 beds' } },
-    sku: { zh: 'Enterprise Stack', en: 'Enterprise Stack' },
-    bundle: {
-      headline: {
-        zh: '病区康复与异常上报辅助方案',
-        en: 'Ward rehabilitation and anomaly reporting support',
-      },
-      items: [
-        { zh: '病区边缘计算节点', en: 'Ward edge computing node' },
-        { zh: '离床与环境异常监测', en: 'Bed-exit and environmental anomaly monitoring' },
-        { zh: '科室 SOP 规则配置', en: 'Department SOP rule configuration' },
-        { zh: 'HIS / 电子病历项目接口', en: 'Project interfaces for HIS / EMR' },
-        { zh: '现场联调与验收支持', en: 'On-site integration and acceptance support' },
-      ],
-      rhythm: {
-        zh: '根据科室流程采集必要状态，记录异常判断、通知与处置结果。系统仅提供辅助信息，不替代临床判断。',
-        en: 'Captures required status and records anomaly decisions, notifications and outcomes according to department workflow. It supports, but does not replace, clinical judgment.',
-      },
+    "slug": "clinical-assist",
+    "icon": Stethoscope,
+    "titleKey": "clinicalAssist",
+    "group": "health",
+    "buyer": {
+      "zh": "康复与日常照护项目的业务及信息化负责人",
+      "en": "Operations and IT leads for rehabilitation and everyday care projects"
     },
+    "problems": [
+      {
+        "zh": "复查、测量与日常事项容易遗漏",
+        "en": "Follow-ups, measurements and daily tasks can be missed"
+      },
+      {
+        "zh": "原厂设备的数据接口各不相同",
+        "en": "Data interfaces differ between OEM devices"
+      },
+      {
+        "zh": "业务系统接入需要明确边界与授权",
+        "en": "System integration requires defined scope and authorization"
+      }
+    ],
+    "kpis": [],
+    "architecture": [
+      {
+        "zh": "先确定辅助事项与数据范围",
+        "en": "Define support tasks and data scope first"
+      },
+      {
+        "zh": "采购或合作提供合适的原厂测量设备",
+        "en": "Use suitable purchased or partner-supplied measurement devices"
+      },
+      {
+        "zh": "业务接口与信息访问单独评估、测试和验收",
+        "en": "Assess, test and accept business interfaces and information access separately"
+      }
+    ],
+    "pilot": {
+      "weeks": "project",
+      "scale": {
+        "zh": "现场条件与首期范围确认后制定",
+        "en": "Defined after site conditions and initial scope are agreed"
+      }
+    },
+    "sku": {
+      "zh": "AIOS Care 项目配置",
+      "en": "AIOS Care project configuration"
+    },
+    "bundle": {
+      "headline": {
+        "zh": "日常事项与测量记录的辅助接入",
+        "en": "Support for daily tasks and measurement records"
+      },
+      "items": [
+        {
+          "zh": "业务流程与接口评估",
+          "en": "Workflow and interface assessment"
+        },
+        {
+          "zh": "助手事项管理与项目部署配置",
+          "en": "Assistant task management and project deployment"
+        },
+        {
+          "zh": "原厂测量设备选配",
+          "en": "Optional OEM measurement devices"
+        },
+        {
+          "zh": "授权、联调与验收工作",
+          "en": "Authorization, integration testing and acceptance"
+        }
+      ],
+      "rhythm": {
+        "zh": "按具体设备与项目流程提供辅助信息；不把概念场景当作临床效果或已完成的医院系统接入。",
+        "en": "Support information follows specific devices and project workflows; concept scenes do not establish clinical outcomes or completed hospital integration."
+      }
+    }
   },
   {
-    slug: 'smart-home',
-    icon: Home,
-    titleKey: 'smartHome',
-    group: 'home',
-    buyer: { zh: '家庭用户、地产精装、智能家居经销商', en: 'Households, real estate developers, smart home dealers' },
-    problems: [
-      { zh: '多品牌生态孤岛,APP 装一堆', en: 'Multi-brand silos, apps everywhere' },
-      { zh: '云服务随时下线,投资失效', en: 'Cloud services may shut down, investment void' },
-      { zh: '预设规则不够个性化', en: 'Preset rules lack personalization' },
-    ],
-    kpis: [],
-    architecture: [
-      { zh: '通过适配器接入项目确认范围内的设备与协议', en: 'Connects approved devices and protocols through adapters' },
-      { zh: '基于房间状态、时间与权限执行自动化规则', en: 'Executes automations from room state, time and permissions' },
-      { zh: '支持本地语音与离线基础控制', en: 'Supports local voice and offline core controls' },
-    ],
-    pilot: { weeks: '1-2', scale: { zh: '单户全屋', en: 'Single household whole-home' } },
-    sku: { zh: 'Home Box', en: 'Home Box' },
-    bundle: {
-      headline: {
-        zh: '单户住宅设备编排与本地控制',
-        en: 'Device orchestration and local control for individual homes',
-      },
-      items: [
-        { zh: 'Home Box 本地中枢', en: 'Home Box local hub' },
-        { zh: '照明、环境与窗帘联动', en: 'Lighting, climate and curtain coordination' },
-        { zh: '情景面板与本地语音入口', en: 'Scene panels and local voice access' },
-        { zh: '项目范围内的跨品牌设备接入', en: 'Cross-brand device integration within project scope' },
-        { zh: '安装、规则配置与用户交付', en: 'Installation, rule configuration and handover' },
-      ],
-      rhythm: {
-        zh: '按房间、成员、时间与设备状态配置规则。高风险动作需要明确确认，常用场景保留实体控制入口。',
-        en: 'Rules are configured by room, member, time and device state. High-risk actions require confirmation, with physical controls retained for common scenes.',
-      },
+    "slug": "smart-home",
+    "icon": Home,
+    "titleKey": "smartHome",
+    "group": "home",
+    "buyer": {
+      "zh": "需要管理日常事务、物品与房间设备的家庭",
+      "en": "Households managing daily tasks, belongings and room devices"
     },
+    "problems": [
+      {
+        "zh": "临出门想不起物品放在哪里",
+        "en": "Finding a needed item just before leaving"
+      },
+      {
+        "zh": "出行准备和预约事项反复遗漏",
+        "en": "Missing preparation steps or appointments"
+      },
+      {
+        "zh": "固定时间规则打断正在发生的生活",
+        "en": "Fixed schedules interrupt what people are doing"
+      }
+    ],
+    "kpis": [],
+    "architecture": [
+      {
+        "zh": "先用助手记录、检索与跟进明确交代的事项",
+        "en": "Use the assistant to save, retrieve and follow explicitly shared tasks"
+      },
+      {
+        "zh": "按厨房、卫生间、门口等位置选择合适设备",
+        "en": "Select suitable devices for the kitchen, bathroom, entrance and other locations"
+      },
+      {
+        "zh": "现有家电按品牌、型号和接口确认适配范围",
+        "en": "Verify existing appliance integration by brand, model and interface"
+      }
+    ],
+    "pilot": {
+      "weeks": "project",
+      "scale": {
+        "zh": "现场条件与首期范围确认后制定",
+        "en": "Defined after site conditions and initial scope are agreed"
+      }
+    },
+    "sku": {
+      "zh": "Home Box 家庭配置",
+      "en": "Home Box household configuration"
+    },
+    "bundle": {
+      "headline": {
+        "zh": "助手软件、家庭主机与按需选择的房间终端",
+        "en": "Assistant software, household host and selected room devices"
+      },
+      "items": [
+        {
+          "zh": "记住与找回、准备与跟进、建议与调整",
+          "en": "Remember and retrieve, prepare and follow through, adjust suggestions"
+        },
+        {
+          "zh": "家庭计算主机与显示入口配置",
+          "en": "Household compute and display configuration"
+        },
+        {
+          "zh": "水浸、声学与毫米波节点设计方向",
+          "en": "Water-contact, acoustic and mmWave node designs"
+        },
+        {
+          "zh": "原厂门口、窗帘与床旁设备选配及适配服务",
+          "en": "Optional OEM entrance, curtain and bedside devices with integration services"
+        }
+      ],
+      "rhythm": {
+        "zh": "已有软件操作录像展示三项日常闭环。设备图为设计效果图，安装、联动和交付范围在勘察与测试后确认。",
+        "en": "The software recording shows three everyday workflows. Device images are design visualizations; installation, actions and delivery scope follow survey and testing."
+      }
+    }
   },
   {
-    slug: 'smart-room',
-    icon: BedDouble,
-    titleKey: 'smartRoom',
-    group: 'home',
-    buyer: { zh: '酒店集团、长者公寓、康养度假、SPA 空间运营', en: 'Hotel groups, senior apartments, wellness resorts, SPA operators' },
-    problems: [
-      { zh: '按房间改造成本高,标准化难', en: 'Per-room retrofit cost high, standardization hard' },
-      { zh: '客人画像无法跨房间沉淀', en: 'Guest profile cannot persist cross-room' },
-      { zh: '设备方案杂,运维负担重', en: 'Device stacks fragmented, heavy ops burden' },
-    ],
-    kpis: [],
-    architecture: [
-      { zh: '按房间部署本地节点，适配既有装修与设备条件', en: 'Per-room local nodes adapted to existing interiors and devices' },
-      { zh: '房间配置与用户偏好分离管理', en: 'Room configuration and user preferences are managed separately' },
-      { zh: '支持面板、语音与管理端多入口控制', en: 'Supports panel, voice and management-console controls' },
-    ],
-    pilot: { weeks: '2-3', scale: { zh: '10-30 间房', en: '10-30 rooms' } },
-    sku: { zh: 'Community Kit', en: 'Community Kit' },
-    bundle: {
-      headline: {
-        zh: '标准房间智能化改造方案',
-        en: 'Standardized intelligent room retrofit',
-      },
-      items: [
-        { zh: '单房间本地控制节点', en: 'Per-room local control node' },
-        { zh: '照明、环境与窗帘场景', en: 'Lighting, climate and curtain scenes' },
-        { zh: '房间配置与偏好管理', en: 'Room configuration and preference management' },
-        { zh: '前台、工程与客房管理端', en: 'Console for front desk, engineering and room operations' },
-        { zh: '批量配置、培训与验收', en: 'Bulk configuration, training and acceptance' },
-      ],
-      rhythm: {
-        zh: '入住、在住与退房状态对应不同规则集。个人偏好与房间默认配置分开保存，并按权限清除。',
-        en: 'Check-in, occupied and checkout states use separate rule sets. Personal preferences and room defaults are stored separately and cleared by policy.',
-      },
+    "slug": "smart-room",
+    "icon": BedDouble,
+    "titleKey": "smartRoom",
+    "group": "home",
+    "buyer": {
+      "zh": "先改造一个房间的家庭、长者公寓与空间运营者",
+      "en": "Households, senior apartments and operators starting with one room"
     },
+    "problems": [
+      {
+        "zh": "希望先解决一个房间的问题，不必一次改全屋",
+        "en": "Solving one room first without a whole-home retrofit"
+      },
+      {
+        "zh": "电视关闭后仍需方便的操作入口",
+        "en": "Keeping convenient access when the TV is off"
+      },
+      {
+        "zh": "窗帘、照明与人员习惯需要协调",
+        "en": "Coordinating curtains, lighting and personal routines"
+      }
+    ],
+    "kpis": [],
+    "architecture": [
+      {
+        "zh": "优先评估现有电视经 HDMI 展示事项界面",
+        "en": "Evaluate an HDMI task interface on the existing TV"
+      },
+      {
+        "zh": "遥控、物理按键与其他入口按使用能力选择",
+        "en": "Select remote, physical and other controls around usability"
+      },
+      {
+        "zh": "逐项确认窗帘轨道、负载、供电与原有控制",
+        "en": "Check curtain tracks, loads, power and existing controls individually"
+      }
+    ],
+    "pilot": {
+      "weeks": "project",
+      "scale": {
+        "zh": "现场条件与首期范围确认后制定",
+        "en": "Defined after site conditions and initial scope are agreed"
+      }
+    },
+    "sku": {
+      "zh": "Home Box 家庭配置",
+      "en": "Home Box household configuration"
+    },
+    "bundle": {
+      "headline": {
+        "zh": "从一个房间开始配置家庭事务入口",
+        "en": "Start with a household workspace in one room"
+      },
+      "items": [
+        {
+          "zh": "助手软件与房间事项配置",
+          "en": "Assistant software and room task setup"
+        },
+        {
+          "zh": "主机、HDMI 显示与操作方式评估",
+          "en": "Host, HDMI display and control assessment"
+        },
+        {
+          "zh": "窗帘、门口及床旁原厂设备选配",
+          "en": "Optional OEM curtains, entrance and bedside devices"
+        },
+        {
+          "zh": "安装、适配、使用培训与测试",
+          "en": "Installation, integration, training and testing"
+        }
+      ],
+      "rhythm": {
+        "zh": "电视可以是显示入口，不要求为每个房间新增大屏；待机、唤醒和关屏后的使用方式需实测确认。",
+        "en": "The TV can be a display without adding a dedicated large screen to every room. Standby, wake-up and access with the screen off require testing."
+      }
+    }
   },
   {
     slug: 'hospitality',

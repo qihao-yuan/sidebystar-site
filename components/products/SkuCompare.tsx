@@ -26,12 +26,12 @@ export function SkuCompare() {
           : 'Hospitals, specialty institutions, large care',
     },
     {
-      label: { zh: '上线周期', en: 'Time to live' },
-      render: (s) => (isZh ? `${s.deploymentWeeks} 周` : `${s.deploymentWeeks} weeks`),
+      label: { zh: '安装与验证安排', en: 'Installation and validation' },
+      render: () => (isZh ? '按实际配置与现场确认' : 'Confirmed for the configuration and site'),
     },
     {
       label: { zh: '覆盖规模', en: 'Scale' },
-      render: (s) => s.users,
+      render: (s) => s.i18nKey === 'homeBox' ? (isZh ? '单户住宅' : 'One household') : (isZh ? '按场地与工作流程设计' : 'Designed for the site and workflow'),
     },
     {
       label: { zh: '参考价格', en: 'Reference price' },
@@ -53,12 +53,12 @@ export function SkuCompare() {
         <Reveal>
           <span className="eyebrow">Side by Side</span>
           <h2 className="mt-4 text-display-lg text-white">
-            {isZh ? '产品规格对比' : 'Product comparison'}
+            {isZh ? '按用途选择配置方案' : 'Choose a configuration for the use'}
           </h2>
           <p className="mt-3 max-w-2xl text-body text-ink-300">
             {isZh
-              ? '按部署规模、交付周期与使用场景选择适合的产品规格。'
-              : 'Compare each product by deployment scale, delivery schedule and application.'}
+              ? '三种名称用于组织方案，计算主机与配套设备按任务、现场和验证结果确定。'
+              : 'These names organize solution packages. Compute and equipment follow the task, site and validation results.'}
           </p>
         </Reveal>
 

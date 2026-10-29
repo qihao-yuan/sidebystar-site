@@ -136,6 +136,7 @@ export default async function IntelligencePage({
                   {group.capabilities.map((key) => (
                     <div key={key} className="border-t border-white/10 pt-5">
                       <h3 className="text-lg font-medium text-white">{cap(`${key}.title`)}</h3>
+                      <p className="mt-2 text-caption text-brand-halo">{key === 'memory' ? (locale === 'zh-CN' ? '已有软件操作' : 'Shown in the current software') : (locale === 'zh-CN' ? '能力设计 · 按项目验证' : 'Capability design · project validation required')}</p>
                       <p className="mt-3 text-body text-ink-300">{cap(`${key}.body`)}</p>
                     </div>
                   ))}

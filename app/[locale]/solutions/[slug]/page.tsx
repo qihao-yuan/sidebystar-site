@@ -1,7 +1,8 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/routing';
-import { solutions, getSolution, SolutionSlug } from '@/content/solutions';
+import { getSolution, SolutionSlug } from '@/content/solutions';
+import { customerImages, roomApplications } from '@/content/customer-experience';
 import { Reveal } from '@/components/motion/Reveal';
 import { GradientMesh } from '@/components/motion/GradientMesh';
 import { MagneticButton } from '@/components/motion/MagneticButton';
@@ -55,7 +56,7 @@ export default async function SolutionDetail({
   const bundle = sol.bundle!;
   const hasWorkflow = Boolean(sol.workflow?.length);
   const Icon = sol.icon;
-  const heroImage = sol.group === 'health' ? '/solutions/care-delivery.jpg' : '/solutions/home-delivery.jpg';
+  const heroImage = sol.group === 'health' ? customerImages.bathroom : slug === 'smart-room' ? customerImages.host : customerImages.family;
 
   return (
     <article>
@@ -68,7 +69,7 @@ export default async function SolutionDetail({
           </Link>
           <div className="grid gap-10 lg:grid-cols-[5fr_7fr] lg:items-end">
             <div className="flex flex-col gap-6">
-              <span className="eyebrow">{isZh ? '标准方案' : 'Standard Solution'}</span>
+              <span className="eyebrow">{isZh ? '按现场配置的方案' : 'A site-specific configuration'}</span>
               <div className="flex items-center gap-5">
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
                   <Icon size={32} className="text-brand-halo" />
@@ -85,10 +86,32 @@ export default async function SolutionDetail({
                 rounded="xl"
                 priority
               />
+              <p className="mt-3 text-caption text-ink-400">{isZh ? '设计效果图 · 实物及现场适配待验证' : 'Design visualization · physical and site validation pending'}</p>
             </Reveal>
           </div>
         </div>
       </section>
+
+      {['smart-home', 'smart-room', 'elderly-care'].includes(slug) ? (
+        <section className="border-y border-white/5 bg-white/[0.015] py-section">
+          <div className="container-page">
+            <span className="eyebrow">{isZh ? '按位置选择设备' : 'Choose devices around the room'}</span>
+            <h2 className="mt-4 text-display-lg text-white">{isZh ? '从每天会遇到的问题开始' : 'Start with the needs of an ordinary day'}</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {roomApplications.filter((x) => slug !== 'elderly-care' || ['bathroom', 'bedside'].includes(x.id)).map((item) => (
+                <div key={item.id} className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+                  <MediaPlaceholder src={item.id === 'kitchen' ? customerImages.kitchen : item.id === 'bathroom' ? customerImages.bathroom : item.id === 'tv' ? customerImages.host : customerImages.extensions}
+                    alt={pick(item.title)} ratio="16/9" rounded="none" imageClassName={['bedside', 'entrance', 'curtains'].includes(item.id) ? 'object-contain bg-[#f4f6f8]' : undefined} />
+                  <div className="p-6"><h3 className="text-display-sm text-white">{pick(item.title)}</h3><p className="mt-3 text-body text-ink-300">{pick(item.body)}</p>
+                    <p className="mt-4 text-caption text-ink-500">{isZh ? (['bedside', 'entrance', 'curtains'].includes(item.id) ? '原厂选配安装示意 · 按型号确认适配' : '产品设计方向 · 待实物验证') : (['bedside', 'entrance', 'curtains'].includes(item.id) ? 'OEM installation illustration · integration verified by model' : 'Product design direction · physical validation pending')}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-6"><Link className="btn-link" href="/experience#software">{isZh ? '查看助手实际操作' : 'See the assistant in use'} <ArrowRight size={16} /></Link><Link className="btn-link" href="/experience#handbook">{isZh ? '下载产品手册' : 'Download the product handbook'} <ArrowRight size={16} /></Link></div>
+          </div>
+        </section>
+      ) : null}
 
       {/* Section 01 · Bundle Narrative */}
       <section className="py-section">
@@ -263,8 +286,8 @@ export default async function SolutionDetail({
                 {isZh ? '试点周期与规模' : 'Pilot timing & scale'}
               </div>
               <div className="mt-4 flex items-baseline gap-2">
-                <div className="font-display text-display-md text-white">{pilot.weeks}</div>
-                <div className="text-body text-ink-300">{isZh ? '周' : 'weeks'}</div>
+                <div className="font-display text-display-sm text-white">{pilot.weeks === 'project' ? (isZh ? '按项目确认' : 'Scoped per project') : pilot.weeks}</div>
+                {pilot.weeks !== 'project' ? <div className="text-body text-ink-300">{isZh ? '周' : 'weeks'}</div> : null}
               </div>
               <p className="mt-3 text-body text-ink-300">{pick(pilot.scale)}</p>
               <p className="mt-4 text-caption text-ink-500">

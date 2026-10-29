@@ -1,0 +1,10 @@
+# Customer deliverables and provenance records are verified by SHA-256.
+# Keep their bytes unchanged when checked out on Windows or Linux.
+public/customer/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/customer* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Override global PDF text-conversion drivers and treat media as binary.
+public/customer/**/*.pdf binary
+public/customer/**/*.mp4 binary
+public/customer/**/*.png binary
+public/customer/**/*.jpg binary

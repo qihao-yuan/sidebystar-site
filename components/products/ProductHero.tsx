@@ -1,33 +1,6 @@
 'use client';
-
 import { useTranslations, useLocale } from 'next-intl';
-import { Reveal } from '@/components/motion/Reveal';
-
-export function ProductHero() {
-  const t = useTranslations('products');
-  const locale = useLocale();
-  const isZh = locale === 'zh-CN';
-
-  return (
-    <section className="pb-20 pt-32">
-      <div className="container-page">
-        <Reveal>
-          <span className="eyebrow">Products</span>
-        </Reveal>
-        <Reveal delay={60}>
-          <h1 className="mt-6 max-w-4xl text-display-xl text-balance text-white">{t('title')}</h1>
-        </Reveal>
-        <Reveal delay={120}>
-          <p className="mt-6 max-w-2xl text-body-lg text-ink-300">{t('subtitle')}</p>
-        </Reveal>
-        <Reveal delay={180}>
-          <p className="mt-8 max-w-3xl border-l border-white/20 pl-4 text-caption text-ink-400">
-            {isZh
-              ? '页面展示当前产品定义。具体硬件配置、接口范围与交付周期以项目确认文件为准。'
-              : 'This page describes the current product definition. Hardware configuration, interfaces and delivery schedule are confirmed per project.'}
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+import Image from 'next/image';
+import { Link } from '@/i18n/routing';
+import { customerImages } from '@/content/customer-experience';
+export function ProductHero(){const t=useTranslations('products');const isZh=useLocale()==='zh-CN';return <section className="pb-16 pt-28"><div className="container-page grid gap-9 lg:grid-cols-[5fr_7fr] lg:items-center"><div><span className="eyebrow">{isZh?'产品构成':'Product system'}</span><h1 className="mt-5 text-display-xl text-white">{t('title')}</h1><p className="mt-6 text-body-lg text-ink-300">{t('subtitle')}</p><div className="mt-7 flex flex-wrap gap-3"><Link href="/experience#software" className="btn-primary">{isZh?'观看软件操作':'Watch the software recording'}</Link><Link href="/experience#handbook" className="btn-ghost">{isZh?'下载产品手册':'Download the handbook'}</Link></div></div><div><div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-white/10 bg-[#eaf0f3]"><Image src={customerImages.family} alt={isZh?'计算主机与不同无线节点的设计效果':'Design visualization of the compute host and distinct wireless nodes'} fill priority sizes="(min-width:1024px) 55vw,100vw" className="object-contain"/></div><p className="mt-3 text-caption text-ink-400">{isZh?'软件可通过录像与预约演示了解；硬件为设计及适配方案，具体配置按项目确认。':'Explore the software through recordings and an arranged demonstration. Hardware is shown as design and integration proposals, configured per project.'}</p></div></div></section>}

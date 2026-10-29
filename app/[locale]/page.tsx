@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { HomeHero } from '@/components/home/HomeHero';
+import { HomeAssistantExperience } from '@/components/home/HomeAssistantExperience';
 import { HomeProductLines } from '@/components/home/HomeProductLines';
 import { HomeNightCare } from '@/components/home/HomeNightCare';
 import { HomePlatform } from '@/components/home/HomePlatform';
@@ -18,12 +19,12 @@ export async function generateMetadata({
     path: '/',
     title:
       locale === 'zh-CN'
-        ? '循星科技 AIOS · 真实空间的本地智能内核 | AIOS Care · AIOS Home'
-        : 'SidebyStar AIOS · A Local Intelligence Kernel for Real Spaces | AIOS Care & AIOS Home',
+        ? '循星科技 AIOS · 个人生活助手与家庭设备协同系统'
+        : 'SidebyStar AIOS · Personal Life Assistant and Connected Living',
     description:
       locale === 'zh-CN'
-        ? '循星科技 AIOS 面向照护机构与住宅，提供本地设备接入、规则执行、现场控制与审计记录。'
-        : 'SidebyStar AIOS provides local device integration, rule execution, on-site control and audit records for care facilities and residences.',
+        ? '了解AIOS助手软件、本地计算主机、房间终端和原厂设备选配，查看实际软件操作、生活情境影片与产品手册。'
+        : 'Explore AIOS assistant software, local compute, room devices and original-manufacturer options through software recordings, concept stories and the product handbook.',
   });
 }
 
@@ -34,6 +35,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <HomeHero />
+      <HomeAssistantExperience locale={locale} />
       <HomeProductLines />
       <HomeNightCare />
       <HomePlatform />

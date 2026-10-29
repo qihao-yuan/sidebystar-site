@@ -36,14 +36,14 @@ export const family: FamilyMember[] = [
     tagZh: '现场计算与状态管理',
     tagEn: 'On-site compute and state management',
     storyZh:
-      '网关统一管理现场设备、空间状态和自动化规则。家庭、社区与机构采用不同部署规格，关键控制链路均在现场运行。',
+      '家庭主机承载助手软件与设备接入服务。基础方向采用树莓派 5，较高计算负载另行配置；社区与机构按项目评估部署规格。',
     storyEn:
-      'The gateway manages site devices, spatial state and automation rules. Homes, communities and institutions use different deployment profiles while essential control paths remain on site.',
+      'The household host carries assistant software and device services. Raspberry Pi 5 is the base direction; heavier workloads and multi-site deployments require their own configuration assessment.',
     exampleLabel: { zh: '家族成员', en: 'Members' },
     examples: [
-      { zh: 'Home Box', en: 'Home Box', descZh: '面向单户住宅与独立房间的本地中枢。', descEn: 'A local hub for individual homes and rooms.' },
-      { zh: 'Community Gateway', en: 'Community Gateway', descZh: '面向楼层、社区和长者公寓的分级网关。', descEn: 'A tiered gateway for floors, communities and senior apartments.' },
-      { zh: 'Enterprise Node', en: 'Enterprise Node', descZh: '面向医院与大型机构的私有化节点。', descEn: 'An on-premises node for hospitals and large facilities.' },
+      { zh: '家庭配置', en: 'Household configuration', descZh: '一套助手、家庭主机与按需选择的房间终端。', descEn: 'Assistant software, a host and selected room devices.' },
+      { zh: '多房间配置', en: 'Multi-room configuration', descZh: '按房间数量、网络和管理要求确认部署方案。', descEn: 'Deployment is scoped to room count, network and management requirements.' },
+      { zh: '机构配置', en: 'Facility configuration', descZh: '服务器规格与系统接口随项目评估，不等同已定型整机。', descEn: 'Server specifications and interfaces are project-defined, rather than a finished machine model.' },
     ],
     bundledIn: ['home-box', 'community-kit', 'enterprise-stack'],
   },
@@ -56,20 +56,20 @@ export const family: FamilyMember[] = [
     tagZh: '多源状态输入',
     tagEn: 'Multi-source state input',
     storyZh:
-      '感知层汇集存在、活动、环境和设备状态，并转换为可供规则使用的结构化事件。采集范围与留存方式由现场策略统一管理。',
+      '先从厨房积水和卫生间状态等明确问题切入。水浸、声学与毫米波节点分别设计，安装、续航和识别效果经过样机与现场验证后确定。',
     storyEn:
-      'The sensing layer combines presence, activity, environmental and device state into structured events for rules. Site policy governs collection scope and retention.',
+      'Start with specific needs such as collected water and bathroom state. Water-contact, acoustic and mmWave nodes have different designs; placement, battery life and detection performance require prototype and site validation.',
     exampleLabel: { zh: '感知器件', en: 'Devices' },
     examples: [
-      { zh: '存在感知', en: 'Presence', descZh: '识别空间占用、区域活动与离床状态。', descEn: 'Detects occupancy, zoned activity and bed-exit state.' },
-      { zh: '环境感知', en: 'Environment', descZh: '采集温度、湿度、照度与环境变化。', descEn: 'Captures temperature, humidity, light and environmental changes.' },
+      { zh: '水浸节点', en: 'Water-contact node', descZh: '低位放置、底部触点、可换电池的无线外观方向。', descEn: 'A low-position wireless design with underside contacts and replaceable batteries.' },
+      { zh: '毫米波节点', en: 'mmWave node', descZh: '平面吸顶设计，研究存在、静止与疑似跌倒状态。', descEn: 'A flat ceiling design for presence, stillness and suspected-fall evaluation.' },
       {
         zh: '视觉理解',
         en: 'Vision',
-        descZh: '在策略允许时启用视觉推理; 是否录像、留存多久与脱敏策略由现场配置与审计要求约束。',
-        descEn: 'Vision runs when policy permits; recording, retention, and de-identification follow on-site configuration and audit requirements.',
+        descZh: '门口等明确场景按原厂设备和授权范围适配；不在卫生间配置摄像头。',
+        descEn: 'Original-manufacturer cameras are considered for defined locations such as the entrance, with permission-based access; bathrooms use no camera.',
       },
-      { zh: '声学事件', en: 'Acoustics', descZh: '按现场策略识别特定声学事件。', descEn: 'Detects defined acoustic events under site policy.' },
+      { zh: '用水声学', en: 'Water-use acoustics', descZh: '独立拾音区与隐藏低压供电，声音线索识别仍需验证。', descEn: 'A separate acoustic opening and concealed low-voltage power; recognition of sound cues remains under validation.' },
     ],
     bundledIn: ['home-box', 'community-kit', 'enterprise-stack'],
   },
@@ -82,15 +82,15 @@ export const family: FamilyMember[] = [
     tagZh: '现场交互与人工确认',
     tagEn: 'On-site interaction and confirmation',
     storyZh:
-      '控制层提供旋钮、按键、面板、语音和移动端入口。常用操作保持直接，高风险动作保留确认与人工接管。',
+      '当前助手界面可操作记忆、任务和建议。电视、移动端、按键与语音按实际使用条件逐项适配，重要操作保留人工确认。',
     storyEn:
-      'The control layer provides dials, keys, panels, voice and mobile interfaces. Everyday actions stay direct while consequential actions retain confirmation and manual override.',
+      'The current assistant interface supports memories, tasks and suggestions. TV, mobile, physical controls and voice access are evaluated separately for the intended setting, with confirmation for consequential actions.',
     exampleLabel: { zh: '交互入口', en: 'Interfaces' },
     examples: [
-      { zh: '床畔旋钮', en: 'Bedside Dial', descZh: '支持无需注视的触觉操作。', descEn: 'Tactile operation without requiring a screen.' },
-      { zh: '墙面面板', en: 'Wall Panel', descZh: '集中显示房间状态与常用场景。', descEn: 'Shows room state and common scenes in one place.' },
-      { zh: '语音入口', en: 'Voice', descZh: '处理明确指令，并对关键动作请求确认。', descEn: 'Handles explicit commands and confirms consequential actions.' },
-      { zh: '移动端', en: 'App', descZh: '按角色查看状态、告警与操作记录。', descEn: 'Shows state, alerts and records according to role.' },
+      { zh: '助手界面', en: 'Assistant interface', descZh: '保存与找回记录、核对任务、调整建议已有实际操作录像。', descEn: 'The recording shows saved notes, task review and suggestion adjustments in use.' },
+      { zh: '电视入口', en: 'TV workspace', descZh: '评估主机经 HDMI 显示，确认遥控与电视关闭后的入口。', descEn: 'Evaluate HDMI display, remote operation and access while the TV is off.' },
+      { zh: '床旁操作', en: 'Bedside controls', descZh: '按手部活动、视力与使用习惯选择实体入口。', descEn: 'Select physical controls around dexterity, vision and daily use.' },
+      { zh: '语音与移动端', en: 'Voice and mobile', descZh: '接入方式与可用功能分别验证，不以场景影片代替验收。', descEn: 'Access and available functions require their own validation; concept films are not acceptance evidence.' },
     ],
     bundledIn: ['home-box', 'community-kit', 'enterprise-stack'],
   },
@@ -106,7 +106,7 @@ export const family: FamilyMember[] = [
       '连接层将项目确认范围内的设备与既有系统映射为统一状态和动作。兼容范围以设备型号、固件版本和现场验证结果为准。',
     storyEn:
       'The connection layer maps approved devices and existing systems into consistent states and actions. Compatibility is verified by model, firmware and site testing.',
-    exampleLabel: { zh: '能接入的生态', en: 'Ecosystems' },
+    exampleLabel: { zh: '适配工作', en: 'Integration scope' },
     examples: [
       { zh: '设备协议', en: 'Device protocols', descZh: '按项目接入经过验证的设备与协议。', descEn: 'Connects project-approved devices and protocols.' },
       { zh: '开源平台', en: 'Open platforms', descZh: '与既有自动化平台并行接入或分阶段迁移。', descEn: 'Supports coexistence or staged migration from existing platforms.' },
@@ -124,15 +124,15 @@ export const family: FamilyMember[] = [
     tagZh: '授权动作与结果反馈',
     tagEn: 'Authorized action and feedback',
     storyZh:
-      '执行层将经过确认的规则送到照明、窗帘、暖通和低压回路，并记录设备反馈、失败原因与人工接管状态。',
+      '窗帘电机、轨道、门锁与测量设备优先采用适合场景的原厂产品。具体设备完成适配和现场测试后，才能纳入可执行范围。',
     storyEn:
-      'The action layer routes approved rules to lighting, curtains, HVAC and low-voltage circuits while recording device feedback, failures and manual override.',
+      'Curtain motors, tracks, locks and measurement devices use suitable original-manufacturer products. Each device enters the executable scope only after integration and site testing.',
     exampleLabel: { zh: '执行范围', en: 'Action scope' },
     examples: [
-      { zh: '灯光与场景', en: 'Light & Scene', descZh: '执行回路、调光与色温控制并反馈结果。', descEn: 'Controls circuits, dimming and color temperature with feedback.' },
-      { zh: '空调 / 地暖 / 新风', en: 'HVAC & Ventilation', descZh: '在设备安全范围内执行环境控制。', descEn: 'Runs environmental controls within device safety limits.' },
-      { zh: '门锁 / 床旁呼叫', en: 'Locks & Call', descZh: '关键动作按权限与确认流程执行。', descEn: 'Runs consequential actions under access and confirmation policy.' },
-      { zh: '能耗管理', en: 'Energy', descZh: '记录分项能耗、策略调整与执行结果。', descEn: 'Records sub-metering, policy changes and execution results.' },
+      { zh: '灯光与窗帘', en: 'Lighting and curtains', descZh: '核对回路、电机、轨道、负载和手动入口后适配。', descEn: 'Confirm circuits, motors, tracks, loads and manual controls before integration.' },
+      { zh: '厨房关水选配', en: 'Optional water shutoff', descZh: '先勘察阀型、水路和维护空间；不承诺任意住宅均可安装。', descEn: 'Survey the valve, circuit and service space; suitability varies by home.' },
+      { zh: '门口设备', en: 'Entrance devices', descZh: '来访查看与开锁权限分别确认，采用原厂设备。', descEn: 'Verify visitor viewing and unlocking permissions separately on OEM devices.' },
+      { zh: '床旁测量', en: 'Bedside measurement', descZh: '血压与血氧设备由合作或采购提供，按具体型号确认数据接入。', descEn: 'Blood-pressure and oxygen devices are partner-supplied or purchased, with data access verified by model.' },
     ],
     bundledIn: ['home-box', 'community-kit', 'enterprise-stack'],
   },

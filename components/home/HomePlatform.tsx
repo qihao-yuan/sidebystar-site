@@ -20,9 +20,9 @@ export function HomePlatform() {
   ];
 
   const principles = [
-    { kZh: '本地推理', kEn: 'On-device inference', vZh: '默认配置下不外发', vEn: 'No outbound by default' },
-    { kZh: '断网可用', kEn: 'Offline-capable', vZh: '关键能力不依赖云', vEn: 'Critical paths free of cloud' },
-    { kZh: '可审计', kEn: 'Auditable', vZh: '每一次判断都留痕', vEn: 'Every decision, traced' },
+    { kZh: '本地部署', kEn: 'Local deployment', vZh: '明确软件与设备范围', vEn: 'Define software and equipment scope' },
+    { kZh: '记录可查', kEn: 'Reviewable records', vZh: '核对保存与处理结果', vEn: 'Review saved results and choices' },
+    { kZh: '逐项适配', kEn: 'Verified integration', vZh: '核对型号与安装条件', vEn: 'Confirm models and installation' },
   ];
 
   return (

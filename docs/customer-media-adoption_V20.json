@@ -1,0 +1,226 @@
+{
+  "revision": "V20",
+  "adopted_on": "2026-10-29",
+  "upstream_manual_and_asset_ready_confirmed_by_root": true,
+  "public_deployment_performed": false,
+  "files": [
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\visuals\\family_studio.png",
+      "destination": "public/customer/V20/images/family_studio.png",
+      "source_sha256": "c94ba07ceb000faa31ecbd17ed34f3b2b7f4c1cc4353b728739928b89d4167cb",
+      "destination_sha256": "c94ba07ceb000faa31ecbd17ed34f3b2b7f4c1cc4353b728739928b89d4167cb",
+      "bytes": 1801330,
+      "kind": "model_based_design_visual"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\visuals\\host_desk.png",
+      "destination": "public/customer/V20/images/host_desk.png",
+      "source_sha256": "c80c7a70abdef54024b4087c7f6568be32112b7e03b72b207999f56850bd477c",
+      "destination_sha256": "c80c7a70abdef54024b4087c7f6568be32112b7e03b72b207999f56850bd477c",
+      "bytes": 1858626,
+      "kind": "model_based_design_visual"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\visuals\\kitchen_water.png",
+      "destination": "public/customer/V20/images/kitchen_water.png",
+      "source_sha256": "2e6c5798f6363f69987b2a845bef4ec1a1c91dcd31b413256566927ac7648b26",
+      "destination_sha256": "2e6c5798f6363f69987b2a845bef4ec1a1c91dcd31b413256566927ac7648b26",
+      "bytes": 1896250,
+      "kind": "model_based_design_visual"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\visuals\\bathroom_presence.png",
+      "destination": "public/customer/V20/images/bathroom_presence.png",
+      "source_sha256": "6bbdf375c6697931a5307eeb50a62f73bdc3f4c7d4308a2a70db42600ad3cf6e",
+      "destination_sha256": "6bbdf375c6697931a5307eeb50a62f73bdc3f4c7d4308a2a70db42600ad3cf6e",
+      "bytes": 1930205,
+      "kind": "model_based_design_visual"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\visuals\\extension_scenes.png",
+      "destination": "public/customer/V20/images/extension_scenes.png",
+      "source_sha256": "7c821fd1dc99090dd893a8591c1042a9cca9418645fa355a9de850ae11814569",
+      "destination_sha256": "7c821fd1dc99090dd893a8591c1042a9cca9418645fa355a9de850ae11814569",
+      "bytes": 2414869,
+      "kind": "OEM_option_installation_illustration_not_manufacturer_photo"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\review\\html-media\\rain.mp4",
+      "destination": "public/customer/V20/video/rain.mp4",
+      "source_sha256": "2853e586ca2e77b66f4a409fdf39134207f986ecd61be35d1edd6d1abcaab50f",
+      "destination_sha256": "2853e586ca2e77b66f4a409fdf39134207f986ecd61be35d1edd6d1abcaab50f",
+      "bytes": 1695748,
+      "kind": "concept_story"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\review\\html-media\\romance.mp4",
+      "destination": "public/customer/V20/video/romance.mp4",
+      "source_sha256": "59137f1d069598f868a83176460999797962289c6bc14bd69c3b2c2e0b1f7c36",
+      "destination_sha256": "59137f1d069598f868a83176460999797962289c6bc14bd69c3b2c2e0b1f7c36",
+      "bytes": 2157775,
+      "kind": "concept_story"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\review\\html-media\\anniversary.mp4",
+      "destination": "public/customer/V20/video/anniversary.mp4",
+      "source_sha256": "8453b0530d9003840d1e641751db16e332be11b1cb4a79124dbb0ae8844858b0",
+      "destination_sha256": "8453b0530d9003840d1e641751db16e332be11b1cb4a79124dbb0ae8844858b0",
+      "bytes": 1978629,
+      "kind": "concept_story"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\review\\html-media\\glasses.mp4",
+      "destination": "public/customer/V20/video/glasses.mp4",
+      "source_sha256": "09e33f2e12d675e863524cbe56878be7da277691daac1bf6f08bafd2c6d8d9db",
+      "destination_sha256": "09e33f2e12d675e863524cbe56878be7da277691daac1bf6f08bafd2c6d8d9db",
+      "bytes": 2207194,
+      "kind": "concept_story"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\review\\html-media\\software_demo.mp4",
+      "destination": "public/customer/V20/video/software_demo.mp4",
+      "source_sha256": "de8289191b7c1d1f5f883423455dfc9e804ea352ee14191eb6261f301f3f0d4f",
+      "destination_sha256": "de8289191b7c1d1f5f883423455dfc9e804ea352ee14191eb6261f301f3f0d4f",
+      "bytes": 889782,
+      "kind": "actual_software_example"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\media\\rain_poster.jpg",
+      "destination": "public/customer/V20/posters/rain_poster.jpg",
+      "source_sha256": "88d807ceecb24aef0af4862f816772231eebcabf707e88aead07014d6c01857e",
+      "destination_sha256": "88d807ceecb24aef0af4862f816772231eebcabf707e88aead07014d6c01857e",
+      "bytes": 109322,
+      "kind": "concept_or_software_frame"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\campaigns\\V18_life_stories\\review\\romance_poster.jpg",
+      "destination": "public/customer/V20/posters/romance_poster.jpg",
+      "source_sha256": "d176222f84464fc1bb0b5c3ba89750d6ffa28a8db800a3d792d2809928d7eae0",
+      "destination_sha256": "d176222f84464fc1bb0b5c3ba89750d6ffa28a8db800a3d792d2809928d7eae0",
+      "bytes": 256125,
+      "kind": "concept_or_software_frame"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\campaigns\\V18_life_stories\\review\\anniversary_poster.jpg",
+      "destination": "public/customer/V20/posters/anniversary_poster.jpg",
+      "source_sha256": "6d77fd716c3b472dc367b644a77c658f9842720ad4968a2ef92b2e70306395f1",
+      "destination_sha256": "6d77fd716c3b472dc367b644a77c658f9842720ad4968a2ef92b2e70306395f1",
+      "bytes": 129186,
+      "kind": "concept_or_software_frame"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\campaigns\\V18_life_stories\\review\\glasses_poster.jpg",
+      "destination": "public/customer/V20/posters/glasses_poster.jpg",
+      "source_sha256": "5c55976df7af1640f9661320143000d26b02eb521b9e895618bd8ffd22b852fb",
+      "destination_sha256": "5c55976df7af1640f9661320143000d26b02eb521b9e895618bd8ffd22b852fb",
+      "bytes": 149519,
+      "kind": "concept_or_software_frame"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\visuals\\V13_customer_sales\\video\\keyframe_checklist.jpg",
+      "destination": "public/customer/V20/posters/software_demo_poster.jpg",
+      "source_sha256": "c824724210bd67df2ef7b7465123a955505506f044740b972aa67f2c0768b126",
+      "destination_sha256": "c824724210bd67df2ef7b7465123a955505506f044740b972aa67f2c0768b126",
+      "bytes": 123180,
+      "kind": "concept_or_software_frame"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\deliveries\\V16_customer_materials\\case\\memory.png",
+      "destination": "public/customer/V20/software/memory.png",
+      "source_sha256": "0d02d1b3a2e8c0804a54870b285557809e1f793674d0093824f08a1939677575",
+      "destination_sha256": "0d02d1b3a2e8c0804a54870b285557809e1f793674d0093824f08a1939677575",
+      "bytes": 117828,
+      "kind": "actual_software_example"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\deliveries\\V16_customer_materials\\case\\task.png",
+      "destination": "public/customer/V20/software/task.png",
+      "source_sha256": "5d20b4abf67cd2ba20cfdbbb8853642c3230559af2f43ab8e57a2e96fea6aea6",
+      "destination_sha256": "5d20b4abf67cd2ba20cfdbbb8853642c3230559af2f43ab8e57a2e96fea6aea6",
+      "bytes": 116761,
+      "kind": "actual_software_example"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\deliveries\\V16_customer_materials\\case\\choice.png",
+      "destination": "public/customer/V20/software/choice.png",
+      "source_sha256": "aa9ec5a0f2bd7b672249f20028418c4376b52725eea4eee545b216057a63a125",
+      "destination_sha256": "aa9ec5a0f2bd7b672249f20028418c4376b52725eea4eee545b216057a63a125",
+      "bytes": 67046,
+      "kind": "actual_software_example"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\deliveries\\V20_customer_manual\\循星AIOS产品手册.html",
+      "destination": "public/customer/V20/循星AIOS产品手册.html",
+      "source_sha256": "f419f3d3fcffac9a04f7b3a811eab5402eb157afb245edaec7ba3ac50a300d44",
+      "destination_sha256": "f419f3d3fcffac9a04f7b3a811eab5402eb157afb245edaec7ba3ac50a300d44",
+      "bytes": 15918487,
+      "kind": "self_contained_multimedia_handbook"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\deliveries\\V20_customer_manual\\AIOS_customer_manual_V20.pdf",
+      "destination": "public/customer/V20/AIOS_customer_manual_V20.pdf",
+      "source_sha256": "214fc20302310eb5b9e797c9f47bf922e374eb7f8474abdbda3de9f481dc69e5",
+      "destination_sha256": "214fc20302310eb5b9e797c9f47bf922e374eb7f8474abdbda3de9f481dc69e5",
+      "bytes": 14281564,
+      "kind": "PDF_handbook_with_video_attachments"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\website-export\\subtitles\\rain.en.vtt",
+      "destination": "public/customer/V20/subtitles/rain.en.vtt",
+      "source_sha256": "69346baf38bef469496cd2847c011a6d7fbcf9b81865c32f99b06afd42b70c0b",
+      "destination_sha256": "69346baf38bef469496cd2847c011a6d7fbcf9b81865c32f99b06afd42b70c0b",
+      "bytes": 507,
+      "kind": "English_accessibility_subtitles_not_English_voiceover"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\website-export\\subtitles\\romance.en.vtt",
+      "destination": "public/customer/V20/subtitles/romance.en.vtt",
+      "source_sha256": "858425eb32e3e65d79ed95067bd975f392990091d3ba36b154ec85d68b1d009e",
+      "destination_sha256": "858425eb32e3e65d79ed95067bd975f392990091d3ba36b154ec85d68b1d009e",
+      "bytes": 498,
+      "kind": "English_accessibility_subtitles_not_English_voiceover"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\website-export\\subtitles\\anniversary.en.vtt",
+      "destination": "public/customer/V20/subtitles/anniversary.en.vtt",
+      "source_sha256": "868544a3ab663f5476afa0d9e5508957c08860d772b5a5d85aa3b8ec953a25bc",
+      "destination_sha256": "868544a3ab663f5476afa0d9e5508957c08860d772b5a5d85aa3b8ec953a25bc",
+      "bytes": 550,
+      "kind": "English_accessibility_subtitles_not_English_voiceover"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\website-export\\subtitles\\glasses.en.vtt",
+      "destination": "public/customer/V20/subtitles/glasses.en.vtt",
+      "source_sha256": "1929347ce7228ef84518d29ca292948d54952946ee8eeed93fb3f807ca65d400",
+      "destination_sha256": "1929347ce7228ef84518d29ca292948d54952946ee8eeed93fb3f807ca65d400",
+      "bytes": 568,
+      "kind": "English_accessibility_subtitles_not_English_voiceover"
+    },
+    {
+      "source": "R:\\XX_AIOS\\docs\\hardware\\modeling\\expansion\\V20_customer_multimedia_manual\\website-export\\subtitles\\software_demo.en.vtt",
+      "destination": "public/customer/V20/subtitles/software_demo.en.vtt",
+      "source_sha256": "de34970fe15c1206f8d23fa6b8963f298b14e215dd7c9e6720d55380e9bb5cfc",
+      "destination_sha256": "de34970fe15c1206f8d23fa6b8963f298b14e215dd7c9e6720d55380e9bb5cfc",
+      "bytes": 1712,
+      "kind": "English_accessibility_subtitles_not_English_voiceover"
+    }
+  ],
+  "old_pillow_rain_included": false,
+  "internal_engineering_files_included": false,
+  "note": "Local website content adoption; generated product images remain design visualizations and stories remain fictional concept films.",
+  "manual_update_pending_final_title_correction": false,
+  "handbook_copies_match_final_P9_revision": true,
+  "verified_file_count": 25,
+  "all_source_and_destination_sha256_match": true,
+  "total_public_bytes": 50103261,
+  "PDF_playback_label_revision_adopted": true,
+  "current_revision": "V21 voice-free GitHub delivery",
+  "voice_free_video_adoption": {
+    "all_video_files_have_zero_audio_streams": true,
+    "evidence_report": "V21/review/website-no-audio-adoption-check.json",
+    "story_audio_tracks_removed": 4,
+    "software_demo_originally_had_no_audio": true
+  },
+  "historical_PDF_playback_label_verification": "site-pdf-playback-label-update.json",
+  "company_production_deployment_performed": false
+}

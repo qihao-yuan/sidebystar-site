@@ -10,6 +10,7 @@ const locales = ['zh-CN', 'en'] as const;
 const staticPaths = [
   '',
   '/products',
+  '/experience',
   '/system',
   '/solutions',
   '/platform',

@@ -28,6 +28,7 @@ export function SiteNav() {
 
   const items = [
     { href: '/products', label: t('products'), group: 'hw' as const },
+    { href: '/experience', label: t('experience'), group: 'hw' as const },
     { href: '/system', label: t('system'), group: 'hw' as const },
     { href: '/solutions', label: t('solutions'), group: 'hw' as const },
     { href: '/platform', label: t('platform'), group: 'sw' as const },
@@ -61,7 +62,7 @@ export function SiteNav() {
                 ) : null}
                 <Link
                   href={item.href as any}
-                  className="rounded-pill px-3 py-1.5 text-sm text-ink-200 transition-colors hover:bg-white/[0.05] hover:text-white"
+                  className="whitespace-nowrap rounded-pill px-2 py-1.5 text-sm text-ink-200 transition-colors hover:bg-white/[0.05] hover:text-white"
                 >
                   {item.label}
                 </Link>

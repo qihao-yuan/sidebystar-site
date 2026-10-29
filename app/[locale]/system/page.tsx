@@ -9,13 +9,14 @@ import { HomeCTA } from '@/components/home/HomeCTA';
 import { MediaPlaceholder } from '@/components/media/MediaPlaceholder';
 import { buildMetadata } from '@/lib/seo';
 import { family } from '@/content/family';
+import { customerImages, customerBase } from '@/content/customer-experience';
 
 const FAMILY_IMAGE: Record<string, string> = {
-  gateway: '/product/home-box/hero-v4.jpg',
-  sense: '/intelligence/awareness.jpg',
-  control: '/home/desk.webp',
-  connect: '/intelligence/orchestration.jpg',
-  act: '/solutions/home-delivery.jpg',
+  gateway: customerImages.host,
+  sense: customerImages.kitchen,
+  control: `${customerBase}/software/task.png`,
+  connect: customerImages.family,
+  act: customerImages.extensions,
 };
 
 export async function generateMetadata({
@@ -62,13 +63,24 @@ export default async function SystemPage({
             </Reveal>
           </div>
           <Reveal delay={120}>
-            <MediaPlaceholder
-              src="/system/family-overview-v2.jpg"
-              alt={isZh ? 'AIOS 系统家族硬件构成' : 'AIOS system family hardware'}
-              ratio="16/9"
-              rounded="xl"
-              priority
-            />
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#171b20] p-6 md:p-8">
+              <div className="pointer-events-none absolute inset-0 grid-faint opacity-25" />
+              <div className="relative text-caption uppercase tracking-[0.16em] text-ink-500">
+                {isZh ? '系统构成' : 'System composition'}
+              </div>
+              <div className="relative mt-6 grid gap-3 sm:grid-cols-5 lg:grid-cols-1 xl:grid-cols-5">
+                {family.map((item) => (
+                  <div
+                    key={item.role}
+                    className="flex min-h-28 flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[0.025] p-4 text-center"
+                  >
+                    <item.icon size={24} strokeWidth={1.25} className="text-brand-halo" />
+                    <div className="mt-3 text-body text-white">{isZh ? item.nameZh : item.nameEn}</div>
+                    <div className="mt-1 text-caption text-ink-500">{isZh ? item.tagZh : item.tagEn}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </Reveal>
         </div>
 
@@ -100,14 +112,14 @@ export default async function SystemPage({
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
                       <f.icon size={22} className="text-brand-halo" />
                     </div>
-                    <span className="eyebrow">{`Stage 0${f.order}`}</span>
+                    <span className="eyebrow">{`${isZh ? '组成' : 'Component'} 0${f.order}`}</span>
                   </div>
                 </Reveal>
                 <h2 className="mt-6 text-display-xl text-white">{isZh ? f.nameZh : f.nameEn}</h2>
                 <p className="mt-3 text-display-sm text-ink-200">{isZh ? f.tagZh : f.tagEn}</p>
                 {f.bundledIn && f.bundledIn.length > 0 ? (
                   <p className="mt-6 text-caption text-ink-400">
-                    {isZh ? '适用产品 · ' : 'Available with · '}
+                    {isZh ? '可评估配置 · ' : 'Configuration options · '}
                     {f.bundledIn
                       .map((sku) =>
                         sku === 'home-box' ? 'Home Box' : sku === 'community-kit' ? 'Community Kit' : 'Enterprise Stack',
@@ -125,7 +137,9 @@ export default async function SystemPage({
                     alt={isZh ? `${f.nameZh} 应用示意` : `${f.nameEn} application`}
                     ratio="16/9"
                     rounded="xl"
+                    imageClassName={f.role === 'control' || f.role === 'act' ? 'object-contain bg-[#f4f6f8]' : undefined}
                   />
+                  <p className="mt-3 text-caption text-ink-400">{isZh ? (f.role === 'control' ? '助手界面实录 · 示例数据' : f.role === 'act' ? '原厂配套安装示意 · 非制造商实拍' : '产品设计效果图 · 待样机与现场验证') : (f.role === 'control' ? 'Actual assistant interface · example data' : f.role === 'act' ? 'OEM installation illustration · not a manufacturer photograph' : 'Product design visualization · prototype and site validation pending')}</p>
                 </Reveal>
                 <Reveal delay={120}>
                   <p className="mt-8 text-body-lg text-ink-200">{isZh ? f.storyZh : f.storyEn}</p>
